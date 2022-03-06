@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: DIN Alternate, system-ui, sans-serif;
+  }
+  p {
+    font-family: DIN Alternate light, system-ui, sans-serif;
+  }
+}
