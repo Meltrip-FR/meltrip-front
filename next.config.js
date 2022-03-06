@@ -11,6 +11,9 @@ const nextConfig = {
       "http://localhost:3000",
     ],
   },
+  eslint: {
+    ignoreDuringBuild: true,
+  },
 };
 
 const securityHeaders = [];
