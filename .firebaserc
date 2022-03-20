@@ -1,0 +1,17 @@
+{
+  "projects": {
+    "default": "meltrip-prod"
+  },
+  "targets": {
+    "meltrip-prod": {
+      "hosting": {
+        "meltrip-prod": [
+          "default"
+        ],
+        "default": [
+          "meltrip-prod"
+        ]
+      }
+    }
+  }
+}

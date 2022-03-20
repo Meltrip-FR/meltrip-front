@@ -7,7 +7,6 @@ const nextConfig = {
     domains: [
       "https://meltrip.fr",
       "https://www.meltrip.fr",
-      "https://meltrip.herokuapp.com/",
       "http://localhost:3000",
     ],
   },
