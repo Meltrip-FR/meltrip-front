@@ -18,7 +18,7 @@ const Error = () => {
             onClick={() => router.push("/")}
             className="cursor-pointer px-6 py-2 text-sm font-semibold text-white bg-[#C05E37]"
           >
-            Go home
+            Go
           </div>
         </div>
       </div>
