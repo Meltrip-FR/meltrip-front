@@ -1,4 +1,4 @@
-name: Deploy to Firebase Hosting on push master
+name: Deploy to Firebase Hosting on push develop
 on:
   push:
     branches:
@@ -30,7 +30,7 @@ jobs:
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: "${{ secrets.GITHUB_TOKEN }}"
-    firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_DEV }}"
+          firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_DEV }}"
           projectId: meltrip-dev
           channelId: live
           target: default
