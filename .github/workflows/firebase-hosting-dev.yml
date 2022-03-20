@@ -2,7 +2,7 @@ name: Deploy to Firebase Hosting on push master
 on:
   push:
     branches:
-      - master
+      - develop
 jobs:
   build_and_preview:
     runs-on: ubuntu-latest
@@ -22,7 +22,7 @@ jobs:
       - run: yarn build
         env:
           NEXT_PUBLIC_FBASE_API_KEY: "${{ secrets.NEXT_PUBLIC_FBASE_API_KEY }}"
-          NEXT_PUBLIC_FBASE_PROJECT_ID: meltrip-prod
+          NEXT_PUBLIC_FBASE_PROJECT_ID: meltrip-dev
           NEXT_PUBLIC_FBASE_MESSAGING_SENDER_ID: "${{ secrets.NEXT_PUBLIC_FBASE_MESSAGING_SENDER_ID }}"
           NEXT_PUBLIC_FBASE_APP_ID: "${{ secrets.NEXT_PUBLIC_FBASE_APP_ID }}"
           NEXT_PUBLIC_FBASE_MEASUREMENT_ID: "${{ secrets.NEXT_PUBLIC_FBASE_MEASUREMENT_ID }}"
@@ -30,8 +30,8 @@ jobs:
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: "${{ secrets.GITHUB_TOKEN }}"
-          firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_PROD }}"
-          projectId: meltrip-prod
+    firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_DEV }}"
+          projectId: meltrip-dev
           channelId: live
           target: default
         env:
