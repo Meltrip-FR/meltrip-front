@@ -5,15 +5,16 @@ const MyDocument = () => {
     <Html>
       <Head>
         <meta charSet="utf-8" />
+        <meta name="keywords" content="Voyage agence numérique Meltrip" />
+        <meta name="author" content="Meltrip" />
+        <meta property="og:title" content="Meltrip" />
         <meta
-          name="description"
+          property="og:description"
           content="Envie de voyager mais pas le temps d'organiser ou pas d'inspiration pour décider du lieu de ta destination ? En groupe, vous n'arrivez pas à vous mettre d'accord ?
 Meltrip, c'est l'agence qui organise tes voyages selon ta personnalité et tes envies de vacances grâce à un questionnaire dynamique et amusant !
 C'est aussi un acteur engagé, qui participe à la démarche écologique en choisissant ses partenaires pour leur qualité, leurs valeurs et leur aspect écologique et reverse une partie des bénéfices aux entreprises pour contribuer au développement des partenaires locaux
 priorise les choses stp pour que demain on présente un truc béton !!"
         />
-        <meta name="keywords" content="Voyage agence numérique Meltrip" />
-        <meta name="author" content="Meltrip" />
         <script
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-EBJFPBQ4GX"
