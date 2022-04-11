@@ -1,8 +1,6 @@
-import firebase from "firebase/app";
-import "firebase/auth";
-import "firebase/firestore";
-
-let app = undefined as firebase.app.App | undefined;
+import firebase from "firebase/compat/app";
+import "firebase/compat/auth";
+import "firebase/compat/firestore";
 
 export function fbApp(): firebase.app.App {
   const apiKey = process.env.NEXT_PUBLIC_FBASE_API_KEY;
