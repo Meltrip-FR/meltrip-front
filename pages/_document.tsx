@@ -4,9 +4,9 @@ const MyDocument = () => {
   return (
     <Html>
       <Head>
-        <meta charSet="utf-8" />
-        <meta name="keywords" content="Voyage agence numérique Meltrip" />
         <meta name="author" content="Meltrip" />
+        <meta name="keywords" content="Voyage agence numérique Meltrip" />
+        <meta charSet="utf-8" />
         <meta property="og:title" content="Meltrip" />
         <meta
           property="og:description"
