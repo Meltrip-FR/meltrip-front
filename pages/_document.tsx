@@ -1,3 +1,4 @@
+//NextJS
 import { Html, Main, Head, NextScript } from "next/document";
 
 const MyDocument = () => {
