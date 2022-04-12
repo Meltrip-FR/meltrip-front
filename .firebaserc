@@ -1,6 +1,6 @@
 {
   "projects": {
-    "default": "meltrip-dev"
+    "default": "meltrip-prod"
   },
   "targets": {
     "meltrip-dev": {
