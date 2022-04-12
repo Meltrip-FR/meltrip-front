@@ -47,7 +47,7 @@ const HomePage = () => {
               />
             </div>
             <div className="animate-bounce cursor-pointer">
-              <Link to="section" spy={true} smooth={true}>
+              <Link href="#" to="section" spy={true} smooth={true}>
                 <ChevronDown size={50} color="white" />
               </Link>
             </div>

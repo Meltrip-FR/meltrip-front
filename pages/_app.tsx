@@ -35,10 +35,10 @@ export default function MyApp({ Component, pageProps }: AppProps) {
             <meta name="keywords" content="Voyage agence numérique Meltrip" />
             <meta charSet="utf-8" />
             <title>Meltrip</title>
-            <link rel="meltrip icon" href="/static/logo.webp" />
+            <link rel="meltrip icon" href="logo2.webp" />
             <meta property="og:title" content="Meltrip" key="title" />
             <meta
-              property="og:description"
+              name="description"
               content="Envie de voyager mais pas le temps d'organiser ou pas d'inspiration pour décider du lieu de ta destination ? En groupe, vous n'arrivez pas à vous mettre d'accord ?
 Meltrip, c'est l'agence qui organise tes voyages selon ta personnalité et tes envies de vacances grâce à un questionnaire dynamique et amusant !
 C'est aussi un acteur engagé, qui participe à la démarche écologique en choisissant ses partenaires pour leur qualité, leurs valeurs et leur aspect écologique et reverse une partie des bénéfices aux entreprises pour contribuer au développement des partenaires locaux
