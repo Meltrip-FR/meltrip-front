@@ -3,13 +3,6 @@
     "default": "meltrip-prod"
   },
   "targets": {
-    "meltrip-dev": {
-      "hosting": {
-        "default": [
-          "meltrip-dev"
-        ]
-      }
-    },
     "meltrip-prod": {
       "hosting": {
         "default": [
