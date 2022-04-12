@@ -35,7 +35,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
             <meta name="keywords" content="Voyage agence numérique Meltrip" />
             <meta charSet="utf-8" />
             <title>Meltrip</title>
-            <link rel="meltrip icon" href="/static/logo.png" />
+            <link rel="meltrip icon" href="/static/logo.webp" />
             <meta property="og:title" content="Meltrip" key="title" />
             <meta
               property="og:description"

@@ -19,13 +19,13 @@ const HomePage = () => {
       <div className="h-full flex flex-col">
         <div className="flex flex-row justify-center items-center">
           <div className="p-3">
-            <img src="/logo.png" alt="logo" className="h-auto w-32" />
+            <img src="/logo.webp" alt="logo" className="h-auto w-32" />
           </div>
         </div>
         <div
           className="flex flex-1 items-center h-auto align-center justify-center bg-cover bg-no-repeat bg-center"
           style={{
-            backgroundImage: "url(/travel.png)",
+            backgroundImage: "url(/travel.webp)",
           }}
         >
           <div className="flex flex-col items-center justify-center align-center mt-96">
@@ -56,7 +56,7 @@ const HomePage = () => {
       <div className="rounded-lg h-64 overflow-hidden">
         <div className="flex justify-center items-center align-center object-cover object-center">
           <img
-            src="/logo2.png"
+            src="/logo2.webp"
             alt="logo"
             className="h-auto w-80 mt-10"
             id="section"
