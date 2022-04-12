@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 //Firestore
-import { Signup } from "@database/data/auth";
+import { Signup } from "database/data/auth";
 
 const Auth = ({ setStep, setUserUid }: any) => {
   const [firstName, setFirstName] = useState<string>("");

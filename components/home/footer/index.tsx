@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 //Firestore
-import { addContact } from "@database/data/contact";
+import { addContact } from "database/data/contact";
 
 //Library && css
 import { ToastContainer, toast } from "react-toastify";

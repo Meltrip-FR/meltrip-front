@@ -1,10 +1,10 @@
 {
   "compilerOptions": {
-    "strict": true,
     "target": "es6",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
+    "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "esModuleInterop": true,
@@ -12,24 +12,17 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "downlevelIteration": true,
     "jsx": "preserve",
-    "baseUrl": ".",
+    "baseUrl": "./",
+    "downlevelIteration": true,
     "paths": {
-      "@redux/*": ["./redux/*"],
-      "@hooks/*": ["./hooks/*"],
-      "@database/*": ["./database/*"],
-      "@components/*": ["./components/*"]
+      "@redux/*": ["redux/*"],
+      "@lib/*": ["lib/*"],
+      "@hooks/*": ["hooks/*"],
+      "@components/*": ["components/*"]
     },
     "incremental": true
   },
-  "exclude": ["node_modules"],
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    "jest.setup.js",
-    "fileTransform.js",
-    "database/data/email.ts"
-  ]
+  "exclude": ["node_modules", "**/*.stories.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]
 }

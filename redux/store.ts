@@ -1,31 +1,43 @@
 import { configureStore } from "@reduxjs/toolkit";
-import authReducer from "./slices/auth.slice";
-import { persistStore, persistReducer, PERSIST } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 
+import {
+  persistStore,
+  persistReducer,
+  REHYDRATE,
+  FLUSH,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
+} from "redux-persist";
+import rootReducer from "./reducers";
+
+//Configure Persist
 const persistConfig = {
   key: "root",
   storage,
+  // blacklist: ["user"], //blacklisting a store attribute name, will not persist that store attribute.
+  throttle: 500,
+  version: 1,
 };
 
-const persistedReducer = persistReducer(persistConfig, authReducer);
+//Add persist for all reducers
+const persistedReducer = persistReducer(persistConfig, rootReducer);
 
-export function userStore() {
-  return configureStore({
-    reducer: { auth: persistedReducer },
-    middleware: (getDefaultMiddleware) =>
-      getDefaultMiddleware({
-        serializableCheck: {
-          ignoredActions: [PERSIST],
-        },
-      }),
-  });
-}
+//Configure Store
+const store = configureStore({
+  //Init Reducer in store
+  reducer: persistedReducer,
+  //Configure by Default Middleware
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }),
+  // .concat(logger),
+});
 
-const store = userStore();
-
-export type AppState = ReturnType<typeof store.getState>;
-export type AppDispatch = typeof store.dispatch;
-
-export const persistor = persistStore(store);
 export default store;
+export const persistor = persistStore(store);

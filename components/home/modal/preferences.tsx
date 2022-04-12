@@ -1,10 +1,10 @@
 import Q8 from "@components/assets/icons/questions/q8";
-import { addAnswer } from "@database/data/auth";
+import { addAnswer } from "database/data/auth";
 import { useEffect, useState } from "react";
 import { questions } from "./data";
 
 import emailjs, { init } from "@emailjs/browser";
-import Love from "@components/assets/icons/love";
+import Love from "components/assets/icons/love";
 init("eZDvS3yBUPbn83R1T");
 
 const Preferences = ({ setShowModal, setStep, userUid }: any) => {
