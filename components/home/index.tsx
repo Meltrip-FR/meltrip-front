@@ -15,7 +15,7 @@ import { Link } from "react-scroll";
 const HomePage = () => {
   const [showModal, setShowModal] = useState(false);
   return (
-    <div className="h-screen w-full">
+    <div>
       <div className="h-full flex flex-col">
         <div className="flex flex-row justify-center items-center">
           <div className="p-3">

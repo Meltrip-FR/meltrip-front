@@ -19,6 +19,7 @@
       "@redux/*": ["redux/*"],
       "@lib/*": ["lib/*"],
       "@hooks/*": ["hooks/*"],
+      "@types/*": ["types/*"],
       "@components/*": ["components/*"]
     },
     "incremental": true

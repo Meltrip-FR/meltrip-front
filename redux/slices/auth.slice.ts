@@ -1,7 +1,11 @@
+//Redux && Persist
 import { createSlice } from "@reduxjs/toolkit";
 import storage from "redux-persist/lib/storage";
 
-export const initialState = {
+//types
+import { AuthSlice } from "types/auth";
+
+export const initialState: AuthSlice = {
   isLoggingIn: false,
   user: {
     uid: "",
@@ -33,14 +37,7 @@ export const authSlice = createSlice({
       console.log("logout");
     },
   },
-
-  // extraReducers: (builder) => {
-  //   builder.addCase(PURGE, (state) => {
-  //     .removeAll(state);
-  //   });
 });
-
-// console.log({ authSlice });
 
 const { actions, reducer } = authSlice;
 export const { login, logout } = actions;
