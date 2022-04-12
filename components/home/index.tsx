@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Image from "next/image";
 
 //Icons
 import ChevronDown from "@components/assets/icons/chevronDown";
@@ -11,7 +12,6 @@ import Footer from "./footer";
 import Modal from "./modal";
 
 import { Link } from "react-scroll";
-import Image from "next/image";
 
 const HomePage = () => {
   const [showModal, setShowModal] = useState(false);
@@ -57,7 +57,6 @@ const HomePage = () => {
       <div className="rounded-lg h-64 overflow-hidden">
         <div className="flex justify-center items-center align-center object-cover object-center">
           <Image
-            id="second logo"
             src="/logo2.webp"
             alt="logo secondary"
             width="300"

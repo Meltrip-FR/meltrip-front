@@ -7,11 +7,7 @@ const nextConfig = {
   distDir: "build",
   images: {
     loader: "imgix",
-    path: [
-      "https://meltrip.fr",
-      "https://www.meltrip.fr",
-      "http://localhost:3000",
-    ],
+    path: "https://meltrip.fr",
     domains: [
       "https://meltrip.fr",
       "https://www.meltrip.fr",
