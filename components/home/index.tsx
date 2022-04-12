@@ -11,6 +11,7 @@ import Footer from "./footer";
 import Modal from "./modal";
 
 import { Link } from "react-scroll";
+import Image from "next/image";
 
 const HomePage = () => {
   const [showModal, setShowModal] = useState(false);
@@ -18,8 +19,8 @@ const HomePage = () => {
     <div>
       <div className="h-full flex flex-col">
         <div className="flex flex-row justify-center items-center">
-          <div className="p-3">
-            <img src="/logo.webp" alt="logo" className="h-auto w-32" />
+          <div className="p-2">
+            <Image src="/logo.webp" alt="logo" width="128px" height="73" />
           </div>
         </div>
         <div
@@ -55,11 +56,13 @@ const HomePage = () => {
       </div>
       <div className="rounded-lg h-64 overflow-hidden">
         <div className="flex justify-center items-center align-center object-cover object-center">
-          <img
+          <Image
+            id="second logo"
             src="/logo2.webp"
-            alt="logo"
+            alt="logo secondary"
+            width="300"
+            height="180"
             className="h-auto w-80 mt-10"
-            id="section"
           />
         </div>
       </div>
