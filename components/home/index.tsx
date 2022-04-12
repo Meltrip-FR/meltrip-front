@@ -20,7 +20,13 @@ const HomePage = () => {
       <div className="h-full flex flex-col">
         <div className="flex flex-row justify-center items-center">
           <div className="p-2">
-            <Image src="/logo.webp" alt="logo" width="128px" height="73" />
+            <Image
+              src="/logo.webp"
+              alt="logo"
+              width="128px"
+              height="73"
+              loading="lazy"
+            />
           </div>
         </div>
         <div
@@ -62,6 +68,7 @@ const HomePage = () => {
             width="300"
             height="180"
             className="h-auto w-80 mt-10"
+            loading="lazy"
           />
         </div>
       </div>
@@ -134,9 +141,9 @@ const HomePage = () => {
       </div>
       <Footer />
       <div className="flex items-center justify-center align-center w-full">
-        <h6 className=" text-center text-2xl text-gray-600 p-2">
+        <span className=" text-center text-2xl text-gray-600 p-2">
           © 2022 Meltrip.com
-        </h6>
+        </span>
       </div>
     </div>
   );

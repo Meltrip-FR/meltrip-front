@@ -15,7 +15,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
   return (
     <Provider store={store}>
       <PersistGate loading={false} persistor={persistor}>
-        <html>
+        <html lang="fr">
           <Script
             async
             src="https://www.googletagmanager.com/gtag/js?id=G-EBJFPBQ4GX"
