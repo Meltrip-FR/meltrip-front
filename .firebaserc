@@ -9,6 +9,13 @@
           "meltrip-prod"
         ]
       }
+    },
+    "meltrip-dev": {
+      "hosting": {
+        "default": [
+          "meltrip-dev"
+        ]
+      }
     }
   }
 }
