@@ -9,7 +9,7 @@ init("eZDvS3yBUPbn83R1T");
 
 const Preferences = ({ setShowModal, setStep, userUid }: any) => {
   const [currentQuestion, setCurrentQuestion] = useState(questions[1]);
-  const [currentAnswer, setCurrentAnswer] = useState<Object>({});
+  const [currentAnswer, setCurrentAnswer] = useState<any>({});
   const [answers, setAnswers] = useState<any>([]);
 
   const [nextQuestion, setNextQuestion] = useState();
