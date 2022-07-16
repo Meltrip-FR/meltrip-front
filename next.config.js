@@ -4,15 +4,11 @@ const nextConfig = {
   reactStrictMode: true,
   compress: false,
   optimizeFonts: false,
-  distDir: "build",
+  distDir: "out",
   images: {
     loader: "imgix",
-    path: "https://meltrip.fr",
-    domains: [
-      "https://meltrip.fr",
-      "https://www.meltrip.fr",
-      "http://localhost:3000",
-    ],
+    path: "http://localhost:3000/",
+    domains: ["https://meltrip.com", "https://www.meltrip.com"],
   },
   eslint: {
     ignoreDuringBuild: true,
