@@ -5,8 +5,19 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+        meltrip: {
+          primary: "#186E7A",
+          secondary: "#CE5729",
+          ternary: "#448B7B",
+          textW: "#ffffff",
+        },
+      },
+      backgroundImage: {
+        travel: "url(/travel.webp)",
+      },
       fontFamily: {
-        body: ["DIN Alternate ,serif"],
+        body: ["DIN Alternate , poppins"],
       },
     },
   },

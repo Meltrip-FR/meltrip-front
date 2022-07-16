@@ -1,4 +1,4 @@
-const ChevronDown = ({
+const ChevronUp = ({
   color,
   size,
   height,
@@ -20,8 +20,8 @@ const ChevronDown = ({
     strokeLinecap="round"
     strokeLinejoin="round"
   >
-    <path d="M6 9l6 6 6-6" />
+    <path d="M18 15l-6-6-6 6" />
   </svg>
 );
 
-export default ChevronDown;
+export default ChevronUp;

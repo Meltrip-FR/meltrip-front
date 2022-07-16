@@ -8,7 +8,8 @@ import Hello from "@components/assets/icons/hello";
 import Humainitarian from "@components/assets/icons/humanitarian";
 
 //Components
-import Footer from "./footer";
+import { Header } from "@components/body/header";
+import Footer from "@components/body/footer";
 import Modal from "./modal";
 
 import { Link } from "react-scroll";
@@ -18,46 +19,45 @@ const HomePage = () => {
   return (
     <div>
       <div className="h-full flex flex-col">
-        <div className="flex flex-row justify-center items-center">
-          <div className="p-2">
-            <Image
-              src="/logo.webp"
-              alt="logo"
-              width="128px"
-              height="73"
-              loading="lazy"
+        <div className=" flex items-center justify-center h-screen mb-12 overflow-hidden">
+          <div className="z-30 h-full text-2xl text-white  bg-opacity-25 rounded-xl">
+            <Header />
+            <div className="flex flex-col items-center justify-center align-center mt-56">
+              <h1 className="text-white text-center text-5xl mb-5">
+                VOTRE SÉMINAIRE SUR MESURE
+              </h1>
+              <div className="">
+                <p className="text-white text-center text-xl mb-10">
+                  Une personnalisation dynamique et amusante pour un séjour
+                  unique et écoresponsable !
+                </p>
+              </div>
+              <div className="mb-16">
+                <Modal
+                  type="first"
+                  showModal={showModal}
+                  setShowModal={setShowModal}
+                />
+              </div>
+              <div className="animate-bounce cursor-pointer">
+                <Link href="#" to="section" spy={true} smooth={true}>
+                  <ChevronDown size={50} color="white" />
+                </Link>
+              </div>
+            </div>
+          </div>
+          <video
+            autoPlay
+            loop
+            muted
+            className="absolute z-10 w-auto min-w-full min-h-full max-w-none"
+          >
+            <source
+              src="https://assets.mixkit.co/videos/preview/mixkit-set-of-plateaus-seen-from-the-heights-in-a-sunset-26070-large.mp4"
+              type="video/mp4"
             />
-          </div>
-        </div>
-        <div
-          className="flex flex-1 items-center h-auto align-center justify-center bg-cover bg-no-repeat bg-center"
-          style={{
-            backgroundImage: "url(/travel.webp)",
-          }}
-        >
-          <div className="flex flex-col items-center justify-center align-center mt-96">
-            <h1 className="text-white text-center text-5xl mb-5">
-              TON VOYAGE SUR MESURE
-            </h1>
-            <div className="">
-              <p className="text-white text-center text-xl mb-10">
-                Une personnalisation dynamique et amusante pour un séjour unique
-                et écoresponsable !
-              </p>
-            </div>
-            <div className="mb-16">
-              <Modal
-                type="first"
-                showModal={showModal}
-                setShowModal={setShowModal}
-              />
-            </div>
-            <div className="animate-bounce cursor-pointer">
-              <Link href="#" to="section" spy={true} smooth={true}>
-                <ChevronDown size={50} color="white" />
-              </Link>
-            </div>
-          </div>
+            Your browser does not support the video tag.
+          </video>
         </div>
       </div>
       <div className="rounded-lg h-64 overflow-hidden">
