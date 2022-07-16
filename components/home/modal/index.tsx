@@ -13,11 +13,11 @@ const Modal = ({ type, showModal, setShowModal }: any) => {
     <>
       {type === "first" ? (
         <button
-          className="bg-[#C05E37] text-white hover:bg-[#9e573b] font-bold uppercase text-sm px-8 py-4 shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+          className="bg-[#C05E37] text-white hover:bg-[#9e573b] font-bold uppercase text-sm px-12 py-8 shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
           type="button"
           onClick={() => setShowModal(true)}
         >
-          CRÉONS TON VOYAGE
+          CRÉONS TON SÉMINAIRE
         </button>
       ) : (
         <button
