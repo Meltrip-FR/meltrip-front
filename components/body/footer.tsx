@@ -1,14 +1,13 @@
-import { useState } from "react";
+// import { useState } from "react";
 
-//Firestore
-import { addContact } from "database/data/contact";
+// //Firestore
+// import { addContact } from "database/data/contact";
 
-//Library && css
-import { ToastContainer, toast } from "react-toastify";
+// //Library && css
+// import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 //Icons
-import FooterIcon from "@components/assets/icons/footer";
 import BackgroundNewsletter from "@components/assets/icons/backgroundNewsletter";
 import LogoTitle from "@components/assets/icons/logoTitle";
 import Instagram from "@components/assets/icons/socials/instagram";
@@ -17,57 +16,57 @@ import Linkedin from "@components/assets/icons/socials/linkedin";
 import Twitter from "@components/assets/icons/socials/twitter";
 
 const Footer = () => {
-  const [firstName, setFirstName] = useState<string>("");
-  const [lastName, setLastName] = useState<string>("");
-  const [email, setEmail] = useState<string>("");
-  const [message, setMessage] = useState<string>("");
+  // const [firstName, setFirstName] = useState<string>("");
+  // const [lastName, setLastName] = useState<string>("");
+  // const [email, setEmail] = useState<string>("");
+  // const [message, setMessage] = useState<string>("");
 
-  const handleSubmit = async (e: any) => {
-    e.preventDefault();
+  // const handleSubmit = async (e: any) => {
+  //   e.preventDefault();
 
-    if (firstName && lastName && email && message) {
-      const res = await addContact(firstName, lastName, email, message);
-      if (res) {
-        setFirstName("");
-        setLastName("");
-        setEmail("");
-        setMessage("");
-        toast.success(
-          "Message bien envoyé, nos équipes vous recontacteront au plus vite !",
-          {
-            position: "top-right",
-            autoClose: 3000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: false,
-            draggable: true,
-            progress: undefined,
-          }
-        );
-      } else {
-        setMessage("");
-        toast.error("Une erreur est survenue lors de l'envoi !", {
-          position: "top-right",
-          autoClose: 3000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: false,
-          draggable: true,
-          progress: undefined,
-        });
-      }
-    } else {
-      toast.error("Vous devez remplir tous les champs !", {
-        position: "top-right",
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: false,
-        draggable: true,
-        progress: undefined,
-      });
-    }
-  };
+  //   if (firstName && lastName && email && message) {
+  //     const res = await addContact(firstName, lastName, email, message);
+  //     if (res) {
+  //       setFirstName("");
+  //       setLastName("");
+  //       setEmail("");
+  //       setMessage("");
+  //       toast.success(
+  //         "Message bien envoyé, nos équipes vous recontacteront au plus vite !",
+  //         {
+  //           position: "top-right",
+  //           autoClose: 3000,
+  //           hideProgressBar: false,
+  //           closeOnClick: true,
+  //           pauseOnHover: false,
+  //           draggable: true,
+  //           progress: undefined,
+  //         }
+  //       );
+  //     } else {
+  //       setMessage("");
+  //       toast.error("Une erreur est survenue lors de l'envoi !", {
+  //         position: "top-right",
+  //         autoClose: 3000,
+  //         hideProgressBar: false,
+  //         closeOnClick: true,
+  //         pauseOnHover: false,
+  //         draggable: true,
+  //         progress: undefined,
+  //       });
+  //     }
+  //   } else {
+  //     toast.error("Vous devez remplir tous les champs !", {
+  //       position: "top-right",
+  //       autoClose: 3000,
+  //       hideProgressBar: false,
+  //       closeOnClick: true,
+  //       pauseOnHover: false,
+  //       draggable: true,
+  //       progress: undefined,
+  //     });
+  //   }
+  // };
 
   return (
     <section>
@@ -91,7 +90,7 @@ const Footer = () => {
             />
             <div className="absolute p-[1.25%] rounded-r-full bg-meltrip-textW  -mt-[4.15%] ml-80">
               <span className="bg-meltrip-secondary text-meltrip-textW rounded-full p-3">
-                S'abonner
+                S{"'"}abonner
               </span>
             </div>
           </div>

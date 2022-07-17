@@ -5,6 +5,7 @@ const nextConfig = {
   compress: false,
   optimizeFonts: false,
   distDir: "build",
+  ignoreDuringBuilds: true,
   images: {
     loader: "imgix",
     path: "https://meltrip.fr",

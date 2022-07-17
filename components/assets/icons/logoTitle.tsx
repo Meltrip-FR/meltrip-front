@@ -17,7 +17,7 @@ const LogoTitle = ({
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
   >
-    <g clip-path="url(#clip0_839_4731)">
+    <g clipPath="url(#clip0_839_4731)">
       <path
         d="M0 149.183H4.09437L12.3225 168.608L20.393 149.183H24.5015V178.982H20.1544V160.399H20.0533L14.0523 174.712H10.429L4.42293 160.399H4.34711V178.986H0V149.183Z"
         fill="white"
