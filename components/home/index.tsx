@@ -73,12 +73,12 @@ const HomePage = () => {
         </div>
       </div>
 
-      <p className="text-[#C05E37]  text-center text-4xl font-semibold mt-10 mb-5">
-        Partir à l{"'"}aventure avec Meltrip c{"'"}est..
+      <p className="text-meltrip-secondary text-center text-4xl font-semibold mt-10 mb-5">
+        Partir à séminaire avec Meltrip c{"'"}est..
       </p>
 
       <section className="text-gray-600 body-font">
-        <div className="container px-5 py-24 mx-auto">
+        <div className="container  py-24 mx-auto">
           <div className="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4">
             <div className="p-4 md:w-1/3 sm:mb-0 mb-6">
               <div className="rounded-lg h-64 overflow-hidden">
@@ -87,64 +87,56 @@ const HomePage = () => {
                 </div>
               </div>
               <h2 className="text-xl p-5 text-center font-medium title-font text-gray-900 mt-5">
-                UN VOYAGE SUR MESURE & UN ACCOMPAGNEMENT PERSONNALISÉ !
+                Un séminaire sur mesure & un accompagnement personnalisé !
               </h2>
               <p className="text-base text-justify leading-relaxed mt-2 p-5">
-                Pas de longues recherches ! Un simple questionnaire dynamique et
-                amusant à réaliser seul ou avec ton groupe d’amis pour nous
-                aider à comprendre ta personnalité et tes envies de voyages !
+                Pour s’assurer de la réussite de votre séminaire, que cela soit
+                son objectif ou son succès auprès des participants, Meltrip
+                étudie la personnalité de vos collaborateurs pour vous proposer
+                3 séminaires uniques. Il ne vous reste plus qu’à choisir !
               </p>
             </div>
             <div className="p-4 md:w-1/3 sm:mb-0 mb-6">
               <div className="rounded-lg h-64 overflow-hidden">
                 <div className="flex justify-center object-cover object-center h-full w-full">
-                  <Humainitarian size={300} />
+                  <Happy size={300} />
                 </div>
               </div>
               <h2 className="text-xl p-5 text-center font-medium title-font text-gray-900 mt-5">
-                UNE ÉCORESPONSABILITÉ & UNE PARTICIPATION À L{"'"}ÉCONOMIE
-                LOCALE !
+                Un.e interlocuteur.rice unique et dédié.e à votre entreprise
               </h2>
               <p className="text-base text-justify leading-relaxed mt-2 p-5">
-                On s’engage ensemble ! 0 frais en + pour toi, 1 don en + pour
-                les entreprises locales ! Aide un partenaire que tu rencontreras
-                pendant ton séjour ! Tu choisis qui tu souhaites soutenir et on
-                lui reverse une petite partie du prix de ton voyage !
+                Pour vous assurer un service de qualité et surtout vous proposer
+                des séminaires uniques basés sur la personnalité de votre
+                entreprise et de vos collaborateurs, Meltrip met à disposition
+                un interlocuteur.rice qui sera à votre disposition pour créer et
+                vivre votre séminaire !
               </p>
             </div>
             <div className="p-4 md:w-1/3 sm:mb-0 mb-6">
               <div className="rounded-lg h-64 overflow-hidden">
                 <div className="flex object-cover justify-center object-center h-full w-full">
-                  <Happy size={300} />
+                  <Humainitarian size={300} />
                 </div>
               </div>
               <h2 className="text-xl p-5 text-center font-medium title-font text-gray-900 mt-5">
-                DES PARTENAIRES TESTÉS ET APPROUVÉS !
+                une Ecoresponsabilité & une participation à l’économie locale !
               </h2>
               <p className="text-base text-justify leading-relaxed mt-9 md:mt-2 p-5">
-                De ton logement aux activités réalisées, nous avons sélectionné,
-                testés en conditions réelles et validés les meilleurs
-                partenaires selon leur qualité, leurs valeurs, leur aspect
-                écologique et leur charme exceptionnel !
+                Soucieux de notre impact environnemental, on s’engage à reverser
+                une partie du prix de votre séminaire à un acteur.rice local.e !
+                Pas de frais en plus pour vous et c’est vous qui choissirez
+                cette acteur.rice, que vous aurez rencontré.e durant votre
+                séminaire !
               </p>
             </div>
           </div>
+          <p className="text-center text-4xl font-semibold mt-24 mb-5">
+            Envie d’en savoir plus et d’être au courant des nouveautés ?
+          </p>
         </div>
       </section>
-
-      <div className="flex items-center justify-center align-items mx-auto mb-32">
-        <Modal
-          type="seconds"
-          showModal={showModal}
-          setShowModal={setShowModal}
-        />
-      </div>
       <Footer />
-      <div className="flex items-center justify-center align-center w-full">
-        <span className=" text-center text-2xl text-gray-600 p-2">
-          © 2022 Meltrip.com
-        </span>
-      </div>
     </div>
   );
 };

@@ -13,7 +13,7 @@ const Modal = ({ type, showModal, setShowModal }: any) => {
     <>
       {type === "first" ? (
         <button
-          className="bg-[#C05E37] text-white hover:bg-[#9e573b] font-bold uppercase text-sm px-12 py-8 shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+          className="bg-[#C05E37] text-white hover:bg-[#9e573b] text-xl font-bold uppercase px-12 py-5 shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
           type="button"
           onClick={() => setShowModal(true)}
         >
@@ -22,7 +22,7 @@ const Modal = ({ type, showModal, setShowModal }: any) => {
       ) : (
         <button
           onClick={() => setShowModal(true)}
-          className="bg-[#186E7A] text-white hover:bg-[#154c53] font-bold uppercase text-sm px-20 py-4 shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+          className="bg-meltrip-primary text-white hover:bg-[#154c53] font-bold uppercase text-sm px-20 py-4 shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
           type="button"
         >
           ON EST PARTI ?
