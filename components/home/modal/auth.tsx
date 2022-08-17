@@ -4,9 +4,6 @@ import { useState } from "react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-//Firestore
-import { Signup } from "database/data/auth";
-
 const Auth = ({ setStep, setUserUid }: any) => {
   const [firstName, setFirstName] = useState<string>("");
   const [lastName, setLastName] = useState<string>("");
@@ -17,7 +14,7 @@ const Auth = ({ setStep, setUserUid }: any) => {
     e.preventDefault();
 
     if (firstName && lastName && email && password) {
-      const res = await Signup(firstName, lastName, email, password);
+      let res = true;
       if (res) {
         setUserUid(res);
         setFirstName("");

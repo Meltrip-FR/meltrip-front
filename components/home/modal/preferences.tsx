@@ -1,5 +1,4 @@
 import Q8 from "@components/assets/icons/questions/q8";
-import { addAnswer } from "database/data/auth";
 import { useEffect, useState } from "react";
 import { questions } from "./data";
 
@@ -15,7 +14,7 @@ const Preferences = ({ setShowModal, setStep, userUid }: any) => {
   const [nextQuestion, setNextQuestion] = useState();
 
   const handleSubmit = async (e: any) => {
-    const addForm = await addAnswer({ uid: userUid, data: answers });
+    const addForm = true;
     if (addForm) {
       setStep(0);
       setShowModal(false);
