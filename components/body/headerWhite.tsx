@@ -7,12 +7,14 @@ import { logout } from "@redux/slices/auth.slice";
 import ChevronDown from "@components/assets/icons/chevronDown";
 import ChevronUp from "@components/assets/icons/chevronUp";
 import ArrowOut from "@components/assets/icons/arrowOut";
-import Logo from "@components/assets/icons/logo";
+import LogoColor from "@components/assets/icons/logoColor";
 
 export const Header = () => {
   const router = useRouter();
   const dispatch = useAppDispatch();
+
   const { auth } = useAppSelector((state) => state);
+
   const [openMenu, setOpenMenu] = useState<boolean>(false);
 
   const signOut = () => {
@@ -21,12 +23,12 @@ export const Header = () => {
   };
 
   return (
-    <div className="w-full bg-meltrip-primary bg-opacity-[17%] font-body font-poppins">
+    <div className="w-full font-body font-poppins">
       <div className="grid grid-cols-3">
         <div className="pl-5" onClick={() => router.push("/home")}>
-          <Logo size={100} color={"white"} />
+          <LogoColor size={100} color={"white"} />
         </div>
-        <div className="grid grid-flow-col auto-cols-max gap-20 text-base justify-center items-center text-left text-meltrip-textW uppercase">
+        <div className="grid grid-flow-col auto-cols-max gap-20 text-base justify-center items-center text-left uppercase">
           <h5 className="cursor-pointer" onClick={() => router.push("/")}>
             NOTRE AGENCE
           </h5>
@@ -43,7 +45,7 @@ export const Header = () => {
             CONTACT
           </h5>
         </div>
-        <div className="flex items-center justify-center text-base text-meltrip-textW uppercase">
+        <div className="flex items-center justify-center text-base uppercase">
           <div className="flex flex-row align-center items-center justify-between w-full">
             <div className="block lg:hidden ml-6" />
             <div className="relative z-20 flex flex-col justify-end h-full px-3 md:w-full">
@@ -56,7 +58,7 @@ export const Header = () => {
                     >
                       Se Connecter
                     </span>
-                    <span className="w-1 h-8 pt-1 bg-white" />
+                    <span className="w-1 h-8 pt-1 bg-black" />
                     <span
                       className="uppercase cursor-pointer"
                       onClick={() => router.push("/auth/signup")}
@@ -78,7 +80,7 @@ export const Header = () => {
                     </div> */}
                     <div className="relative inline-block text-left">
                       <button
-                        className="flex items-center text-white text-lg tracking-wider pr-5 uppercase"
+                        className="flex items-center  text-lg tracking-wider pr-5 uppercase"
                         onClick={() => setOpenMenu(!openMenu)}
                       >
                         <span>
@@ -96,7 +98,7 @@ export const Header = () => {
                             <div className="py-1 cursor-pointer">
                               <div
                                 onClick={() => router.push("/user/dashboard")}
-                                className="border-b border-white flex items-center justify-start px-4 py-2 text-md text-gray-700 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-100 dark:hover:text-white dark:hover:bg-gray-600"
+                                className="border-b border-white flex items-center justify-start px-4 py-2 text-md text-gray-700 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-100 dark:hover: dark:hover:bg-gray-600"
                               >
                                 <span className="ml-2">
                                   <span>Dashboard</span>
@@ -104,7 +106,7 @@ export const Header = () => {
                               </div>
                               <div
                                 onClick={() => signOut()}
-                                className=" flex items-center justify-start px-4 py-2 text-md text-gray-700 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-100 dark:hover:text-white dark:hover:bg-gray-600"
+                                className=" flex items-center justify-start px-4 py-2 text-md text-gray-700 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-100 dark:hover: dark:hover:bg-gray-600"
                               >
                                 <ArrowOut size={15} />
                                 <span className="ml-2">

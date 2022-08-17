@@ -1,16 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
 import storage from "redux-persist/lib/storage";
+import thunk from "redux-thunk";
 
-import {
-  persistStore,
-  persistReducer,
-  REHYDRATE,
-  FLUSH,
-  PAUSE,
-  PERSIST,
-  PURGE,
-  REGISTER,
-} from "redux-persist";
+import { persistStore, persistReducer } from "redux-persist";
 import rootReducer from "./reducers";
 
 //Configure Persist
@@ -30,12 +22,7 @@ const store = configureStore({
   //Init Reducer in store
   reducer: persistedReducer,
   //Configure by Default Middleware
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware({
-      serializableCheck: {
-        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-      },
-    }),
+  middleware: [thunk],
   // .concat(logger),
 });
 

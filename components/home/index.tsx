@@ -6,6 +6,7 @@ import ChevronDown from "@components/assets/icons/chevronDown";
 import Happy from "@components/assets/icons/happy";
 import Hello from "@components/assets/icons/hello";
 import Humainitarian from "@components/assets/icons/humanitarian";
+import BackgroundNewsletter from "@components/assets/icons/backgroundNewsletter";
 
 //Components
 import { Header } from "@components/body/header";
@@ -16,6 +17,7 @@ import { Link } from "react-scroll";
 
 const HomePage = () => {
   const [showModal, setShowModal] = useState(false);
+
   return (
     <div>
       <div className="h-full flex flex-col">
@@ -50,7 +52,7 @@ const HomePage = () => {
             autoPlay
             loop
             muted
-            className="absolute z-10 w-auto min-w-full min-h-full max-w-none"
+            className="absolute z-10 w-screen min-w-full min-h-full"
           >
             <source
               src="https://assets.mixkit.co/videos/preview/mixkit-set-of-plateaus-seen-from-the-heights-in-a-sunset-26070-large.mp4"
@@ -136,6 +138,33 @@ const HomePage = () => {
           </p>
         </div>
       </section>
+      <div className="relative justify-center items-center flex">
+        <div className="absolute grid grid-cols-2 gap-5 items-center justify-center p-80 ">
+          <div>
+            <h5 className="text-2xl text-meltrip-textW tracking-widest mb-5">
+              Abonnez-vous à notre Newsletter
+            </h5>
+            <p className="text-sm text-meltrip-textW">
+              En m’abonnant, j’accepte de recevoir cette newsletter et je
+              comprends que je peux me désabonner facilement à tout moment.
+            </p>
+          </div>
+          <div>
+            <input
+              type="email"
+              className="relative outline-0 bg-meltrip-textW text-sm rounded-l-full w-80 p-5"
+              placeholder="Entrez votre adresse email"
+              required
+            />
+            <div className="absolute p-[1.25%] rounded-r-full bg-meltrip-textW  -mt-[4.15%] ml-80">
+              <span className="bg-meltrip-secondary text-meltrip-textW rounded-full p-3">
+                S{"'"}abonner
+              </span>
+            </div>
+          </div>
+        </div>
+        <BackgroundNewsletter width={1000} height={300} />
+      </div>
       <Footer />
     </div>
   );

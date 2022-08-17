@@ -6,21 +6,21 @@ export const FormItem = ({
   value,
   label,
   onChange,
+  style = "border-grey-light",
   disabled = false,
   required = false,
 }: any) => {
   return (
-    <div className="border border-grey-light p-1 rounded">
-      <input
-        required={required}
-        disabled={disabled}
-        placeholder={label}
-        type={type}
-        name={name}
-        id={name}
-        value={value}
-        onChange={onChange}
-      />
-    </div>
+    <input
+      className={`${style} rounded w-full`}
+      required={required}
+      disabled={disabled}
+      placeholder={label}
+      type={type}
+      name={name}
+      id={name}
+      value={value}
+      onChange={onChange}
+    />
   );
 };

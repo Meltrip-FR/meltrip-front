@@ -1,19 +1,26 @@
 //Redux && Persist
+import { persistor } from "@redux/store";
 import { createSlice } from "@reduxjs/toolkit";
+import purgeStoredState from "redux-persist/es/purgeStoredState";
 import storage from "redux-persist/lib/storage";
 
 //types
 import { AuthSlice } from "types/auth";
 
 export const initialState: AuthSlice = {
-  isLoggingIn: false,
+  login: false,
   user: {
-    uid: "",
+    firstname: "",
+    lastname: "",
     email: "",
-    first: "",
-    last: "",
-    status: "",
-    photoURL: "",
+    phone: "",
+    address: "",
+    city: "",
+    zip: 0,
+    terms: false,
+    newsletter: false,
+    roles: ["user"],
+    accessToken: "",
   },
 };
 
@@ -23,16 +30,23 @@ export const authSlice = createSlice({
   reducers: {
     login: (state, action) => {
       const load = action.payload;
-      state.isLoggingIn = load.isLoggingIn;
-      state.user.uid = load.user.uid;
-      state.user.email = load.user.email;
-      state.user.first = load.user.first;
-      state.user.last = load.user.last;
-      state.user.status = load.user.status;
-      state.user.photoURL = load.user.photoURL;
+      state.login = load.login;
+      state.user.id = load.id;
+      state.user.firstname = load.firstname;
+      state.user.lastname = load.lastname;
+      state.user.email = load.email;
+      state.user.phone = load.phone;
+      state.user.address = load.address;
+      state.user.city = load.city;
+      state.user.zip = load.zip;
+      state.user.terms = load.terms;
+      state.user.newsletter = load.newsletter;
+      state.user.roles = load.roles;
+      state.user.accessToken = load.accessToken;
     },
     logout: (state) => {
-      state.isLoggingIn = false;
+      state.login = false;
+      state.user.accessToken = "";
       storage.removeItem("persist:root");
       console.log("logout");
     },

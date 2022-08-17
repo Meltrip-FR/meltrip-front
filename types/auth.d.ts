@@ -1,11 +1,17 @@
 export interface AuthSlice {
-  isLoggingIn: boolean;
+  login: boolean;
   user: {
-    uid: string;
+    id?: string;
+    firstname: string;
+    lastname: string;
     email: string;
-    first: string;
-    last: string;
-    status: string;
-    photoURL: string;
+    phone: string;
+    address: string;
+    city: string;
+    zip: number;
+    terms: boolean;
+    newsletter: boolean;
+    roles: string[];
+    accessToken: string;
   };
 }

@@ -1,0 +1,1 @@
+export const ROLES_STATUS_USERS = "ROLE_USER";

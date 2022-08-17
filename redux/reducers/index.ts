@@ -12,7 +12,6 @@ const rootReducer: Reducer = (state: RootState, action: AnyAction) => {
   if (action.type === "/") {
     // this applies to all keys defined in persistConfig(s)
     storage.removeItem("persist:root");
-
     state = {} as RootState;
   }
   return appReducer(state, action);
