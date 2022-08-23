@@ -35,7 +35,7 @@ export const Header = () => {
           <h5 className="cursor-pointer" onClick={() => router.push("/")}>
             SÉMINAIRES
           </h5>
-          <h5 className="cursor-pointer" onClick={() => router.push("/")}>
+          <h5 className="cursor-pointer" onClick={() => router.push("/blog")}>
             BLOG
           </h5>
           <h5

@@ -30,10 +30,12 @@ export const Header = () => {
           <h5 className="cursor-pointer" onClick={() => router.push("/")}>
             NOTRE AGENCE
           </h5>
-          <h5 className="cursor-pointer" onClick={() => router.push("/")}>
-            SÉMINAIRES
-          </h5>
-          <h5 className="cursor-pointer" onClick={() => router.push("/")}>
+          {auth.status && (
+            <h5 className="cursor-pointer" onClick={() => router.push("/")}>
+              SÉMINAIRES
+            </h5>
+          )}
+          <h5 className="cursor-pointer" onClick={() => router.push("/blog")}>
             BLOG
           </h5>
           <h5
