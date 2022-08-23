@@ -5,16 +5,76 @@
     "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
     "rewrites": [
       {
+        "source": "/",
+        "destination": "/index.html"
+      },
+      {
+        "source": "/home",
+        "destination": "/index.html"
+      },
+      {
+        "source": "/blog",
+        "destination": "/blog.html"
+      },
+      {
+        "source": "/blog/article/[id]",
+        "destination": "/blog/article/[id].html"
+      },
+      {
+        "source": "/blog/tag/[id]",
+        "destination": "/blog/tag/[id].html"
+      },
+      {
+        "source": "/contact",
+        "destination": "/contact.html"
+      },
+      {
+        "source": "/help",
+        "destination": "/help/.html"
+      },
+      {
+        "source": "/auth/signin",
+        "destination": "/auth/signin.html"
+      },
+      {
+        "source": "/auth/signup",
+        "destination": "/auth/signup.html"
+      },
+      {
+        "source": "/user/accessibility",
+        "destination": "/user/accessibility.html"
+      },
+      {
+        "source": "/user/dashboard",
+        "destination": "/user/dashboard.html"
+      },
+      {
+        "source": "/user/organization",
+        "destination": "/user/organization.html"
+      },
+      {
+        "source": "/user/partner",
+        "destination": "/user/partner.html"
+      },
+      {
+        "source": "/user/payments",
+        "destination": "/user/payments.html"
+      },
+      {
+        "source": "/user/profil",
+        "destination": "/user/profil.html"
+      },
+      {
+        "source": "/user/seminar",
+        "destination": "/user/seminar.html"
+      },
+      {
         "source": "/500",
         "destination": "/500.html"
       },
       {
         "source": "/404",
         "destination": "/404.html"
-      },
-      {
-        "source": "/",
-        "destination": "/index.html"
       }
     ]
   }
