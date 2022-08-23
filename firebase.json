@@ -17,11 +17,11 @@
         "destination": "/blog.html"
       },
       {
-        "source": "/blog/article/[id]",
+        "source": "/blog/articles/[id]",
         "destination": "/blog/article/[id].html"
       },
       {
-        "source": "/blog/tag/[id]",
+        "source": "/blog/tags/[id]",
         "destination": "/blog/tag/[id].html"
       },
       {

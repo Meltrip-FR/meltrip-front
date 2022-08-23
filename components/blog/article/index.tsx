@@ -134,7 +134,7 @@ const ArticlePage = () => {
               Lire d’autres actualités Meltrip
             </h1>
             {dataSuggest?.map((item: any) => (
-              <div className="p-4 md:w-1/3" key={item.id}>
+              <div className="p-4 md:w-1/3" key={item?.id}>
                 <div className="h-full overflow-hidden">
                   <img
                     className="lg:h-48 md:h-36 w-full object-cover object-center"
@@ -146,13 +146,13 @@ const ArticlePage = () => {
                       CATEGORY
                     </h2>
                     <h1 className="title-font text-lg font-medium text-gray-900 mb-3">
-                      {item.id}
+                      {item?.id}
                     </h1>
-                    <p className="leading-relaxed mb-3">{item.description}</p>
+                    <p className="leading-relaxed mb-3">{item?.description}</p>
                     <div className="flex items-center flex-wrap">
                       <div
                         className="text-meltrip-primary inline-flex items-center md:mb-2 lg:mb-0 cursor-pointer hover:underline"
-                        onClick={() => router.push(`/blog/article/${item.id}`)}
+                        onClick={() => router.push(`/blog/article/${item?.id}`)}
                       >
                         En savoir plus
                         <svg

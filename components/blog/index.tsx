@@ -13,47 +13,54 @@ const BlogPage = () => {
   const [pageCount, setPageCount] = useState(0);
 
   const getPostData = (data: any) => {
-    console.log(data);
-    return data.map((item: any) => (
-      <div className="p-4 md:w-1/3" key={item.id}>
-        <div className="h-full overflow-hidden">
-          <img
-            className="lg:h-48 md:h-36 w-full object-cover object-center"
-            src={item?.pictureURL}
-            alt="blog"
-          />
-          <div className="p-6">
-            <h2 className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">
-              CATEGORY
-            </h2>
-            <h1 className="title-font text-lg font-medium text-gray-900 mb-3">
-              {item.title} {item.id}
-            </h1>
-            <p className="leading-relaxed mb-3">{item.description}</p>
-            <div className="flex items-center flex-wrap">
-              <div
-                className="text-meltrip-primary inline-flex items-center md:mb-2 lg:mb-0 cursor-pointer hover:underline"
-                onClick={() => router.push(`/blog/article/${item.id}`)}
-              >
-                En savoir plus
-                <svg
-                  className="w-4 h-4 ml-2"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  fill="none"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+    return data.length === 0 ? (
+      <div className="flex flex-col items-center justify-center">
+        <h2 className="tracking-widest text-2xl title-font font-medium text-gray-400 mt-5">
+          Data not Found
+        </h2>
+      </div>
+    ) : (
+      data.map((item: any) => (
+        <div className="p-4 md:w-1/3" key={item.id}>
+          <div className="h-full overflow-hidden">
+            <img
+              className="lg:h-48 md:h-36 w-full object-cover object-center"
+              src={item?.pictureURL}
+              alt="blog"
+            />
+            <div className="p-6">
+              <h2 className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">
+                CATEGORY
+              </h2>
+              <h1 className="title-font text-lg font-medium text-gray-900 mb-3">
+                {item.title} {item.id}
+              </h1>
+              <p className="leading-relaxed mb-3">{item.description}</p>
+              <div className="flex items-center flex-wrap">
+                <div
+                  className="text-meltrip-primary inline-flex items-center md:mb-2 lg:mb-0 cursor-pointer hover:underline"
+                  onClick={() => router.push(`/blog/article/${item.id}`)}
                 >
-                  <path d="M5 12h14"></path>
-                  <path d="M12 5l7 7-7 7"></path>
-                </svg>
+                  En savoir plus
+                  <svg
+                    className="w-4 h-4 ml-2"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M5 12h14"></path>
+                    <path d="M12 5l7 7-7 7"></path>
+                  </svg>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    ));
+      ))
+    );
   };
   const PostView = () => {
     return (
@@ -83,18 +90,21 @@ const BlogPage = () => {
   };
 
   const getAllPosts = async (url: string) => {
-    const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}${url}`);
-    const data = res.data;
-    console.log({ data });
-    const slice = data
-      .filter((i: any) => i.status === true)
-      .slice(offset - 1, offset - 1 + postsPerPage);
-    // For displaying Data
-    console.log({ slice });
-    const postData = getPostData(slice);
-    // Using Hooks to set value
-    setAllPosts(postData);
-    setPageCount(Math.ceil(data.length / postsPerPage));
+    try {
+      const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}${url}`);
+      const data = res.data;
+      const slice = data
+        .filter((i: any) => i.status === true)
+        .slice(offset - 1, offset - 1 + postsPerPage);
+      // For displaying Data
+      const postData = getPostData(slice);
+      // Using Hooks to set value
+      setAllPosts(postData);
+      setPageCount(Math.ceil(data.length / postsPerPage));
+    } catch (error: any) {
+      error?.response?.data?.message &&
+        console.error(error.response.data.message);
+    }
   };
 
   const handlePageClick = (event: any) => {
@@ -104,11 +114,10 @@ const BlogPage = () => {
 
   useEffect(() => {
     getAllPosts(openTab);
-    console.log("ok");
   }, [offset && openTab]);
 
   return (
-    <section className="text-gray-900 body-font ">
+    <section className="text-gray-900 body-font">
       <div className="px-5 py-14 mx-auto ">
         <h1 className="sm:text-3xl text-2xl font-medium title-font text-meltrip-secondary text-center">
           Blog
