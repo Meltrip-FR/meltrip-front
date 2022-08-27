@@ -37,19 +37,26 @@ const SignupPage = () => {
 
   async function handleSubmit(e: { preventDefault: () => void }) {
     e.preventDefault();
-    axios
-      .post(`${process.env.NEXT_PUBLIC_API_URL}/auth/signup`, formState)
-      .then(({ data }) => {
-        setRequestMessage({ type: null, message: "" });
-        setRequestMessage({ type: true, message: data.message });
-      })
-      .catch((error) => {
-        setRequestMessage({ type: null, message: "" });
-        setRequestMessage({
-          type: false,
-          message: error.response.data.message,
+    if (formState.terms && formState.email && formState.password) {
+      axios
+        .post(`${process.env.NEXT_PUBLIC_API_URL}/auth/signup`, formState)
+        .then(({ data }) => {
+          setRequestMessage({ type: null, message: "" });
+          setRequestMessage({ type: true, message: data.message });
+        })
+        .catch((error) => {
+          setRequestMessage({ type: null, message: "" });
+          setRequestMessage({
+            type: false,
+            message: error.response.data.message,
+          });
         });
+    } else {
+      setRequestMessage({
+        type: false,
+        message: "Vous devez remplir les champs email et password",
       });
+    }
   }
   return (
     <div className="h-screen">
@@ -106,7 +113,7 @@ const SignupPage = () => {
                 type="email"
                 name="email"
                 value={formState.email}
-                label="email"
+                label="email *"
                 style="bg-[#ECF3F2] px-2 py-2"
                 onChange={onFormChange}
                 disabled={false}
@@ -165,7 +172,7 @@ const SignupPage = () => {
               <FormItem
                 type="password"
                 name="password"
-                label="password"
+                label="password *"
                 value={formState.password}
                 style="bg-[#ECF3F2] px-2 py-2"
                 onChange={onFormChange}

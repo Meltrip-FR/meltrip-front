@@ -34,6 +34,7 @@ const SigninPage = () => {
     axios
       .post(`${process.env.NEXT_PUBLIC_API_URL}/auth/signin`, formState)
       .then(({ data }) => {
+        console.log(data);
         const { payload } = dispatch(login({ login: true, ...data }));
         if (payload.id) {
           router.push("/user/dashboard");
