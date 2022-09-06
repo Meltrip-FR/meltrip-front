@@ -14,7 +14,6 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 
 export default function MyApp({ Component, pageProps }: AppProps) {
-  let { auth } = store.getState();
   const router = useRouter();
 
   useEffect(() => {
