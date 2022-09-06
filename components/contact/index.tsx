@@ -32,7 +32,7 @@ const ContactPage = () => {
   async function handleSubmit(e: { preventDefault: () => void }) {
     e.preventDefault();
     axios
-      .post(`${process.env.NEXT_PUBLIC_API_URL}/contact`, formState, user.accessToken)
+      .post(`${process.env.NEXT_PUBLIC_API_URL}/contact`, formState)
       .then(({ data }) => {
         setRequestMessage({ type: null, message: "" });
         setRequestMessage({ type: true, message: data.message });
