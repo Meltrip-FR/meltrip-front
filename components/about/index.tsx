@@ -3,6 +3,7 @@ import CardAbout from "./card";
 
 // Pictures
 import Louise from "../assets/pictures/louise.png";
+import Audrey from "../assets/pictures/audrey.jpeg";
 import Kelly from "../assets/pictures/kelly.jpg";
 import Eleonor from "../assets/pictures/eleonor.jpg";
 import Crouch from "@components/assets/icons/crouch";
@@ -72,7 +73,7 @@ const About = () => {
               />
               <CardAbout
                 name="Audrey Blouin"
-                pictureURL="https://media-exp1.licdn.com/dms/image/C5603AQGh6iVE8sOHgQ/profile-displayphoto-shrink_400_400/0/1557474722452?e=1668038400&v=beta&t=yU-opq_HEgMv5zK47WC8lYa4NKs4dvkBQqDnL_hwqkM"
+                pictureURL={Audrey.src}
                 status="Co-fondatrice"
                 post="Responsable marketing"
               />
