@@ -41,7 +41,6 @@ export default function Layout({ children }: { children: React.ReactElement }) {
         <meta charSet="utf-8" />
         <title>Meltrip</title>
         <link rel="meltrip icon" href="logo2.webp" />
-        <meta property="og:title" content="Meltrip" key="title" />
         <meta
           name="description"
           content="Envie de voyager mais pas le temps d'organiser ou pas d'inspiration pour décider du lieu de ta destination ? En groupe, vous n'arrivez pas à vous mettre d'accord ?
