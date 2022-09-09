@@ -29,7 +29,7 @@ export const Header = () => {
           <LogoColor size={100} color={"white"} />
         </div>
         <div className="grid grid-flow-col auto-cols-max gap-20 text-base justify-center items-center text-left uppercase">
-          <h5 className="cursor-pointer" onClick={() => router.push("/")}>
+          <h5 className="cursor-pointer" onClick={() => router.push("/about")}>
             NOTRE AGENCE
           </h5>
           <h5 className="cursor-pointer" onClick={() => router.push("/")}>
