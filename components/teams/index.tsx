@@ -1,5 +1,5 @@
 import HappyGroup from "@components/assets/icons/happyGroup";
-import CardAbout from "./card";
+import CardTeams from "./card";
 
 // Pictures
 import Louise from "../assets/pictures/louise.png";
@@ -8,7 +8,7 @@ import Kelly from "../assets/pictures/kelly.jpg";
 import Eleonor from "../assets/pictures/eleonor.jpg";
 import Crouch from "@components/assets/icons/crouch";
 
-const About = () => {
+const Teams = () => {
   return (
     <section className="text-gray-600 body-font">
       <div className="container px-5 py-14 mx-auto">
@@ -65,19 +65,19 @@ const About = () => {
         <section className="text-gray-600 body-font">
           <div className="container px-5">
             <div className="flex flex-wrap justify-center align-center items-center -m-4">
-              <CardAbout
+              <CardTeams
                 name="Louise Landemaine"
                 pictureURL={Louise.src}
                 status="CEO"
                 post="Fondatrice"
               />
-              <CardAbout
+              <CardTeams
                 name="Audrey Blouin"
                 pictureURL={Audrey.src}
                 status="Co-fondatrice"
                 post="Responsable marketing"
               />
-              <CardAbout
+              <CardTeams
                 name="Eleonor Morais"
                 pictureURL={Eleonor.src}
                 status="Co-fondatrice"
@@ -85,13 +85,13 @@ const About = () => {
               />
             </div>
             <div className="mt-4 flex flex-wrap justify-center align-center items-center -m-4">
-              <CardAbout
+              <CardTeams
                 name="Mathieu Drapala"
                 pictureURL="https://media-exp1.licdn.com/dms/image/C5603AQGh6iVE8sOHgQ/profile-displayphoto-shrink_400_400/0/1557474722452?e=1668038400&v=beta&t=yU-opq_HEgMv5zK47WC8lYa4NKs4dvkBQqDnL_hwqkM"
                 status="Co-fondateur"
                 post="Responsable développement web"
               />
-              <CardAbout
+              <CardTeams
                 name="Kelly Darabor"
                 pictureURL={Kelly.src}
                 status="Co-fondateur"
@@ -108,4 +108,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default Teams;

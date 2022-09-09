@@ -1,4 +1,4 @@
-const CardAbout = ({ name, pictureURL, status, post }: any) => {
+const CardTeams = ({ name, pictureURL, status, post }: any) => {
   return (
     <div className="lg:w-1/4 md:w-1/2 p-4 w-full">
       <div className="relative overflow-hidden rounded-lg shadow-lg h-80">
@@ -14,4 +14,4 @@ const CardAbout = ({ name, pictureURL, status, post }: any) => {
     </div>
   );
 };
-export default CardAbout;
+export default CardTeams;
