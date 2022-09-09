@@ -21,7 +21,7 @@ const SignupPage = () => {
     address: "",
     city: "",
     zip: 0,
-    terms: false, // no add
+    terms: true, // no add
     newsletter: false, // no add
     roles: ["user"],
   });
@@ -37,6 +37,7 @@ const SignupPage = () => {
 
   async function handleSubmit(e: { preventDefault: () => void }) {
     e.preventDefault();
+    console.log(formState);
     if (formState.terms && formState.email && formState.password) {
       axios
         .post(`${process.env.NEXT_PUBLIC_API_URL}/auth/signup`, formState)
