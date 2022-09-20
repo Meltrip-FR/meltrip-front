@@ -1,4 +1,4 @@
-import Tag from "@components/blog/tag";
+import Tag from "@/components/blog/tag";
 import Layout from "pages";
 
 const TagPage = () => {

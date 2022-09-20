@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
-import Image from "next/image";
 import { useRouter } from "next/router";
 
-import BreadCrumbs from "@components/utils/breadCrumbs";
+import BreadCrumbs from "@/components/utils/breadCrumbs";
 import axios from "axios";
 
 const ArticlePage = () => {

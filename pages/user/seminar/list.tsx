@@ -1,5 +1,5 @@
-import SeminarList from "@components/user/seminar/list";
-import store from "@redux/store";
+import SeminarList from "@/components/user/seminar/list";
+import store from "@/redux/store";
 import { useRouter } from "next/router";
 import Layout from "pages";
 import { useEffect } from "react";

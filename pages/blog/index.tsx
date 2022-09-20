@@ -1,4 +1,4 @@
-import Blog from "@components/blog";
+import Blog from "@/components/blog";
 import Layout from "pages";
 
 const BlogPage = () => {

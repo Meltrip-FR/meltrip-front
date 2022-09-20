@@ -1,27 +1,25 @@
 import { useState } from "react";
+import { Link } from "react-scroll";
 import Image from "next/image";
-
-//Icons
-import ChevronDown from "@components/assets/icons/chevronDown";
-import Happy from "@components/assets/icons/happy";
-import Hello from "@components/assets/icons/hello";
-import Humainitarian from "@components/assets/icons/humanitarian";
-import BackgroundNewsletter from "@components/assets/icons/backgroundNewsletter";
-
-//Components
-import { Header } from "@components/body/header";
-import Footer from "@components/body/footer";
 import Modal from "./modal";
 
-import { Link } from "react-scroll";
+//Components
+import Header from "@/components/body/header";
+import Footer from "@/components/body/footer";
+
+//Icons
+import ChevronDown from "@/components/assets/icons/chevronDown";
+import Happy from "@/components/assets/icons/happy";
+import Hello from "@/components/assets/icons/hello";
+import Humainitarian from "@/components/assets/icons/humanitarian";
+import BackgroundNewsletter from "@/components/assets/icons/backgroundNewsletter";
 
 const HomePage = () => {
   const [showModal, setShowModal] = useState(false);
-
   return (
     <div>
       <div className="h-full flex flex-col">
-        <div className=" flex items-center justify-center h-screen mb-12 overflow-hidden">
+        <div className="flex items-center justify-center h-screen mb-12 overflow-hidden">
           <div className="z-30 h-full text-2xl text-white  bg-opacity-25 rounded-xl">
             <Header />
             <div className="flex flex-col items-center justify-center align-center mt-56">
@@ -74,11 +72,9 @@ const HomePage = () => {
           />
         </div>
       </div>
-
       <p className="text-meltrip-secondary text-center text-4xl font-semibold mt-10 mb-5">
         Partir à séminaire avec Meltrip c{"'"}est..
       </p>
-
       <section className="text-gray-600 body-font">
         <div className="container  py-24 mx-auto">
           <div className="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4">

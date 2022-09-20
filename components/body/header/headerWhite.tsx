@@ -1,15 +1,15 @@
 import { Fragment, useState } from "react";
 import { useRouter } from "next/router";
-import { useAppDispatch, useAppSelector } from "@redux/hooks";
-import { logout } from "@redux/slices/auth.slice";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import { logout } from "@/redux/slices/auth.slice";
 
 // Icons
-import ChevronDown from "@components/assets/icons/chevronDown";
-import ChevronUp from "@components/assets/icons/chevronUp";
-import ArrowOut from "@components/assets/icons/arrowOut";
-import LogoColor from "@components/assets/icons/logoColor";
+import ChevronDown from "@/components/assets/icons/chevronDown";
+import ChevronUp from "@/components/assets/icons/chevronUp";
+import ArrowOut from "@/components/assets/icons/arrowOut";
+import LogoColor from "@/components/assets/icons/logoColor";
 
-export const Header = () => {
+const Header = () => {
   const router = useRouter();
   const dispatch = useAppDispatch();
 
@@ -19,13 +19,13 @@ export const Header = () => {
 
   const signOut = () => {
     dispatch(logout());
-    router.push("/home");
+    router.push("/");
   };
 
   return (
     <div className="w-full font-body font-poppins">
       <div className="grid grid-cols-3">
-        <div className="pl-5" onClick={() => router.push("/home")}>
+        <div className="pl-5" onClick={() => router.push("/")}>
           <LogoColor size={100} color={"white"} />
         </div>
         <div className="grid grid-flow-col auto-cols-max gap-20 text-base justify-center items-center text-left uppercase">
@@ -128,3 +128,5 @@ export const Header = () => {
     </div>
   );
 };
+
+export default Header;

@@ -1,5 +1,5 @@
-import Profil from "@components/user/profil";
-import store from "@redux/store";
+import Profil from "@/components/user/profil";
+import store from "@/redux/store";
 import { useRouter } from "next/router";
 import Layout from "pages";
 import { useEffect } from "react";

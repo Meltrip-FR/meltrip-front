@@ -1,26 +1,29 @@
 // React / Next
+import { useEffect } from "react";
 import type { AppProps } from "next/app";
 
 // Redux
-import store, { persistor } from "@redux/store";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
+import store, { persistor } from "@/redux/store";
+import { type } from "@/redux/slices/device.slice";
+
+// Constants
+import { IS_MOBILE_REGEX } from "@/constants/default";
 
 // CSS
 import "../styles/globals.css";
-import { useEffect, useState } from "react";
-
-// Constants
-import { useRouter } from "next/router";
 
 export default function MyApp({ Component, pageProps }: AppProps) {
-  const router = useRouter();
+  let { device } = store.getState();
 
   useEffect(() => {
-    if (router.pathname === "/") {
-      router.push("/home");
+    if (IS_MOBILE_REGEX.test(navigator.userAgent)) {
+      store.dispatch(type({ mode: "SET_MOBILE_MODE" }));
+    } else {
+      store.dispatch(type({ mode: "SET_WEB_MODE" }));
     }
-  }, []);
+  }, [device.mode]);
 
   return (
     <Provider store={store}>

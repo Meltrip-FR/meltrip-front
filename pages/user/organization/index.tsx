@@ -1,5 +1,5 @@
-import Organization from "@components/user/organization";
-import store from "@redux/store";
+import Organization from "@/components/user/organization";
+import store from "@/redux/store";
 import { useRouter } from "next/router";
 import Layout from "pages";
 import { useEffect } from "react";

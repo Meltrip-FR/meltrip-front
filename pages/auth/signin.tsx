@@ -1,4 +1,4 @@
-import SigninPage from "@components/auth/signin";
+import SigninPage from "@/components/auth/signin";
 import Layout from "pages";
 
 const Signin = () => {

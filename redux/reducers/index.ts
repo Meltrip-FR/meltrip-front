@@ -3,9 +3,11 @@ import { AnyAction, Reducer } from "@reduxjs/toolkit";
 import { combineReducers } from "@reduxjs/toolkit";
 
 import authReducer from "../slices/auth.slice";
+import devicesReducer from "../slices/device.slice";
 
 const appReducer = combineReducers({
   auth: authReducer,
+  device: devicesReducer,
 });
 
 const rootReducer: Reducer = (state: RootState, action: AnyAction) => {

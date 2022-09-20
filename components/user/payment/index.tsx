@@ -1,8 +1,8 @@
-import CircleList from "@components/assets/icons/circleList";
-import Eyes from "@components/assets/icons/eyes";
-import LockClose from "@components/assets/icons/lockClose";
-import SuccessCircle from "@components/assets/icons/successCircle";
-import BreadCrumbs from "@components/utils/breadCrumbs";
+import CircleList from "@/components/assets/icons/circleList";
+import Eyes from "@/components/assets/icons/eyes";
+import LockClose from "@/components/assets/icons/lockClose";
+import SuccessCircle from "@/components/assets/icons/successCircle";
+import BreadCrumbs from "@/components/utils/breadCrumbs";
 import { useRouter } from "next/router";
 
 const Payments = () => {

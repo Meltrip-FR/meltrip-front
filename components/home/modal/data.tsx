@@ -1,11 +1,11 @@
-import Hello from "@components/assets/icons/hello";
-import Happy from "@components/assets/icons/happy";
-import { Q11 } from "@components/assets/icons/questions/Q11";
-import { Q12 } from "@components/assets/icons/questions/Q12";
-import { Q21 } from "@components/assets/icons/questions/Q21";
-import { Q22 } from "@components/assets/icons/questions/Q22";
-import { Q31 } from "@components/assets/icons/questions/Q31";
-import { Q32 } from "@components/assets/icons/questions/Q32";
+import Hello from "@/components/assets/icons/hello";
+import Happy from "@/components/assets/icons/happy";
+import { Q11 } from "@/components/assets/icons/questions/Q11";
+import { Q12 } from "@/components/assets/icons/questions/Q12";
+import { Q21 } from "@/components/assets/icons/questions/Q21";
+import { Q22 } from "@/components/assets/icons/questions/Q22";
+import { Q31 } from "@/components/assets/icons/questions/Q31";
+import { Q32 } from "@/components/assets/icons/questions/Q32";
 
 export const questions = {
   //First Parcours

@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import Eyes from "@components/assets/icons/eyes";
-import LockClose from "@components/assets/icons/lockClose";
-import BreadCrumbs from "@components/utils/breadCrumbs";
-import { FormItem } from "@components/utils/formItem";
-import { useAppSelector } from "@redux/hooks";
+import Eyes from "@/components/assets/icons/eyes";
+import LockClose from "@/components/assets/icons/lockClose";
+import BreadCrumbs from "@/components/utils/breadCrumbs";
+import { FormItem } from "@/components/utils/formItem";
+import { useAppSelector } from "@/redux/hooks";
 import axios from "axios";
 
 const Profil = () => {

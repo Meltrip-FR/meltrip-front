@@ -1,4 +1,4 @@
-import Teams from "@components/teams";
+import Teams from "@/components/teams";
 import Layout from "pages";
 
 const TeamsPage = () => {

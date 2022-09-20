@@ -1,4 +1,4 @@
-import Article from "@components/blog/article";
+import Article from "@/components/blog/article";
 import Layout from "pages";
 
 const ArticlePage = () => {

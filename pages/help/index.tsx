@@ -1,4 +1,4 @@
-import Help from "@components/help";
+import Help from "@/components/help";
 import Layout from "pages";
 
 const HelpPage = () => {

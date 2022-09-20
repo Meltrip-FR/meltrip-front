@@ -1,4 +1,4 @@
-import BreadCrumbs from "@components/utils/breadCrumbs";
+import BreadCrumbs from "@/components/utils/breadCrumbs";
 import { useRouter } from "next/router";
 
 const Seminar = () => {

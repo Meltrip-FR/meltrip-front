@@ -1,4 +1,4 @@
-import Q8 from "@components/assets/icons/questions/q8";
+import Q8 from "@/components/assets/icons/questions/q8";
 import { useEffect, useState } from "react";
 import { questions } from "./data";
 

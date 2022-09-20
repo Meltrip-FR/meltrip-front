@@ -8,11 +8,11 @@
 import "react-toastify/dist/ReactToastify.css";
 
 //Icons
-import LogoTitle from "@components/assets/icons/logoTitle";
-import Instagram from "@components/assets/icons/socials/instagram";
-import Facebook from "@components/assets/icons/socials/facebook";
-import Linkedin from "@components/assets/icons/socials/linkedin";
-import Twitter from "@components/assets/icons/socials/twitter";
+import LogoTitle from "@/components/assets/icons/logoTitle";
+import Instagram from "@/components/assets/icons/socials/instagram";
+import Facebook from "@/components/assets/icons/socials/facebook";
+import Linkedin from "@/components/assets/icons/socials/linkedin";
+import Twitter from "@/components/assets/icons/socials/twitter";
 
 const Footer = () => {
   // const [firstName, setFirstName] = useState<string>("");

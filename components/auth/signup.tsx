@@ -2,10 +2,10 @@ import { useState } from "react";
 import axios from "axios";
 
 // Components
-import { FormItem } from "@components/utils/formItem";
+import { FormItem } from "@/components/utils/formItem";
 
 // Icons
-import SigninIcon from "@components/assets/icons/auth/signin";
+import SigninIcon from "@/components/assets/icons/auth/signin";
 
 const SignupPage = () => {
   const [requestMessage, setRequestMessage] = useState<any>({

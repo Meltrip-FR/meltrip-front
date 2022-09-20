@@ -2,13 +2,13 @@ import { useState } from "react";
 import axios from "axios";
 
 // Redux
-import { useAppDispatch } from "@redux/hooks";
-import { login } from "@redux/slices/auth.slice";
+import { useAppDispatch } from "@/redux/hooks";
+import { login } from "@/redux/slices/auth.slice";
 
 // Components
-import { FormItem } from "@components/utils/formItem";
+import { FormItem } from "@/components/utils/formItem";
 import { useRouter } from "next/router";
-import SigninIcon from "@components/assets/icons/auth/signin";
+import SigninIcon from "@/components/assets/icons/auth/signin";
 
 const SigninPage = () => {
   const router = useRouter();

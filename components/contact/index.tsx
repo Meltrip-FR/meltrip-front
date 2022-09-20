@@ -2,10 +2,10 @@ import { useState } from "react";
 import axios from "axios";
 
 //Components
-import { FormItem } from "@components/utils/formItem";
+import { FormItem } from "@/components/utils/formItem";
 
 // Icons
-import ContactIcon from "@components/assets/icons/contact/contactIcon";
+import ContactIcon from "@/components/assets/icons/contact/contactIcon";
 
 const ContactPage = () => {
   //const router = useRouter();

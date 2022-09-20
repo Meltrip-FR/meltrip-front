@@ -1,5 +1,5 @@
-import Dashboard from "@components/user/dashboard";
-import store from "@redux/store";
+import Dashboard from "@/components/user/dashboard";
+import store from "@/redux/store";
 import { useRouter } from "next/router";
 import Layout from "pages";
 import { useEffect } from "react";

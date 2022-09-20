@@ -1,5 +1,5 @@
-import AddCircle from "@components/assets/icons/addCircle";
-import BreadCrumbs from "@components/utils/breadCrumbs";
+import AddCircle from "@/components/assets/icons/addCircle";
+import BreadCrumbs from "@/components/utils/breadCrumbs";
 import { useRouter } from "next/router";
 
 const SeminarList = () => {

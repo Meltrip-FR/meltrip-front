@@ -1,4 +1,4 @@
-import HappyGroup from "@components/assets/icons/happyGroup";
+import HappyGroup from "@/components/assets/icons/happyGroup";
 import CardTeams from "./card";
 
 // Pictures
@@ -6,7 +6,7 @@ import Louise from "../assets/pictures/louise.png";
 import Audrey from "../assets/pictures/audrey.jpeg";
 import Kelly from "../assets/pictures/kelly.jpg";
 import Eleonor from "../assets/pictures/eleonor.jpg";
-import Crouch from "@components/assets/icons/crouch";
+import Crouch from "@/components/assets/icons/crouch";
 
 const Teams = () => {
   return (

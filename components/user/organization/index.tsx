@@ -1,6 +1,6 @@
-import Eyes from "@components/assets/icons/eyes";
-import LockClose from "@components/assets/icons/lockClose";
-import BreadCrumbs from "@components/utils/breadCrumbs";
+import Eyes from "@/components/assets/icons/eyes";
+import LockClose from "@/components/assets/icons/lockClose";
+import BreadCrumbs from "@/components/utils/breadCrumbs";
 
 const Organization = () => {
   return (

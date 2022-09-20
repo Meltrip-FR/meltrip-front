@@ -1,4 +1,4 @@
-import Wave from "@components/assets/icons/wave";
+import Wave from "@/components/assets/icons/wave";
 
 const Main = ({ setStep }: any) => {
   return (
