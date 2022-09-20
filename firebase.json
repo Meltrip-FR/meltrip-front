@@ -9,10 +9,6 @@
         "destination": "/index.html"
       },
       {
-        "source": "/home",
-        "destination": "/index.html"
-      },
-      {
         "source": "/teams",
         "destination": "/teams.html"
       },

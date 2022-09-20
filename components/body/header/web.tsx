@@ -12,6 +12,7 @@ import Logo from "@/components/assets/icons/logo";
 const WebHeader = () => {
   const router = useRouter();
   const dispatch = useAppDispatch();
+
   const { auth } = useAppSelector((state) => state);
   const [openMenu, setOpenMenu] = useState<boolean>(false);
 
@@ -30,7 +31,7 @@ const WebHeader = () => {
           <h5 className="cursor-pointer" onClick={() => router.push("/teams")}>
             NOTRE AGENCE
           </h5>
-          {auth.status && (
+          {auth.login && (
             <h5 className="cursor-pointer" onClick={() => router.push("/")}>
               SÉMINAIRES
             </h5>

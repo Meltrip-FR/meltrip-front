@@ -10,7 +10,7 @@ const PartnerPage = () => {
 
   useEffect(() => {
     if (auth.login === false) {
-      router.push("/home");
+      router.push("/");
     }
   }, [auth.login]);
 
