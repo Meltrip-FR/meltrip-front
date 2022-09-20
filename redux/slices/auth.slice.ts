@@ -1,7 +1,5 @@
-//Redux && Persist
-import { persistor } from "@redux/store";
+// Redux && Persist
 import { createSlice } from "@reduxjs/toolkit";
-import purgeStoredState from "redux-persist/es/purgeStoredState";
 import storage from "redux-persist/lib/storage";
 
 //types
@@ -28,7 +26,7 @@ export const authSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
-    login: (state, action) => {
+    login: (state: any, action: any) => {
       const load = action.payload;
       state.login = load.login;
       state.user.id = load.id;
@@ -44,7 +42,7 @@ export const authSlice = createSlice({
       state.user.roles = load.roles;
       state.user.accessToken = load.accessToken;
     },
-    logout: (state) => {
+    logout: (state: any) => {
       state.login = false;
       state.user.accessToken = "";
       storage.removeItem("persist:root");

@@ -1,8 +1,8 @@
 import { useRouter } from "next/router";
 
 // Redux
-import { logout } from "@redux/slices/auth.slice";
-import { useAppDispatch } from "@redux/hooks";
+import { logout } from "@/redux/slices/auth.slice";
+import { useAppDispatch } from "@/redux/hooks";
 
 import { CardInfosList } from "./infosList";
 
