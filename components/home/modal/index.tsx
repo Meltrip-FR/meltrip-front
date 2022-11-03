@@ -5,7 +5,12 @@ import Image from "next/image";
 // import Cards from "./items/card";
 import Main from "./main";
 import Auth from "./auth";
+import { useRouter } from "next/router";
+import { useAppSelector } from "@/redux/hooks";
 const Modal = ({ type, showModal, setShowModal }: any) => {
+  const router = useRouter();
+  const { auth } = useAppSelector((state) => state);
+
   const [userUid, setUserUid] = useState("");
   const [step, setStep] = useState(0);
 
@@ -15,7 +20,9 @@ const Modal = ({ type, showModal, setShowModal }: any) => {
         <button
           className="bg-[#C05E37] text-white hover:bg-[#9e573b] text-xl font-bold uppercase px-12 py-5 shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
           type="button"
-          onClick={() => setShowModal(true)}
+          onClick={() =>
+            !auth.login ? router.push("/auth/signup") : setShowModal(true)
+          }
         >
           CRÉONS TON SÉMINAIRE
         </button>

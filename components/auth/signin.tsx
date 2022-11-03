@@ -31,10 +31,10 @@ const SigninPage = () => {
 
   async function handleSubmit(e: { preventDefault: () => void }) {
     e.preventDefault();
+    console.log({ formState });
     await axios
       .post(`${process.env.NEXT_PUBLIC_API_URL}/auth/signin`, formState)
       .then(({ data }) => {
-        console.log(data);
         const { payload } = dispatch(login({ login: true, ...data }));
         if (payload.id) {
           router.push("/user/dashboard");
@@ -42,6 +42,7 @@ const SigninPage = () => {
       })
       .catch((error) => setRequestMessage(error.response.data.message));
   }
+
   return (
     <section className="text-gray-600 body-font">
       <div className="container px-5 py-24 mx-auto flex flex-wrap items-center">
@@ -78,7 +79,7 @@ const SigninPage = () => {
             />
           </div>
           <p className="text-xs text-right mb-4 text-gray-500">
-            <a href="/auth/signin" className="hover:underline">
+            <a href="/auth/forgotpassword" className="hover:underline">
               Mot de passe oublié ?
             </a>
           </p>

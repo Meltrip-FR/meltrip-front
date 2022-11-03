@@ -4,30 +4,24 @@ import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { logout } from "@/redux/slices/auth.slice";
 
 // Icons
-import ChevronDown from "@/components/assets/icons/chevronDown";
-import ChevronUp from "@/components/assets/icons/chevronUp";
-import ArrowOut from "@/components/assets/icons/arrowOut";
 import Logo from "@/components/assets/icons/logo";
 import { UserBadge } from "./userBadge";
+import Menu from "@/components/assets/icons/menu";
 
 const WebHeader = () => {
   const router = useRouter();
   const dispatch = useAppDispatch();
-
   const { auth } = useAppSelector((state) => state);
 
-  const signOut = () => {
-    dispatch(logout());
-    router.push("/");
-  };
+  const [openDrawer, setOpenDrawer] = useState(false);
 
   return (
-    <div className="bg-meltrip-primary bg-opacity-[17%] font-body font-poppins w-full">
-      <div className="grid grid-cols-3">
-        <div className="pl-5" onClick={() => router.push("/")}>
+    <div className="bg-meltrip-primary bg-opacity-[17%] font-body font-poppins">
+      <div className="flex px-5 items-center justify-between md:grid md:grid-cols-3">
+        <div className="" onClick={() => router.push("/")}>
           <Logo size={100} color={"white"} />
         </div>
-        <div className="grid grid-flow-col auto-cols-max gap-20 text-base justify-center items-center text-left text-meltrip-textW uppercase">
+        <div className="hidden md:grid md:grid-flow-col md:auto-cols-max md:gap-20 text-base justify-center items-center text-left text-white uppercase">
           <h5 className="cursor-pointer" onClick={() => router.push("/teams")}>
             NOTRE AGENCE
           </h5>
@@ -46,7 +40,7 @@ const WebHeader = () => {
             CONTACT
           </h5>
         </div>
-        <div className="flex items-center justify-center text-base text-meltrip-textW uppercase">
+        <div className="hidden md:flex md:items-center md:justify-center text-base text-white uppercase">
           <div className="flex flex-row align-center items-center justify-between w-full">
             <div className="block lg:hidden ml-6" />
             <div className="relative z-20 flex flex-col justify-end h-full px-3 md:w-full">
@@ -73,6 +67,9 @@ const WebHeader = () => {
               </div>
             </div>
           </div>
+        </div>
+        <div className="md:hidden" onClick={() => setOpenDrawer(!openDrawer)}>
+          <Menu size={50} />
         </div>
       </div>
     </div>

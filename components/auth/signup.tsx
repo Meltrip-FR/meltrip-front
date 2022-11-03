@@ -49,7 +49,7 @@ const SignupPage = () => {
           setRequestMessage({ type: null, message: "" });
           setRequestMessage({
             type: false,
-            message: error.response.data.message,
+            message: error.response?.data?.message,
           });
         });
     } else {
