@@ -16,7 +16,7 @@ const WebHeader = () => {
   const [openDrawer, setOpenDrawer] = useState(false);
 
   return (
-    <div className="bg-meltrip-primary bg-opacity-[17%] font-body font-poppins">
+    <div className="w-full bg-meltrip-primary bg-opacity-[17%] font-body font-poppins">
       <div className="flex px-5 items-center justify-between md:grid md:grid-cols-3">
         <div className="" onClick={() => router.push("/")}>
           <Logo size={100} color={"white"} />
@@ -58,7 +58,7 @@ const WebHeader = () => {
                       className="uppercase cursor-pointer"
                       onClick={() => router.push("/auth/signup")}
                     >
-                      S'inscription
+                      Inscription
                     </span>
                   </Fragment>
                 ) : (

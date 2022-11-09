@@ -53,7 +53,7 @@ const Header = () => {
                       className="uppercase cursor-pointer"
                       onClick={() => router.push("/auth/signup")}
                     >
-                      S'inscription
+                      Inscription
                     </span>
                   </Fragment>
                 ) : (

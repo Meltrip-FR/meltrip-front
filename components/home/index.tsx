@@ -19,8 +19,8 @@ const HomePage = () => {
   return (
     <div>
       <div className="h-full flex flex-col">
-        <div className="flex items-center justify-center h-screen mb-12 overflow-hidden">
-          <div className="z-30 h-full text-2xl text-white  bg-opacity-25 rounded-xl">
+        <div className="relative min-h-[600px] h-screen overflow-hidden">
+          <div className="z-30 w-full text-2xl text-white bg-opacity-25 rounded-xl">
             <Header />
             <div className="flex flex-col items-center justify-center align-center mt-56">
               <h1 className="text-white text-center text-5xl mb-5">
@@ -50,7 +50,7 @@ const HomePage = () => {
             autoPlay
             loop
             muted
-            className="absolute z-10 w-screen min-w-full min-h-full"
+            className="absolute top-0 z-[-1] object-cover w-screen h-full object-top"
           >
             <source
               src="https://assets.mixkit.co/videos/preview/mixkit-set-of-plateaus-seen-from-the-heights-in-a-sunset-26070-large.mp4"
@@ -60,7 +60,7 @@ const HomePage = () => {
           </video>
         </div>
       </div>
-      <div className="rounded-lg h-64 overflow-hidden">
+      <div className="mt-16 rounded-lg h-64 overflow-hidden">
         <div className="flex justify-center items-center align-center object-cover object-center">
           <Image
             src="/logo2.webp"
@@ -145,19 +145,23 @@ const HomePage = () => {
               comprends que je peux me désabonner facilement à tout moment.
             </p>
           </div>
-          <div>
+          <form
+            onSubmit={() => null}
+            className="bg-meltrip-textW rounded-full p-3 flex gap-4"
+          >
             <input
               type="email"
-              className="relative outline-0 bg-meltrip-textW text-sm rounded-l-full w-80 p-5"
+              className="outline-0 text-sm w-80 pl-2"
               placeholder="Entrez votre adresse email"
               required
             />
-            <div className="absolute p-[1.25%] rounded-r-full bg-meltrip-textW  -mt-[4.15%] ml-80">
-              <span className="bg-meltrip-secondary text-meltrip-textW rounded-full p-3">
-                S{"'"}abonner
-              </span>
-            </div>
-          </div>
+            <button
+              type="submit"
+              className="bg-meltrip-secondary text-meltrip-textW rounded-full px-3 py-1"
+            >
+              S{"'"}abonner
+            </button>
+          </form>
         </div>
         <BackgroundNewsletter width={1000} height={300} />
       </div>
