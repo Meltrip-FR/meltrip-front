@@ -7,7 +7,9 @@ const SignupPage = () => {
   const [formState, setFormState] = useState({
     adulteNumber: 0,
     adosNumber: 0,
-    dateActive: true,
+    knowDate: true,
+    departurePeriod: "",
+    approximateDuration: "",
     startDate: "",
     endDate: "",
   });
@@ -21,11 +23,15 @@ const SignupPage = () => {
     }
   };
 
+  console.log(formState);
+
   return (
-    <div>
+    <div className="w-full bg-gray-100">
       <FirstSignup
         formState={formState}
         setFormState={setFormState}
+        nextPage={nextPage}
+        setNextPage={setNextPage}
         onFormChange={onFormChange}
       />
     </div>

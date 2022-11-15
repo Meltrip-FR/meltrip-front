@@ -20,7 +20,7 @@ module.exports = {
         travel: "url(/travel.webp)",
       },
       fontFamily: {
-        body: ["DIN Alternate , poppins"],
+        poppins: ["Poppins", "DIN Alternate", "sans-serif"],
       },
     },
   },
