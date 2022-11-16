@@ -15,6 +15,7 @@ module.exports = {
     ],
   },
   output: "standalone",
+  distDir: "out",
 };
 
 // const securityHeaders = [];

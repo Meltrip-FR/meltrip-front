@@ -1,0 +1,19 @@
+# Install dependencies only when needed
+FROM node:16-alpine
+WORKDIR /usr/src/app
+
+RUN apk add --no-cache libc6-compat
+
+# Install dependencies based on the preferred package manager
+COPY package.json yarn.lock* ./
+RUN yarn
+
+COPY . .
+
+EXPOSE 3000
+ENV PORT 3000
+
+ADD .env .env
+ADD .env.local .env.local
+
+CMD ["yarn", "dev"]
