@@ -2,10 +2,7 @@
 
 module.exports = {
   darkMode: "media",
-  content: [
-    "./pages/**/*.{js,ts,jsx,tsx}",
-    "./components/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: ["./pages/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}"],
   theme: {
     extend: {
       colors: {
@@ -24,5 +21,15 @@ module.exports = {
       },
     },
   },
-  plugins: [require("tw-elements/dist/plugin")],
+  plugins: [require("daisyui")],
+  daisyui: {
+    styled: true,
+    themes: true,
+    base: true,
+    utils: true,
+    logs: true,
+    rtl: false,
+    prefix: "",
+    darkTheme: "light",
+  },
 };
