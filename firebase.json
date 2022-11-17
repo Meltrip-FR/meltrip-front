@@ -13,12 +13,8 @@
         "destination": "/teams.html"
       },
       {
-        "source": "/confirm/[user_tag]",
-        "destination": "/confirm/[user_tag].html"
-      },
-      {
-        "source": "/confirm/[user_tag]/[password]",
-        "destination": "/confirm/[user_tag]/[password].html"
+        "source": "/confirm/**",
+        "destination": "/confirm/**.html"
       },
       {
         "source": "/blog",
