@@ -4,7 +4,7 @@ const nextConfig = {
   reactStrictMode: true,
   compress: false,
   optimizeFonts: false,
-  distDir: "out",
+  distDir: "build",
   ignoreDuringBuilds: true,
   images: {
     loader: "imgix",

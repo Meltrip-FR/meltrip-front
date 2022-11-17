@@ -1,12 +1,12 @@
-import SignupPage from "@/components/auth/signup/seminar";
+import SignupSeminarPage from "@/components/auth/signup/seminar";
 import Layout from "pages";
 
-const Signup = () => {
+const SignupSeminar = () => {
   return (
     <Layout>
-      <SignupPage />
+      <SignupSeminarPage />
     </Layout>
   );
 };
 
-export default Signup;
+export default SignupSeminar;
