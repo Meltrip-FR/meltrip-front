@@ -5,7 +5,6 @@ const nextConfig = {
   compress: false,
   optimizeFonts: false,
   outDir: "out",
-  distDir: "out",
   ignoreDuringBuilds: true,
   images: {
     loader: "imgix",
