@@ -31,6 +31,7 @@ const confirm = () => {
         });
     }
   };
+  console.log("ok");
 
   const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
