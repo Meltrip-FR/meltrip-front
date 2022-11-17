@@ -13,10 +13,6 @@
         "destination": "/teams.html"
       },
       {
-        "source": "/confirm",
-        "destination": "/confirm.html"
-      },
-      {
         "source": "/confirm/[user_tag]",
         "destination": "/confirm/[user_tag].html"
       },
@@ -29,11 +25,11 @@
         "destination": "/blog.html"
       },
       {
-        "source": "/blog/articles/[id]",
+        "source": "/blog/article/[id]",
         "destination": "/blog/article/[id].html"
       },
       {
-        "source": "/blog/tags/[id]",
+        "source": "/blog/tag/[id]",
         "destination": "/blog/tag/[id].html"
       },
       {
