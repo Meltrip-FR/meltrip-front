@@ -7,7 +7,7 @@ import rootReducer from "./reducers";
 
 //Configure Persist
 const persistConfig = {
-  key: "root",
+  key: process.env.NEXT_PUBLIC_API_URL + "-root",
   storage,
   // blacklist: ["user"], //blacklisting a store attribute name, will not persist that store attribute.
   throttle: 500,

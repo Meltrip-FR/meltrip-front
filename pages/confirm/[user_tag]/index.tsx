@@ -12,18 +12,25 @@ const confirmEmail = () => {
   const loadData = async () => {
     setLoading(true);
     const userTag = router.query.user_tag;
-
     if (userTag) {
       const { data } = await axios.get(
         `${process.env.NEXT_PUBLIC_API_URL}/user/${userTag}/tag`
       );
-      if (!data.confirmEmail) {
+      if (!data?.confirmEmail) {
         await axios
           .put(`${process.env.NEXT_PUBLIC_API_URL}/user/${data.id}`, {
             confirmEmail: true,
           })
-          .then(({ data }) => {
-            dispatch(login({ login: true, ...data }));
+          .then(async (_res) => {
+            delete data.createdAt;
+            delete data.deletedAt;
+            delete data.updatedAt;
+            dispatch(
+              login({
+                login: true,
+                user: { ...data, roles: ["user"] },
+              })
+            );
             setLoading(false);
             router.push("/user/dashboard");
           })

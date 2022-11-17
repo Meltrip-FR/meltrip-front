@@ -122,6 +122,17 @@ const SignupPage = () => {
             </div>
             <div className="relative mb-4">
               <FormItem
+                name="password"
+                label="password"
+                value={formState.password}
+                style="bg-[#ECF3F2] px-2 py-2"
+                onChange={onFormChange}
+                disabled={false}
+                required={true}
+              />
+            </div>
+            <div className="relative mb-4">
+              <FormItem
                 type="phone"
                 name="phone"
                 value={formState.phone}

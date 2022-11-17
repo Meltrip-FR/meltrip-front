@@ -8,17 +8,17 @@ import { AuthSlice } from "types/auth";
 export const initialState: AuthSlice = {
   login: false,
   user: {
+    username: "",
+    civility: "",
     firstname: "",
     lastname: "",
     email: "",
     phone: "",
-    address: "",
-    city: "",
-    zip: 0,
     terms: false,
     newsletter: false,
     roles: ["user"],
     accessToken: "",
+    confirmEmail: false,
   },
 };
 
@@ -30,17 +30,17 @@ export const authSlice = createSlice({
       const load = action.payload;
       state.login = load.login;
       state.user.id = load.id;
-      state.user.firstname = load.firstname;
-      state.user.lastname = load.lastname;
-      state.user.email = load.email;
-      state.user.phone = load.phone;
-      state.user.address = load.address;
-      state.user.city = load.city;
-      state.user.zip = load.zip;
-      state.user.terms = load.terms;
-      state.user.newsletter = load.newsletter;
-      state.user.roles = load.roles;
-      state.user.accessToken = load.accessToken;
+      state.user.username = load.user?.username;
+      state.user.civility = load.user?.civility;
+      state.user.confirmEmail = load.user.confirmEmail;
+      state.user.firstname = load.user.firstname;
+      state.user.lastname = load.user.lastname;
+      state.user.email = load.user.email;
+      state.user.phone = load.user.phone;
+      state.user.terms = load.user.terms;
+      state.user.newsletter = load.user.newsletter;
+      state.user.roles = load.user.roles;
+      state.user.accessToken = load.user.accessToken;
     },
     logout: (state: any) => {
       state.login = false;
