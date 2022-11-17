@@ -21,7 +21,9 @@ const Modal = ({ type, showModal, setShowModal }: any) => {
           className="bg-[#C05E37] text-white hover:bg-[#9e573b] text-xl font-bold uppercase px-12 py-5 shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
           type="button"
           onClick={() =>
-            !auth.login ? router.push("/auth/signup") : setShowModal(true)
+            !auth.login
+              ? router.push("/auth/seminar/signup")
+              : setShowModal(true)
           }
         >
           CRÉONS TON SÉMINAIRE

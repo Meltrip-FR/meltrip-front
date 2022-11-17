@@ -13,6 +13,18 @@
         "destination": "/teams.html"
       },
       {
+        "source": "/confirm",
+        "destination": "/confirm.html"
+      },
+      {
+        "source": "/confirm/[user_tag]",
+        "destination": "/confirm/[user_tag].html"
+      },
+      {
+        "source": "/confirm/[user_tag]/[password]",
+        "destination": "/confirm/[user_tag]/[password].html"
+      },
+      {
         "source": "/blog",
         "destination": "/blog.html"
       },
@@ -30,7 +42,7 @@
       },
       {
         "source": "/help",
-        "destination": "/help/.html"
+        "destination": "/help.html"
       },
       {
         "source": "/auth/signin",

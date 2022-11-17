@@ -69,6 +69,17 @@ const ThreeSignup = ({
         value={formState.nameManager}
         onChange={onFormChange}
       />
+      {/* EMAIL */}
+      <p className="mt-[48px] text-[20px] font-semibold leading-7 font-poppins">
+        Email du manager
+      </p>
+      <input
+        type="text"
+        className="py-3 px-4 pl-9 pr-16 block w-full shadow-sm text-sm focus:z-10 border-gray-500 border mt-5"
+        name="email"
+        value={formState.emailManager}
+        onChange={onFormChange}
+      />
       {/* billingManager */}
       <p className="mt-[48px] text-[20px] font-semibold leading-7 font-poppins">
         Êtes-vous le responsable de facturation ?
@@ -148,7 +159,16 @@ const ThreeSignup = ({
       </div>
       {/* Siret */}
       <p className="mt-[40px] text-[20px] font-semibold leading-7 font-poppins">
-        SIRET de l’entreprise
+        SIRET de l’entreprise{" "}
+        <span
+          className={`${
+            formState.siretCompany !== 14 ? "text-red-500" : "text-green-500"
+          }`}
+        >
+          {formState.siretCompany === 14
+            ? "Success"
+            : "vérifier le votre numéro de siret"}
+        </span>
       </p>
       <input
         type="text"
