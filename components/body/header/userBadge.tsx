@@ -36,11 +36,7 @@ export const UserBadge = () => {
           className="flex items-center text-meltrip-primary text-lg tracking-wider pr-5 uppercase"
           onClick={() => setOpenMenu(!openMenu)}
         >
-          <span>
-            {auth.user.firstname &&
-              auth.user.firstname + " " + auth.user.lastname &&
-              auth.user.lastname}
-          </span>
+          <span>{auth.user.username}</span>
           {openMenu ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
         </button>
         {openMenu && (

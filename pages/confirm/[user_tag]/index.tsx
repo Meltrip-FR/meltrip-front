@@ -12,13 +12,14 @@ const confirmEmail = () => {
   const loadData = async () => {
     setLoading(true);
     const userTag = router.query.user_tag;
+
     if (userTag) {
       const { data } = await axios.get(
         `${process.env.NEXT_PUBLIC_API_URL}/user/${userTag}/tag`
       );
-      if (!data?.confirmEmail) {
+      if (data.confirmEmail === null) {
         await axios
-          .put(`${process.env.NEXT_PUBLIC_API_URL}/user/${data.id}`, {
+          .put(`${process.env.NEXT_PUBLIC_API_URL}/user/confirm/${data.id}`, {
             confirmEmail: true,
           })
           .then(async (_res) => {
@@ -37,15 +38,15 @@ const confirmEmail = () => {
           .catch((error) => console.error(error.response.data.message));
       } else {
         dispatch(logout());
-        router.push("/");
         setLoading(false);
+        router.push("/");
       }
     }
   };
 
   useEffect(() => {
     loadData().catch((e) => console.error(e));
-  }, [router.query]);
+  }, [router.query.user_tag]);
 
   return <h1>{loading && "Loading..."}</h1>;
 };

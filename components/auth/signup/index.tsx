@@ -13,14 +13,10 @@ const SignupPage = () => {
     message: "",
   });
   const [formState, setFormState] = useState({
-    firstname: "",
-    lastname: "",
+    username: "",
     email: "",
     password: "",
     phone: "",
-    address: "",
-    city: "",
-    zip: 0,
     terms: true, // no add
     newsletter: false, // no add
     roles: ["user"],
@@ -88,20 +84,9 @@ const SignupPage = () => {
             </span>
             <div className="relative mb-4">
               <FormItem
-                name="firstname"
-                label="firstname"
-                value={formState.firstname}
-                style="bg-[#ECF3F2] px-2 py-2"
-                onChange={onFormChange}
-                disabled={false}
-                required={true}
-              />
-            </div>
-            <div className="relative mb-4">
-              <FormItem
-                name="lastname"
-                label="lastname"
-                value={formState.lastname}
+                name="username"
+                label="username"
+                value={formState.username}
                 style="bg-[#ECF3F2] px-2 py-2"
                 onChange={onFormChange}
                 disabled={false}
@@ -122,6 +107,7 @@ const SignupPage = () => {
             </div>
             <div className="relative mb-4">
               <FormItem
+                type="password"
                 name="password"
                 label="password"
                 value={formState.password}
@@ -137,42 +123,6 @@ const SignupPage = () => {
                 name="phone"
                 value={formState.phone}
                 label="phone"
-                style="bg-[#ECF3F2] px-2 py-2"
-                onChange={onFormChange}
-                disabled={false}
-                required={true}
-              />
-            </div>
-            <div className="relative mb-4">
-              <FormItem
-                type="address"
-                name="address"
-                value={formState.address}
-                label="address"
-                style="bg-[#ECF3F2] px-2 py-2"
-                onChange={onFormChange}
-                disabled={false}
-                required={true}
-              />
-            </div>
-            <div className="relative mb-4">
-              <FormItem
-                type="city"
-                name="city"
-                value={formState.city}
-                label="city"
-                style="bg-[#ECF3F2] px-2 py-2"
-                onChange={onFormChange}
-                disabled={false}
-                required={true}
-              />
-            </div>
-            <div className="relative mb-4">
-              <FormItem
-                type="zip"
-                name="zip"
-                value={formState.zip}
-                label="zip"
                 style="bg-[#ECF3F2] px-2 py-2"
                 onChange={onFormChange}
                 disabled={false}

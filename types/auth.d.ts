@@ -4,8 +4,6 @@ export interface AuthSlice {
     id?: string;
     username?: string;
     civility?: string;
-    firstname?: string;
-    lastname?: string;
     email: string;
     phone: string;
     terms: boolean;

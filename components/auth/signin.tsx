@@ -36,11 +36,15 @@ const SigninPage = () => {
       .post(`${process.env.NEXT_PUBLIC_API_URL}/auth/signin`, formState)
       .then(({ data }) => {
         const { payload } = dispatch(login({ login: true, ...data }));
+        console.log({ payload });
         if (payload.id) {
           router.push("/user/dashboard");
         }
       })
-      .catch((error) => setRequestMessage(error.response.data.message));
+      .catch((error) => {
+        console.log({ error });
+        setRequestMessage(error.response.data.message);
+      });
   }
 
   return (
