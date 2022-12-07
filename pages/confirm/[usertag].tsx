@@ -4,21 +4,24 @@ import axios from "axios";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
-const confirmEmail = () => {
+const ConfirmEmailPage = () => {
   const router = useRouter();
   const dispatch = useAppDispatch();
   const [loading, setLoading] = useState(false);
+  const userTag = router.query.usertag;
 
   const loadData = async () => {
+    console.log("OK");
     setLoading(true);
-    const userTag = router.query.usertag;
 
     if (userTag) {
+      console.log("USERTAG");
       const { data } = await axios.get(
         `${process.env.NEXT_PUBLIC_API_URL}/user/${userTag}/tag`
       );
+
       if (data.confirmEmail === null) {
-        await axios
+        axios
           .put(`${process.env.NEXT_PUBLIC_API_URL}/user/confirm/${data.id}`, {
             confirmEmail: true,
           })
@@ -46,9 +49,9 @@ const confirmEmail = () => {
 
   useEffect(() => {
     loadData().catch((e) => console.error(e));
-  }, [router.query.usertag]);
+  }, [userTag]);
 
   return <h1>{loading && "Loading..."}</h1>;
 };
 
-export default confirmEmail;
+export default ConfirmEmailPage;

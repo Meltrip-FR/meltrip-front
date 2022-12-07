@@ -2,7 +2,7 @@ import axios from "axios";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
-const confirm = () => {
+const ConfirmForgotPasswordPage = () => {
   const router = useRouter();
 
   const [id, setId] = useState<string>("");
@@ -64,4 +64,4 @@ const confirm = () => {
   );
 };
 
-export default confirm;
+export default ConfirmForgotPasswordPage;
