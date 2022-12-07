@@ -54,7 +54,7 @@ const SignupPage = () => {
     await axios(config)
       .then(async (response: any) => {
         if (response.data.etablissement.siren) {
-          //add Organization
+          //Add Organization
           const addOrganizations = await axios.post(
             `${process.env.NEXT_PUBLIC_API_URL}/organization/`,
             {}
@@ -70,6 +70,7 @@ const SignupPage = () => {
             }
           );
           console.log({ addUsers });
+
           // seminars
           const addSeminar = await axios.post(
             `${process.env.NEXT_PUBLIC_API_URL}/seminar/`,
