@@ -12,7 +12,7 @@ const confirm = () => {
 
   const loadData = async () => {
     const res = await axios.get(
-      `${process.env.NEXT_PUBLIC_API_URL}/user/${router.query.user_tag}/tag`
+      `${process.env.NEXT_PUBLIC_API_URL}/user/${router.query.usertag}/tag`
     );
     const data = await res.data;
 

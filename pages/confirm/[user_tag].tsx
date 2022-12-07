@@ -11,7 +11,7 @@ const confirmEmail = () => {
 
   const loadData = async () => {
     setLoading(true);
-    const userTag = router.query.user_tag;
+    const userTag = router.query.usertag;
 
     if (userTag) {
       const { data } = await axios.get(
@@ -46,7 +46,7 @@ const confirmEmail = () => {
 
   useEffect(() => {
     loadData().catch((e) => console.error(e));
-  }, [router.query.user_tag]);
+  }, [router.query.usertag]);
 
   return <h1>{loading && "Loading..."}</h1>;
 };
