@@ -20,25 +20,6 @@ class MyDocument extends Document {
           <meta name="twitter:title" content={titleBase} />
           <meta name="twitter:description" content={desc} />
           <meta name="twitter:image" content={imgUrl} />
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `window.dataLayer = window.dataLayer || [];`,
-            }}
-          />
-          <script
-            async
-            src="https://www.googletagmanager.com/gtag/js?id=G-EBJFPBQ4GX"
-          />
-          <script id="google-analytics">
-            {`
-              window.dataLayer = window.dataLayer || [];
-              function gtag() {
-                dataLayer.push(arguments);
-              } 
-              gtag('js', new Date());
-              gtag('config', 'G-EBJFPBQ4GX');
-            `}
-          </script>
         </Head>
         <body>
           <noscript
