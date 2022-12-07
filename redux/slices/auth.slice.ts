@@ -10,8 +10,6 @@ export const initialState: AuthSlice = {
   user: {
     username: "",
     civility: "",
-    firstname: "",
-    lastname: "",
     email: "",
     phone: "",
     terms: false,
