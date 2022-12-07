@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import Home from "pages";
 
 const ConfirmForgotPasswordPage = () => {
   const router = useRouter();
@@ -50,17 +51,19 @@ const ConfirmForgotPasswordPage = () => {
   }, [router.query]);
 
   return (
-    <div>
-      <h1>Change password your password ({email})</h1>
-      {requestMessage && <span>{requestMessage}</span>}
-      <input
-        type="password"
-        placeholder="password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <button onClick={(e) => handleSubmit(e)}>Submit</button>
-    </div>
+    <Home>
+      <div>
+        <h1>Change password your password ({email})</h1>
+        {requestMessage && <span>{requestMessage}</span>}
+        <input
+          type="password"
+          placeholder="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <button onClick={(e) => handleSubmit(e)}>Submit</button>
+      </div>
+    </Home>
   );
 };
 

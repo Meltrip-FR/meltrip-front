@@ -1,11 +1,11 @@
 import Teams from "@/components/teams";
-import Layout from "pages";
+import Home from "pages";
 
 const TeamsPage = () => {
   return (
-    <Layout>
+    <Home>
       <Teams />
-    </Layout>
+    </Home>
   );
 };
 

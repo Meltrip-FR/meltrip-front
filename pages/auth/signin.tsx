@@ -1,11 +1,11 @@
 import SigninPage from "@/components/auth/signin";
-import Layout from "pages";
+import Home from "pages";
 
 const Signin = () => {
   return (
-    <Layout>
+    <Home>
       <SigninPage />
-    </Layout>
+    </Home>
   );
 };
 

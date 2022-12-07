@@ -1,11 +1,11 @@
 import Contact from "@/components/contact";
-import Layout from "pages";
+import Home from "pages";
 
 const ContactPage = () => {
   return (
-    <Layout>
+    <Home>
       <Contact />
-    </Layout>
+    </Home>
   );
 };
 

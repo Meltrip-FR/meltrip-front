@@ -1,11 +1,11 @@
 import SignupSeminarPage from "@/components/auth/signup/seminar";
-import Layout from "pages";
+import Home from "pages";
 
 const SignupSeminar = () => {
   return (
-    <Layout>
+    <Home>
       <SignupSeminarPage />
-    </Layout>
+    </Home>
   );
 };
 

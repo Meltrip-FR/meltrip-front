@@ -1,11 +1,11 @@
 import Blog from "@/components/blog";
-import Layout from "pages";
+import Home from "pages";
 
 const BlogPage = () => {
   return (
-    <Layout>
+    <Home>
       <Blog />
-    </Layout>
+    </Home>
   );
 };
 

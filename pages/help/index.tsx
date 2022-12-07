@@ -1,11 +1,11 @@
 import Help from "@/components/help";
-import Layout from "pages";
+import Home from "pages";
 
 const HelpPage = () => {
   return (
-    <Layout>
+    <Home>
       <Help />
-    </Layout>
+    </Home>
   );
 };
 

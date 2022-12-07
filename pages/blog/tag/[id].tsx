@@ -1,11 +1,11 @@
 import Tag from "@/components/blog/tag";
-import Layout from "pages";
+import Home from "pages";
 
 const TagPage = () => {
   return (
-    <Layout>
+    <Home>
       <Tag />
-    </Layout>
+    </Home>
   );
 };
 

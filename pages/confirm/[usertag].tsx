@@ -3,6 +3,7 @@ import { login, logout } from "@/redux/slices/auth.slice";
 import axios from "axios";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import Home from "pages";
 
 const ConfirmEmailPage = () => {
   const router = useRouter();
@@ -51,7 +52,11 @@ const ConfirmEmailPage = () => {
     loadData().catch((e) => console.error(e));
   }, [userTag]);
 
-  return <h1>{loading && "Loading..."}</h1>;
+  return (
+    <Home>
+      <h1>{loading && "Loading..."}</h1>
+    </Home>
+  );
 };
 
 export default ConfirmEmailPage;

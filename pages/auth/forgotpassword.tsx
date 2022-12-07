@@ -1,12 +1,12 @@
-import ForgotPasswordPage from "@/components/auth/forgotPassword";
-import Layout from "pages";
+import ForgotPassword from "@/components/auth/forgotPassword";
+import Home from "pages";
 
-const ForgotPassword = () => {
+const ForgotPasswordPage = () => {
   return (
-    <Layout>
-      <ForgotPasswordPage />
-    </Layout>
+    <Home>
+      <ForgotPassword />
+    </Home>
   );
 };
 
-export default ForgotPassword;
+export default ForgotPasswordPage;

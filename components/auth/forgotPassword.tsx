@@ -1,7 +1,7 @@
 import axios from "axios";
 import { Fragment, useState } from "react";
 
-const ForgotPasswordPage = () => {
+const ForgotPassword = () => {
   const [email, setEmail] = useState<string>("");
   const [requestMessage, setRequestMessage] = useState<string>("");
 
@@ -32,4 +32,4 @@ const ForgotPasswordPage = () => {
   );
 };
 
-export default ForgotPasswordPage;
+export default ForgotPassword;
