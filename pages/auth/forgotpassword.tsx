@@ -1,7 +1,7 @@
 import ForgotPasswordPage from "@/components/auth/forgotPassword";
 import Layout from "pages";
 
-const Signin = () => {
+const ForgotPassword = () => {
   return (
     <Layout>
       <ForgotPasswordPage />
@@ -9,4 +9,4 @@ const Signin = () => {
   );
 };
 
-export default Signin;
+export default ForgotPassword;
