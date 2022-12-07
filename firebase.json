@@ -17,8 +17,8 @@
         "destination": "/confirm/[usertag].html"
       },
       {
-        "source": "/confirm/[password]",
-        "destination": "/confirm/[password].html"
+        "source": "/confirm/forgot/[password]",
+        "destination": "/confirm/forgot/[password].html"
       },
       {
         "source": "/blog",
