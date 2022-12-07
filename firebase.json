@@ -49,8 +49,8 @@
         "destination": "/confirm/forgot/[password].html"
       },
       {
-        "source": "/lalalolo",
-        "destination": "/lalalolo.html"
+        "source": "/lala",
+        "destination": "/lala.html"
       },
       {
         "source": "/auth/forgotpassword",
