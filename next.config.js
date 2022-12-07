@@ -4,7 +4,7 @@ const nextConfig = {
   reactStrictMode: true,
   compress: false,
   optimizeFonts: false,
-  outDir: "out",
+  distDir: "build",
   ignoreDuringBuilds: true,
   images: {
     loader: "imgix",
@@ -17,17 +17,17 @@ const nextConfig = {
   },
 };
 
-// const securityHeaders = [];
-// module.exports = {
-//   async headers() {
-//     return [
-//       {
-//         // Apply these headers to all routes in your application.
-//         source: "/:path*",
-//         headers: securityHeaders,
-//       },
-//     ];
-//   },
-// };
+const securityHeaders = [];
+module.exports = {
+  async headers() {
+    return [
+      {
+        // Apply these headers to all routes in your application.
+        source: "/:path*",
+        headers: securityHeaders,
+      },
+    ];
+  },
+};
 
 module.exports = nextConfig;
