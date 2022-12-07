@@ -4,7 +4,8 @@ const nextConfig = {
   reactStrictMode: true,
   compress: false,
   optimizeFonts: false,
-  outDir: "public",
+  distDir: "out",
+  ignoreDuringBuilds: true,
   images: {
     loader: "imgix",
     path: "https://meltrip.fr",
