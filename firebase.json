@@ -49,6 +49,10 @@
         "destination": "/auth/signup.html"
       },
       {
+        "source": "/auth/forgotpassword",
+        "destination": "/auth/forgotpassword.html"
+      },
+      {
         "source": "/user/accessibility",
         "destination": "/user/accessibility.html"
       },
