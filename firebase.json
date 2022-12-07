@@ -49,10 +49,6 @@
         "destination": "/confirm/forgot/[password].html"
       },
       {
-        "source": "/lala",
-        "destination": "/lala.html"
-      },
-      {
         "source": "/auth/forgotpassword",
         "destination": "/auth/forgotpassword.html"
       },

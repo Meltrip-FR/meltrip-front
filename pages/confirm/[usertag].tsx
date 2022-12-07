@@ -54,7 +54,7 @@ const ConfirmEmailPage = () => {
 
   return (
     <Home>
-      <h1>{loading && "Loading..."}</h1>
+      <h1>Loading: {loading && "Loading..."}</h1>
     </Home>
   );
 };
