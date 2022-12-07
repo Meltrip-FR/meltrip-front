@@ -13,14 +13,6 @@
         "destination": "/teams.html"
       },
       {
-        "source": "/confirm/[usertag]",
-        "destination": "/confirm/[usertag].html"
-      },
-      {
-        "source": "/confirm/forgot/[password]",
-        "destination": "/confirm/forgot/[password].html"
-      },
-      {
         "source": "/blog",
         "destination": "/blog.html"
       },
@@ -47,6 +39,14 @@
       {
         "source": "/auth/signup",
         "destination": "/auth/signup.html"
+      },
+      {
+        "source": "/confirm/[usertag]",
+        "destination": "/confirm/[usertag].html"
+      },
+      {
+        "source": "/confirm/forgot/[password]",
+        "destination": "/confirm/forgot/[password].html"
       },
       {
         "source": "/lalalolo",
