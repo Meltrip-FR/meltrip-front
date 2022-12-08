@@ -4,10 +4,12 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next",
     "build": "next build",
-    "export": "next export -o out",
-    "start": "next start",
+    "preexport": "yarn build",
+    "export": "next export",
+    "prestart": "yarn export",
+    "start": "serve out",
     "lint": "next lint"
   },
   "dependencies": {
@@ -29,7 +31,8 @@
     "react-svg": "^14.1.12",
     "react-toastify": "^8.2.0",
     "redux": "^4.1.2",
-    "redux-persist": "^6.0.0"
+    "redux-persist": "^6.0.0",
+    "serve": "^14.1.2"
   },
   "devDependencies": {
     "@types/node": "17.0.21",
