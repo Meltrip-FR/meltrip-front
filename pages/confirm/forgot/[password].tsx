@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Home from "pages";
 
 const ConfirmForgotPasswordPage = () => {
@@ -11,7 +11,7 @@ const ConfirmForgotPasswordPage = () => {
   const [password, setPassword] = useState<string>("");
   const [requestMessage, setRequestMessage] = useState<string>("");
 
-  const loadData = async () => {
+  const loadData = useCallback(async () => {
     const res = await axios.get(
       `${process.env.NEXT_PUBLIC_API_URL}/user/${router.query.usertag}/tag`
     );
@@ -31,7 +31,8 @@ const ConfirmForgotPasswordPage = () => {
           }
         });
     }
-  };
+  }, [router.query.password, router.query.usertag]);
+
   console.log("ok");
 
   const handleSubmit = async (e: { preventDefault: () => void }) => {
@@ -48,7 +49,7 @@ const ConfirmForgotPasswordPage = () => {
 
   useEffect(() => {
     loadData().catch((e) => console.error(e));
-  }, [router.query]);
+  }, [loadData, router.query]);
 
   return (
     <Home>

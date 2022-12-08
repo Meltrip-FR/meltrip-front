@@ -12,7 +12,7 @@ const OrganizationPage = () => {
     if (auth.login === false) {
       router.push("/");
     }
-  }, [auth.login]);
+  }, [auth.login, router]);
 
   return (
     <Layout>

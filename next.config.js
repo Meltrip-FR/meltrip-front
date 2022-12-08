@@ -5,9 +5,8 @@ const nextConfig = {
   compress: false,
   optimizeFonts: false,
   distDir: "out",
-  ignoreDuringBuilds: true,
   images: {
-    loader: "imgix",
+    loader: "default",
     path: "https://meltrip.fr",
     domains: [
       "https://meltrip.fr",

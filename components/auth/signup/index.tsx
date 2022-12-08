@@ -6,6 +6,7 @@ import { FormItem } from "@/components/utils/formItem";
 
 // Icons
 import SigninIcon from "@/components/assets/icons/auth/signin";
+import Link from "next/link";
 
 const SignupPage = () => {
   const [requestMessage, setRequestMessage] = useState<any>({
@@ -137,12 +138,12 @@ const SignupPage = () => {
             </button>
             <p className="text-md text-gray-500 mt-3 text-center">
               Déjà un compte ?{" "}
-              <a
+              <Link
                 href="/auth/signin"
                 className="text-meltrip-secondary hover:underline "
               >
                 Identifiez-vous
-              </a>
+              </Link>
             </p>
           </div>
         </div>

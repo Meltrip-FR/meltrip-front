@@ -266,12 +266,12 @@ const Form = ({ currentQuestion, setCurrentAnswer, setNextQuestion }: any) => {
 
   useEffect(() => {
     setCurrentAnswer(formData);
-  }, [formData]);
+  }, [formData, setCurrentAnswer]);
 
   useEffect((): any => {
     setFormData({});
     setNextQuestion(currentQuestion.nextQuestion);
-  }, [currentQuestion]);
+  }, [currentQuestion, setNextQuestion]);
 
   return (
     <div className="flex flex-col mt-3 h-72 w-80">
@@ -324,7 +324,7 @@ export const ListMcq = ({
   useEffect(() => {
     setSelectedAnswers(null);
     setNextQuestion(currentQuestion.nextQuestion);
-  }, [currentQuestion]);
+  }, [currentQuestion, setNextQuestion]);
 
   return (
     <div className="flex flex-row items-center justify-center align-center mt-5 w-full ">

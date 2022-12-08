@@ -77,9 +77,9 @@ const SecondSignup = ({
         <span className="text-gray-400">(facultatif)</span>
       </p>
       <div className="flex flex-col mt-5">
-        {formListSleep.map((sleepSuggest) => {
+        {formListSleep.map((sleepSuggest, index) => {
           return (
-            <div>
+            <div key={index}>
               <input
                 className="accent-meltrip-primary"
                 type="radio"
@@ -116,9 +116,9 @@ const SecondSignup = ({
         Comment voulez-vous être accompagné ?
       </p>
       <div className="mt-5">
-        {formAccompanied.map((element) => {
+        {formAccompanied.map((element, index) => {
           return (
-            <div>
+            <div key={index}>
               <input
                 className="accent-meltrip-primary"
                 type="radio"

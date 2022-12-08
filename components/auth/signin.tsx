@@ -111,12 +111,12 @@ const SigninPage = () => {
           </button>
           <p className="text-md text-center text-gray-500 mt-3">
             Nouveau sur Meltrip ?{" "}
-            <a
+            <Link
               href="/auth/signup"
               className="text-meltrip-secondary hover:underline"
             >
               Créer votre compte
-            </a>
+            </Link>
           </p>
         </div>
       </div>

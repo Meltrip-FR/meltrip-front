@@ -44,14 +44,14 @@ const Crouch = ({
     <path
       d="M729.222 134.864V311.052C729.222 316.082 726.263 319.041 720.198 320.076C714.133 321.112 699.783 321.999 699.783 321.999"
       stroke="#4A1A1A"
-      stroke-width="2"
-      stroke-miterlimit="10"
+      strokeWidth="2"
+      strokeMiterlimit="10"
     />
     <path
       d="M729.222 134.864V311.052C729.222 316.082 732.181 319.041 738.246 320.076C744.311 321.112 758.661 321.999 758.661 321.999"
       stroke="#4A1A1A"
-      stroke-width="2"
-      stroke-miterlimit="10"
+      strokeWidth="2"
+      strokeMiterlimit="10"
     />
     <path
       d="M853.042 126.283H605.698V137.822H853.042V126.283Z"
@@ -147,34 +147,34 @@ const Crouch = ({
     <path
       d="M615.609 351.142C618.272 350.994 620.343 353.213 620.343 356.172C620.343 358.983 618.124 361.498 615.461 361.646C612.798 361.793 610.727 359.574 610.727 356.616C610.727 353.657 612.798 351.142 615.609 351.142Z"
       stroke="black"
-      stroke-width="0.9675"
-      stroke-miterlimit="10"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="0.9675"
+      strokeMiterlimit="10"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M609.1 378.51L612.798 373.628"
       stroke="black"
-      stroke-width="0.9675"
-      stroke-miterlimit="10"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="0.9675"
+      strokeMiterlimit="10"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M611.023 382.653L614.869 377.771"
       stroke="black"
-      stroke-width="0.9675"
-      stroke-miterlimit="10"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="0.9675"
+      strokeMiterlimit="10"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M613.094 387.09L617.236 382.061"
       stroke="black"
-      stroke-width="0.9675"
-      stroke-miterlimit="10"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="0.9675"
+      strokeMiterlimit="10"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M606.881 43.8843C611.467 55.1272 623.745 61.9322 634.692 65.6305C635.284 65.7784 635.58 65.0388 634.988 64.7429C624.189 61.1925 612.058 54.5355 607.62 43.4405C607.473 42.9967 606.733 43.2926 606.881 43.8843Z"
@@ -381,34 +381,34 @@ const Crouch = ({
     <path
       d="M591.496 356.911C588.241 356.763 585.578 359.574 585.726 363.125C585.874 366.675 588.537 369.634 591.792 369.634C595.046 369.782 597.709 366.971 597.561 363.42C597.413 360.018 594.75 357.059 591.496 356.911Z"
       stroke="black"
-      stroke-width="0.9675"
-      stroke-miterlimit="10"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="0.9675"
+      strokeMiterlimit="10"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M599.632 390.345L594.898 384.575"
       stroke="black"
-      stroke-width="0.9675"
-      stroke-miterlimit="10"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="0.9675"
+      strokeMiterlimit="10"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M597.265 395.522L592.531 389.605"
       stroke="black"
-      stroke-width="0.9675"
-      stroke-miterlimit="10"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="0.9675"
+      strokeMiterlimit="10"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M594.75 400.996L589.72 394.782"
       stroke="black"
-      stroke-width="0.9675"
-      stroke-miterlimit="10"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="0.9675"
+      strokeMiterlimit="10"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M505.103 164.745C505.103 164.745 524.926 180.574 531.139 198.77L505.103 164.745Z"
@@ -905,20 +905,20 @@ const Crouch = ({
     <path
       d="M84.2322 287.235C84.2322 287.235 102.28 289.602 127.725 304.395C140.299 311.792 218.704 367.563 218.704 367.563"
       stroke="#4E6A89"
-      stroke-width="0.75"
-      stroke-miterlimit="10"
+      strokeWidth="0.75"
+      strokeMiterlimit="10"
     />
     <path
       d="M282.315 287.235C282.315 287.235 264.267 289.602 238.823 304.395C226.248 311.792 183.791 342.118 183.791 342.118"
       stroke="#4E6A89"
-      stroke-width="0.75"
-      stroke-miterlimit="10"
+      strokeWidth="0.75"
+      strokeMiterlimit="10"
     />
     <path
       d="M148.879 368.45C162.341 371.853 183.052 374.072 183.052 374.072"
       stroke="#4E6A89"
-      stroke-width="0.75"
-      stroke-miterlimit="10"
+      strokeWidth="0.75"
+      strokeMiterlimit="10"
     />
     <path
       d="M130.387 170.516C129.796 207.943 117.961 253.654 113.819 278.063C126.393 290.638 163.968 297.147 185.567 298.478C207.165 299.81 247.403 294.484 264.415 277.62C264.415 277.62 246.663 166.078 238.971 150.101L209.384 117.556L166.039 121.402L130.387 170.516Z"
@@ -939,8 +939,8 @@ const Crouch = ({
     <path
       d="M128.908 193.002C128.908 193.002 132.902 173.77 140.003 157.202"
       stroke="#A87162"
-      stroke-width="0.5"
-      stroke-miterlimit="10"
+      strokeWidth="0.5"
+      strokeMiterlimit="10"
     />
     <path
       d="M240.598 139.598C242.077 139.45 244 138.414 245.48 139.154C246.811 139.746 247.551 140.929 249.178 141.225C250.066 141.373 250.361 140.041 249.474 139.894C247.847 139.598 247.107 138.118 245.48 137.675C243.704 137.231 242.225 138.118 240.45 138.118C239.71 138.266 239.71 139.598 240.598 139.598Z"
@@ -1234,9 +1234,9 @@ const Crouch = ({
     <path
       d="M128.612 225.25C132.606 215.487 140.743 180.279 145.181 169.036"
       stroke="white"
-      stroke-width="0.5"
-      stroke-miterlimit="10"
-      stroke-linejoin="round"
+      strokeWidth="0.5"
+      strokeMiterlimit="10"
+      strokeLinejoin="round"
     />
   </svg>
 );

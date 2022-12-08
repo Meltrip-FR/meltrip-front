@@ -13,6 +13,7 @@ import Instagram from "@/components/assets/icons/socials/instagram";
 import Facebook from "@/components/assets/icons/socials/facebook";
 import Linkedin from "@/components/assets/icons/socials/linkedin";
 import Twitter from "@/components/assets/icons/socials/twitter";
+import Link from "next/link";
 
 const Footer = () => {
   // const [firstName, setFirstName] = useState<string>("");
@@ -101,12 +102,12 @@ const Footer = () => {
                 </a>
               </li>
               <li className="pt-5">
-                <a
+                <Link
                   className="text-meltrip-textW hover:text-gray-50"
                   href="/help"
                 >
                   CGV & CGU
-                </a>
+                </Link>
               </li>
             </nav>
           </div>

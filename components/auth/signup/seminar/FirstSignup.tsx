@@ -168,8 +168,9 @@ const FirstSignup = ({ formState, setFormState, setNextPage }: any) => {
                 </p>
                 <div className="overflow-auto">
                   <ul className="mt-2 mx-10 overflow-y-auto h-32">
-                    {monthArray.map((month) => (
+                    {monthArray.map((month, index) => (
                       <li
+                        key={index}
                         className={`p-1 cursor-pointer hover:text-slate-500 ${
                           formState.departurePeriod ===
                             month.name + " " + date.getFullYear() &&
@@ -220,7 +221,7 @@ const FirstSignup = ({ formState, setFormState, setNextPage }: any) => {
                       })
                     }
                   >
-                    Moins d'une semaine
+                    Moins d{"'"}une semaine
                   </li>
                   <li
                     className={`${

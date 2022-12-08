@@ -1,6 +1,7 @@
 import axios from "axios";
+import Image from "next/image";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import ReactPaginate from "react-paginate";
 
 const BlogPage = () => {
@@ -12,56 +13,60 @@ const BlogPage = () => {
   const [posts, setAllPosts] = useState<any>([]);
   const [pageCount, setPageCount] = useState(0);
 
-  const getPostData = (data: any) => {
-    return data.length === 0 ? (
-      <div className="flex flex-col items-center justify-center">
-        <h2 className="tracking-widest text-2xl title-font font-medium text-gray-400 mt-5">
-          Data not Found
-        </h2>
-      </div>
-    ) : (
-      data.map((item: any) => (
-        <div className="p-4 md:w-1/3" key={item.id}>
-          <div className="h-full overflow-hidden">
-            <img
-              className="lg:h-48 md:h-36 w-full object-cover object-center"
-              src={item?.pictureURL}
-              alt="blog"
-            />
-            <div className="p-6">
-              <h2 className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">
-                CATEGORY
-              </h2>
-              <h1 className="title-font text-lg font-medium text-gray-900 mb-3">
-                {item.title} {item.id}
-              </h1>
-              <p className="leading-relaxed mb-3">{item.description}</p>
-              <div className="flex items-center flex-wrap">
-                <div
-                  className="text-meltrip-primary inline-flex items-center md:mb-2 lg:mb-0 cursor-pointer hover:underline"
-                  onClick={() => router.push(`/blog/article/${item.id}`)}
-                >
-                  En savoir plus
-                  <svg
-                    className="w-4 h-4 ml-2"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+  const getPostData = useCallback(
+    async (data: any) => {
+      return data.length === 0 ? (
+        <div className="flex flex-col items-center justify-center">
+          <h2 className="tracking-widest text-2xl title-font font-medium text-gray-400 mt-5">
+            Data not Found
+          </h2>
+        </div>
+      ) : (
+        data.map((item: any) => (
+          <div className="p-4 md:w-1/3" key={item.id}>
+            <div className="h-full overflow-hidden">
+              <Image
+                className="lg:h-48 md:h-36 w-full object-cover object-center"
+                src={item?.pictureURL}
+                alt="blog"
+              />
+              <div className="p-6">
+                <h2 className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">
+                  CATEGORY
+                </h2>
+                <h1 className="title-font text-lg font-medium text-gray-900 mb-3">
+                  {item.title} {item.id}
+                </h1>
+                <p className="leading-relaxed mb-3">{item.description}</p>
+                <div className="flex items-center flex-wrap">
+                  <div
+                    className="text-meltrip-primary inline-flex items-center md:mb-2 lg:mb-0 cursor-pointer hover:underline"
+                    onClick={() => router.push(`/blog/article/${item.id}`)}
                   >
-                    <path d="M5 12h14"></path>
-                    <path d="M12 5l7 7-7 7"></path>
-                  </svg>
+                    En savoir plus
+                    <svg
+                      className="w-4 h-4 ml-2"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      fill="none"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M5 12h14"></path>
+                      <path d="M12 5l7 7-7 7"></path>
+                    </svg>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      ))
-    );
-  };
+        ))
+      );
+    },
+    [router]
+  );
+
   const PostView = () => {
     return (
       <section className="text-gray-600 body-font">
@@ -89,23 +94,26 @@ const BlogPage = () => {
     );
   };
 
-  const getAllPosts = async (url: string) => {
-    try {
-      const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}${url}`);
-      const data = res.data;
-      const slice = data
-        .filter((i: any) => i.status === true)
-        .slice(offset - 1, offset - 1 + postsPerPage);
-      // For displaying Data
-      const postData = getPostData(slice);
-      // Using Hooks to set value
-      setAllPosts(postData);
-      setPageCount(Math.ceil(data.length / postsPerPage));
-    } catch (error: any) {
-      error?.response?.data?.message &&
-        console.error(error.response.data.message);
-    }
-  };
+  const getAllPosts = useCallback(
+    async (url: string) => {
+      try {
+        const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}${url}`);
+        const data = res.data;
+        const slice = data
+          .filter((i: any) => i.status === true)
+          .slice(offset - 1, offset - 1 + postsPerPage);
+        // For displaying Data
+        const postData = getPostData(slice);
+        // Using Hooks to set value
+        setAllPosts(postData);
+        setPageCount(Math.ceil(data.length / postsPerPage));
+      } catch (error: any) {
+        error?.response?.data?.message &&
+          console.error(error.response.data.message);
+      }
+    },
+    [getPostData, offset, postsPerPage]
+  );
 
   const handlePageClick = (event: any) => {
     const selectedPage = event.selected;
@@ -114,7 +122,7 @@ const BlogPage = () => {
 
   useEffect(() => {
     getAllPosts(openTab);
-  }, [offset && openTab]);
+  }, [getAllPosts, openTab]);
 
   return (
     <section className="text-gray-900 body-font">

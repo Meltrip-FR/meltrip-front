@@ -217,12 +217,14 @@ const ThreeSignup = ({
           }
         />
         <label className="ml-3">
-          <span className="mt-[48px] text-[20px]">J'accepte les CGU & CGV</span>
+          <span className="mt-[48px] text-[20px]">
+            J{"'"}accepte les CGU & CGV
+          </span>
         </label>
       </div>
       <p>
-        Conformément à la loi "Informatique et Libertés", vous disposez d’un
-        droit d’accès et de rectification aux données vous concernant, et
+        Conformément à la loi {"'"}Informatique et Libertés{"'"}, vous disposez
+        d’un droit d’accès et de rectification aux données vous concernant, et
         d’opposition à leur traitement.{" "}
         <span className="text-meltrip-primary underline cursor-pointer">
           En savoir plus

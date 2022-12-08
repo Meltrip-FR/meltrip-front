@@ -10,36 +10,36 @@ export const Help = () => {
           <div className="flex text-left justify-between">
             <div>
               <p>
-                Soucieux de la qualité de vie et de l'expérience en entreprise,
-                nous concevons du mobilier acoustique et connecté adaptés aux
-                nouveaux modes de travail.
+                Soucieux de la qualité de vie et de l{"'"}expérience en
+                entreprise, nous concevons du mobilier acoustique et connecté
+                adaptés aux nouveaux modes de travail.
               </p>
               <p className="mt-5">
-                Soucieux de la qualité de vie et de l'expérience en entreprise,
-                nous concevons du mobilier acoustique et connecté adaptés aux
-                nouveaux modes de travail.
+                Soucieux de la qualité de vie et de l{"'"}expérience en
+                entreprise, nous concevons du mobilier acoustique et connecté
+                adaptés aux nouveaux modes de travail.
               </p>
               <p className="mt-5">
-                Soucieux de la qualité de vie et de l'expérience en entreprise,
-                nous concevons du mobilier acoustique et connecté adaptés aux
-                nouveaux modes de travail.
+                Soucieux de la qualité de vie et de l{"'"}expérience en
+                entreprise, nous concevons du mobilier acoustique et connecté
+                adaptés aux nouveaux modes de travail.
               </p>
             </div>
             <div>
               <p>
-                Soucieux de la qualité de vie et de l'expérience en entreprise,
-                nous concevons du mobilier acoustique et connecté adaptés aux
-                nouveaux modes de travail.
+                Soucieux de la qualité de vie et de l{"'"}expérience en
+                entreprise, nous concevons du mobilier acoustique et connecté
+                adaptés aux nouveaux modes de travail.
               </p>
               <p className="mt-5">
-                Soucieux de la qualité de vie et de l'expérience en entreprise,
-                nous concevons du mobilier acoustique et connecté adaptés aux
-                nouveaux modes de travail.
+                Soucieux de la qualité de vie et de l{"'"}expérience en
+                entreprise, nous concevons du mobilier acoustique et connecté
+                adaptés aux nouveaux modes de travail.
               </p>
               <p className="mt-5">
-                Soucieux de la qualité de vie et de l'expérience en entreprise,
-                nous concevons du mobilier acoustique et connecté adaptés aux
-                nouveaux modes de travail.
+                Soucieux de la qualité de vie et de l{"'"}expérience en
+                entreprise, nous concevons du mobilier acoustique et connecté
+                adaptés aux nouveaux modes de travail.
               </p>
             </div>
           </div>
@@ -47,19 +47,19 @@ export const Help = () => {
           <div className="flex text-left justify-between">
             <div>
               <p>
-                Soucieux de la qualité de vie et de l'expérience en entreprise,
-                nous concevons du mobilier acoustique et connecté adaptés aux
-                nouveaux modes de travail.
+                Soucieux de la qualité de vie et de l{"'"}expérience en
+                entreprise, nous concevons du mobilier acoustique et connecté
+                adaptés aux nouveaux modes de travail.
               </p>
               <p className="mt-5">
-                Soucieux de la qualité de vie et de l'expérience en entreprise,
-                nous concevons du mobilier acoustique et connecté adaptés aux
-                nouveaux modes de travail.
+                Soucieux de la qualité de vie et de l{"'"}expérience en
+                entreprise, nous concevons du mobilier acoustique et connecté
+                adaptés aux nouveaux modes de travail.
               </p>
               <p className="mt-5">
-                Soucieux de la qualité de vie et de l'expérience en entreprise,
-                nous concevons du mobilier acoustique et connecté adaptés aux
-                nouveaux modes de travail.
+                Soucieux de la qualité de vie et de l{"'"}expérience en
+                entreprise, nous concevons du mobilier acoustique et connecté
+                adaptés aux nouveaux modes de travail.
               </p>
             </div>
           </div>
@@ -72,19 +72,19 @@ export const Help = () => {
           <div className="flex text-left justify-between">
             <div>
               <p>
-                Soucieux de la qualité de vie et de l'expérience en entreprise,
-                nous concevons du mobilier acoustique et connecté adaptés aux
-                nouveaux modes de travail.
+                Soucieux de la qualité de vie et de l{"'"}expérience en
+                entreprise, nous concevons du mobilier acoustique et connecté
+                adaptés aux nouveaux modes de travail.
               </p>
               <p className="mt-5">
-                Soucieux de la qualité de vie et de l'expérience en entreprise,
-                nous concevons du mobilier acoustique et connecté adaptés aux
-                nouveaux modes de travail.
+                Soucieux de la qualité de vie et de l{"'"}expérience en
+                entreprise, nous concevons du mobilier acoustique et connecté
+                adaptés aux nouveaux modes de travail.
               </p>
               <p className="mt-5">
-                Soucieux de la qualité de vie et de l'expérience en entreprise,
-                nous concevons du mobilier acoustique et connecté adaptés aux
-                nouveaux modes de travail.
+                Soucieux de la qualité de vie et de l{"'"}expérience en
+                entreprise, nous concevons du mobilier acoustique et connecté
+                adaptés aux nouveaux modes de travail.
               </p>
             </div>
           </div>
@@ -92,19 +92,19 @@ export const Help = () => {
           <div className="flex text-left justify-between">
             <div>
               <p>
-                Soucieux de la qualité de vie et de l'expérience en entreprise,
-                nous concevons du mobilier acoustique et connecté adaptés aux
-                nouveaux modes de travail.
+                Soucieux de la qualité de vie et de l{"'"}expérience en
+                entreprise, nous concevons du mobilier acoustique et connecté
+                adaptés aux nouveaux modes de travail.
               </p>
               <p className="mt-5">
-                Soucieux de la qualité de vie et de l'expérience en entreprise,
-                nous concevons du mobilier acoustique et connecté adaptés aux
-                nouveaux modes de travail.
+                Soucieux de la qualité de vie et de l{"'"}expérience en
+                entreprise, nous concevons du mobilier acoustique et connecté
+                adaptés aux nouveaux modes de travail.
               </p>
               <p className="mt-5">
-                Soucieux de la qualité de vie et de l'expérience en entreprise,
-                nous concevons du mobilier acoustique et connecté adaptés aux
-                nouveaux modes de travail.
+                Soucieux de la qualité de vie et de l{"'"}expérience en
+                entreprise, nous concevons du mobilier acoustique et connecté
+                adaptés aux nouveaux modes de travail.
               </p>
             </div>
           </div>
