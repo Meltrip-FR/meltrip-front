@@ -9,7 +9,7 @@ const ConfirmEmailPage = () => {
   const router = useRouter();
   const dispatch = useAppDispatch();
   const [loading, setLoading] = useState(false);
-  const userTag = router.query.usertag;
+  const userTag = router;
   console.log({ userTag });
   // const loadData = async () => {
   //   console.log("OK");
