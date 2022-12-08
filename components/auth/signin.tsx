@@ -9,6 +9,7 @@ import { login } from "@/redux/slices/auth.slice";
 import { FormItem } from "@/components/utils/formItem";
 import { useRouter } from "next/router";
 import SigninIcon from "@/components/assets/icons/auth/signin";
+import Link from "next/link";
 
 const SigninPage = () => {
   const router = useRouter();
@@ -98,9 +99,9 @@ const SigninPage = () => {
             />
           </div>
           <p className="text-xs text-right mb-4 text-gray-500">
-            <a href="/auth/forgotpassword" className="hover:underline">
+            <Link className="hover:underline" href="/auth/forgotpassword">
               Mot de passe oublié ?
-            </a>
+            </Link>
           </p>
           <button
             className="text-white bg-[#186E7A] border-0 py-2 px-8 focus:outline-none rounded text-lg"
