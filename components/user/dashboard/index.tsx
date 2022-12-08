@@ -27,8 +27,9 @@ const Dashboard = () => {
           </p>
         </div>
         <div className="flex flex-wrap -m-4">
-          {CardInfosList.map((item) => (
+          {CardInfosList.map((item, index) => (
             <div
+              key={index}
               className="flex items-stretch xl:w-1/3 md:w-1/2 p-4"
               onClick={() => router.push(item.url)}
             >

@@ -44,7 +44,7 @@ const Teams = () => {
               Notre objectif
             </h1>
             <p className="mb-3">
-              Soucieux de la qualité de vie et de l'expérience en séminaire,
+              Soucieux de la qualité de vie et de l{"'"}expérience en séminaire,
               nous réalisons des sémainaires basés sur l’objectif (ex: team
               building) et sur la personnalités des collaborateurs. Cette
               volonté se base sur le souhait de mettre le potentiel de chacun à

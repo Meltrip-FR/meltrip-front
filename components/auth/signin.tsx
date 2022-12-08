@@ -29,21 +29,36 @@ const SigninPage = () => {
     }
   };
 
-  async function handleSubmit(e: { preventDefault: () => void }) {
+  function handleSubmit(e: { preventDefault: () => void }) {
     e.preventDefault();
-    console.log({ formState });
-    await axios
+    axios
       .post(`${process.env.NEXT_PUBLIC_API_URL}/auth/signin`, formState)
       .then(({ data }) => {
-        const { payload } = dispatch(login({ login: true, ...data }));
-        console.log({ payload });
-        if (payload.id) {
+        console.log(data);
+        const user = data?.dataValues;
+        const { payload }: any = dispatch(
+          login({
+            login: true,
+            user: {
+              username: user?.username,
+              civility: user?.civility,
+              email: user?.email,
+              phone: user?.phone,
+              terms: true,
+              newsletter: user?.newsletter === 0 ? false : true,
+              roles: user?.roles,
+              accessToken: data?.accessToken,
+              confirmEmail: user?.confirmEmail,
+            },
+          })
+        );
+        if (payload.login) {
           router.push("/user/dashboard");
         }
       })
       .catch((error) => {
         console.log({ error });
-        setRequestMessage(error.response.data.message);
+        setRequestMessage("error.response?.data?.message");
       });
   }
 

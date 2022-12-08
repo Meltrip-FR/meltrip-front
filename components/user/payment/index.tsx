@@ -65,7 +65,10 @@ const Payments = () => {
             <div className="lg:w-3/5 md:w-1/2 md:pr-16 lg:pr-0 pr-0">
               <div className="grid grid-rows-4 gap-4">
                 {data.map((item) => (
-                  <div className="grid grid-cols-4 gap-3 border-b">
+                  <div
+                    key={item.id}
+                    className="grid grid-cols-4 gap-3 border-b"
+                  >
                     <div>
                       <h2 className="text-gray-900 text-lg title-font font-medium mb-2">
                         {item.id}e séminaire

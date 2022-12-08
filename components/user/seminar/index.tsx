@@ -1,4 +1,5 @@
 import BreadCrumbs from "@/components/utils/breadCrumbs";
+import Image from "next/image";
 import { useRouter } from "next/router";
 
 const Seminar = () => {
@@ -29,7 +30,7 @@ const Seminar = () => {
           {/* LIst user .map */}
           <div className="grid grid-cols-4 w-full">
             <div className="flex flex-col items-center mt-4">
-              <img
+              <Image
                 className="mb-3 w-24 h-24 rounded-full shadow-lg"
                 src="https://flowbite.com/docs/images/people/profile-picture-3.jpg"
                 alt="Bonnie image"
@@ -39,7 +40,7 @@ const Seminar = () => {
               </h3>
             </div>
             <div className="flex flex-col items-center mt-4">
-              <img
+              <Image
                 className="mb-3 w-24 h-24 rounded-full shadow-lg"
                 src="https://flowbite.com/docs/images/people/profile-picture-3.jpg"
                 alt="Bonnie image"
@@ -49,7 +50,7 @@ const Seminar = () => {
               </h3>
             </div>
             <div className="flex flex-col items-center mt-4">
-              <img
+              <Image
                 className="mb-3 w-24 h-24 rounded-full shadow-lg"
                 src="https://flowbite.com/docs/images/people/profile-picture-3.jpg"
                 alt="Bonnie image"

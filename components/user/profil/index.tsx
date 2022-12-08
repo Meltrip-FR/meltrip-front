@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Eyes from "@/components/assets/icons/eyes";
 import LockClose from "@/components/assets/icons/lockClose";
 import BreadCrumbs from "@/components/utils/breadCrumbs";
@@ -24,16 +24,17 @@ const Profil = () => {
     }
   };
 
-  const getUser = async () => {
+  const getUser = useCallback(async () => {
     const res = await axios.get(
       `${process.env.NEXT_PUBLIC_API_URL}/user/${auth.user.id}`
     );
     setFormState(res.data);
-  };
+  }, [auth.user.id]);
+
   useEffect(() => {
     //const getUser  = loadCompany();
-    getUser();
-  }, []);
+    getUser().catch((e) => console.error(e));
+  }, [getUser]);
 
   console.log(formState);
 
@@ -63,7 +64,7 @@ const Profil = () => {
                         Julie Dupont
                       </h2>
                       <p className="leading-relaxed text-base">
-                        Responsable chez "startup"
+                        Responsable chez {"startup"}
                       </p>
                     </div>
                   </div>

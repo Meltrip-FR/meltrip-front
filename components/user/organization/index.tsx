@@ -26,7 +26,7 @@ const Organization = () => {
                   <div className="flex flex-wrap justify-between text-left mt-6 sm:mt-0">
                     <div>
                       <h2 className="text-gray-900 text-lg title-font font-medium mb-2">
-                        Nom de l'entreprise
+                        Nom de l{"'"}entreprise
                       </h2>
                       <p className="leading-relaxed text-base">XXXXXXXXXX</p>
                     </div>
@@ -39,7 +39,7 @@ const Organization = () => {
                   <div className="flex flex-wrap justify-between text-left mt-6 sm:mt-0">
                     <div>
                       <h2 className="text-gray-900 text-lg title-font font-medium mb-2">
-                        Adresse de l'entreprise
+                        Adresse de l{"'"}entreprise
                       </h2>
                       <p className="leading-relaxed text-base">
                         3 boulecard de la seine
@@ -54,7 +54,7 @@ const Organization = () => {
                   <div className="flex flex-wrap justify-between text-left mt-6 sm:mt-0">
                     <div>
                       <h2 className="text-gray-900 text-lg title-font font-medium mb-2">
-                        Siren / Siret de l'entreprise
+                        Siren / Siret de l{"'"}entreprise
                       </h2>
                       <p className="leading-relaxed text-base">
                         151715645187154614767

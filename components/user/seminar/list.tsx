@@ -1,5 +1,6 @@
 import AddCircle from "@/components/assets/icons/addCircle";
 import BreadCrumbs from "@/components/utils/breadCrumbs";
+import Image from "next/image";
 import { useRouter } from "next/router";
 
 const SeminarList = () => {
@@ -30,7 +31,10 @@ const SeminarList = () => {
           </div>
         </div>
         <div className="relative w-1/3">
-          <img src="https://www.kindacode.com/wp-content/uploads/2022/06/night-sky.jpeg" />
+          <Image
+            alt="picture"
+            src="https://www.kindacode.com/wp-content/uploads/2022/06/night-sky.jpeg"
+          />
           <div className="absolute bottom-0 left-0 right-0 px-4 py-2 bg-meltrip-secondary opacity-70">
             <h3 className="text-xl text-white font-bold">
               Séminaire en cours de création...
@@ -43,7 +47,10 @@ const SeminarList = () => {
           </h1>
         </div>
         <div className="relative w-1/5">
-          <img src="https://www.kindacode.com/wp-content/uploads/2022/06/night-sky.jpeg" />
+          <Image
+            alt="picture"
+            src="https://www.kindacode.com/wp-content/uploads/2022/06/night-sky.jpeg"
+          />
           <div className="absolute bottom-0 left-0 right-0 px-4 py-2 bg-meltrip-secondary opacity-70">
             <h3 className="text-xl text-white font-bold">
               Séminaire du 12/03/2021
