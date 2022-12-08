@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "outdir",
+    "public": "out",
     "target": "default",
     "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
     "rewrites": [
