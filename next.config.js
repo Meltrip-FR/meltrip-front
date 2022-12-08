@@ -5,7 +5,12 @@ const nextConfig = {
   /* config options here */
   images: {
     loader: "akamai",
-    path: "",
+    path: "https://meltrip.fr",
+    domains: [
+      "https://meltrip.fr",
+      "https://www.meltrip.fr",
+      "http://localhost:3000",
+    ],
   },
 };
 
