@@ -48,7 +48,7 @@ const Modal = ({ type, showModal, setShowModal }: any) => {
                     src="/logo.webp"
                     alt="logo"
                     loading="lazy"
-                    width="128px"
+                    width="128"
                     height="73"
                   />
                   <div

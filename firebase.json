@@ -13,26 +13,6 @@
         "destination": "/teams.html"
       },
       {
-        "source": "/confirm/[usertag]",
-        "destination": "/confirm/[usertag].html"
-      },
-      {
-        "source": "/confirm/forgot/[password]",
-        "destination": "/confirm/forgot/[password].html"
-      },
-      {
-        "source": "/blog",
-        "destination": "/blog.html"
-      },
-      {
-        "source": "/blog/article/[id]",
-        "destination": "/blog/article/[id].html"
-      },
-      {
-        "source": "/blog/tag/[id]",
-        "destination": "/blog/tag/[id].html"
-      },
-      {
         "source": "/contact",
         "destination": "/contact.html"
       },
@@ -83,6 +63,26 @@
       {
         "source": "/404",
         "destination": "/404.html"
+      },
+      {
+        "source": "/blog",
+        "destination": "/blog.html"
+      },
+      {
+        "source": "/blog/article/[id]",
+        "destination": "/blog/article/[id].html"
+      },
+      {
+        "source": "/blog/tag/[id]",
+        "destination": "/blog/tag/[id].html"
+      },
+      {
+        "source": "/confirm/[usertag]",
+        "destination": "/confirm/[usertag].html"
+      },
+      {
+        "source": "/confirm/forgot/[password]",
+        "destination": "/confirm/forgot/[password].html"
       }
     ]
   }
