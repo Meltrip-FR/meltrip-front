@@ -5,7 +5,7 @@ import Modal from "./modal";
 import Header from "@/components/body/header";
 import Footer from "@/components/body/footer";
 
-//Icons
+//Iconsclear
 import ChevronDown from "@/components/assets/icons/chevronDown";
 import Happy from "@/components/assets/icons/happy";
 import Hello from "@/components/assets/icons/hello";
