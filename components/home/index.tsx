@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Link } from "react-scroll";
-import Image from "next/image";
 import Modal from "./modal";
 
 //Components
@@ -62,7 +61,7 @@ const HomePage = () => {
       </div>
       <div className="mt-16 rounded-lg h-64 overflow-hidden">
         <div className="flex justify-center items-center align-center object-cover object-center">
-          <Image
+          <img
             src="/logo2.webp"
             alt="logo secondary"
             width="300"

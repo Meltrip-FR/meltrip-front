@@ -1,6 +1,5 @@
 import { useState } from "react";
 import Preferences from "./preferences";
-import Image from "next/image";
 
 // import Cards from "./items/card";
 import Main from "./main";
@@ -44,7 +43,7 @@ const Modal = ({ type, showModal, setShowModal }: any) => {
             <div className="relative min-w-[50%] w-[50%] max-w-3xl">
               <div className="border-0 shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                 <div className="flex items-center align-center pl-[41.5%] p-5">
-                  <Image
+                  <img
                     src="/logo.webp"
                     alt="logo"
                     loading="lazy"

@@ -1,6 +1,5 @@
 import AddCircle from "@/components/assets/icons/addCircle";
 import BreadCrumbs from "@/components/utils/breadCrumbs";
-import Image from "next/image";
 import { useRouter } from "next/router";
 
 const SeminarList = () => {
@@ -31,7 +30,7 @@ const SeminarList = () => {
           </div>
         </div>
         <div className="relative w-1/3">
-          <Image
+          <img
             alt="picture"
             src="https://www.kindacode.com/wp-content/uploads/2022/06/night-sky.jpeg"
           />
@@ -47,7 +46,7 @@ const SeminarList = () => {
           </h1>
         </div>
         <div className="relative w-1/5">
-          <Image
+          <img
             alt="picture"
             src="https://www.kindacode.com/wp-content/uploads/2022/06/night-sky.jpeg"
           />

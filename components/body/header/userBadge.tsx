@@ -7,7 +7,6 @@ import { logout } from "@/redux/slices/auth.slice";
 import ArrowOut from "@/components/assets/icons/arrowOut";
 import ChevronUp from "@/components/assets/icons/chevronUp";
 import ChevronDown from "@/components/assets/icons/chevronDown";
-import Image from "next/image";
 
 export const UserBadge = () => {
   const router = useRouter();
@@ -23,7 +22,7 @@ export const UserBadge = () => {
   return (
     <Fragment>
       <div className="block relative">
-        <Image
+        <img
           referrerPolicy="no-referrer"
           alt="profil"
           src={

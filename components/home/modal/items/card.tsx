@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 const Cards = ({
   img,
   title,
@@ -17,7 +15,7 @@ const Cards = ({
 }) => {
   return (
     <div className="bg-gray-100 flex flex-col align-center items-center p-5 ">
-      <Image src={img} alt="picture" className="h-auto w-32" />
+      <img src={img} alt="picture" className="h-auto w-32" />
       <h1 className="text-xl text-left">{title}</h1>
       <p className="text-lg text-left">{describe}</p>
       <p className="text-sm text-justify">{text}</p>

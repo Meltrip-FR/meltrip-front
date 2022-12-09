@@ -1,5 +1,4 @@
 import axios from "axios";
-import Image from "next/image";
 import { useRouter } from "next/router";
 import { useCallback, useEffect, useState } from "react";
 import ReactPaginate from "react-paginate";
@@ -25,7 +24,7 @@ const BlogPage = () => {
         data.map((item: any) => (
           <div className="p-4 md:w-1/3" key={item.id}>
             <div className="h-full overflow-hidden">
-              <Image
+              <img
                 className="lg:h-48 md:h-36 w-full object-cover object-center"
                 src={item?.pictureURL}
                 alt="blog"
@@ -103,7 +102,7 @@ const BlogPage = () => {
           .filter((i: any) => i.status === true)
           .slice(offset - 1, offset - 1 + postsPerPage);
         // For displaying Data
-        const postData = getPostData(slice);
+        const postData = await getPostData(slice);
         // Using Hooks to set value
         setAllPosts(postData);
         setPageCount(Math.ceil(data.length / postsPerPage));

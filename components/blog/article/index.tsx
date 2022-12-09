@@ -3,7 +3,6 @@ import { useRouter } from "next/router";
 
 import BreadCrumbs from "@/components/utils/breadCrumbs";
 import axios from "axios";
-import Image from "next/image";
 
 const ArticlePage = () => {
   const router = useRouter();
@@ -62,7 +61,7 @@ const ArticlePage = () => {
         </div>
         <div className="bg-cover bg-center">
           {/* {data?.pictureURL && (
-            <Image
+            <img
               src={data?.pictureURL}
               alt="picture"
               sizes="auto"
@@ -135,7 +134,7 @@ const ArticlePage = () => {
             {dataSuggest?.map((item: any) => (
               <div className="p-4 md:w-1/3" key={item?.id}>
                 <div className="h-full overflow-hidden">
-                  <Image
+                  <img
                     className="lg:h-48 md:h-36 w-full object-cover object-center"
                     src={item?.pictureURL}
                     alt="blog"

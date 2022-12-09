@@ -4,7 +4,6 @@ import FirstSignup from "@/components/auth/signup/seminar/FirstSignup";
 import SecondSignup from "@/components/auth/signup/seminar/SecondSignup";
 import ThreeSignup from "./ThreeSignup";
 import axios from "axios";
-import Image from "next/image";
 
 const SignupPage = () => {
   const [nextPage, setNextPage] = useState(0);
@@ -104,7 +103,7 @@ const SignupPage = () => {
   return (
     <div className="w-full bg-gray-100">
       <div className="relative">
-        <Image
+        <img
           className="object-none w-full h-64"
           src="https://www.naturepaysage.photo/wp-content/uploads/Nature-Paysage-portfolio-17-novembre-2019-0017-3.jpg"
           alt="picture"
