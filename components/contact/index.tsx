@@ -8,10 +8,9 @@ import { FormItem } from "@/components/utils/formItem";
 import ContactIcon from "@/components/assets/icons/contact/contactIcon";
 
 const ContactPage = () => {
-  //const router = useRouter();
   const [requestMessage, setRequestMessage] = useState<any>({
-    type: null,
-    message: "",
+    type: true,
+    message: "Contact was add successfully!",
   });
   const [formState, setFormState] = useState({
     username: "",
@@ -48,18 +47,11 @@ const ContactPage = () => {
   return (
     <div className="h-screen">
       <section className="text-gray-600 body-font">
-        <div className="container px-5 mx-auto flex flex-wrap justify-between items-center">
+        <div className="pt-32 container px-5 mx-auto flex flex-wrap justify-between items-center">
           <div className="lg:w-2/6 md:w-1/2 rounded-lg p-8 flex flex-col w-full mt-10 md:mt-0">
             <h2 className="text-gray-900 text-4xl text-center font-medium title-font mb-10">
-              CONTACT
+              CONTACTER MELTRIP
             </h2>
-            <span
-              className={`${
-                requestMessage.type ? "text-green-400 " : "text-red-400 "
-              }mb-2 text-center`}
-            >
-              {requestMessage.message}
-            </span>
             <form onSubmit={handleSubmit}>
               <div className="relative mb-4">
                 <FormItem
@@ -117,10 +109,46 @@ const ContactPage = () => {
           </div>
           <div className="w-1/2 items-center align-center flex flex-col md:pl-16 lg:pl-0 pl-0">
             <ContactIcon size={400} />
-            <p className="text-justify w-1/2 ">
-              Une question, un problème, où juste pour nous envoyer un petit mot
-              doux, contactez-nous. Nous vous répondrons sous 72h maximum.
+            <p className="text-justify">
+              Une question, un problème, où juste pour nous
             </p>
+            <p className="text-justify">
+              envoyer un petit mot doux, contactez-nous.
+            </p>
+            <p className="text-justify">
+              Nous vous répondrons sous 72h maximum.
+            </p>
+            {requestMessage.type === "success" ? (
+              <div className="flex justify-between bg-meltrip-primary mt-5 p-4 w-1/2 rounded">
+                <div className="">
+                  <span className={`text-white mb-2 text-center`}>
+                    {requestMessage.message}
+                  </span>
+                </div>
+                <div
+                  className="cursor-pointer text-white"
+                  onClick={() => setRequestMessage({ type: null, message: "" })}
+                >
+                  X
+                </div>
+              </div>
+            ) : (
+              requestMessage.type === "null" && (
+                <div className="flex justify-between bg-red-500 mt-5 p-4 w-1/2 rounded">
+                  <div className="text-white mb-2 text-center">
+                    {requestMessage.message}
+                  </div>
+                  <div
+                    className="cursor-pointer text-white"
+                    onClick={() =>
+                      setRequestMessage({ type: null, message: "" })
+                    }
+                  >
+                    X
+                  </div>
+                </div>
+              )
+            )}
           </div>
         </div>
       </section>
