@@ -12,6 +12,9 @@ const nextConfig = {
       "http://localhost:3000",
     ],
   },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
 };
 
 module.exports = nextConfig;
