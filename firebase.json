@@ -13,7 +13,7 @@
         "destination": "/404.html"
       },
       {
-        "source": "**",
+        "source": "/",
         "destination": "/index.html"
       },
       {
