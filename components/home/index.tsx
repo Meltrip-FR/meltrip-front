@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Link } from "react-scroll";
 import Modal from "./modal";
 
 //Components
@@ -39,9 +38,7 @@ const HomePage = () => {
                 />
               </div>
               <div className="animate-bounce cursor-pointer">
-                <Link href="#" to="section" spy={true} smooth={true}>
-                  <ChevronDown size={50} color="white" />
-                </Link>
+                <ChevronDown size={50} color="white" />
               </div>
             </div>
           </div>
