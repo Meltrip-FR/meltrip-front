@@ -43,7 +43,24 @@ const SignupPage = () => {
           .post(`${process.env.NEXT_PUBLIC_API_URL}/organization/`, {
             siret: formState.siret.replaceAll(" ", ""),
           })
-          .then((_data) => {
+          .then(({ data }) => {
+            axios
+              .post(`${process.env.NEXT_PUBLIC_API_URL}/auth/signup`, {
+                ...formState,
+                organizationId: data.id,
+              })
+              .then(({ data }) => {
+                setRequestMessage({ type: null, message: "" });
+                setRequestMessage({ type: true, message: data.message });
+                router.push("/auth/signin");
+              })
+              .catch((error) => {
+                setRequestMessage({ type: null, message: "" });
+                setRequestMessage({
+                  type: false,
+                  message: error.response?.data?.message,
+                });
+              });
             setRequestMessage({
               type: true,
               message: "company create",
@@ -51,20 +68,6 @@ const SignupPage = () => {
           })
           .catch((error) => {
             console.log(error);
-            setRequestMessage({
-              type: false,
-              message: error.response?.data?.message,
-            });
-          });
-        axios
-          .post(`${process.env.NEXT_PUBLIC_API_URL}/auth/signup`, formState)
-          .then(({ data }) => {
-            setRequestMessage({ type: null, message: "" });
-            setRequestMessage({ type: true, message: data.message });
-            router.push("/signin");
-          })
-          .catch((error) => {
-            setRequestMessage({ type: null, message: "" });
             setRequestMessage({
               type: false,
               message: error.response?.data?.message,
