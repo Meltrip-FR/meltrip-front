@@ -91,7 +91,7 @@ const SignupPage = () => {
       );
     }
 
-    console.log(loginRequestUser);
+    console.log({ tt: loginRequestUser });
     const organization = addOrganizations.data;
     const loginToken = loginRequestUser.data.accessToken;
     const loginUser = loginRequestUser.data.dataValues;
