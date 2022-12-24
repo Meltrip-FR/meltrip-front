@@ -91,6 +91,7 @@ const SignupPage = () => {
       );
     }
 
+    console.log(loginRequestUser);
     const organization = addOrganizations.data;
     const loginToken = loginRequestUser.data.accessToken;
     const loginUser = loginRequestUser.data.dataValues;
@@ -123,7 +124,6 @@ const SignupPage = () => {
       }
     );
 
-    console.log({ login });
     const createGroup = await axios.post(
       `${process.env.NEXT_PUBLIC_API_URL}/group/`,
       {
