@@ -10,9 +10,8 @@ const Dashboard = () => {
   const router = useRouter();
   const dispatch = useAppDispatch();
 
-  const signOut = () => {
-    dispatch(logout());
-    router.push("/");
+  const createSeminar = () => {
+    router.push("/seminar/create");
   };
 
   return (
@@ -44,9 +43,9 @@ const Dashboard = () => {
         </div>
         <button
           className="flex mx-auto mt-16 text-white bg-meltrip-secondary border-0 py-2 px-8 focus:outline-none rounded text-lg"
-          onClick={() => signOut()}
+          onClick={() => createSeminar()}
         >
-          Se déconnecter
+          Créer un séminaire
         </button>
       </div>
     </section>

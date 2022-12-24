@@ -140,14 +140,14 @@ const SecondSignup = ({
       </div>
       <div className="w-full flex justify-between items-center mt-10">
         <div
-          onClick={() => setNextPage(0)}
+          onClick={() => setNextPage(1)}
           className="text-meltrip-primary cursor-pointer mt-[48px] text-[20px] font-semibold leading-7 font-poppins"
         >
           {"< "} Précédent
         </div>
         <div>
           <button
-            onClick={() => setNextPage(2)}
+            onClick={() => setNextPage(3)}
             className="bg-meltrip-primary p-2 rounded text-white mt-[48px] text-[20px] font-semibold leading-7 font-poppins"
           >
             Étape suivante{" "}

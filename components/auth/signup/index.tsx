@@ -35,44 +35,41 @@ const SignupPage = () => {
     }
   };
 
-  async function handleSubmit(e: { preventDefault: () => void }) {
+  const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
     if (formState.terms && formState.email) {
       if (formState.siret) {
-        axios
-          .post(`${process.env.NEXT_PUBLIC_API_URL}/organization/`, {
+        const organization = await axios.post(
+          `${process.env.NEXT_PUBLIC_API_URL}/organization/`,
+          {
             siret: formState.siret.replaceAll(" ", ""),
-          })
-          .then(({ data }) => {
-            axios
-              .post(`${process.env.NEXT_PUBLIC_API_URL}/auth/signup`, {
-                ...formState,
-                organizationId: data.id,
-              })
-              .then(({ data }) => {
-                setRequestMessage({ type: null, message: "" });
-                setRequestMessage({ type: true, message: data.message });
-                router.push("/auth/signin");
-              })
-              .catch((error) => {
-                setRequestMessage({ type: null, message: "" });
-                setRequestMessage({
-                  type: false,
-                  message: error.response?.data?.message,
-                });
-              });
-            setRequestMessage({
-              type: true,
-              message: "company create",
-            });
-          })
-          .catch((error) => {
-            console.log(error);
+          }
+        );
+
+        if (organization.data) {
+          setRequestMessage({
+            type: true,
+            message: "company create",
+          });
+          const user = await axios.post(
+            `${process.env.NEXT_PUBLIC_API_URL}/auth/signup`,
+            {
+              ...formState,
+              idOrganization: parseInt(organization.data.id),
+            }
+          );
+          if (user.data) {
+            setRequestMessage({ type: null, message: "" });
+            setRequestMessage({ type: true, message: user.data.message });
+            router.push("/auth/signin");
+          } else {
+            setRequestMessage({ type: null, message: "" });
             setRequestMessage({
               type: false,
-              message: error.response?.data?.message,
+              message: user.data.message,
             });
-          });
+          }
+        }
       } else {
         setRequestMessage({ type: null, message: "" });
         setRequestMessage({
@@ -81,12 +78,15 @@ const SignupPage = () => {
         });
       }
     } else {
+      setRequestMessage({ type: null, message: "" });
       setRequestMessage({
         type: false,
-        message: "Vous devez remplir le champ email",
+        message:
+          "Vous devez accepter les conditions d'utilisation ou saisir votre email et saisir un mot de passe.",
       });
     }
-  }
+  };
+
   return (
     <div className="h-screen">
       <section className="text-gray-600 body-font">

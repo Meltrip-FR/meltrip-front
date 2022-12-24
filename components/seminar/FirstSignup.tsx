@@ -1,11 +1,58 @@
 import Arrow from "@/components/assets/icons/arrow";
 import { Router, useRouter } from "next/router";
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import { monthArray } from "./months";
 
 const FirstSignup = ({ formState, setFormState, setNextPage }: any) => {
   const date = new Date();
   const router = useRouter();
+  const [errorMessage, setErrorMessage] = useState<any>({
+    type: "",
+    message: "",
+  });
+
+  const verifyNextPage = () => {
+    console.log(
+      formState?.knowDate === false,
+      formState?.departurePeriod,
+      formState?.approximateDuration,
+      formState?.startDate
+    );
+
+    if (formState?.participNumber <= 0) {
+      setErrorMessage({
+        type: "participNumber",
+        message: "Il doit au moins y avoir 1 participant.",
+      });
+    } else if (
+      !formState?.knowDate &&
+      !formState?.departurePeriod &&
+      !formState?.approximateDuration &&
+      !formState?.startDate
+    ) {
+      setErrorMessage({
+        type: "knowDate",
+        message:
+          "Vous n'avez pas sélectionné de période ou une durée approximative.",
+      });
+    } else if (
+      formState?.knowDate &&
+      !formState?.startDate &&
+      !formState?.endDate
+    ) {
+      setErrorMessage({
+        type: "knowDate",
+        message:
+          "Vous n'avez pas sélectionné de date départ ou une date de retour.",
+      });
+    } else {
+      setErrorMessage({
+        type: "",
+        message: "",
+      });
+    }
+  };
+
   return (
     <Fragment>
       {/* Header picture */}
@@ -23,18 +70,21 @@ const FirstSignup = ({ formState, setFormState, setNextPage }: any) => {
       <div className="md:grid md:grid-cols-2 md:w-[50%] md:gap-5 mt-5">
         <div className="md:col-span-1 py-3">
           <span className="mt-[48px] text-[20px] font-semibold leading-7 font-poppins">
-            Adultes
+            Participant.e.s{" "}
+          </span>{" "}
+          <span className="text-red">
+            {errorMessage.type === "participNumber" && errorMessage.message}
           </span>
           <div className="md:grid md:grid-cols-2 items-center mt-5 border border-gray-500">
             <div className="md:col-span-1 py-1 ml-1">
               <input
                 className="w-full p-1 border-none"
                 type="number"
-                value={formState.adulteNumber}
+                value={formState.participNumber}
                 onChange={(e) =>
                   setFormState({
                     ...formState,
-                    adulteNumber: parseInt(e.target.value),
+                    participNumber: parseInt(e.target.value),
                   })
                 }
               />
@@ -42,15 +92,15 @@ const FirstSignup = ({ formState, setFormState, setNextPage }: any) => {
             <div className="hidden col-span-1 py-1 md:flex ml-4">
               <div
                 className={` ${
-                  formState.adulteNumber > 0
+                  formState.participNumber > 0
                     ? "cursor-pointer"
                     : "cursor-not-allowed"
                 } rounded-full border border-meltrip-primary py-1 px-3`}
                 onClick={() =>
-                  formState.adulteNumber > 0 &&
+                  formState.participNumber > 0 &&
                   setFormState({
                     ...formState,
-                    adulteNumber: formState.adulteNumber - 1,
+                    participNumber: formState.participNumber - 1,
                   })
                 }
               >
@@ -61,56 +111,7 @@ const FirstSignup = ({ formState, setFormState, setNextPage }: any) => {
                 onClick={() =>
                   setFormState({
                     ...formState,
-                    adulteNumber: formState.adulteNumber + 1,
-                  })
-                }
-              >
-                +
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="md:col-span-1 py-3">
-          <span className="mt-[48px] text-[20px] font-semibold leading-7 font-poppins">
-            Ados<span className="text-gray-400">{" <"} 16</span>
-          </span>
-          <div className="md:grid md:grid-cols-2 items-center mt-5 border border-gray-500">
-            <div className="md:col-span-1 py-1 ml-1">
-              <input
-                className="w-full p-1 border-none"
-                type="number"
-                value={formState.adosNumber}
-                onChange={(e) =>
-                  setFormState({
-                    ...formState,
-                    adosNumber: parseInt(e.target.value),
-                  })
-                }
-              />
-            </div>
-            <div className="hidden col-span-1 py-1 md:flex ml-4">
-              <div
-                className={` ${
-                  formState.adosNumber > 0
-                    ? "cursor-pointer"
-                    : "cursor-not-allowed"
-                } rounded-full border border-meltrip-primary py-1 px-3`}
-                onClick={() =>
-                  formState.adosNumber > 0 &&
-                  setFormState({
-                    ...formState,
-                    adosNumber: formState.adosNumber - 1,
-                  })
-                }
-              >
-                -
-              </div>
-              <div
-                className="cursor-pointer rounded-full border border-meltrip-primary py-1 px-3 ml-3"
-                onClick={() =>
-                  setFormState({
-                    ...formState,
-                    adosNumber: formState.adosNumber + 1,
+                    participNumber: formState.participNumber + 1,
                   })
                 }
               >
@@ -124,6 +125,9 @@ const FirstSignup = ({ formState, setFormState, setNextPage }: any) => {
       <p className="mt-10">
         <p className="mt-[48px] text-[20px] font-semibold leading-7 font-poppins">
           Connaissez-vous les dates précises de votre voyage ?
+          <span className="text-red">
+            {errorMessage.type === "knowDate" && errorMessage.message}
+          </span>
         </p>
       </p>
       <div className="flex flex-col mt-5">
@@ -307,16 +311,17 @@ const FirstSignup = ({ formState, setFormState, setNextPage }: any) => {
           />
         </div>
       </div>
+      {/* Paginate */}
       <div className="w-full flex justify-between items-center mt-10">
         <div
-          onClick={() => router.back()}
+          onClick={() => setNextPage(0)}
           className="text-meltrip-primary cursor-pointer mt-[48px] text-[20px] font-semibold leading-7 font-poppins"
         >
           {"< "} Précédent
         </div>
         <div>
           <button
-            onClick={() => setNextPage(1)}
+            onClick={() => verifyNextPage()}
             className="bg-meltrip-primary p-2 rounded text-white mt-[48px] text-[20px] font-semibold leading-7 font-poppins"
           >
             Étape suivante{" "}

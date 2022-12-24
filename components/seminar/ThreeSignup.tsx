@@ -6,6 +6,7 @@ const ThreeSignup = ({
   onFormChange,
   setFormState,
   handSubmit,
+  setNextPage,
 }: any) => {
   const router = useRouter();
   return (
@@ -232,7 +233,7 @@ const ThreeSignup = ({
       </p>
       <div className="w-full flex justify-between items-center mt-10">
         <div
-          onClick={() => router.back()}
+          onClick={() => setNextPage(2)}
           className="text-meltrip-primary cursor-pointer mt-[48px] text-[20px] font-semibold leading-7 font-poppins"
         >
           {"< "} Précédent
