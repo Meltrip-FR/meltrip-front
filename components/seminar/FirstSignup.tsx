@@ -12,23 +12,15 @@ const FirstSignup = ({ formState, setFormState, setNextPage }: any) => {
   });
 
   const verifyNextPage = () => {
-    console.log(
-      formState?.knowDate === false,
-      formState?.departurePeriod,
-      formState?.approximateDuration,
-      formState?.startDate
-    );
-
     if (formState?.participNumber <= 0) {
       setErrorMessage({
         type: "participNumber",
         message: "Il doit au moins y avoir 1 participant.",
       });
     } else if (
-      !formState?.knowDate &&
-      !formState?.departurePeriod &&
-      !formState?.approximateDuration &&
-      !formState?.startDate
+      formState?.knowDate === false &&
+      (formState?.departurePeriod === "" ||
+        formState?.approximateDuratione === "")
     ) {
       setErrorMessage({
         type: "knowDate",
@@ -36,9 +28,8 @@ const FirstSignup = ({ formState, setFormState, setNextPage }: any) => {
           "Vous n'avez pas sélectionné de période ou une durée approximative.",
       });
     } else if (
-      formState?.knowDate &&
-      !formState?.startDate &&
-      !formState?.endDate
+      formState?.knowDate === true &&
+      (formState?.startDate === "" || formState?.endDate === "")
     ) {
       setErrorMessage({
         type: "knowDate",
@@ -50,6 +41,7 @@ const FirstSignup = ({ formState, setFormState, setNextPage }: any) => {
         type: "",
         message: "",
       });
+      setNextPage(2);
     }
   };
 
@@ -72,7 +64,7 @@ const FirstSignup = ({ formState, setFormState, setNextPage }: any) => {
           <span className="mt-[48px] text-[20px] font-semibold leading-7 font-poppins">
             Participant.e.s{" "}
           </span>{" "}
-          <span className="text-red">
+          <span className="text-red-500">
             {errorMessage.type === "participNumber" && errorMessage.message}
           </span>
           <div className="md:grid md:grid-cols-2 items-center mt-5 border border-gray-500">
@@ -125,7 +117,7 @@ const FirstSignup = ({ formState, setFormState, setNextPage }: any) => {
       <p className="mt-10">
         <p className="mt-[48px] text-[20px] font-semibold leading-7 font-poppins">
           Connaissez-vous les dates précises de votre voyage ?
-          <span className="text-red">
+          <span className="text-red-500">
             {errorMessage.type === "knowDate" && errorMessage.message}
           </span>
         </p>

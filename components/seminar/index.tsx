@@ -1,12 +1,21 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import FirstSignup from "@/components/seminar/FirstSignup";
 import SecondSignup from "@/components/seminar/SecondSignup";
 import ThreeSignup from "./ThreeSignup";
+import ThreePointOneSignup from "./ThreePointOneSignup";
 import axios from "axios";
 import PresentSeminar from "./PresentSeminar";
+import { useRouter } from "next/router";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import { login } from "@/redux/slices/auth.slice";
 
 const SignupPage = () => {
+  const router = useRouter();
+  const dispatch = useAppDispatch();
+  const { auth } = useAppSelector((state) => state);
+
+  const [pathname, setPathName] = useState<string>("");
   const [nextPage, setNextPage] = useState(0);
   const [errorMessage, setErrorMessage] = useState("Error: ");
   const [formState, setFormState] = useState({
@@ -14,8 +23,8 @@ const SignupPage = () => {
     knowDate: true,
     departurePeriod: "",
     approximateDuration: "",
-    startDate: "",
-    endDate: "",
+    startDate: "" || null,
+    endDate: "" || null,
     budgetPerPerson: 0,
     typeSeminar: "",
     destinationType: "",
@@ -25,10 +34,13 @@ const SignupPage = () => {
     civility: "",
     nameManager: "",
     emailManager: "",
+    password: "",
     billingManager: true,
     emailFinancial: "",
     numberFinancial: "",
     siretCompany: "",
+    terms: false,
+    newsletter: false,
   });
 
   const onFormChange = (e: any) => {
@@ -41,28 +53,54 @@ const SignupPage = () => {
   };
 
   const handSubmit = async () => {
-    //Add Organization
-    const addOrganizations = await axios.post(
-      `${process.env.NEXT_PUBLIC_API_URL}/organization/`
-    );
+    let addOrganizations: any;
+    let addUsers: any;
+    let loginRequestUser: any;
 
-    // users
-    const addUsers = await axios.post(
-      `${process.env.NEXT_PUBLIC_API_URL}/auth/signup`,
-      {
-        email: formState.emailManager,
-        terms: true,
-        newsletter: false,
-        roles: ["user"],
-      }
-    );
-    console.log({ addUsers });
+    if (pathname !== "/seminar/create") {
+      //Add Organization
+      addOrganizations = await axios.post(
+        `${process.env.NEXT_PUBLIC_API_URL}/organization/`,
+        {
+          siret: formState.siretCompany,
+        }
+      );
+
+      // users
+      addUsers = await axios.post(
+        `${process.env.NEXT_PUBLIC_API_URL}/auth/signup`,
+        {
+          email: formState.emailManager,
+          username: formState.nameManager,
+          civility: formState.civility,
+          password: formState.password,
+          terms: formState.terms,
+          newsletter: formState.newsletter,
+          idOrganization: addOrganizations?.data?.id,
+          roles: ["user"],
+        }
+      );
+
+      //Login user
+      loginRequestUser = await axios.post(
+        `${process.env.NEXT_PUBLIC_API_URL}/auth/signin`,
+        {
+          email: formState.emailManager,
+          password: formState.password,
+        }
+      );
+    }
+
+    const organization = addOrganizations.data;
+    const loginToken = loginRequestUser.data.accessToken;
+    const loginUser = loginRequestUser.data.dataValues;
 
     // seminars
     const addSeminar = await axios.post(
       `${process.env.NEXT_PUBLIC_API_URL}/seminar/`,
       {
-        participNumber: formState.participNumber,
+        adultNumber: formState.participNumber,
+        adosNumber: 0,
         knowDate: formState.knowDate,
         departurePeriod: formState.departurePeriod,
         approximateDuration: formState.approximateDuration,
@@ -74,12 +112,59 @@ const SignupPage = () => {
         sleepSuggest: formState.sleepSuggest,
         describeProject: formState.describeProject,
         accompaniedSuggest: formState.accompaniedSuggest,
-        idOrganization: addOrganizations.data.idOrganization,
+        idUser: loginUser?.id ? loginUser?.id : auth?.user?.id,
+        idPayement: null,
+        idQuote: null,
+      },
+      {
+        headers: {
+          "x-access-token": loginToken ? loginToken : auth.user.accessToken,
+        },
       }
     );
 
-    console.log({ addSeminar });
+    console.log({ login });
+    const createGroup = await axios.post(
+      `${process.env.NEXT_PUBLIC_API_URL}/group/`,
+      {
+        idSeminar: addSeminar.data.id,
+        idOrganization: organization.id
+          ? organization.id
+          : auth?.user?.idOrganization,
+        email: loginUser?.email ? loginUser?.email : auth.user.email,
+        present: false,
+        resultTest: 0,
+      }
+    );
+
+    if (addSeminar.data && createGroup.data) {
+      if (pathname !== "/seminar/create") {
+        dispatch(
+          login({
+            login: true,
+            user: {
+              id: loginUser.id,
+              username: loginUser?.username,
+              civility: loginUser?.civility,
+              email: loginUser?.email,
+              phone: loginUser?.phone,
+              terms: true,
+              newsletter: loginUser?.newsletter === 0 ? false : true,
+              roles: loginUser?.roles,
+              accessToken: loginToken,
+              confirmEmail: loginUser?.confirmEmail,
+              idOrganization: loginUser?.idOrganization,
+            },
+          })
+        );
+      }
+      router.push("/seminar");
+    }
   };
+
+  useEffect(() => {
+    setPathName(router.pathname);
+  }, [router.pathname]);
 
   return (
     <div className="w-full bg-gray-100">
@@ -110,8 +195,16 @@ const SignupPage = () => {
               setFormState={setFormState}
               setNextPage={setNextPage}
             />
-          ) : (
+          ) : nextPage === 3 ? (
             <ThreeSignup
+              formState={formState}
+              onFormChange={onFormChange}
+              setFormState={setFormState}
+              handSubmit={handSubmit}
+              setNextPage={setNextPage}
+            />
+          ) : (
+            <ThreePointOneSignup
               formState={formState}
               onFormChange={onFormChange}
               setFormState={setFormState}

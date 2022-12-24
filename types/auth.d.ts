@@ -11,5 +11,6 @@ export interface AuthSlice {
     newsletter: boolean;
     roles: string[];
     accessToken: string;
+    idOrganization?: number;
   };
 }

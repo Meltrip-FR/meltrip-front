@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { Fragment } from "react";
+import { Fragment, useEffect, useState } from "react";
 
 const SecondSignup = ({
   formState,
@@ -8,6 +8,11 @@ const SecondSignup = ({
   setNextPage,
 }: any) => {
   const router = useRouter();
+  const [pathname, setPathName] = useState<string>("");
+  useEffect(() => {
+    setPathName(router.pathname);
+  }, [router.pathname]);
+
   const formListSleep = [
     {
       key: 1,
@@ -147,7 +152,9 @@ const SecondSignup = ({
         </div>
         <div>
           <button
-            onClick={() => setNextPage(3)}
+            onClick={() =>
+              pathname === "/seminar/create" ? setNextPage(3.1) : setNextPage(3)
+            }
             className="bg-meltrip-primary p-2 rounded text-white mt-[48px] text-[20px] font-semibold leading-7 font-poppins"
           >
             Étape suivante{" "}

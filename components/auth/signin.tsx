@@ -40,6 +40,7 @@ const SigninPage = () => {
           login({
             login: true,
             user: {
+              id: user.id,
               username: user?.username,
               civility: user?.civility,
               email: user?.email,
@@ -49,6 +50,7 @@ const SigninPage = () => {
               roles: user?.roles,
               accessToken: data?.accessToken,
               confirmEmail: user?.confirmEmail,
+              idOrganization: user?.idOrganization,
             },
           })
         );

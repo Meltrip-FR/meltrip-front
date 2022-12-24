@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { Fragment } from "react";
+import { Fragment, useEffect, useState } from "react";
 
 const ThreeSignup = ({
   formState,
@@ -8,7 +8,6 @@ const ThreeSignup = ({
   handSubmit,
   setNextPage,
 }: any) => {
-  const router = useRouter();
   return (
     <Fragment>
       {/* Header picture */}
@@ -32,7 +31,7 @@ const ThreeSignup = ({
             onChange={(_e) =>
               setFormState({
                 ...formState,
-                civility: "mme",
+                civility: "Mme",
               })
             }
           />
@@ -50,7 +49,7 @@ const ThreeSignup = ({
             onChange={(_e) =>
               setFormState({
                 ...formState,
-                civility: "m",
+                civility: "M.",
               })
             }
           />
@@ -72,13 +71,24 @@ const ThreeSignup = ({
       />
       {/* EMAIL */}
       <p className="mt-[48px] text-[20px] font-semibold leading-7 font-poppins">
-        Email du manager
+        Votre Email
       </p>
       <input
         type="text"
         className="py-3 px-4 pl-9 pr-16 block w-full shadow-sm text-sm focus:z-10 border-gray-500 border mt-5"
-        name="email"
+        name="emailManager"
         value={formState.emailManager}
+        onChange={onFormChange}
+      />
+      {/* Password */}
+      <p className="mt-[48px] text-[20px] font-semibold leading-7 font-poppins">
+        Votre Mot de passe
+      </p>
+      <input
+        type="password"
+        className="py-3 px-4 pl-9 pr-16 block w-full shadow-sm text-sm focus:z-10 border-gray-500 border mt-5"
+        name="password"
+        value={formState.password}
         onChange={onFormChange}
       />
       {/* billingManager */}

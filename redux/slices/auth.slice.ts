@@ -8,6 +8,7 @@ import { AuthSlice } from "types/auth";
 export const initialState: AuthSlice = {
   login: false,
   user: {
+    id: undefined,
     username: "",
     civility: "",
     email: "",
@@ -17,6 +18,7 @@ export const initialState: AuthSlice = {
     roles: ["user"],
     accessToken: "",
     confirmEmail: false,
+    idOrganization: undefined,
   },
 };
 
@@ -27,7 +29,7 @@ export const authSlice = createSlice({
     login: (state: any, action: any) => {
       const load = action.payload;
       state.login = load.login;
-      state.user.id = load.id;
+      state.user.id = load.user?.id;
       state.user.username = load.user?.username;
       state.user.civility = load.user?.civility;
       state.user.confirmEmail = load.user.confirmEmail;
@@ -39,6 +41,7 @@ export const authSlice = createSlice({
       state.user.newsletter = load.user.newsletter;
       state.user.roles = load.user.roles;
       state.user.accessToken = load.user.accessToken;
+      state.user.idOrganization = load.user.idOrganization;
     },
     logout: (state: any) => {
       state.login = false;
