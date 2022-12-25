@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 
 const ThreePointOneSignup = ({
   formState,
@@ -6,6 +6,38 @@ const ThreePointOneSignup = ({
   handSubmit,
   setNextPage,
 }: any) => {
+  const [errorMessage, setErrorMessage] = useState<any>({
+    type: "",
+    message: "",
+  });
+
+  const verifyNextPage = () => {
+    console.log(formState);
+    if (formState?.billingManager === false && !formState?.emailFinancial) {
+      setErrorMessage({
+        type: "emailFinancial",
+        message: " Vous n'avez pas saisie l'email du responsable financier",
+      });
+      setNextPage(3.1);
+    } else if (
+      formState?.billingManager === false &&
+      !formState?.numberFinancial
+    ) {
+      setErrorMessage({
+        type: "numberFinancial",
+        message:
+          " Vous n'avez pas saisie le numéro de téléphone du responsable financier",
+      });
+      setNextPage(3.1);
+    } else {
+      setErrorMessage({
+        type: "",
+        message: "",
+      });
+      handSubmit();
+    }
+  };
+
   return (
     <Fragment>
       {/* Header picture */}
@@ -57,7 +89,11 @@ const ThreePointOneSignup = ({
           {!formState.billingManager && (
             <Fragment>
               <p className="mt-[48px] text-[20px] font-semibold leading-7 font-poppins">
-                Saississez l’e-mail du responsable financier
+                Saississez l’e-mail du responsable financier{" "}
+                <span className="text-red-500">
+                  {errorMessage.type === "emailFinancial" &&
+                    errorMessage.message}
+                </span>
               </p>
               <input
                 type="email"
@@ -73,7 +109,11 @@ const ThreePointOneSignup = ({
                 }
               />
               <p className="mt-[48px] text-[20px] font-semibold leading-7 font-poppins">
-                Saississez le numero du responsable financier
+                Saississez le numero du responsable financier{" "}
+                <span className="text-red-500">
+                  {errorMessage.type === "phoneFinancial" &&
+                    errorMessage.message}
+                </span>
               </p>
               <input
                 type="text"
@@ -101,7 +141,7 @@ const ThreePointOneSignup = ({
         </div>
         <div>
           <button
-            onClick={() => handSubmit()}
+            onClick={() => verifyNextPage()}
             className="bg-meltrip-primary p-2 rounded text-white mt-[48px] text-[20px] font-semibold leading-7 font-poppins"
           >
             Créez le séminaire

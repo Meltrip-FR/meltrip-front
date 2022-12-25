@@ -1,24 +1,24 @@
 import { Fragment, useState } from "react";
 
-function containsCapital(word: string) {
-  for (let i = 0; i < word.length; i++) {
-    if (word[i] === word[i].toUpperCase()) {
+const containsCapital = (word: string) => {
+  for (let i = 0; i < word?.length; i++) {
+    if (word[i] === word[i]?.toUpperCase()) {
       return true;
     }
   }
   return false;
-}
+};
 
-function detectLowerCase(word: string) {
-  for (let i = 0; i < word.length; i++) {
-    if (word[i] === word[i].toLowerCase()) {
+const detectLowerCase = (word: string) => {
+  for (let i = 0; i < word?.length; i++) {
+    if (word[i] === word[i]?.toLowerCase()) {
       return true;
     }
   }
   return false;
-}
+};
 
-function containsSpecialChar(word: string) {
+const containsSpecialChar = (word: string) => {
   let specialChars = "!@#$%^&*()_+-=[]{}|;':<>,.?/";
   for (var i = 0; i < word.length; i++) {
     if (specialChars.indexOf(word[i]) !== -1) {
@@ -26,7 +26,7 @@ function containsSpecialChar(word: string) {
     }
   }
   return false;
-}
+};
 
 const ThreeSignup = ({
   formState,

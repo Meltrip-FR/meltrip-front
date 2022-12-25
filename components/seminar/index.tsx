@@ -59,17 +59,16 @@ const SignupPage = () => {
 
     if (pathname !== "/seminar/create") {
       //Add Organization
-      addOrganizations = await axios.post(
-        `${process.env.NEXT_PUBLIC_API_URL}/organization/`,
-        {
+      addOrganizations = await axios
+        .post(`${process.env.NEXT_PUBLIC_API_URL}/organization/`, {
           siret: formState.siretCompany,
-        }
-      );
-
+        })
+        .catch((_e) => {
+          alert("Siret introuvable veillez le saisir de nouveau !");
+        });
       // users
-      addUsers = await axios.post(
-        `${process.env.NEXT_PUBLIC_API_URL}/auth/signup`,
-        {
+      addUsers = await axios
+        .post(`${process.env.NEXT_PUBLIC_API_URL}/auth/signup`, {
           email: formState.emailManager,
           username: formState.nameManager,
           civility: formState.civility,
@@ -78,9 +77,10 @@ const SignupPage = () => {
           newsletter: formState.newsletter,
           idOrganization: addOrganizations?.data?.id,
           roles: ["user"],
-        }
-      );
-
+        })
+        .catch((_e) => {
+          alert("Error lors de la création de votre compte");
+        });
       //Login user
       loginRequestUser = await axios
         .post(`${process.env.NEXT_PUBLIC_API_URL}/auth/signin`, {
@@ -109,45 +109,65 @@ const SignupPage = () => {
           );
           if (payload.login) {
             console.log({ success: "Login" });
+            return data;
           }
+        })
+        .catch((_e) => {
+          alert("Error lors de la création séminaire");
         });
     }
 
-    const organization = addOrganizations.data;
-    const loginToken = loginRequestUser.data.accessToken;
-    const loginUser = loginRequestUser.data.dataValues;
+    console.log({ loginRequestUser });
 
+    const organization =
+      pathname !== "/seminar/create" && addOrganizations.data;
+    const loginToken =
+      pathname !== "/seminar/create" && loginRequestUser.accessToken;
+    const loginUser =
+      pathname !== "/seminar/create" && loginRequestUser.dataValues;
+
+    console.log({ loginToken });
     // seminars
-    const addSeminar = await axios.post(
-      `${process.env.NEXT_PUBLIC_API_URL}/seminar/`,
-      {
-        adultNumber: formState.participNumber,
-        adosNumber: 0,
-        knowDate: formState.knowDate,
-        departurePeriod: formState.departurePeriod,
-        approximateDuration: formState.approximateDuration,
-        startDate: formState.startDate,
-        endDate: formState.endDate,
-        typeSeminar: formState.typeSeminar,
-        destinationType: formState.destinationType,
-        budgetPerPerson: formState.budgetPerPerson,
-        sleepSuggest: formState.sleepSuggest,
-        describeProject: formState.describeProject,
-        accompaniedSuggest: formState.accompaniedSuggest,
-        idUser: loginUser?.id ? loginUser?.id : auth?.user?.id,
-        idPayement: null,
-        idQuote: null,
-      },
-      {
-        headers: {
-          "x-access-token": loginToken ? loginToken : auth.user.accessToken,
+    const addSeminar: any = await axios
+      .post(
+        `${process.env.NEXT_PUBLIC_API_URL}/seminar/`,
+        {
+          adultNumber: formState.participNumber,
+          adosNumber: 0,
+          knowDate: formState.knowDate,
+          departurePeriod: formState.departurePeriod,
+          approximateDuration: formState.approximateDuration,
+          startDate: formState.startDate,
+          endDate: formState.endDate,
+          typeSeminar: formState.typeSeminar,
+          destinationType: formState.destinationType,
+          budgetPerPerson: formState.budgetPerPerson,
+          sleepSuggest: formState.sleepSuggest,
+          describeProject: formState.describeProject,
+          accompaniedSuggest: formState.accompaniedSuggest,
+          idUser: loginUser?.id ? loginUser?.id : auth?.user?.id,
+          idPayement: null,
+          idQuote: null,
         },
-      }
-    );
+        {
+          headers: {
+            "x-access-token": loginToken ? loginToken : auth.user.accessToken,
+          },
+        }
+      )
+      .catch((e) => console.error(e));
 
-    const createGroup = await axios.post(
-      `${process.env.NEXT_PUBLIC_API_URL}/group/`,
-      {
+    console.log({
+      idSeminar: addSeminar.data.id,
+      idOrganization: organization.id
+        ? organization.id
+        : auth?.user?.idOrganization,
+      email: loginUser?.email ? loginUser?.email : auth.user.email,
+      present: false,
+      resultTest: 0,
+    });
+    const createGroup: any = await axios
+      .post(`${process.env.NEXT_PUBLIC_API_URL}/group/`, {
         idSeminar: addSeminar.data.id,
         idOrganization: organization.id
           ? organization.id
@@ -155,9 +175,10 @@ const SignupPage = () => {
         email: loginUser?.email ? loginUser?.email : auth.user.email,
         present: false,
         resultTest: 0,
-      }
-    );
+      })
+      .catch((e) => console.error(e));
 
+    console.log(addSeminar.data, createGroup);
     if (addSeminar.data && createGroup.data) {
       router.push("/user/seminar");
     }
