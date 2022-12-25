@@ -38,6 +38,10 @@
         "destination": "/auth/signup.html"
       },
       {
+        "source": "/auth/seminar/signup",
+        "destination": "/auth/seminar/signup.html"
+      },
+      {
         "source": "/user/accessibility",
         "destination": "/user/accessibility.html"
       },
