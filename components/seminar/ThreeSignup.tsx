@@ -1,4 +1,32 @@
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
+
+function containsCapital(word: string) {
+  for (let i = 0; i < word.length; i++) {
+    if (word[i] === word[i].toUpperCase()) {
+      return true;
+    }
+  }
+  return false;
+}
+
+function detectLowerCase(word: string) {
+  for (let i = 0; i < word.length; i++) {
+    if (word[i] === word[i].toLowerCase()) {
+      return true;
+    }
+  }
+  return false;
+}
+
+function containsSpecialChar(word: string) {
+  let specialChars = "!@#$%^&*()_+-=[]{}|;':<>,.?/";
+  for (var i = 0; i < word.length; i++) {
+    if (specialChars.indexOf(word[i]) !== -1) {
+      return true;
+    }
+  }
+  return false;
+}
 
 const ThreeSignup = ({
   formState,
@@ -7,6 +35,103 @@ const ThreeSignup = ({
   handSubmit,
   setNextPage,
 }: any) => {
+  const [errorMessage, setErrorMessage] = useState<any>({
+    type: "",
+    message: "",
+  });
+
+  const verifyNextPage = () => {
+    console.log(formState);
+    if (!formState?.civility) {
+      setErrorMessage({
+        type: "civility",
+        message: " Vous n'avez pas sélectionné de civilité",
+      });
+      setNextPage(3);
+    } else if (!formState?.nameManager) {
+      setErrorMessage({
+        type: "nameManager",
+        message: " Vous n'avez pas saisie votre nom et prénom",
+      });
+      setNextPage(3);
+    } else if (!formState?.emailManager) {
+      setErrorMessage({
+        type: "emailManager",
+        message: " Vous n'avez pas saisie votre email",
+      });
+      setNextPage(3);
+    } else if (!formState?.password) {
+      setErrorMessage({
+        type: "password",
+        message: " Vous n'avez pas saisie votre mot de passe",
+      });
+      setNextPage(3);
+    } else if (
+      formState?.billingManager === false &&
+      !formState?.emailFinancial
+    ) {
+      setErrorMessage({
+        type: "emailFinancial",
+        message: " Vous n'avez pas saisie l'email du responsable financier",
+      });
+      setNextPage(3);
+    } else if (
+      formState?.billingManager === false &&
+      !formState?.numberFinancial
+    ) {
+      setErrorMessage({
+        type: "numberFinancial",
+        message:
+          " Vous n'avez pas saisie le numéro de téléphone du responsable financier",
+      });
+      setNextPage(3);
+    } else if (!formState?.siretCompany) {
+      setErrorMessage({
+        type: "siretCompany",
+        message:
+          " Vous n'avez pas saisie le siret de votre entreprise ou il est faux",
+      });
+      setNextPage(3);
+    } else if (formState?.password) {
+      if (formState?.paswword < 8) {
+        setErrorMessage({
+          type: "password",
+          message:
+            "Vous n'avez pas saisie le nombre minimum de charactère demandé",
+        });
+      } else if (!containsCapital(formState?.paswword)) {
+        setErrorMessage({
+          type: "password",
+          message: "Vous n'avez pas saisie de majuscule",
+        });
+      } else if (!detectLowerCase(formState?.paswword)) {
+        setErrorMessage({
+          type: "password",
+          message: "Vous n'avez pas saisie de minuscule",
+        });
+      } else if (!containsSpecialChar(formState?.paswword)) {
+        setErrorMessage({
+          type: "password",
+          message: "Vous n'avez pas saisie de caractère spécial",
+        });
+      }
+      setNextPage(3);
+    } else if (!formState?.terms) {
+      setErrorMessage({
+        type: "terms",
+        message: " Vous n'avez pas accepté les CGU & CGV",
+      });
+      setNextPage(3);
+    }
+    {
+      setErrorMessage({
+        type: "",
+        message: "",
+      });
+      handSubmit();
+    }
+  };
+
   return (
     <Fragment>
       {/* Header picture */}
@@ -17,7 +142,10 @@ const ThreeSignup = ({
       </p>
       {/* Civility */}
       <p className="mt-[48px] text-[20px] font-semibold leading-7 font-poppins">
-        Civilité
+        Civilité{" "}
+        <span className="text-red-500">
+          {errorMessage.type === "civility" && errorMessage.message}
+        </span>
       </p>
       <div className="flex flex-col mt-5">
         <div>
@@ -59,7 +187,10 @@ const ThreeSignup = ({
       </div>
       {/* Manager Name */}
       <p className="mt-[48px] text-[20px] font-semibold leading-7 font-poppins">
-        Nom, Prénom du manager
+        Nom, Prénom{" "}
+        <span className="text-red-500">
+          {errorMessage.type === "nameManager" && errorMessage.message}
+        </span>
       </p>
       <input
         type="text"
@@ -70,7 +201,10 @@ const ThreeSignup = ({
       />
       {/* EMAIL */}
       <p className="mt-[48px] text-[20px] font-semibold leading-7 font-poppins">
-        Votre Email
+        Email{" "}
+        <span className="text-red-500">
+          {errorMessage.type === "emailManager" && errorMessage.message}
+        </span>
       </p>
       <input
         type="text"
@@ -81,7 +215,13 @@ const ThreeSignup = ({
       />
       {/* Password */}
       <p className="mt-[48px] text-[20px] font-semibold leading-7 font-poppins">
-        Votre Mot de passe
+        Mot de passe{" "}
+        <span className="text-gray-400">
+          (( 8 caractères 1 Maj , 1 min, 1 lettre, 1 caractère spéciale))
+        </span>{" "}
+        <span className="text-red-500">
+          {errorMessage.type === "password" && errorMessage.message}
+        </span>
       </p>
       <input
         type="password"
@@ -133,7 +273,11 @@ const ThreeSignup = ({
           {!formState.billingManager && (
             <Fragment>
               <p className="mt-[48px] text-[20px] font-semibold leading-7 font-poppins">
-                Saississez l’e-mail du responsable financier
+                Saississez l’e-mail du responsable financier{" "}
+                <span className="text-red-500">
+                  {errorMessage.type === "emailFinancial" &&
+                    errorMessage.message}
+                </span>
               </p>
               <input
                 type="email"
@@ -149,7 +293,11 @@ const ThreeSignup = ({
                 }
               />
               <p className="mt-[48px] text-[20px] font-semibold leading-7 font-poppins">
-                Saississez le numero du responsable financier
+                Saississez le numero du responsable financier{" "}
+                <span className="text-red-500">
+                  {errorMessage.type === "phoneFinancial" &&
+                    errorMessage.message}
+                </span>
               </p>
               <input
                 type="text"
@@ -170,14 +318,8 @@ const ThreeSignup = ({
       {/* Siret */}
       <p className="mt-[40px] text-[20px] font-semibold leading-7 font-poppins">
         SIRET de l’entreprise{" "}
-        <span
-          className={`${
-            formState.siretCompany !== 14 ? "text-red-500" : "text-green-500"
-          }`}
-        >
-          {formState.siretCompany === 14
-            ? "Success"
-            : "vérifier le votre numéro de siret"}
+        <span className="text-red-500">
+          {errorMessage.type === "siretCompany" && errorMessage.message}
         </span>
       </p>
       <input
@@ -249,7 +391,7 @@ const ThreeSignup = ({
         </div>
         <div>
           <button
-            onClick={() => handSubmit()}
+            onClick={() => verifyNextPage()}
             className="bg-meltrip-primary p-2 rounded text-white mt-[48px] text-[20px] font-semibold leading-7 font-poppins"
           >
             Créez un compte et envoyez votre projet

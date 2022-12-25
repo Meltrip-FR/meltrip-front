@@ -1,11 +1,9 @@
 import Arrow from "@/components/assets/icons/arrow";
-import { Router, useRouter } from "next/router";
 import { Fragment, useState } from "react";
 import { monthArray } from "./months";
 
 const FirstSignup = ({ formState, setFormState, setNextPage }: any) => {
   const date = new Date();
-  const router = useRouter();
   const [errorMessage, setErrorMessage] = useState<any>({
     type: "",
     message: "",
@@ -17,6 +15,7 @@ const FirstSignup = ({ formState, setFormState, setNextPage }: any) => {
         type: "participNumber",
         message: "Il doit au moins y avoir 1 participant.",
       });
+      setNextPage(1);
     } else if (
       formState?.knowDate === false &&
       (formState?.departurePeriod === "" ||
@@ -25,22 +24,25 @@ const FirstSignup = ({ formState, setFormState, setNextPage }: any) => {
       setErrorMessage({
         type: "knowDate",
         message:
-          "Vous n'avez pas sélectionné de période ou une durée approximative.",
+          " Vous n'avez pas sélectionné de période ou une durée approximative.",
       });
+      setNextPage(1);
     } else if (
       formState?.knowDate === true &&
-      (formState?.startDate === "" || formState?.endDate === "")
+      (formState?.startDate === null || formState?.endDate === null)
     ) {
       setErrorMessage({
         type: "knowDate",
         message:
-          "Vous n'avez pas sélectionné de date départ ou une date de retour.",
+          " Vous n'avez pas sélectionné de date départ ou une date de retour.",
       });
+      setNextPage(1);
     } else {
       setErrorMessage({
         type: "",
         message: "",
       });
+      console.log(formState?.startDate);
       setNextPage(2);
     }
   };

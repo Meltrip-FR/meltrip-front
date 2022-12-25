@@ -113,7 +113,6 @@ const SignupPage = () => {
         });
     }
 
-    console.log({ tt: loginRequestUser });
     const organization = addOrganizations.data;
     const loginToken = loginRequestUser.data.accessToken;
     const loginUser = loginRequestUser.data.dataValues;
@@ -200,6 +199,7 @@ const SignupPage = () => {
           ) : nextPage === 3 ? (
             <ThreeSignup
               formState={formState}
+              onFormChange={onFormChange}
               setFormState={setFormState}
               handSubmit={handSubmit}
               setNextPage={setNextPage}
