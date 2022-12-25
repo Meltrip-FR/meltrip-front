@@ -2,6 +2,7 @@
   "hosting": {
     "public": "out",
     "target": "default",
+    "appAssociation": "AUTO",
     "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
     "rewrites": [
       {
@@ -70,19 +71,23 @@
       },
       {
         "source": "/blog/article/[id]",
-        "destination": "/blog/article/[id].html"
+        "destination": "/blog/article/[id].html",
+        "dynamicLinks": true
       },
       {
         "source": "/blog/tag/[id]",
-        "destination": "/blog/tag/[id].html"
+        "destination": "/blog/tag/[id].html",
+        "dynamicLinks": true
       },
       {
         "source": "/confirm/[usertag]",
-        "destination": "/confirm/[usertag].html"
+        "destination": "/confirm/[usertag].html",
+        "dynamicLinks": true
       },
       {
         "source": "/confirm/forgot/[password]",
-        "destination": "/confirm/forgot/[password].html"
+        "destination": "/confirm/forgot/[password].html",
+        "dynamicLinks": true
       }
     ]
   }
