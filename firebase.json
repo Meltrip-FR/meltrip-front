@@ -74,23 +74,23 @@
         "destination": "/blog.html"
       },
       {
-        "source": "/blog/article/[id]",
-        "destination": "/blog/article/[id].html",
+        "source": "/blog/article/**",
+        "destination": "/blog/article/**.html",
         "dynamicLinks": true
       },
       {
-        "source": "/blog/tag/[id]",
-        "destination": "/blog/tag/[id].html",
+        "source": "/blog/tag/**",
+        "destination": "/blog/tag/**.html",
         "dynamicLinks": true
       },
       {
-        "source": "/confirm/[usertag]",
-        "destination": "/confirm/[usertag].html",
+        "source": "/confirm/**",
+        "destination": "/confirm/**.html",
         "dynamicLinks": true
       },
       {
-        "source": "/confirm/forgot/[password]",
-        "destination": "/confirm/forgot/[password].html",
+        "source": "/confirm/forgot/**",
+        "destination": "/confirm/forgot/**.html",
         "dynamicLinks": true
       }
     ]
