@@ -2,7 +2,6 @@ import { Fragment } from "react";
 
 const ThreePointOneSignup = ({
   formState,
-  onFormChange,
   setFormState,
   handSubmit,
   setNextPage,

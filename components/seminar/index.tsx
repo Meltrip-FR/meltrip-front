@@ -82,13 +82,35 @@ const SignupPage = () => {
       );
 
       //Login user
-      loginRequestUser = await axios.post(
-        `${process.env.NEXT_PUBLIC_API_URL}/auth/signin`,
-        {
+      loginRequestUser = await axios
+        .post(`${process.env.NEXT_PUBLIC_API_URL}/auth/signin`, {
           email: formState.emailManager,
           password: formState.password,
-        }
-      );
+        })
+        .then(({ data }) => {
+          const user = data?.dataValues;
+          const { payload }: any = dispatch(
+            login({
+              login: true,
+              user: {
+                id: user.id,
+                username: user?.username,
+                civility: user?.civility,
+                email: user?.email,
+                phone: user?.phone,
+                terms: true,
+                newsletter: user?.newsletter === 0 ? false : true,
+                roles: user?.roles,
+                accessToken: data?.accessToken,
+                confirmEmail: user?.confirmEmail,
+                idOrganization: user?.idOrganization,
+              },
+            })
+          );
+          if (payload.login) {
+            console.log({ success: "Login" });
+          }
+        });
     }
 
     console.log({ tt: loginRequestUser });
@@ -138,27 +160,7 @@ const SignupPage = () => {
     );
 
     if (addSeminar.data && createGroup.data) {
-      if (pathname !== "/seminar/create") {
-        dispatch(
-          login({
-            login: true,
-            user: {
-              id: loginUser.id,
-              username: loginUser?.username,
-              civility: loginUser?.civility,
-              email: loginUser?.email,
-              phone: loginUser?.phone,
-              terms: true,
-              newsletter: loginUser?.newsletter === 0 ? false : true,
-              roles: loginUser?.roles,
-              accessToken: loginToken,
-              confirmEmail: loginUser?.confirmEmail,
-              idOrganization: loginUser?.idOrganization,
-            },
-          })
-        );
-      }
-      router.push("/seminar");
+      router.push("/user/seminar");
     }
   };
 
@@ -198,7 +200,6 @@ const SignupPage = () => {
           ) : nextPage === 3 ? (
             <ThreeSignup
               formState={formState}
-              onFormChange={onFormChange}
               setFormState={setFormState}
               handSubmit={handSubmit}
               setNextPage={setNextPage}

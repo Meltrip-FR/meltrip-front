@@ -1,5 +1,4 @@
-import { useRouter } from "next/router";
-import { Fragment, useEffect, useState } from "react";
+import { Fragment } from "react";
 
 const ThreeSignup = ({
   formState,
