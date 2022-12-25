@@ -89,6 +89,7 @@ const SignupPage = () => {
         })
         .then(({ data }) => {
           const user = data?.dataValues;
+          console.log(user);
           const { payload }: any = dispatch(
             login({
               login: true,
