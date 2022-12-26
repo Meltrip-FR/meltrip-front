@@ -66,6 +66,10 @@
         "destination": "/user/seminar.html"
       },
       {
+        "source": "/user/seminar/list",
+        "destination": "/user/seminar/list.html"
+      },
+      {
         "source": "/blog",
         "destination": "/blog.html"
       },

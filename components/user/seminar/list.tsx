@@ -2,6 +2,7 @@ import AddCircle from "@/components/assets/icons/addCircle";
 import BreadCrumbs from "@/components/utils/breadCrumbs";
 import { useAppSelector } from "@/redux/hooks";
 import axios from "axios";
+import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
 
 const SeminarList = () => {
@@ -48,7 +49,9 @@ const SeminarList = () => {
               Séminaires
             </h1>
             <div className="mt-2">
-              <AddCircle size={25} />
+              <Link href="/seminar/create">
+                <AddCircle size={25} />
+              </Link>
             </div>
           </div>
         </div>
