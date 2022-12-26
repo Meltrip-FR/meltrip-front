@@ -19,7 +19,7 @@ const SignupPage = () => {
   const [pathname, setPathName] = useState<string>("");
   const [nextPage, setNextPage] = useState<number>(0);
   const [loading, setLoading] = useState<boolean>(false);
-  const [openModal, setOpenModal] = useState<boolean>(true);
+  const [openModal, setOpenModal] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState({
     status: false,
     url: "",
