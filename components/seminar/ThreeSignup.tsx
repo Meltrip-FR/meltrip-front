@@ -48,6 +48,12 @@ const ThreeSignup = ({
         message: " Vous n'avez pas sélectionné de civilité",
       });
       setNextPage(3);
+    } else if (!formState?.phoneManager) {
+      setErrorMessage({
+        type: "phoneManager",
+        message: " Vous n'avez pas saisie votre numéro de téléphone",
+      });
+      setNextPage(3);
     } else if (!formState?.nameManager) {
       setErrorMessage({
         type: "nameManager",
@@ -211,6 +217,20 @@ const ThreeSignup = ({
         className="py-3 px-4 pl-9 pr-16 block w-full shadow-sm text-sm focus:z-10 border-gray-500 border mt-5"
         name="emailManager"
         value={formState.emailManager}
+        onChange={onFormChange}
+      />
+      {/* Manager Phone */}
+      <p className="mt-[48px] text-[20px] font-semibold leading-7 font-poppins">
+        Téléphone
+        <span className="text-red-500">
+          {errorMessage.type === "phoneManager" && errorMessage.message}
+        </span>
+      </p>
+      <input
+        type="text"
+        className="py-3 px-4 pl-9 pr-16 block w-full shadow-sm text-sm focus:z-10 border-gray-500 border mt-5"
+        name="phoneManager"
+        value={formState.phoneManager}
         onChange={onFormChange}
       />
       {/* Password */}

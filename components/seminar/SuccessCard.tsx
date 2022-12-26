@@ -12,6 +12,10 @@ const SuccessCard = () => {
         Nous avons toutes les infos dont nous avons besoins pour vous concocter
         votre escapade.
       </p>
+      <p className="text-[#263238] text-justify px-12">
+        Merci pour votre demande de séminaires nous vous recontactons dans 72
+        heures.
+      </p>
       <div className="justify-center flex">
         <Love size={500} />
       </div>
