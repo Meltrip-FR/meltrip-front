@@ -159,7 +159,7 @@ const SignupPage = () => {
         {
           adultNumber: formState.participNumber,
           adosNumber: 0,
-          knowDate: formState.knowDate,
+          knowDate: formState.knowDate ? 1 : 0,
           departurePeriod: formState.departurePeriod,
           approximateDuration: formState.approximateDuration,
           startDate: formState.startDate,
