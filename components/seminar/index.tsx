@@ -145,6 +145,8 @@ const SignupPage = () => {
           sleepSuggest: formState.sleepSuggest,
           describeProject: formState.describeProject,
           accompaniedSuggest: formState.accompaniedSuggest,
+          financialEmail: formState.emailFinancial,
+          financialPhone: formState.numberFinancial,
           idUser: loginUser?.id ? loginUser?.id : auth?.user?.id,
           idPayement: null,
           idQuote: null,

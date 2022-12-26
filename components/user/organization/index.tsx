@@ -1,8 +1,31 @@
 import Eyes from "@/components/assets/icons/eyes";
 import LockClose from "@/components/assets/icons/lockClose";
 import BreadCrumbs from "@/components/utils/breadCrumbs";
+import { useAppSelector } from "@/redux/hooks";
+import axios from "axios";
+import { useCallback, useEffect, useState } from "react";
 
 const Organization = () => {
+  const { auth } = useAppSelector((state) => state);
+  const [organization, setOrganization] = useState<any>();
+
+  const loadData = useCallback(async () => {
+    try {
+      const res = await axios.get(
+        `${process.env.NEXT_PUBLIC_API_URL}/organization/${auth?.user?.idOrganization}`
+      );
+      const data = res.data;
+      setOrganization(data);
+    } catch (error: any) {
+      error?.response?.data?.message &&
+        console.error(error.response.data.message);
+    }
+  }, [auth?.user?.idOrganization]);
+
+  useEffect(() => {
+    loadData();
+  }, [auth, loadData]);
+
   return (
     <section className="text-gray-600 body-font">
       <div className="container px-5 py-14 mx-auto">
@@ -28,10 +51,9 @@ const Organization = () => {
                       <h2 className="text-gray-900 text-lg title-font font-medium mb-2">
                         Nom de l{"'"}entreprise
                       </h2>
-                      <p className="leading-relaxed text-base">XXXXXXXXXX</p>
-                    </div>
-                    <div className="mt-3 text-black underline inline-flex items-center cursor-pointer">
-                      Modifier
+                      <p className="leading-relaxed text-base">
+                        {organization?.denominationUniteLegale}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -42,11 +64,10 @@ const Organization = () => {
                         Adresse de l{"'"}entreprise
                       </h2>
                       <p className="leading-relaxed text-base">
-                        3 boulecard de la seine
+                        {organization?.numeroVoie}{" "}
+                        {organization?.voie.toLowerCase()}{" "}
+                        {organization?.codePostal}
                       </p>
-                    </div>
-                    <div className="mt-3 text-black underline inline-flex items-center cursor-pointer">
-                      Modifier
                     </div>
                   </div>
                 </div>
@@ -57,41 +78,8 @@ const Organization = () => {
                         Siren / Siret de l{"'"}entreprise
                       </h2>
                       <p className="leading-relaxed text-base">
-                        151715645187154614767
+                        {organization?.siret}
                       </p>
-                    </div>
-                    <div className="mt-3 text-black underline inline-flex items-center cursor-pointer">
-                      Modifier
-                    </div>
-                  </div>
-                </div>
-                <div className="border-b pb-2 mb-2 border-gray-200">
-                  <div className="flex flex-wrap justify-between text-left mt-6 sm:mt-0">
-                    <div>
-                      <h2 className="text-gray-900 text-lg title-font font-medium mb-2">
-                        Email du responsable financier
-                      </h2>
-                      <p className="leading-relaxed text-base">
-                        drapala@gmail.com
-                      </p>
-                    </div>
-                    <div className="mt-3 text-black underline inline-flex items-center cursor-pointer">
-                      Modifier
-                    </div>
-                  </div>
-                </div>
-                <div className="border-b pb-2 mb-2 border-gray-200">
-                  <div className="flex flex-wrap justify-between text-left mt-6 sm:mt-0">
-                    <div>
-                      <h2 className="text-gray-900 text-lg title-font font-medium mb-2">
-                        Telephone du responsable financier
-                      </h2>
-                      <p className="leading-relaxed text-base">
-                        +33 7 09 87 67 65
-                      </p>
-                    </div>
-                    <div className="mt-3 text-black underline inline-flex items-center cursor-pointer">
-                      Modifier
                     </div>
                   </div>
                 </div>

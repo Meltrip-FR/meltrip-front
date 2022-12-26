@@ -6,6 +6,16 @@ import { FormItem } from "@/components/utils/formItem";
 import { useAppSelector } from "@/redux/hooks";
 import axios from "axios";
 
+const capitalize = (str: string) => {
+  return str
+    .toLowerCase()
+    .split(" ")
+    .map((word) => {
+      return word?.charAt(0).toUpperCase() + word?.slice(1);
+    })
+    .join(" ");
+};
+
 const Profil = () => {
   const { auth } = useAppSelector((state) => state);
 
@@ -14,7 +24,7 @@ const Profil = () => {
   const [isUpdatePhone, setIsUpdatePhone] = useState<boolean>(false);
 
   const [formState, setFormState] = useState<any>();
-
+  const [seminarList, setListSeminar] = useState<any>();
   const onFormChange = (e: any) => {
     if (e.target) {
       setFormState({
@@ -25,10 +35,27 @@ const Profil = () => {
   };
 
   const getUser = useCallback(async () => {
-    const res = await axios.get(
-      `${process.env.NEXT_PUBLIC_API_URL}/user/${auth.user.id}`
+    const user = await axios.get(
+      `${process.env.NEXT_PUBLIC_API_URL}/user/${auth.user.id}`,
+      {
+        headers: {
+          "x-access-token": auth.user.accessToken,
+        },
+      }
     );
-    setFormState(res.data);
+    const userList = user.data;
+    setFormState(userList);
+
+    const seminar = await axios.get(
+      `${process.env.NEXT_PUBLIC_API_URL}/seminars/${auth.user.id}`,
+      {
+        headers: {
+          "x-access-token": auth.user.accessToken,
+        },
+      }
+    );
+    const seminarList = seminar.data;
+    setListSeminar(seminarList);
   }, [auth.user.id]);
 
   useEffect(() => {
@@ -36,7 +63,7 @@ const Profil = () => {
     getUser().catch((e) => console.error(e));
   }, [getUser]);
 
-  console.log(formState);
+  console.log(formState, seminarList);
 
   return (
     <section className="text-gray-600 body-font">
@@ -61,11 +88,8 @@ const Profil = () => {
                   <div className="flex flex-wrap justify-between text-left mt-6 sm:mt-0">
                     <div>
                       <h2 className="text-gray-900 text-lg title-font font-medium mb-2">
-                        Julie Dupont
+                        {capitalize(formState?.username)}
                       </h2>
-                      <p className="leading-relaxed text-base">
-                        Responsable chez {"startup"}
-                      </p>
                     </div>
                   </div>
                 </div>
@@ -76,7 +100,8 @@ const Profil = () => {
                         Nombre de séminaires
                       </h2>
                       <p className="leading-relaxed text-base">
-                        5 séminaires crée
+                        {seminarList?.length ? seminarList?.length : 0}{" "}
+                        séminaires(s) crée
                       </p>
                     </div>
                   </div>

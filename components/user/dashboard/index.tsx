@@ -19,11 +19,14 @@ const Dashboard = () => {
       <div className="container px-5 py-14 mx-auto">
         <div className="flex flex-wrap w-full mb-20 flex-col items-center text-center">
           <h1 className="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900">
-            Compte nom entreprise
+            Bienvenue dans votre espace
           </h1>
-          <p className="lg:w-1/2 w-full leading-relaxed text-gray-500">
-            Profile entreprise créé par XXXX XXXX
-          </p>
+          <button
+            className="flex mx-auto mt-16 text-white bg-meltrip-secondary border-0 py-2 px-8 focus:outline-none rounded text-lg"
+            onClick={() => createSeminar()}
+          >
+            Créer un séminaire
+          </button>
         </div>
         <div className="flex flex-wrap -m-4">
           {CardInfosList.map((item, index) => (
@@ -41,12 +44,6 @@ const Dashboard = () => {
             </div>
           ))}
         </div>
-        <button
-          className="flex mx-auto mt-16 text-white bg-meltrip-secondary border-0 py-2 px-8 focus:outline-none rounded text-lg"
-          onClick={() => createSeminar()}
-        >
-          Créer un séminaire
-        </button>
       </div>
     </section>
   );
