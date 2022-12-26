@@ -59,62 +59,66 @@ const SignupPage = () => {
 
     if (pathname !== "/seminar/create") {
       //Add Organization
-      addOrganizations = await axios
+      addOrganizations = axios
         .post(`${process.env.NEXT_PUBLIC_API_URL}/organization/`, {
           siret: formState.siretCompany,
         })
         .catch((_e) => {
           alert("Siret introuvable veillez le saisir de nouveau !");
-        });
-      // users
-      addUsers = await axios
-        .post(`${process.env.NEXT_PUBLIC_API_URL}/auth/signup`, {
-          email: formState.emailManager,
-          username: formState.nameManager,
-          civility: formState.civility,
-          password: formState.password,
-          terms: formState.terms,
-          newsletter: formState.newsletter,
-          idOrganization: addOrganizations?.data?.id,
-          roles: ["user"],
         })
-        .catch((_e) => {
-          alert("Error lors de la création de votre compte");
-        });
-      //Login user
-      loginRequestUser = await axios
-        .post(`${process.env.NEXT_PUBLIC_API_URL}/auth/signin`, {
-          email: formState.emailManager,
-          password: formState.password,
-        })
-        .then(({ data }) => {
-          const user = data?.dataValues;
-          console.log(user);
-          const { payload }: any = dispatch(
-            login({
-              login: true,
-              user: {
-                id: user.id,
-                username: user?.username,
-                civility: user?.civility,
-                email: user?.email,
-                phone: user?.phone,
-                terms: true,
-                newsletter: user?.newsletter === 0 ? false : true,
-                roles: user?.roles,
-                accessToken: data?.accessToken,
-                confirmEmail: user?.confirmEmail,
-                idOrganization: user?.idOrganization,
-              },
+        .then(async ({ data }: any) => {
+          console.log({ og: data });
+          const organization = data?.dataValues;
+
+          // users
+          addUsers = await axios
+            .post(`${process.env.NEXT_PUBLIC_API_URL}/auth/signup`, {
+              email: formState.emailManager,
+              username: formState.nameManager,
+              civility: formState.civility,
+              password: formState.password,
+              terms: formState.terms,
+              newsletter: formState.newsletter,
+              idOrganization: organization?.id,
+              roles: ["user"],
             })
-          );
-          if (payload.login) {
-            console.log({ success: "Login" });
-            return data;
-          }
-        })
-        .catch((_e) => {
-          alert("Error lors de la création séminaire");
+            .catch((_e) => {
+              alert("Error lors de la création de votre compte");
+            });
+          //Login user
+          loginRequestUser = axios
+            .post(`${process.env.NEXT_PUBLIC_API_URL}/auth/signin`, {
+              email: formState.emailManager,
+              password: formState.password,
+            })
+            .then(({ data }) => {
+              const user = data?.dataValues;
+              const { payload }: any = dispatch(
+                login({
+                  login: true,
+                  user: {
+                    id: user.id,
+                    username: user?.username,
+                    civility: user?.civility,
+                    email: user?.email,
+                    phone: user?.phone,
+                    terms: true,
+                    newsletter: user?.newsletter === 0 ? false : true,
+                    roles: user?.roles,
+                    accessToken: data?.accessToken,
+                    confirmEmail: user?.confirmEmail,
+                    idOrganization: user?.idOrganization,
+                  },
+                })
+              );
+              if (payload.login) {
+                console.log({ success: "Login" });
+                return data;
+              }
+            })
+            .catch((_e) => {
+              alert("Error lors de la création séminaire");
+            });
         });
     }
 
