@@ -48,7 +48,7 @@ const SeminarList = () => {
             <h1 className="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900 mr-5">
               Séminaires
             </h1>
-            <div className="mt-2">
+            <div className="mt-2 cursor-pointer">
               <Link href="/seminar/create">
                 <AddCircle size={25} />
               </Link>

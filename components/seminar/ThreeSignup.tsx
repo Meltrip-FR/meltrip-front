@@ -1,5 +1,7 @@
 import { Fragment, useState } from "react";
 
+const include = ["@gmail.com", "@gmail.fr"];
+
 const containsCapital = (word: string) => {
   for (let i = 0; i < word?.length; i++) {
     if (word[i] === word[i]?.toUpperCase()) {
@@ -66,6 +68,17 @@ const ThreeSignup = ({
         message: " Vous n'avez pas saisie votre email",
       });
       setNextPage(3);
+    } else if (formState?.emailManager) {
+      const isDomain = include
+        .map((e) => formState?.emailManager.includes(e))
+        .includes(true);
+      if (isDomain) {
+        setErrorMessage({
+          type: "emailManager",
+          message: " Vous n'avez pas saisie un email d'entreprise",
+        });
+        setNextPage(3);
+      }
     } else if (!formState?.password) {
       setErrorMessage({
         type: "password",
