@@ -59,70 +59,66 @@ const SignupPage = () => {
 
     if (pathname !== "/seminar/create") {
       //Add Organization
-      addOrganizations = axios
+      addOrganizations = await axios
         .post(`${process.env.NEXT_PUBLIC_API_URL}/organization/`, {
           siret: formState.siretCompany,
         })
         .catch((_e) => {
           alert("Siret introuvable veillez le saisir de nouveau !");
-        })
-        .then(async ({ data }: any) => {
-          console.log({ og: data });
-          const organization = data?.dataValues;
-
-          // users
-          addUsers = await axios
-            .post(`${process.env.NEXT_PUBLIC_API_URL}/auth/signup`, {
-              email: formState.emailManager,
-              username: formState.nameManager,
-              civility: formState.civility,
-              password: formState.password,
-              terms: formState.terms,
-              newsletter: formState.newsletter,
-              idOrganization: organization?.id,
-              roles: ["user"],
-            })
-            .catch((_e) => {
-              alert("Error lors de la création de votre compte");
-            });
-          //Login user
-          loginRequestUser = axios
-            .post(`${process.env.NEXT_PUBLIC_API_URL}/auth/signin`, {
-              email: formState.emailManager,
-              password: formState.password,
-            })
-            .then(({ data }) => {
-              const user = data?.dataValues;
-              const { payload }: any = dispatch(
-                login({
-                  login: true,
-                  user: {
-                    id: user.id,
-                    username: user?.username,
-                    civility: user?.civility,
-                    email: user?.email,
-                    phone: user?.phone,
-                    terms: true,
-                    newsletter: user?.newsletter === 0 ? false : true,
-                    roles: user?.roles,
-                    accessToken: data?.accessToken,
-                    confirmEmail: user?.confirmEmail,
-                    idOrganization: user?.idOrganization,
-                  },
-                })
-              );
-              if (payload.login) {
-                console.log({ success: "Login" });
-                return data;
-              }
-            })
-            .catch((_e) => {
-              alert("Error lors de la création séminaire");
-            });
         });
-    }
 
-    console.log({ loginRequestUser });
+      if (addOrganizations.data) {
+        // users
+        addUsers = await axios
+          .post(`${process.env.NEXT_PUBLIC_API_URL}/auth/signup`, {
+            email: formState.emailManager,
+            username: formState.nameManager,
+            civility: formState.civility,
+            password: formState.password,
+            terms: formState.terms,
+            newsletter: formState.newsletter,
+            idOrganization: addOrganizations?.data?.id,
+            roles: ["user"],
+          })
+          .catch((_e) => {
+            alert("Error lors de la création de votre compte");
+          });
+        //Login user
+        loginRequestUser = await axios
+          .post(`${process.env.NEXT_PUBLIC_API_URL}/auth/signin`, {
+            email: formState.emailManager,
+            password: formState.password,
+          })
+          .then(({ data }) => {
+            const user = data?.dataValues;
+            const { payload }: any = dispatch(
+              login({
+                login: true,
+                user: {
+                  id: user.id,
+                  username: user?.username,
+                  civility: user?.civility,
+                  email: user?.email,
+                  phone: user?.phone,
+                  terms: true,
+                  newsletter: user?.newsletter === 0 ? false : true,
+                  roles: user?.roles,
+                  accessToken: data?.accessToken,
+                  confirmEmail: user?.confirmEmail,
+                  idOrganization: user?.idOrganization,
+                },
+              })
+            );
+            if (payload.login) {
+              console.log({ success: "Login" });
+              return data;
+            }
+          })
+          .catch((_e) => {
+            alert("Error lors de la création séminaire");
+          });
+      }
+    }
 
     const organization =
       pathname !== "/seminar/create" && addOrganizations.data;
@@ -131,7 +127,6 @@ const SignupPage = () => {
     const loginUser =
       pathname !== "/seminar/create" && loginRequestUser.dataValues;
 
-    console.log({ loginToken });
     // seminars
     const addSeminar: any = await axios
       .post(
@@ -162,15 +157,6 @@ const SignupPage = () => {
       )
       .catch((e) => console.error(e));
 
-    console.log({
-      idSeminar: addSeminar.data.id,
-      idOrganization: organization.id
-        ? organization.id
-        : auth?.user?.idOrganization,
-      email: loginUser?.email ? loginUser?.email : auth.user.email,
-      present: false,
-      resultTest: 0,
-    });
     const createGroup: any = await axios
       .post(`${process.env.NEXT_PUBLIC_API_URL}/group/`, {
         idSeminar: addSeminar.data.id,
@@ -183,7 +169,6 @@ const SignupPage = () => {
       })
       .catch((e) => console.error(e));
 
-    console.log(addSeminar.data, createGroup);
     if (addSeminar.data && createGroup.data) {
       router.push("/user/seminar");
     }
