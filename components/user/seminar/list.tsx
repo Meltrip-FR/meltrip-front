@@ -1,9 +1,32 @@
 import AddCircle from "@/components/assets/icons/addCircle";
 import BreadCrumbs from "@/components/utils/breadCrumbs";
-import { useRouter } from "next/router";
+import { useAppSelector } from "@/redux/hooks";
+import axios from "axios";
+import { useCallback, useEffect, useState } from "react";
 
 const SeminarList = () => {
-  const router = useRouter();
+  const { auth } = useAppSelector((state) => state);
+  const [seminarList, setListSeminar] = useState<any>();
+  const getSeminar = useCallback(async () => {
+    const seminar = await axios.get(
+      `${process.env.NEXT_PUBLIC_API_URL}/seminars/${auth.user.id}`,
+      {
+        headers: {
+          "x-access-token": auth.user.accessToken,
+        },
+      }
+    );
+    const seminarList = seminar.data;
+    setListSeminar(seminarList);
+  }, [auth.user.accessToken, auth.user.id]);
+
+  useEffect(() => {
+    //const getUser  = loadCompany();
+    getSeminar().catch((e) => console.error(e));
+  }, [getSeminar]);
+
+  console.log(seminarList);
+
   return (
     <section className="text-gray-600 body-font">
       <div className="container px-5 py-14 mx-auto">

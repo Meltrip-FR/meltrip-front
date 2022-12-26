@@ -1,8 +1,33 @@
 import BreadCrumbs from "@/components/utils/breadCrumbs";
+import { useAppSelector } from "@/redux/hooks";
+import axios from "axios";
 import { useRouter } from "next/router";
+import { useCallback, useEffect, useState } from "react";
 
 const Seminar = () => {
   const router = useRouter();
+  const { auth } = useAppSelector((state) => state);
+  const [seminarList, setListSeminar] = useState<any>();
+  const getSeminar = useCallback(async () => {
+    const seminar = await axios.get(
+      `${process.env.NEXT_PUBLIC_API_URL}/seminars/${auth.user.id}`,
+      {
+        headers: {
+          "x-access-token": auth.user.accessToken,
+        },
+      }
+    );
+    const seminarList = seminar.data;
+    setListSeminar(seminarList);
+  }, [auth.user.accessToken, auth.user.id]);
+
+  useEffect(() => {
+    //const getUser  = loadCompany();
+    getSeminar().catch((e) => console.error(e));
+  }, [getSeminar]);
+
+  console.log(seminarList);
+
   return (
     <section className="text-gray-600 body-font">
       <div className="container px-5 py-14 mx-auto">
@@ -21,7 +46,9 @@ const Seminar = () => {
             className="bg-meltrip-secondary w-full p-2 rounded-lg text-left mt-5 hover:bg-orange-800 cursor-pointer"
             onClick={() => router.push("seminar/list/")}
           >
-            <span className="text-white">Vos Séminaires (2)</span>
+            <span className="text-white">
+              Vos Séminaires ({seminarList?.length ? seminarList.length : 0})
+            </span>
           </div>
           <div className="w-full p-2 rounded-lg text-left mt-5">
             <span>Vos Collègues (6)</span>
