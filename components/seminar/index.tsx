@@ -152,51 +152,8 @@ const SignupPage = () => {
     const loginUser =
       pathname !== "/seminar/create" && loginRequestUser.dataValues;
 
-    // seminars
-    const addSeminar: any = await axios
-      .post(
-        `${process.env.NEXT_PUBLIC_API_URL}/seminar/`,
-        {
-          adultNumber: formState.participNumber,
-          adosNumber: 0,
-          knowDate: formState.knowDate ? 1 : 0,
-          departurePeriod: formState.departurePeriod,
-          approximateDuration: formState.approximateDuration,
-          startDate: formState.startDate,
-          endDate: formState.endDate,
-          typeSeminar: formState.typeSeminar,
-          destinationType: formState.destinationType,
-          budgetPerPerson: formState.budgetPerPerson,
-          sleepSuggest: formState.sleepSuggest,
-          describeProject: formState.describeProject,
-          accompaniedSuggest: formState.accompaniedSuggest,
-          status: "Attente",
-          step: "",
-          idUser: loginUser?.id ? loginUser?.id : auth?.user?.id,
-          idPayement: null,
-          idQuote: null,
-        },
-        {
-          headers: {
-            "x-access-token": loginToken ? loginToken : auth.user.accessToken,
-          },
-        }
-      )
-      .catch((e) => {
-        console.error(e);
-        setErrorMessage({
-          status: true,
-          url: "/",
-          message: "Erreur lors de la création de votre séminaire",
-        });
-      });
-
     const createGroup: any = await axios
       .post(`${process.env.NEXT_PUBLIC_API_URL}/group/`, {
-        idSeminar: addSeminar.data.id,
-        idOrganization: organization.id
-          ? organization.id
-          : auth?.user?.idOrganization,
         financialEmail:
           formState.billingManager === true
             ? loginUser?.email
@@ -219,7 +176,50 @@ const SignupPage = () => {
         });
       });
 
-    if (addSeminar.data && createGroup.data) {
+    // seminars
+    const addSeminar: any = await axios
+      .post(
+        `${process.env.NEXT_PUBLIC_API_URL}/seminar/`,
+        {
+          adultNumber: formState.participNumber,
+          adosNumber: 0,
+          knowDate: formState.knowDate ? 1 : 0,
+          departurePeriod: formState.departurePeriod,
+          approximateDuration: formState.approximateDuration,
+          startDate: formState.startDate,
+          endDate: formState.endDate,
+          typeSeminar: formState.typeSeminar,
+          destinationType: formState.destinationType,
+          budgetPerPerson: formState.budgetPerPerson,
+          sleepSuggest: formState.sleepSuggest,
+          describeProject: formState.describeProject,
+          accompaniedSuggest: formState.accompaniedSuggest,
+          status: "Attente",
+          step: "",
+          idUser: loginUser?.id ? loginUser?.id : auth?.user?.id,
+          idOrganization: organization.id
+            ? organization.id
+            : auth?.user?.idOrganization,
+          idGroup: createGroup.data.id,
+          idPayement: null,
+          idQuote: null,
+        },
+        {
+          headers: {
+            "x-access-token": loginToken ? loginToken : auth.user.accessToken,
+          },
+        }
+      )
+      .catch((e) => {
+        console.error(e);
+        setErrorMessage({
+          status: true,
+          url: "/",
+          message: "Erreur lors de la création de votre séminaire",
+        });
+      });
+
+    if (addSeminar.data) {
       setLoading(false);
       setOpenModal(true);
       setTimeout(() => {
