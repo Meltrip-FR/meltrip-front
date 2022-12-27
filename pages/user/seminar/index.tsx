@@ -1,4 +1,4 @@
-import SeminarList from "@/components/user/seminar/";
+import SeminarList from "@/components/user/seminar/index_old";
 import store from "@/redux/store";
 import { useRouter } from "next/router";
 import Layout from "pages";
