@@ -1,10 +1,10 @@
-import SeminarList from "@/components/user/seminar";
+import SeminarInfos from "@/components/user/seminar/infos/index";
 import store from "@/redux/store";
 import { useRouter } from "next/router";
 import Layout from "pages";
 import { useEffect } from "react";
 
-const SeminarListPage = () => {
+const SeminarInfosPage = () => {
   let { auth } = store.getState();
   const router = useRouter();
 
@@ -16,9 +16,9 @@ const SeminarListPage = () => {
 
   return (
     <Layout>
-      <SeminarList />
+      <SeminarInfos />
     </Layout>
   );
 };
 
-export default SeminarListPage;
+export default SeminarInfosPage;

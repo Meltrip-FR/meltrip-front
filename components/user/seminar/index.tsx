@@ -4,10 +4,19 @@ import { useAppSelector } from "@/redux/hooks";
 import axios from "axios";
 import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
+import FinishCard from "./cards/finish";
+import RefuseCard from "./cards/refuse";
+import SuccessCard from "./cards/success";
+import WaitingCard from "./cards/waiting";
 
 const SeminarList = () => {
   const { auth } = useAppSelector((state) => state);
   const [seminarList, setListSeminar] = useState<any>();
+
+  const arrayFilterbyType = (type: string): any => {
+    return seminarList?.filter((item: any) => item.status === type);
+  };
+
   const getSeminar = useCallback(async () => {
     const seminar = await axios.get(
       `${process.env.NEXT_PUBLIC_API_URL}/seminars/${auth.user.id}`,
@@ -56,106 +65,54 @@ const SeminarList = () => {
             </div>
           </div>
         </div>
-        <div className="relative w-1/3">
-          <img
-            alt="picture"
-            src="https://www.kindacode.com/wp-content/uploads/2022/06/night-sky.jpeg"
-          />
-          <div className="absolute bottom-0 left-0 right-0 px-4 py-2 bg-meltrip-secondary opacity-70">
-            <h3 className="text-xl text-white font-bold">
-              Séminaire en cours de création...
-            </h3>
-          </div>
-        </div>
         {/* Historique des Séminaires Confirmé */}
         <div className="flex flex-wrap border-b border-gray-400 w-full mb-5 text-center mt-10">
           <h1 className=" text-2xl font-medium title-font mb-2 text-gray-900 mr-5">
-            Séminaires Confirmer (
-            {
-              seminarList?.filter((item: any) => item.status === "Accepté")
-                .length
-            }
-            )
+            Confirmer ({arrayFilterbyType("Accepté")?.length})
           </h1>
         </div>
-        <div className="relative w-1/5">
-          <img
-            alt="picture"
-            src="https://www.kindacode.com/wp-content/uploads/2022/06/night-sky.jpeg"
-          />
-          <div className="absolute bottom-0 left-0 right-0 px-4 py-2 bg-meltrip-secondary opacity-70">
-            <h3 className="text-xl text-white font-bold">
-              Séminaire du 12/03/2021
-            </h3>
-          </div>
-        </div>
+        {arrayFilterbyType("Accepté")?.length <= 0 ? (
+          "Aucun séminaire"
+        ) : (
+          <SuccessCard seminarData={arrayFilterbyType("Accepté")} />
+        )}
         {/* Historique des Séminaires Attente */}
         <div className="flex flex-wrap border-b border-gray-400 w-full mb-5 text-center mt-10">
           <h1 className=" text-2xl font-medium title-font mb-2 text-gray-900 mr-5">
-            Séminaires Attente (
-            {
-              seminarList?.filter(
-                (item: any) => item.status === ("Attente" || "" || null)
-              ).length
-            }
-            )
+            Attente ({arrayFilterbyType("Attente" || "" || null)?.length})
           </h1>
         </div>
-        <div className="relative w-1/5">
-          <img
-            alt="picture"
-            src="https://www.kindacode.com/wp-content/uploads/2022/06/night-sky.jpeg"
+        {arrayFilterbyType("Attente" || "" || null)?.length <= 0 ? (
+          "Aucun séminaire"
+        ) : (
+          <WaitingCard
+            seminarData={arrayFilterbyType("Attente" || "" || null)}
           />
-          <div className="absolute bottom-0 left-0 right-0 px-4 py-2 bg-meltrip-secondary opacity-70">
-            <h3 className="text-xl text-white font-bold">
-              Séminaire du 12/03/2021
-            </h3>
-          </div>
-        </div>
+        )}
+
         {/* Historique des Séminaires Refusé */}
         <div className="flex flex-wrap border-b border-gray-400 w-full mb-5 text-center mt-10">
           <h1 className=" text-2xl font-medium title-font mb-2 text-gray-900 mr-5">
-            Séminaires Refusé (
-            {
-              seminarList?.filter((item: any) => item.status === "Refusé")
-                .length
-            }
-            )
+            Refusé ({arrayFilterbyType("Refusé")?.length})
           </h1>
         </div>
-        <div className="relative w-1/5">
-          <img
-            alt="picture"
-            src="https://www.kindacode.com/wp-content/uploads/2022/06/night-sky.jpeg"
-          />
-          <div className="absolute bottom-0 left-0 right-0 px-4 py-2 bg-meltrip-secondary opacity-70">
-            <h3 className="text-xl text-white font-bold">
-              Séminaire du 12/03/2021
-            </h3>
-          </div>
-        </div>
+        {arrayFilterbyType("Refusé")?.length <= 0 ? (
+          "Aucun séminaire"
+        ) : (
+          <RefuseCard seminarData={arrayFilterbyType("Refusé")} />
+        )}
+
         {/* Historique des Séminaires */}
         <div className="flex flex-wrap border-b border-gray-400 w-full mb-5 text-center mt-10">
           <h1 className=" text-2xl font-medium title-font mb-2 text-gray-900 mr-5">
-            Séminaires Terminé (
-            {
-              seminarList?.filter((item: any) => item.status === "Terminé")
-                .length
-            }
-            )
+            Terminé ({arrayFilterbyType("Terminé")?.length})
           </h1>
         </div>
-        <div className="relative w-1/5">
-          <img
-            alt="picture"
-            src="https://www.kindacode.com/wp-content/uploads/2022/06/night-sky.jpeg"
-          />
-          <div className="absolute bottom-0 left-0 right-0 px-4 py-2 bg-meltrip-secondary opacity-70">
-            <h3 className="text-xl text-white font-bold">
-              Séminaire du 12/03/2021
-            </h3>
-          </div>
-        </div>
+        {arrayFilterbyType("Terminé")?.length <= 0 ? (
+          "Aucun séminaire"
+        ) : (
+          <FinishCard seminarData={arrayFilterbyType("Terminé")} />
+        )}
       </div>
     </section>
   );
