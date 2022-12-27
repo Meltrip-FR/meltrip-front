@@ -170,8 +170,6 @@ const SignupPage = () => {
           sleepSuggest: formState.sleepSuggest,
           describeProject: formState.describeProject,
           accompaniedSuggest: formState.accompaniedSuggest,
-          financialEmail: formState.emailFinancial,
-          financialPhone: formState.numberFinancial,
           status: "Attente",
           step: "",
           idUser: loginUser?.id ? loginUser?.id : auth?.user?.id,
@@ -199,9 +197,18 @@ const SignupPage = () => {
         idOrganization: organization.id
           ? organization.id
           : auth?.user?.idOrganization,
-        email: loginUser?.email ? loginUser?.email : auth.user.email,
-        present: false,
-        resultTest: 0,
+        financialEmail:
+          formState.billingManager === true
+            ? loginUser?.email
+              ? loginUser?.email
+              : auth.user.email
+            : formState.emailFinancial,
+        financialPhone:
+          formState.billingManager === true
+            ? loginUser?.phoneManager
+              ? loginUser?.phoneManager
+              : auth.user.phone
+            : formState.numberFinancial,
       })
       .catch((e) => {
         console.error(e);
@@ -216,8 +223,7 @@ const SignupPage = () => {
       setLoading(false);
       setOpenModal(true);
       setTimeout(() => {
-        console.log("timeout");
-        //router.push("/user/seminar");
+        router.push("/user/seminar");
       }, 3000);
     }
   };
