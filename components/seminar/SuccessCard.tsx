@@ -25,7 +25,7 @@ const SuccessCard = () => {
         <p className="card-title text-[#263238]">L’équipe Meltrip</p>
         <div className="card-actions mt-5">
           <Link
-            href="/user/seminar/list"
+            href="/user/seminar/"
             className="p-2 rounded text-white bg-meltrip-primary hover:bg-meltrip-ternary"
           >
             Mes séminaires

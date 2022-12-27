@@ -66,8 +66,8 @@
         "destination": "/user/seminar.html"
       },
       {
-        "source": "/user/seminar/list",
-        "destination": "/user/seminar/list.html"
+        "source": "/user/seminar/info/*",
+        "destination": "/user/seminar/info/[id].html"
       },
       {
         "source": "/blog",

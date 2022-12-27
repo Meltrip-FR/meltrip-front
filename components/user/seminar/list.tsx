@@ -26,7 +26,7 @@ const SeminarList = () => {
     getSeminar().catch((e) => console.error(e));
   }, [getSeminar]);
 
-  console.log(seminarList);
+  console.log({ seminarList });
 
   return (
     <section className="text-gray-600 body-font">
@@ -37,16 +37,17 @@ const SeminarList = () => {
             <BreadCrumbs url="/user/dashboard" name="Compte" active={true} />
             <BreadCrumbs url="/user/seminar" name="Séminaires" active={true} />
             <BreadCrumbs
-              url="/user/seminar/list"
+              url="/user/seminar/"
               name="Vos Séminaires"
               active={false}
             />
           </div>
         </div>
         <div className="flex flex-wrap w-full mb-5 text-center">
+          {/* Vos Séminaires */}
           <div className="flex">
             <h1 className="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900 mr-5">
-              Séminaires
+              Vos Séminaires
             </h1>
             <div className="mt-2 cursor-pointer">
               <Link href="/seminar/create">
@@ -66,9 +67,82 @@ const SeminarList = () => {
             </h3>
           </div>
         </div>
+        {/* Historique des Séminaires Confirmé */}
         <div className="flex flex-wrap border-b border-gray-400 w-full mb-5 text-center mt-10">
           <h1 className=" text-2xl font-medium title-font mb-2 text-gray-900 mr-5">
-            Historique de vos séminaires (1)
+            Séminaires Confirmer (
+            {
+              seminarList?.filter((item: any) => item.status === "Accepté")
+                .length
+            }
+            )
+          </h1>
+        </div>
+        <div className="relative w-1/5">
+          <img
+            alt="picture"
+            src="https://www.kindacode.com/wp-content/uploads/2022/06/night-sky.jpeg"
+          />
+          <div className="absolute bottom-0 left-0 right-0 px-4 py-2 bg-meltrip-secondary opacity-70">
+            <h3 className="text-xl text-white font-bold">
+              Séminaire du 12/03/2021
+            </h3>
+          </div>
+        </div>
+        {/* Historique des Séminaires Attente */}
+        <div className="flex flex-wrap border-b border-gray-400 w-full mb-5 text-center mt-10">
+          <h1 className=" text-2xl font-medium title-font mb-2 text-gray-900 mr-5">
+            Séminaires Attente (
+            {
+              seminarList?.filter(
+                (item: any) => item.status === ("Attente" || "" || null)
+              ).length
+            }
+            )
+          </h1>
+        </div>
+        <div className="relative w-1/5">
+          <img
+            alt="picture"
+            src="https://www.kindacode.com/wp-content/uploads/2022/06/night-sky.jpeg"
+          />
+          <div className="absolute bottom-0 left-0 right-0 px-4 py-2 bg-meltrip-secondary opacity-70">
+            <h3 className="text-xl text-white font-bold">
+              Séminaire du 12/03/2021
+            </h3>
+          </div>
+        </div>
+        {/* Historique des Séminaires Refusé */}
+        <div className="flex flex-wrap border-b border-gray-400 w-full mb-5 text-center mt-10">
+          <h1 className=" text-2xl font-medium title-font mb-2 text-gray-900 mr-5">
+            Séminaires Refusé (
+            {
+              seminarList?.filter((item: any) => item.status === "Refusé")
+                .length
+            }
+            )
+          </h1>
+        </div>
+        <div className="relative w-1/5">
+          <img
+            alt="picture"
+            src="https://www.kindacode.com/wp-content/uploads/2022/06/night-sky.jpeg"
+          />
+          <div className="absolute bottom-0 left-0 right-0 px-4 py-2 bg-meltrip-secondary opacity-70">
+            <h3 className="text-xl text-white font-bold">
+              Séminaire du 12/03/2021
+            </h3>
+          </div>
+        </div>
+        {/* Historique des Séminaires */}
+        <div className="flex flex-wrap border-b border-gray-400 w-full mb-5 text-center mt-10">
+          <h1 className=" text-2xl font-medium title-font mb-2 text-gray-900 mr-5">
+            Séminaires Terminé (
+            {
+              seminarList?.filter((item: any) => item.status === "Terminé")
+                .length
+            }
+            )
           </h1>
         </div>
         <div className="relative w-1/5">

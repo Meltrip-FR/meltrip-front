@@ -26,8 +26,6 @@ const Seminar = () => {
     getSeminar().catch((e) => console.error(e));
   }, [getSeminar]);
 
-  console.log(seminarList);
-
   return (
     <section className="text-gray-600 body-font">
       <div className="container px-5 py-14 mx-auto">

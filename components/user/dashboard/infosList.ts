@@ -14,7 +14,7 @@ export const CardInfosList = [
   {
     title: "Séminaires",
     describe: "Vous gererez tous vos séminaire ici ainsi que vos équipes",
-    url: "/user/seminar/list",
+    url: "/user/seminar/",
   },
   {
     title: "Paiement",
