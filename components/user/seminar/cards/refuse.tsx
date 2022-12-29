@@ -1,11 +1,27 @@
+import { convertDate } from "@/components/utils/convertDate";
+import Link from "next/link";
+
 const RefuseCard = ({ seminarData }: any) => {
-  return seminarData?.map((seminar: any, index: any) => {
-    return (
-      <div key={index}>
-        <h1>lalala {seminar.id}</h1>
-      </div>
-    );
-  });
+  return (
+    <div className="flex flex-wrap">
+      {seminarData?.map((seminar: any, index: any) => (
+        <Link
+          href={`/user/seminar/infos/${seminar.id}`}
+          className="w-1/4 ml-2"
+          key={index}
+          passHref
+        >
+          <div className="bg-red-50 p-5">
+            <h1>Nombre de membre: {seminar.adultNumber}</h1>
+            <h3 className="text-xl  font-bold">
+              {convertDate(seminar?.startDate)} &{" "}
+              {convertDate(seminar?.endDate)}
+            </h3>
+          </div>
+        </Link>
+      ))}
+    </div>
+  );
 };
 
 export default RefuseCard;

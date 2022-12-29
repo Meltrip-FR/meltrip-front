@@ -65,7 +65,7 @@ const Organization = () => {
                       </h2>
                       <p className="leading-relaxed text-base">
                         {organization?.numeroVoie}{" "}
-                        {organization?.voie.toLowerCase()}{" "}
+                        {organization?.voie?.toLowerCase()}{" "}
                         {organization?.codePostal}
                       </p>
                     </div>

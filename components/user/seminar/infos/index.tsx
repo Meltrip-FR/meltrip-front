@@ -11,12 +11,13 @@ import { getOrganizationById } from "@/lib/organizations";
 import { getSeminarById } from "@/lib/seminar";
 import { getUserById } from "@/lib/users";
 import { useAppSelector } from "@/redux/hooks";
-import axios from "axios";
-import Link from "next/link";
+import { Document, Page } from "react-pdf";
 import { useRouter } from "next/router";
-import { useCallback, useEffect, useState } from "react";
+import { Fragment, useCallback, useEffect, useState } from "react";
 import Chill from "@/components/assets/icons/seminar/chill";
 import TV from "@/components/assets/icons/seminar/tv";
+import { getQuoteById } from "@/lib/quotes";
+import { getTemplateQuoteById } from "@/lib/templateQuotes";
 
 const SeminarInfos = () => {
   const router = useRouter();
@@ -40,6 +41,21 @@ const SeminarInfos = () => {
 
         const group: any = await getGroupById(seminar?.idGroup);
 
+        const quote: any = await getQuoteById(seminar?.idQuote);
+
+        const TemplateQuote1: any = await getTemplateQuoteById(
+          auth.user.accessToken,
+          quote?.idTemplateQuote1
+        );
+        const TemplateQuote2: any = await getTemplateQuoteById(
+          auth.user.accessToken,
+          quote?.idTemplateQuote2
+        );
+        const TemplateQuote3: any = await getTemplateQuoteById(
+          auth.user.accessToken,
+          quote?.idTemplateQuote3
+        );
+
         setSeminar({
           participNumber: seminar?.adultNumber,
           knowDate: seminar?.knowDate === 0 ? false : true,
@@ -61,6 +77,12 @@ const SeminarInfos = () => {
           numberFinancial: group?.financialPhone,
           denominationUniteLegale: organization?.denominationUniteLegale,
           siretCompany: organization?.siret,
+          quote: quote,
+          templateQuotes: {
+            TemplateQuote1,
+            TemplateQuote2,
+            TemplateQuote3,
+          },
         });
       }
     },
@@ -170,17 +192,71 @@ const SeminarInfos = () => {
               </span>
             </div>
           </div>
-          {/* Button relance */}
-          {/* <p className="sm:text-xl font-bold text-xl mt-12 text-gray-900 mr-5">
-            Relancer mes collaborateurs
-          </p> */}
-          {/* Devis */}
-
-          {/* {listQuotes?.map(() => (
-            <div>
-
-            </div>
-          ))} */}
+          {seminar?.templateQuotes?.TemplateQuote1 && (
+            <Fragment>
+              {/* Button relance */}
+              <p className="sm:text-xl font-bold text-xl mt-24 text-gray-900 mr-5">
+                Vos propositions de séminaire
+              </p>
+              {/* Devis */}
+              <div className="p-5 flex justify-between mt-12">
+                <a
+                  href={`/user/seminar/infos/quotes/${seminar?.templateQuotes.TemplateQuote1.id}`}
+                  target="blank"
+                  className="cursor-default"
+                >
+                  <div className="relative ">
+                    <img
+                      alt="picture"
+                      className="hover:opacity-75 cursor-pointer object-cover h-48 w-96"
+                      src={seminar?.templateQuotes.TemplateQuote1.urlPicture}
+                    />
+                    <div className="absolute bottom-0 left-0 right-0 px-4 py-2 bg-meltrip-secondary opacity-70">
+                      <h3 className="text-xl text-white font-bold">
+                        {seminar?.templateQuotes.TemplateQuote1.title}
+                      </h3>
+                    </div>
+                  </div>
+                </a>
+                <a
+                  href={`/user/seminar/infos/quotes/${seminar?.templateQuotes.TemplateQuote2.id}`}
+                  target="blank"
+                  className="cursor-default"
+                >
+                  <div className="relative ">
+                    <img
+                      alt="picture"
+                      className="hover:opacity-75 cursor-pointer object-cover h-48 w-96"
+                      src={seminar?.templateQuotes.TemplateQuote2.urlPicture}
+                    />
+                    <div className="absolute bottom-0 left-0 right-0 px-4 py-2 bg-meltrip-secondary opacity-70">
+                      <h3 className="text-xl text-white font-bold">
+                        {seminar?.templateQuotes.TemplateQuote2.title}
+                      </h3>
+                    </div>
+                  </div>
+                </a>
+                <a
+                  href={`/user/seminar/infos/quotes/${seminar?.templateQuotes.TemplateQuote3.id}`}
+                  target="blank"
+                  className="cursor-default"
+                >
+                  <div className="relative">
+                    <img
+                      alt="picture"
+                      className="hover:opacity-75 cursor-pointer object-cover h-48 w-96"
+                      src={seminar?.templateQuotes.TemplateQuote3.urlPicture}
+                    />
+                    <div className="absolute bottom-0 left-0 right-0 px-4 py-2 bg-meltrip-secondary opacity-70">
+                      <h3 className="text-xl text-white font-bold">
+                        {seminar?.templateQuotes.TemplateQuote3.title}
+                      </h3>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </Fragment>
+          )}
         </div>
       </div>
     </section>

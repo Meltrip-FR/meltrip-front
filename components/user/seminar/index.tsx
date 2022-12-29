@@ -1,5 +1,6 @@
 import AddCircle from "@/components/assets/icons/addCircle";
 import BreadCrumbs from "@/components/utils/breadCrumbs";
+import { getSeminarByUserId } from "@/lib/seminar";
 import { useAppSelector } from "@/redux/hooks";
 import axios from "axios";
 import Link from "next/link";
@@ -18,16 +19,12 @@ const SeminarList = () => {
   };
 
   const getSeminar = useCallback(async () => {
-    const seminar = await axios.get(
-      `${process.env.NEXT_PUBLIC_API_URL}/seminars/${auth.user.id}`,
-      {
-        headers: {
-          "x-access-token": auth.user.accessToken,
-        },
-      }
+    const seminar: any = await getSeminarByUserId(
+      auth.user.accessToken,
+      auth.user.id
     );
-    const seminarList = seminar.data;
-    setListSeminar(seminarList);
+
+    setListSeminar(seminar);
   }, [auth.user.accessToken, auth.user.id]);
 
   useEffect(() => {
