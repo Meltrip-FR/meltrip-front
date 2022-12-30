@@ -80,7 +80,7 @@ const Payments = () => {
                   >
                     <div>
                       <h2 className="text-gray-900 text-lg title-font font-medium mb-2">
-                        {item.id}e séminaire
+                        {item.id} séminaire
                       </h2>
                       <p className="leading-relaxed text-base">
                         {item.price} $
