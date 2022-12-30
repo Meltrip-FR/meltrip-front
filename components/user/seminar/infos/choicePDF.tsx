@@ -9,7 +9,6 @@ import { useCallback, useEffect, useState } from "react";
 import { updateQuotebyId } from "@/lib/quotes";
 import { payementWithStripe } from "@/lib/payements";
 import { getSeminarByQuoteId, getSeminarByUserId } from "@/lib/seminar";
-import Seminar from "../index_old";
 
 const ChoicePDF = () => {
   const router = useRouter();

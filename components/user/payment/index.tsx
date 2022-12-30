@@ -14,33 +14,6 @@ const Payments = () => {
   const { auth } = useAppSelector((state) => state);
   const [payementList, setListPayement] = useState<any>();
 
-  const data = [
-    {
-      id: 1,
-      price: 0,
-      url: "",
-      status: false,
-    },
-    {
-      id: 2,
-      price: 0,
-      url: "",
-      status: false,
-    },
-    {
-      id: 3,
-      price: 200,
-      url: "https://google.com",
-      status: true,
-    },
-    {
-      id: 4,
-      price: 400000,
-      url: "https://google.com",
-      status: true,
-    },
-  ];
-
   const getPayement = useCallback(async () => {
     const seminar: any = await getSeminarByUserId(
       auth.user.accessToken,
@@ -58,7 +31,7 @@ const Payments = () => {
       result.push({
         id: payement.id,
         price: payement.paye,
-        url: "https://google.com",
+        url: payement.invoice,
         status: payement.status,
       });
     }
