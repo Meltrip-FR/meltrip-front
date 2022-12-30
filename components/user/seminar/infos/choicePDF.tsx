@@ -15,7 +15,7 @@ const ChoicePDF = () => {
   const router = useRouter();
   const { auth } = useAppSelector((state) => state);
   const [quoteList, setListQuote] = useState<any>();
-  const [paginate, setPaginate] = useState<any>();
+  const [paginate, setPaginate] = useState<any>(0);
 
   const getQuote = useCallback(
     async (idQuote: string) => {
