@@ -3,10 +3,17 @@ import Eyes from "@/components/assets/icons/eyes";
 import LockClose from "@/components/assets/icons/lockClose";
 import SuccessCircle from "@/components/assets/icons/successCircle";
 import BreadCrumbs from "@/components/utils/breadCrumbs";
+import { getPayementBySeminarId } from "@/lib/payements";
+import { getSeminarByUserId } from "@/lib/seminar";
+import { useAppSelector } from "@/redux/hooks";
 import { useRouter } from "next/router";
+import { useCallback, useEffect, useState } from "react";
 
 const Payments = () => {
   const router = useRouter();
+  const { auth } = useAppSelector((state) => state);
+  const [payementList, setListPayement] = useState<any>();
+
   const data = [
     {
       id: 1,
@@ -33,6 +40,35 @@ const Payments = () => {
       status: true,
     },
   ];
+
+  const getPayement = useCallback(async () => {
+    const seminar: any = await getSeminarByUserId(
+      auth.user.accessToken,
+      auth.user.id
+    );
+    let result = [];
+    for (let res of seminar) {
+      const payement: any = await getPayementBySeminarId(
+        auth.user.accessToken,
+        res.idPayement
+      );
+
+      console.log("payement");
+
+      result.push({
+        id: payement.id,
+        price: payement.paye,
+        url: "https://google.com",
+        status: payement.status,
+      });
+    }
+    setListPayement(result);
+  }, [auth.user.accessToken, auth.user.id]);
+  useEffect(() => {
+    getPayement().catch((e) => console.error(e));
+  }, [getPayement]);
+
+  console.log({ payementList });
 
   return (
     <section className="text-gray-600 body-font">
@@ -64,7 +100,7 @@ const Payments = () => {
           <div className="flex w-full flex-wrap items-center">
             <div className="lg:w-3/5 md:w-1/2 md:pr-16 lg:pr-0 pr-0">
               <div className="grid grid-rows-4 gap-4">
-                {data.map((item) => (
+                {payementList?.map((item: any) => (
                   <div
                     key={item.id}
                     className="grid grid-cols-4 gap-3 border-b"

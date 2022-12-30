@@ -7,6 +7,9 @@ import { useAppSelector } from "@/redux/hooks";
 import { useRouter } from "next/router";
 import { useCallback, useEffect, useState } from "react";
 import { updateQuotebyId } from "@/lib/quotes";
+import { payementWithStripe } from "@/lib/payements";
+import { getSeminarByQuoteId, getSeminarByUserId } from "@/lib/seminar";
+import Seminar from "../index_old";
 
 const ChoicePDF = () => {
   const router = useRouter();
@@ -39,13 +42,6 @@ const ChoicePDF = () => {
           TemplateQuote3,
         },
       });
-
-      console.log(
-        idQuote,
-        quote?.idTemplateQuote1,
-        quote?.idTemplateQuote2,
-        quote?.idTemplateQuote3
-      );
     },
     [auth.user.accessToken]
   );
@@ -64,14 +60,48 @@ const ChoicePDF = () => {
       idSelect = quoteList?.templateQuotes?.TemplateQuote3?.id;
     }
 
+    const seminar = await getSeminarByQuoteId(
+      auth.user.accessToken,
+      router?.query?.id
+    );
+
     const updateQuote = await updateQuotebyId(router?.query?.id, {
       proposeSelect: idSelect,
     });
 
     if (updateQuote) {
       console.log("update");
+      if (paginate === 0) {
+        const payementStripe = await payementWithStripe({
+          idSeminar: seminar.id,
+          nameDevis: quoteList?.templateQuotes?.TemplateQuote1?.title,
+          unitAmount: quoteList?.templateQuotes?.TemplateQuote1?.price,
+        });
+        if (payementStripe?.urlPayement) {
+          router.push(payementStripe?.urlPayement);
+        }
+      } else if (paginate === 1) {
+        const payementStripe = await payementWithStripe({
+          idSeminar: seminar.id,
+          nameDevis: quoteList?.templateQuotes?.TemplateQuote1?.title,
+          unitAmount: quoteList?.templateQuotes?.TemplateQuote1?.price,
+        });
+        if (payementStripe?.urlPayement) {
+          router.push(payementStripe?.urlPayement);
+        }
+      } else if (paginate === 2) {
+        const payementStripe = await payementWithStripe({
+          idSeminar: seminar.id,
+          nameDevis: quoteList?.templateQuotes?.TemplateQuote1?.title,
+          unitAmount: quoteList?.templateQuotes?.TemplateQuote1?.price,
+        });
+        if (payementStripe?.urlPayement) {
+          router.push(payementStripe?.urlPayement);
+        }
+      }
     }
   };
+
   return (
     <section className="text-gray-600 body-font">
       <div className="container px-5 py-14 mx-auto">
