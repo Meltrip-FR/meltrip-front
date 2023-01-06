@@ -55,7 +55,7 @@ const SignupPage = () => {
             `${process.env.NEXT_PUBLIC_API_URL}/auth/signup`,
             {
               ...formState,
-              idOrganization: parseInt(organization.data.id),
+              idOrganization: organization.data.id,
             }
           );
           if (user.data) {
