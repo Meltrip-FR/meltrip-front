@@ -28,6 +28,6 @@ export const postOrganization = async (siret: string): Promise<any> => {
     .catch((error: TypeError) => {
       console.error(error);
     });
-
+  console.log({ organization });
   return organization.data;
 };

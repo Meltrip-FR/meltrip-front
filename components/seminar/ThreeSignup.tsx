@@ -43,7 +43,6 @@ const ThreeSignup = ({
   });
 
   const verifyNextPage = () => {
-    console.log(formState);
     if (!formState?.civility) {
       setErrorMessage({
         type: "civility",

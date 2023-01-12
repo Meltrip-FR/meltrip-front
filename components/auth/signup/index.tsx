@@ -1,5 +1,4 @@
 import { useState } from "react";
-import axios from "axios";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
@@ -8,6 +7,12 @@ import { FormItem } from "@/components/utils/formItem";
 
 // Icons
 import UsersLock from "@/components/assets/icons/usersLock";
+import Organization from "@/components/user/organization";
+import {
+  getOrganizationBySiret,
+  postOrganization,
+} from "../../../lib/organizations";
+import { signup } from "@/lib/auth";
 
 const SignupPage = () => {
   const router = useRouter();
@@ -20,6 +25,7 @@ const SignupPage = () => {
     email: "",
     password: "",
     siret: "",
+    phone: "",
     civility: "",
     terms: false, // no add
     newsletter: false, // no add
@@ -39,36 +45,27 @@ const SignupPage = () => {
     e.preventDefault();
     if (formState.terms && formState.email) {
       if (formState.siret) {
-        const organization = await axios.post(
-          `${process.env.NEXT_PUBLIC_API_URL}/organization/`,
-          {
-            siret: formState.siret.replaceAll(" ", ""),
+        const organization: any = await getOrganizationBySiret(formState.siret);
+        if (organization.id) {
+          const userBuild = { ...formState, idOrganization: organization.id };
+          const createUser = await signup(userBuild);
+          if (!createUser) {
+            setRequestMessage({ type: true, message: createUser });
+            return;
           }
-        );
-
-        if (organization.data) {
-          setRequestMessage({
-            type: true,
-            message: "company create",
-          });
-          const user = await axios.post(
-            `${process.env.NEXT_PUBLIC_API_URL}/auth/signup`,
-            {
-              ...formState,
-              idOrganization: organization.data.id,
-            }
-          );
-          if (user.data) {
-            setRequestMessage({ type: null, message: "" });
-            setRequestMessage({ type: true, message: user.data.message });
-            router.push("/auth/signin");
-          } else {
-            setRequestMessage({ type: null, message: "" });
-            setRequestMessage({
-              type: false,
-              message: user.data.message,
-            });
+          router.push("/auth/signin");
+        } else {
+          const createOrganization = await postOrganization(formState.siret);
+          const userBuild = {
+            ...formState,
+            idOrganization: createOrganization.id,
+          };
+          const createUser = await signup(userBuild);
+          if (!createUser) {
+            setRequestMessage({ type: true, message: createUser });
+            return;
           }
+          router.push("/auth/signin");
         }
       } else {
         setRequestMessage({ type: null, message: "" });
@@ -176,6 +173,17 @@ const SignupPage = () => {
                 name="password"
                 label="password"
                 value={formState.password}
+                style="bg-[#ECF3F2] px-2 py-2"
+                onChange={onFormChange}
+                disabled={false}
+                required={true}
+              />
+            </div>
+            <div className="relative mb-4">
+              <FormItem
+                name="phone"
+                label="Téléphone"
+                value={formState.phone}
                 style="bg-[#ECF3F2] px-2 py-2"
                 onChange={onFormChange}
                 disabled={false}
