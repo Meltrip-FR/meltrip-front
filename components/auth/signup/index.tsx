@@ -46,7 +46,7 @@ const SignupPage = () => {
     if (formState.terms && formState.email) {
       if (formState.siret) {
         const organization: any = await getOrganizationBySiret(formState.siret);
-        if (organization.id) {
+        if (organization?.id) {
           const userBuild = { ...formState, idOrganization: organization.id };
           const createUser = await signup(userBuild);
           if (!createUser) {

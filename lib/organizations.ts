@@ -16,8 +16,8 @@ export const getOrganizationBySiret = async (siret: string): Promise<any> => {
     .catch((error: TypeError) => {
       console.error(error);
     });
-
-  return organization.data;
+  if (organization?.data) return organization.data;
+  else return false;
 };
 
 export const postOrganization = async (siret: string): Promise<any> => {
@@ -28,6 +28,5 @@ export const postOrganization = async (siret: string): Promise<any> => {
     .catch((error: TypeError) => {
       console.error(error);
     });
-  console.log({ organization });
   return organization.data;
 };
