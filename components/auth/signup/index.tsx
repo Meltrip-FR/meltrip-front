@@ -7,12 +7,41 @@ import { FormItem } from "@/components/utils/formItem";
 
 // Icons
 import UsersLock from "@/components/assets/icons/usersLock";
-import Organization from "@/components/user/organization";
 import {
   getOrganizationBySiret,
   postOrganization,
 } from "../../../lib/organizations";
 import { signup } from "@/lib/auth";
+import {
+  containsCapital,
+  containsSpecialChar,
+  detectLowerCase,
+} from "@/components/utils/functions";
+
+const verifyField = (formState: any) => {
+  let pattern = /@gmail(\.com)?/;
+  if (!formState?.terms) {
+    return "Vous n'avez pas accepté les conditions d'utilisation.";
+  } else if (!formState?.email) {
+    return "vous n'avez pas saisie email";
+  } else if (pattern.test(formState?.email)) {
+    return "vous n'avez pas un domaine autorisé (@gmail)";
+  } else if (formState?.siret?.length !== 14) {
+    return "Vous n'avez pas saisie de numéro de siret";
+  } else if (formState?.password?.length < 8) {
+    return "Password: Vous n'avez pas saisie le nombre minimum de charactère demandé";
+  } else if (!containsCapital(formState?.password)) {
+    return "Password: Vous n'avez pas saisie de majuscule";
+  } else if (!detectLowerCase(formState?.password)) {
+    return "Password: Vous n'avez pas saisie de minuscule";
+  } else if (!containsSpecialChar(formState?.password)) {
+    return "Password: Vous n'avez pas saisie de caractère spécial";
+  } else if (!formState?.phone) {
+    return "Le numéro de téléphone n'est pas valide";
+  } else {
+    return false;
+  }
+};
 
 const SignupPage = () => {
   const router = useRouter();
@@ -43,9 +72,26 @@ const SignupPage = () => {
 
   const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
-    if (formState.terms && formState.email) {
-      if (formState.siret) {
-        const organization: any = await getOrganizationBySiret(formState.siret);
+    const verify = verifyField(formState);
+    if (!verify) {
+      const organization: any = await getOrganizationBySiret(formState.siret);
+      if (!organization) {
+        const createOrganization = await postOrganization(formState.siret);
+        const userBuild = {
+          ...formState,
+          idOrganization: createOrganization.id,
+        };
+        const createUser = await signup(userBuild);
+        if (!createUser) {
+          setRequestMessage({ type: true, message: createUser });
+          return;
+        }
+        setRequestMessage({
+          type: false,
+          message: "",
+        });
+        router.push("/auth/signin");
+      } else {
         if (organization?.id) {
           const userBuild = { ...formState, idOrganization: organization.id };
           const createUser = await signup(userBuild);
@@ -54,32 +100,12 @@ const SignupPage = () => {
             return;
           }
           router.push("/auth/signin");
-        } else {
-          const createOrganization = await postOrganization(formState.siret);
-          const userBuild = {
-            ...formState,
-            idOrganization: createOrganization.id,
-          };
-          const createUser = await signup(userBuild);
-          if (!createUser) {
-            setRequestMessage({ type: true, message: createUser });
-            return;
-          }
-          router.push("/auth/signin");
         }
-      } else {
-        setRequestMessage({ type: null, message: "" });
-        setRequestMessage({
-          type: false,
-          message: "Ajouter un numéro de siret",
-        });
       }
     } else {
-      setRequestMessage({ type: null, message: "" });
       setRequestMessage({
         type: false,
-        message:
-          "Vous devez accepter les conditions d'utilisation ou saisir votre email et saisir un mot de passe.",
+        message: verify,
       });
     }
   };
@@ -108,7 +134,7 @@ const SignupPage = () => {
             <span
               className={`${
                 requestMessage.type ? "text-green-400 " : "text-red-400 "
-              }mb-2 text-center`}
+              } mb-2 text-center w-full`}
             >
               {requestMessage.message}
             </span>

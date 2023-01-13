@@ -123,7 +123,9 @@ const SignupPage = () => {
       }
     }
 
-    loginRequestUser = await signin(formState.emailManager, formState.password);
+    loginRequestUser =
+      pathname !== "/seminar/create" &&
+      (await signin(formState.emailManager, formState.password));
 
     const organization = pathname !== "/seminar/create" && addOrganizations;
     const loginToken =
@@ -133,18 +135,17 @@ const SignupPage = () => {
 
     const createGroup: any = await axios
       .post(`${process.env.NEXT_PUBLIC_API_URL}/group/`, {
-        financialEmail:
+        email:
           formState.billingManager === true
             ? loginUser?.email
               ? loginUser?.email
               : auth.user.email
             : formState.emailFinancial,
-        financialPhone:
-          formState.billingManager === true
-            ? loginUser?.phoneManager
-              ? loginUser?.phoneManager
-              : auth.user.phone
-            : formState.numberFinancial,
+        present: 0,
+        idOrganization: organization.id
+          ? organization.id
+          : auth?.user?.idOrganization,
+        resultTest: 0,
       })
       .catch((e) => {
         console.error(e);
@@ -199,25 +200,40 @@ const SignupPage = () => {
       });
 
     if (addSeminar.data && createGroup.data) {
-      dispatch(
-        login({
-          login: true,
-          user: {
-            id: loginUser.id,
-            username: loginUser?.username,
-            civility: loginUser?.civility,
-            email: loginUser?.email,
-            phone: loginUser?.phone,
-            terms: true,
-            newsletter: loginUser?.newsletter === 0 ? false : true,
-            roles: loginUser?.roles,
-            accessToken: loginToken,
-            confirmEmail: loginUser?.confirmEmail,
-            idOrganization: loginUser?.idOrganization,
-          },
-        })
-      );
-
+      // dispatch(
+      //   login({
+      //     login: true,
+      //     user: {
+      //       id: loginUser.id,
+      //       username: loginUser?.username,
+      //       civility: loginUser?.civility,
+      //       email: loginUser?.email,
+      //       phone: loginUser?.phone,
+      //       terms: true,
+      //       newsletter: loginUser?.newsletter === 0 ? false : true,
+      //       roles: loginUser?.roles,
+      //       accessToken: loginToken,
+      //       confirmEmail: loginUser?.confirmEmail,
+      //       idOrganization: loginUser?.idOrganization,
+      //     },
+      //   })
+      // );
+      console.log({
+        login: true,
+        user: {
+          id: loginUser.id,
+          username: loginUser?.username,
+          civility: loginUser?.civility,
+          email: loginUser?.email,
+          phone: loginUser?.phone,
+          terms: true,
+          newsletter: loginUser?.newsletter === 0 ? false : true,
+          roles: loginUser?.roles,
+          accessToken: loginToken,
+          confirmEmail: loginUser?.confirmEmail,
+          idOrganization: loginUser?.idOrganization,
+        },
+      });
       setLoading(false);
       setOpenModal(true);
     }
