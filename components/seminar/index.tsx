@@ -135,17 +135,18 @@ const SignupPage = () => {
 
     const createGroup: any = await axios
       .post(`${process.env.NEXT_PUBLIC_API_URL}/group/`, {
-        email:
+        financialEmail:
           formState.billingManager === true
             ? loginUser?.email
               ? loginUser?.email
               : auth.user.email
             : formState.emailFinancial,
-        present: 0,
-        idOrganization: organization.id
-          ? organization.id
-          : auth?.user?.idOrganization,
-        resultTest: 0,
+        financialPhone:
+          formState.billingManager === true
+            ? loginUser?.phoneManager
+              ? loginUser?.phoneManager
+              : auth.user.phone
+            : formState.numberFinancial,
       })
       .catch((e) => {
         console.error(e);
