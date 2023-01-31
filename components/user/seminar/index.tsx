@@ -1,10 +1,9 @@
+import { useCallback, useEffect, useState } from "react";
+import Link from "next/link";
 import AddCircle from "@/components/assets/icons/addCircle";
 import BreadCrumbs from "@/components/utils/breadCrumbs";
 import { getSeminarByUserId } from "@/lib/seminar";
 import { useAppSelector } from "@/redux/hooks";
-import axios from "axios";
-import Link from "next/link";
-import { useCallback, useEffect, useState } from "react";
 import FinishCard from "./cards/finish";
 import RefuseCard from "./cards/refuse";
 import SuccessCard from "./cards/success";
@@ -28,7 +27,6 @@ const SeminarList = () => {
   }, [auth.user.accessToken, auth.user.id]);
 
   useEffect(() => {
-    //const getUser  = loadCompany();
     getSeminar().catch((e) => console.error(e));
   }, [getSeminar]);
 

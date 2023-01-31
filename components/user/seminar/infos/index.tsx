@@ -38,11 +38,8 @@ const SeminarInfos = () => {
         const organization: any = await getOrganizationById(
           seminar?.idOrganization
         );
-
         const group: any = await getGroupById(seminar?.idGroup);
-
         const quote: any = await getQuoteById(seminar?.idQuote);
-
         const TemplateQuote1: any = await getTemplateQuoteById(
           auth.user.accessToken,
           quote?.idTemplateQuote1

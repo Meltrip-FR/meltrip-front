@@ -19,6 +19,7 @@ export function fbApp(): firebase.app.App {
     appId,
     measurementId,
   };
+
   return !firebase.apps.length
     ? firebase.initializeApp(firebaseConfig)
     : firebase.app();

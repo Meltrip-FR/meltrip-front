@@ -1,17 +1,10 @@
 import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
-
-// Components
-import { FormItem } from "@/components/utils/formItem";
-
-// Icons
-import UsersLock from "@/components/assets/icons/usersLock";
-import {
-  getOrganizationBySiret,
-  postOrganization,
-} from "../../../lib/organizations";
+import { getOrganizationBySiret, postOrganization } from "@/lib/organizations";
 import { signup } from "@/lib/auth";
+import { FormItem } from "@/components/utils/formItem";
+import UsersLock from "@/components/assets/icons/usersLock";
 import {
   containsCapital,
   containsSpecialChar,

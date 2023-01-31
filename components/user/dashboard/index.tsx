@@ -1,14 +1,9 @@
 import { useRouter } from "next/router";
-
-// Redux
-import { logout } from "@/redux/slices/auth.slice";
 import { useAppDispatch } from "@/redux/hooks";
-
 import { CardInfosList } from "./infosList";
 
 const Dashboard = () => {
   const router = useRouter();
-  const dispatch = useAppDispatch();
 
   const createSeminar = () => {
     router.push("/seminar/create");
