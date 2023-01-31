@@ -1,5 +1,5 @@
-import SignupPage from "@/components/auth/signup";
 import Home from "pages";
+import SignupPage from "@/components/auth/signup";
 
 const Signup = () => {
   return (

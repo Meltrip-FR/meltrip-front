@@ -1,5 +1,5 @@
-import Help from "@/components/help";
 import Home from "pages";
+import Help from "@/components/help";
 
 const HelpPage = () => {
   return (

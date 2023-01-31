@@ -1,7 +1,6 @@
 import storage from "redux-persist/lib/storage";
 import { AnyAction, Reducer } from "@reduxjs/toolkit";
 import { combineReducers } from "@reduxjs/toolkit";
-
 import authReducer from "../slices/auth.slice";
 import devicesReducer from "../slices/device.slice";
 

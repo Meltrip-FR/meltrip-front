@@ -1,8 +1,5 @@
-// Redux && Persist
 import { createSlice } from "@reduxjs/toolkit";
 import storage from "redux-persist/lib/storage";
-
-//types
 import { AuthSlice } from "types/auth";
 
 export const initialState: AuthSlice = {

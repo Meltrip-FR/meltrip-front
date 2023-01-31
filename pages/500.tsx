@@ -1,6 +1,6 @@
 import router from "next/router";
 
-export default function Custom500() {
+const Custom500 = () => {
   return (
     <div className="flex items-center justify-center w-screen h-screen bg-gradient-to-r from-[#186E7A] to-[#50878f]">
       <div className="px-40 py-20 bg-white rounded-md shadow-xl">
@@ -22,4 +22,6 @@ export default function Custom500() {
       </div>
     </div>
   );
-}
+};
+
+export default Custom500;

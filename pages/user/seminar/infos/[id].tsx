@@ -1,8 +1,8 @@
-import SeminarInfos from "@/components/user/seminar/infos/index";
-import store from "@/redux/store";
-import { useRouter } from "next/router";
-import Layout from "pages";
 import { useEffect } from "react";
+import { useRouter } from "next/router";
+import store from "@/redux/store";
+import Layout from "pages";
+import SeminarInfos from "@/components/user/seminar/infos/index";
 
 const SeminarInfosPage = () => {
   let { auth } = store.getState();

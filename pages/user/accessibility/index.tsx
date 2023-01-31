@@ -1,7 +1,7 @@
-import Accessibility from "@/components/user/organization";
-import store from "@/redux/store";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
+import store from "@/redux/store";
+import Accessibility from "@/components/user/organization";
 
 const AccessibilityPage = () => {
   let { auth } = store.getState();

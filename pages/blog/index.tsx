@@ -1,5 +1,5 @@
-import Blog from "@/components/blog";
 import Home from "pages";
+import Blog from "@/components/blog";
 
 const BlogPage = () => {
   return (

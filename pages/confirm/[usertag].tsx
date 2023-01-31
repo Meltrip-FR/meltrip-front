@@ -1,9 +1,9 @@
+import { useCallback, useEffect, useState } from "react";
+import { useRouter } from "next/router";
+import axios from "axios";
+import Home from "pages";
 import { useAppDispatch } from "@/redux/hooks";
 import { login, logout } from "@/redux/slices/auth.slice";
-import axios from "axios";
-import { useRouter } from "next/router";
-import { useCallback, useEffect, useState } from "react";
-import Home from "pages";
 
 const ConfirmEmailPage = () => {
   const router = useRouter();

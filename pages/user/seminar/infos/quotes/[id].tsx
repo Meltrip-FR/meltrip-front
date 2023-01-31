@@ -1,8 +1,8 @@
-import QuotePDF from "@/components/user/seminar/infos/choicePDF";
-import store from "@/redux/store";
 import { useRouter } from "next/router";
-import Layout from "pages";
 import { useEffect } from "react";
+import store from "@/redux/store";
+import Layout from "pages";
+import QuotePDF from "@/components/user/seminar/infos/choicePDF";
 
 const QuotePDFPage = () => {
   let { auth } = store.getState();

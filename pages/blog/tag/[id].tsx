@@ -1,5 +1,5 @@
-import Tag from "@/components/blog/tag";
 import Home from "pages";
+import Tag from "@/components/blog/tag";
 
 const TagPage = () => {
   return (

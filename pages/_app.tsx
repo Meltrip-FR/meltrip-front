@@ -1,20 +1,13 @@
-// React / Next
 import { useEffect } from "react";
 import type { AppProps } from "next/app";
-
-// Redux
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import store, { persistor } from "@/redux/store";
 import { type } from "@/redux/slices/device.slice";
-
-// Constants
 import { IS_MOBILE_REGEX } from "@/constants/default";
-
-// CSS
 import "../styles/globals.css";
 
-export default function MyApp({ Component, pageProps }: AppProps) {
+const MyApp = ({ Component, pageProps }: AppProps) => {
   let { device } = store.getState();
 
   useEffect(() => {
@@ -32,4 +25,6 @@ export default function MyApp({ Component, pageProps }: AppProps) {
       </PersistGate>
     </Provider>
   );
-}
+};
+
+export default MyApp;

@@ -1,8 +1,8 @@
-import CreateSeminar from "@/components/seminar";
-import store from "@/redux/store";
 import { useRouter } from "next/router";
-import Layout from "pages";
 import { useEffect } from "react";
+import Layout from "pages";
+import store from "@/redux/store";
+import CreateSeminar from "@/components/seminar";
 
 const DashboardPage = () => {
   let { auth } = store.getState();

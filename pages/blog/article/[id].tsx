@@ -1,5 +1,5 @@
-import Article from "@/components/blog/article";
 import Home from "pages";
+import Article from "@/components/blog/article";
 
 const ArticlePage = () => {
   return (

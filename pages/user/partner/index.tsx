@@ -1,8 +1,8 @@
-import Partner from "@/components/user/partner";
-import store from "@/redux/store";
 import { useRouter } from "next/router";
-import Layout from "pages";
 import { useEffect } from "react";
+import Layout from "pages";
+import store from "@/redux/store";
+import Partner from "@/components/user/partner";
 
 const PartnerPage = () => {
   let { auth } = store.getState();
