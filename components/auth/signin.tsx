@@ -30,38 +30,37 @@ const SigninPage = () => {
     }
   };
 
-  function handleSubmit(e: { preventDefault: () => void }) {
+  async function handleSubmit(e: { preventDefault: () => void }) {
     e.preventDefault();
-    axios
-      .post(`${process.env.NEXT_PUBLIC_API_URL}/auth/signin`, formState)
-      .then(({ data }) => {
-        const user = data?.dataValues;
-        const { payload }: any = dispatch(
-          login({
-            login: true,
-            user: {
-              id: user.id,
-              username: user?.username,
-              civility: user?.civility,
-              email: user?.email,
-              phone: user?.phone,
-              terms: true,
-              newsletter: user?.newsletter === 0 ? false : true,
-              roles: user?.roles,
-              accessToken: data?.accessToken,
-              confirmEmail: user?.confirmEmail,
-              idOrganization: user?.idOrganization,
-            },
-          })
-        );
-        if (payload.login) {
-          router.push("/user/dashboard");
-        }
+    const userData = await axios.post(
+      `${process.env.NEXT_PUBLIC_API_URL}/auth/signin`,
+      formState
+    );
+
+    const user = userData?.data?.dataValues;
+
+    const loading = dispatch(
+      login({
+        login: true,
+        user: {
+          id: user.id,
+          username: user?.username,
+          civility: user?.civility,
+          email: user?.email,
+          phone: user?.phone,
+          terms: true,
+          newsletter: user?.newsletter === 0 ? false : true,
+          roles: user?.roles,
+          accessToken: userData?.data?.accessToken,
+          confirmEmail: user?.confirmEmail,
+          idOrganization: user?.idOrganization,
+        },
       })
-      .catch((error) => {
-        console.log({ error });
-        setRequestMessage("error.response?.data?.message");
-      });
+    );
+
+    if (loading?.payload) {
+      router.push("/user/dashboard");
+    }
   }
 
   return (

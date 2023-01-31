@@ -8,12 +8,15 @@ import axios from "axios";
 import PresentSeminar from "./PresentSeminar";
 import { useRouter } from "next/router";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
-import { login } from "@/redux/slices/auth.slice";
+
 import SuccessCard from "./SuccessCard";
+import { getOrganizationBySiret, postOrganization } from "@/lib/organizations";
+import { signin, signup } from "@/lib/auth";
+import { login } from "@/redux/slices/auth.slice";
 
 const SignupPage = () => {
-  const router = useRouter();
   const dispatch = useAppDispatch();
+  const router = useRouter();
   const { auth } = useAppSelector((state) => state);
 
   const [pathname, setPathName] = useState<string>("");
@@ -63,28 +66,15 @@ const SignupPage = () => {
   const handSubmit = async () => {
     setLoading(true);
     let addOrganizations: any;
-    let addUsers: any;
     let loginRequestUser: any;
 
     if (pathname !== "/seminar/create") {
-      //Add Organization
-      addOrganizations = await axios
-        .post(`${process.env.NEXT_PUBLIC_API_URL}/organization/`, {
-          siret: formState.siretCompany,
-        })
-        .catch((e) => {
-          console.error(e);
-          setErrorMessage({
-            status: true,
-            url: "/",
-            message: "Erreur lors de la création de votre entreprise",
-          });
-        });
-
-      if (addOrganizations.data) {
-        // users
-        addUsers = await axios
-          .post(`${process.env.NEXT_PUBLIC_API_URL}/auth/signup`, {
+      if (formState.siretCompany) {
+        const organization: any = await getOrganizationBySiret(
+          formState.siretCompany
+        );
+        if (organization.id) {
+          const userBuild = {
             email: formState.emailManager,
             username: formState.nameManager,
             civility: formState.civility,
@@ -92,61 +82,52 @@ const SignupPage = () => {
             phone: formState.phoneManager,
             terms: formState.terms,
             newsletter: formState.newsletter,
-            idOrganization: addOrganizations?.data?.id,
+            idOrganization: organization?.id,
             roles: ["user"],
-          })
-          .catch((e) => {
-            console.error(e);
-            setErrorMessage({
-              status: true,
-              url: "/",
-              message: "Erreur lors de la création de votre compte",
-            });
-          });
-        //Login user
-        loginRequestUser = await axios
-          .post(`${process.env.NEXT_PUBLIC_API_URL}/auth/signin`, {
+          };
+          const createUser = await signup(userBuild);
+          if (!createUser) {
+            console.log({ type: true, message: createUser });
+            return;
+          }
+          addOrganizations = organization;
+          loginRequestUser = createUser;
+        } else {
+          const createOrganization = await postOrganization(
+            formState.siretCompany
+          );
+          const userBuild = {
             email: formState.emailManager,
+            username: formState.nameManager,
+            civility: formState.civility,
             password: formState.password,
-          })
-          .then(({ data }) => {
-            const user = data?.dataValues;
-            const { payload }: any = dispatch(
-              login({
-                login: true,
-                user: {
-                  id: user.id,
-                  username: user?.username,
-                  civility: user?.civility,
-                  email: user?.email,
-                  phone: user?.phone,
-                  terms: true,
-                  newsletter: user?.newsletter === 0 ? false : true,
-                  roles: user?.roles,
-                  accessToken: data?.accessToken,
-                  confirmEmail: user?.confirmEmail,
-                  idOrganization: user?.idOrganization,
-                },
-              })
-            );
-            if (payload.login) {
-              console.log({ success: "Login" });
-              return data;
-            }
-          })
-          .catch((e) => {
-            console.error(e);
-            setErrorMessage({
-              status: true,
-              url: "/",
-              message: "Erreur lors de la création de votre compte",
-            });
-          });
+            phone: formState.phoneManager,
+            terms: formState.terms,
+            newsletter: formState.newsletter,
+            idOrganization: createOrganization?.id,
+            roles: ["user"],
+          };
+          const createUser = await signup(userBuild);
+          if (!createUser) {
+            console.log({ type: true, message: createUser });
+            return;
+          }
+          addOrganizations = createOrganization;
+          loginRequestUser = createUser;
+        }
+      } else {
+        console.log({
+          type: false,
+          message: "Ajouter un numéro de siret",
+        });
       }
     }
 
-    const organization =
-      pathname !== "/seminar/create" && addOrganizations.data;
+    loginRequestUser =
+      pathname !== "/seminar/create" &&
+      (await signin(formState.emailManager, formState.password));
+
+    const organization = pathname !== "/seminar/create" && addOrganizations;
     const loginToken =
       pathname !== "/seminar/create" && loginRequestUser.accessToken;
     const loginUser =
@@ -219,12 +200,43 @@ const SignupPage = () => {
         });
       });
 
-    if (addSeminar.data) {
+    if (addSeminar.data && createGroup.data) {
+      // dispatch(
+      //   login({
+      //     login: true,
+      //     user: {
+      //       id: loginUser.id,
+      //       username: loginUser?.username,
+      //       civility: loginUser?.civility,
+      //       email: loginUser?.email,
+      //       phone: loginUser?.phone,
+      //       terms: true,
+      //       newsletter: loginUser?.newsletter === 0 ? false : true,
+      //       roles: loginUser?.roles,
+      //       accessToken: loginToken,
+      //       confirmEmail: loginUser?.confirmEmail,
+      //       idOrganization: loginUser?.idOrganization,
+      //     },
+      //   })
+      // );
+      console.log({
+        login: true,
+        user: {
+          id: loginUser.id,
+          username: loginUser?.username,
+          civility: loginUser?.civility,
+          email: loginUser?.email,
+          phone: loginUser?.phone,
+          terms: true,
+          newsletter: loginUser?.newsletter === 0 ? false : true,
+          roles: loginUser?.roles,
+          accessToken: loginToken,
+          confirmEmail: loginUser?.confirmEmail,
+          idOrganization: loginUser?.idOrganization,
+        },
+      });
       setLoading(false);
       setOpenModal(true);
-      setTimeout(() => {
-        router.push("/user/seminar");
-      }, 3000);
     }
   };
 
