@@ -1,3 +1,5 @@
+import { useRouter } from "next/router";
+import { Fragment, useCallback, useEffect, useState } from "react";
 import Happy from "@/components/assets/icons/seminar/happy";
 import AirCraft from "@/components/assets/icons/seminar/aircraft";
 import Euro from "@/components/assets/icons/seminar/euro";
@@ -11,13 +13,11 @@ import { getOrganizationById } from "@/lib/organizations";
 import { getSeminarById } from "@/lib/seminar";
 import { getUserById } from "@/lib/users";
 import { useAppSelector } from "@/redux/hooks";
-import { Document, Page } from "react-pdf";
-import { useRouter } from "next/router";
-import { Fragment, useCallback, useEffect, useState } from "react";
 import Chill from "@/components/assets/icons/seminar/chill";
 import TV from "@/components/assets/icons/seminar/tv";
 import { getQuoteById } from "@/lib/quotes";
 import { getTemplateQuoteById } from "@/lib/templateQuotes";
+import { getPayementBySeminarId } from "@/lib/payements";
 
 const SeminarInfos = () => {
   const router = useRouter();
@@ -40,6 +40,11 @@ const SeminarInfos = () => {
         );
         const group: any = await getGroupById(seminar?.idGroup);
         const quote: any = await getQuoteById(seminar?.idQuote);
+        const payement = await getPayementBySeminarId(
+          auth?.user?.token,
+          seminar?.idPayement
+        );
+
         const TemplateQuote1: any = await getTemplateQuoteById(
           auth.user.accessToken,
           quote?.idTemplateQuote1
@@ -70,8 +75,6 @@ const SeminarInfos = () => {
           nameManager: user?.username,
           emailManager: user?.email,
           phoneManager: user?.phone,
-          emailFinancial: group?.financialEmail,
-          numberFinancial: group?.financialPhone,
           denominationUniteLegale: organization?.denominationUniteLegale,
           siretCompany: organization?.siret,
           quote: quote,
@@ -80,6 +83,8 @@ const SeminarInfos = () => {
             TemplateQuote2,
             TemplateQuote3,
           },
+          payement,
+          group,
         });
       }
     },
@@ -90,8 +95,7 @@ const SeminarInfos = () => {
     getSeminar(router?.query?.id as string).catch((e) => console.error(e));
   }, [getSeminar, router?.query?.id]);
 
-  console.log({ seminar });
-
+  console.log(seminar);
   return (
     <section className="text-gray-600 body-font">
       <div className="container px-5 py-14 mx-auto">
@@ -251,6 +255,22 @@ const SeminarInfos = () => {
                     </div>
                   </div>
                 </a>
+              </div>
+            </Fragment>
+          )}
+
+          {/* Link invite */}
+          {seminar?.payement?.status === "Terminé" && (
+            <Fragment>
+              <p className="sm:text-xl font-bold text-xl mt-12 text-gray-900 mr-5">
+                Lien d{"'"}invitation
+              </p>
+              <div className="flex items-center mt-5">
+                <div className=" bg-gray-50 rounded p-3 hover:bg-gray-100 cursor-pointer">
+                  <span className="font-bold">
+                    {`https://meltrip.fr/invite/${seminar.id}`}
+                  </span>
+                </div>
               </div>
             </Fragment>
           )}
