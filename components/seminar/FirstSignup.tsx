@@ -158,7 +158,7 @@ const FirstSignup = ({ formState, setFormState, setNextPage }: any) => {
           <label className="ml-3" htmlFor="no">
             <span className="mt-[48px] text-[20px]">Non</span>
           </label>
-          {!formState.knowDate && (
+          {!formState.knowDate ? (
             <div className="mt-5 grid grid-cols-2 gap-12">
               <div className="col-span-1 bg-[#E4E1E6] p-3">
                 <p className="text-[18px] text-[#A5A2A7] font-semibold leading-7 font-poppins border-b-2 border-meltrip-primary mx-10">
@@ -266,45 +266,46 @@ const FirstSignup = ({ formState, setFormState, setNextPage }: any) => {
                 </ul>
               </div>
             </div>
+          ) : (
+            <div className="flex mt-10 w-full items-center">
+              <div className="w-full">
+                <span className="mt-[48px] text-[20px] font-semibold leading-7 font-poppins">
+                  Date de départ
+                </span>
+                <input
+                  name="start"
+                  type="date"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block mt-2 w-full p-2.5"
+                  placeholder="Select date start"
+                  value={formState.startDate}
+                  onChange={(e) =>
+                    setFormState({ ...formState, startDate: e.target.value })
+                  }
+                />
+              </div>
+              <div className="mx-4 mt-8 text-gray-500">
+                <Arrow size={25} />
+              </div>
+              <div className="w-full">
+                <span className="mt-[48px] text-[20px] font-semibold leading-7 font-poppins">
+                  Date de retour
+                </span>
+                <input
+                  name="end"
+                  type="date"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block mt-2 w-full p-2.5"
+                  placeholder="Select date end"
+                  value={formState.endDate}
+                  onChange={(e) =>
+                    setFormState({ ...formState, endDate: e.target.value })
+                  }
+                />
+              </div>
+            </div>
           )}
         </div>
       </div>
-      {/* Date Picker */}
-      <div className="flex mt-10 w-full items-center">
-        <div className="w-full">
-          <span className="mt-[48px] text-[20px] font-semibold leading-7 font-poppins">
-            Date de départ
-          </span>
-          <input
-            name="start"
-            type="date"
-            className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block mt-2 w-full p-2.5"
-            placeholder="Select date start"
-            value={formState.startDate}
-            onChange={(e) =>
-              setFormState({ ...formState, startDate: e.target.value })
-            }
-          />
-        </div>
-        <div className="mx-4 mt-8 text-gray-500">
-          <Arrow size={25} />
-        </div>
-        <div className="w-full">
-          <span className="mt-[48px] text-[20px] font-semibold leading-7 font-poppins">
-            Date de retour
-          </span>
-          <input
-            name="end"
-            type="date"
-            className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block mt-2 w-full p-2.5"
-            placeholder="Select date end"
-            value={formState.endDate}
-            onChange={(e) =>
-              setFormState({ ...formState, endDate: e.target.value })
-            }
-          />
-        </div>
-      </div>
+
       {/* Paginate */}
       <div className="w-full flex justify-between items-center mt-10">
         <div

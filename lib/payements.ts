@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const getPayementBySeminarId = async (token: any, id: any) => {
   const getPayement: any = await axios
-    .get(`${process.env.NEXT_PUBLIC_API_URL}/seminar/payement/${id}`, {
+    .get(`${process.env.NEXT_PUBLIC_API_URL}/payement/${id}`, {
       headers: {
         "x-access-token": token,
       },

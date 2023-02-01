@@ -14,8 +14,13 @@ const FinishCard = ({ seminarData }: any) => {
           <div className="bg-blue-50 p-5">
             <h1>Nombre de membre: {seminar.adultNumber}</h1>
             <h3 className="text-xl  font-bold">
-              {convertDate(seminar?.startDate)} &{" "}
-              {convertDate(seminar?.endDate)}
+              {seminar?.startDate
+                ? convertDate(seminar?.startDate)
+                : seminar?.departurePeriod}{" "}
+              &{" "}
+              {seminar?.endDate
+                ? convertDate(seminar?.endDate)
+                : seminar?.approximateDuration}
             </h3>
           </div>
         </Link>

@@ -8,13 +8,28 @@ import FinishCard from "./cards/finish";
 import RefuseCard from "./cards/refuse";
 import SuccessCard from "./cards/success";
 import WaitingCard from "./cards/waiting";
-
+import { getPayementBySeminarId } from "@/lib/payements";
+import { updateSeminarById } from "../../../lib/seminar";
 const SeminarList = () => {
   const { auth } = useAppSelector((state) => state);
   const [seminarList, setListSeminar] = useState<any>();
 
   const arrayFilterbyType = (type: string): any => {
-    return seminarList?.filter((item: any) => item.status === type);
+    return seminarList
+      ?.filter((item: any) => item.status === type)
+      .map(async (item: any) => {
+        if (item.status === "Accepté") {
+          const payement = await getPayementBySeminarId(
+            auth.user.accessToken,
+            item?.idPayement
+          );
+          if (payement.status === "Terminé") {
+            await updateSeminarById(auth.user.accessToken, item.id, {
+              status: "Terminé",
+            });
+          }
+        }
+      });
   };
 
   const getSeminar = useCallback(async () => {
