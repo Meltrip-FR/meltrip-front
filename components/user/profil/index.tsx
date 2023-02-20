@@ -1,10 +1,10 @@
 import { useCallback, useEffect, useState } from "react";
+import axios from "axios";
 import Eyes from "@/components/assets/icons/eyes";
 import LockClose from "@/components/assets/icons/lockClose";
 import BreadCrumbs from "@/components/utils/breadCrumbs";
 import { FormItem } from "@/components/utils/formItem";
 import { useAppSelector } from "@/redux/hooks";
-import axios from "axios";
 
 const capitalize = (str: string) => {
   return str

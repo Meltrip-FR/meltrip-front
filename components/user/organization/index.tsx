@@ -1,9 +1,9 @@
+import { useCallback, useEffect, useState } from "react";
+import axios from "axios";
 import Eyes from "@/components/assets/icons/eyes";
 import LockClose from "@/components/assets/icons/lockClose";
 import BreadCrumbs from "@/components/utils/breadCrumbs";
 import { useAppSelector } from "@/redux/hooks";
-import axios from "axios";
-import { useCallback, useEffect, useState } from "react";
 
 const Organization = () => {
   const { auth } = useAppSelector((state) => state);
@@ -14,8 +14,7 @@ const Organization = () => {
       const res = await axios.get(
         `${process.env.NEXT_PUBLIC_API_URL}/organization/${auth?.user?.idOrganization}`
       );
-      const data = res.data;
-      setOrganization(data);
+      setOrganization(res.data);
     } catch (error: any) {
       error?.response?.data?.message &&
         console.error(error.response.data.message);

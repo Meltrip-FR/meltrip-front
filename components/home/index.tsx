@@ -1,11 +1,7 @@
 import { useState } from "react";
 import Modal from "./modal";
-
-//Components
 import Header from "@/components/body/header";
 import Footer from "@/components/body/footer";
-
-//Iconsclear
 import ChevronDown from "@/components/assets/icons/chevronDown";
 import Happy from "@/components/assets/icons/happy";
 import Hello from "@/components/assets/icons/hello";

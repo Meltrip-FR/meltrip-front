@@ -15,13 +15,13 @@ const Payments = () => {
   const [payementList, setListPayement] = useState<any>();
 
   const getPayement = useCallback(async () => {
-    const seminar: any = await getSeminarByUserId(
+    const seminar = await getSeminarByUserId(
       auth.user.accessToken,
       auth.user.id
     );
     let result = [];
     for (let res of seminar) {
-      const payement: any = await getPayementBySeminarId(
+      const payement = await getPayementBySeminarId(
         auth.user.accessToken,
         res.idPayement
       );
