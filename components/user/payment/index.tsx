@@ -28,7 +28,7 @@ const Payments = () => {
       result.push({
         id: payement.id,
         price: payement.paye,
-        url: payement.invoice,
+        url: payement.urlInvoice,
         status: payement.status,
       });
     }
@@ -79,7 +79,7 @@ const Payments = () => {
                         {item.id} séminaire
                       </h2>
                       <p className="leading-relaxed text-base">
-                        {item.price} $
+                        {item.price} €
                       </p>
                     </div>
                     <div
