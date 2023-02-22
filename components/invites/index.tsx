@@ -5,6 +5,14 @@ import Footer from "../body/footer";
 import Present from "./steps/present";
 import First from "./steps/first";
 import Second from "./steps/second";
+import Three from "./steps/three";
+import Eight from "./steps/eight";
+import Nine from "./steps/nine";
+import Ten from "./steps/ten";
+import Four from "./steps/four";
+import Five from "./steps/five";
+import Six from "./steps/six";
+import Seven from "./steps/seven";
 
 const Invites = () => {
   const router = useRouter();
@@ -24,6 +32,41 @@ const Invites = () => {
     activeIndex: 0,
   });
 
+  function calculateResponsePercentages(): any {
+    const totalCount =
+      formState.empathique +
+      formState.reveur +
+      formState.rebelle +
+      formState.perseverant +
+      formState.perfectionniste +
+      formState.travailaddict;
+
+    const responsePercentages: any = {
+      empathique: (formState.empathique / totalCount) * 100,
+      reveur: (formState.reveur / totalCount) * 100,
+      rebelle: (formState.rebelle / totalCount) * 100,
+      perseverant: (formState.perseverant / totalCount) * 100,
+      perfectionniste: (formState.perfectionniste / totalCount) * 100,
+      travailaddict: (formState.travailaddict / totalCount) * 100,
+    };
+
+    let highestPercentage: any = 0;
+    let objectWithHighestPercentage: any = {};
+
+    for (const [key, value] of Object.entries(responsePercentages) as any) {
+      if (value > highestPercentage) {
+        highestPercentage = value;
+        objectWithHighestPercentage = { [key]: value };
+      }
+    }
+
+    return objectWithHighestPercentage;
+  }
+
+  const handleSubmit = async () => {
+    console.log(calculateResponsePercentages());
+  };
+
   const getSeminar = useCallback(async () => {
     const seminar = await axios.get(
       `${process.env.NEXT_PUBLIC_API_URL}/seminar/${router.query.id}`
@@ -36,6 +79,7 @@ const Invites = () => {
       router.push(`/seminar/${router.query.id}`);
     }
   }, [router.query.id]);
+
   useEffect(() => {
     getSeminar();
   }, [getSeminar]);
@@ -47,8 +91,28 @@ const Invites = () => {
           <Present setFormState={setFormState} formState={formState} />
         ) : formState.steps === 1 ? (
           <First setFormState={setFormState} formState={formState} />
-        ) : (
+        ) : formState.steps === 2 ? (
           <Second setFormState={setFormState} formState={formState} />
+        ) : formState.steps === 3 ? (
+          <Three setFormState={setFormState} formState={formState} />
+        ) : formState.steps === 4 ? (
+          <Four setFormState={setFormState} formState={formState} />
+        ) : formState.steps === 5 ? (
+          <Five setFormState={setFormState} formState={formState} />
+        ) : formState.steps === 6 ? (
+          <Six setFormState={setFormState} formState={formState} />
+        ) : formState.steps === 7 ? (
+          <Seven setFormState={setFormState} formState={formState} />
+        ) : formState.steps === 8 ? (
+          <Eight setFormState={setFormState} formState={formState} />
+        ) : formState.steps === 9 ? (
+          <Nine setFormState={setFormState} formState={formState} />
+        ) : (
+          <Ten
+            setFormState={setFormState}
+            formState={formState}
+            handleSubmit={handleSubmit}
+          />
         )}
       </div>
       <Footer />
