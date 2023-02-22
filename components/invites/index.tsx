@@ -4,6 +4,7 @@ import axios from "axios";
 import Footer from "../body/footer";
 import Present from "./steps/present";
 import First from "./steps/first";
+import Second from "./steps/second";
 
 const Invites = () => {
   const router = useRouter();
@@ -16,6 +17,7 @@ const Invites = () => {
     rebelle: 0,
     perseverant: 0,
     perfectionniste: 0,
+    travailaddict: 0,
     resultat: "",
     steps: 0,
 
@@ -43,8 +45,10 @@ const Invites = () => {
       <div className="mx-auto container">
         {formState.steps === 0 ? (
           <Present setFormState={setFormState} formState={formState} />
-        ) : (
+        ) : formState.steps === 1 ? (
           <First setFormState={setFormState} formState={formState} />
+        ) : (
+          <Second setFormState={setFormState} formState={formState} />
         )}
       </div>
       <Footer />
