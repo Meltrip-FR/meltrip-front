@@ -1,4 +1,3 @@
-import Home from "pages";
 import Invites from "@/components/invites";
 
 const InvitesPage = () => {
