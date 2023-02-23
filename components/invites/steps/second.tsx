@@ -4,7 +4,6 @@ import { questions } from "../data/questions";
 
 const Second = ({ setFormState, formState }: any) => {
   const questionsList: any = questions[1];
-
   const handleChangeActive = (newActiveIndex: any, type: any) => {
     const oldType = questionsList.answers[formState.activeIndex].type;
     setFormState({
@@ -41,7 +40,9 @@ const Second = ({ setFormState, formState }: any) => {
       <div className="flex justify-center">
         <button
           className="text-xl rounded text-white m-10 py-3 px-5 hover:cursor-pointer hover:bg-[#448B7B] hover:text-white bg-[#186E7A]"
-          onClick={() => setFormState({ steps: 3 })}
+          onClick={() =>
+            setFormState({ ...formState, activeIndex: 0, steps: 3 })
+          }
         >
           SUIVANT
         </button>

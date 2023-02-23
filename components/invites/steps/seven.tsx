@@ -41,7 +41,9 @@ const Seven = ({ setFormState, formState }: any) => {
       <div className="flex justify-center">
         <button
           className="text-xl rounded text-white m-10 py-3 px-5 hover:cursor-pointer hover:bg-[#448B7B] hover:text-white bg-[#186E7A]"
-          onClick={() => setFormState({ steps: 8 })}
+          onClick={() =>
+            setFormState({ ...formState, activeIndex: 0, steps: 8 })
+          }
         >
           SUIVANT
         </button>
