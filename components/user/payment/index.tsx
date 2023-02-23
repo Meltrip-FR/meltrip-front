@@ -39,6 +39,7 @@ const Payments = () => {
     getPayement().catch((e) => console.error(e));
   }, [getPayement]);
 
+  console.log(payementList);
   return (
     <section className="text-gray-600 body-font">
       <div className="container px-5 py-14 mx-auto">
@@ -70,34 +71,39 @@ const Payments = () => {
             <div className="lg:w-3/5 md:w-1/2 md:pr-16 lg:pr-0 pr-0">
               <div className="grid grid-rows-4 gap-4">
                 {payementList?.map((item: any) => (
-                  <div
-                    key={item.id}
-                    className="grid grid-cols-4 gap-3 border-b"
-                  >
-                    <div>
-                      <h2 className="text-gray-900 text-lg title-font font-medium mb-2">
-                        {item.id} séminaire
-                      </h2>
-                      <p className="leading-relaxed text-base">
-                        {item.price} €
-                      </p>
-                    </div>
-                    <div
-                      className="mt-3 text-black underline inline-flex items-center cursor-pointer"
-                      onClick={() => item.url && router.push(item.url)}
-                    >
-                      {item.url && "télécharger la facture"}
-                    </div>
+                  <div key={item.id}>
+                    <h2 className="text-gray-900 text-lg title-font font-medium">
+                      {item.id} séminaire
+                    </h2>
+                    <div className="grid grid-cols-4 gap-3 border-b">
+                      <div>
+                        <p className="leading-relaxed text-base mt-3">
+                          {item.price === false ? "Waiting" : item.price + "€"}
+                        </p>
+                      </div>
+                      <div
+                        className={`mt-3 text-black underline inline-flex items-center ${
+                          item.url !== null && "cursor-pointer"
+                        }`}
+                        onClick={() =>
+                          item.url !== null && router.push(item.url)
+                        }
+                      >
+                        {item.url
+                          ? "télécharger la facture"
+                          : "facture non disponible"}
+                      </div>
 
-                    <div className="mt-3 text-black inline-flex items-center cursor-pointer">
-                      {item.status ? "Payé" : "En cours"}
-                    </div>
-                    <div className="mt-3 text-black underline inline-flex items-center mr-10">
-                      {item.status ? (
-                        <SuccessCircle size={20} />
-                      ) : (
-                        <CircleList size={20} />
-                      )}
+                      <div className="mt-3 text-black inline-flex items-center cursor-pointer">
+                        {item.status}
+                      </div>
+                      <div className="mt-3 text-black underline inline-flex items-center mr-10">
+                        {item.status !== "En cours" ? (
+                          <SuccessCircle size={20} />
+                        ) : (
+                          <CircleList size={20} />
+                        )}
+                      </div>
                     </div>
                   </div>
                 ))}
