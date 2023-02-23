@@ -18,11 +18,38 @@ import TV from "@/components/assets/icons/seminar/tv";
 import { getQuoteById } from "@/lib/quotes";
 import { getTemplateQuoteById } from "@/lib/templateQuotes";
 import { getPayementBySeminarId } from "@/lib/payements";
+import { getMembersByGroupId } from "@/lib/members";
 
 const SeminarInfos = () => {
   const router = useRouter();
   const { auth } = useAppSelector((state) => state);
   const [seminar, setSeminar] = useState<any>();
+
+  const loadStats = async (members: any) => {
+    const categoryTotals: any = {
+      empathique: { count: 0, total: 0 },
+      reveur: { count: 0, total: 0 },
+      rebelle: { count: 0, total: 0 },
+      perseverant: { count: 0, total: 0 },
+      perfectionniste: { count: 0, total: 0 },
+      travailaddict: { count: 0, total: 0 },
+    };
+
+    members?.forEach((item: any) => {
+      const category = item.resultType;
+      categoryTotals[category].count += 1;
+      categoryTotals[category].total += item.resultState;
+    });
+
+    const categoryPercentages: any = {};
+
+    for (const category in categoryTotals) {
+      const count = categoryTotals[category].count;
+      const total = categoryTotals[category].total;
+      categoryPercentages[category] = count > 0 ? total / count : 0;
+    }
+    return categoryPercentages;
+  };
 
   const getSeminar = useCallback(
     async (idSeminar: string) => {
@@ -40,10 +67,12 @@ const SeminarInfos = () => {
         );
         const group: any = await getGroupById(seminar?.idGroup);
         const quote: any = await getQuoteById(seminar?.idQuote);
+        const members: any = await getMembersByGroupId(seminar?.idGroup);
         const payement = await getPayementBySeminarId(
           auth?.user?.token,
           seminar?.idPayement
         );
+        const loadStat = await loadStats(members);
 
         const TemplateQuote1: any = await getTemplateQuoteById(
           auth.user.accessToken,
@@ -85,6 +114,8 @@ const SeminarInfos = () => {
           },
           payement,
           group,
+          members,
+          loadStat,
         });
       }
     },
@@ -96,6 +127,7 @@ const SeminarInfos = () => {
   }, [getSeminar, router?.query?.id]);
 
   console.log(seminar);
+
   return (
     <section className="text-gray-600 body-font">
       <div className="container px-5 py-14 mx-auto">
@@ -154,11 +186,12 @@ const SeminarInfos = () => {
           </div>
           {/* Stats Profile Séminar */}
           <p className="sm:text-xl font-bold text-xl mt-12 text-gray-900 mr-5">
-            Profile rempli à 0%
+            Profile rempli à{" "}
+            {(seminar?.members.length / seminar?.participNumber) * 100}%
           </p>
           <progress
             className="w-full progress progress-accent mt-12"
-            value="10"
+            value={(seminar?.members.length / seminar?.participNumber) * 100}
             max="100"
           ></progress>
           {/* Profile Teams */}
@@ -168,28 +201,38 @@ const SeminarInfos = () => {
           <div className="w-full grid grid-cols-3 gap-5 mt-12">
             <div className="items-center align-center flex flex-col">
               <Stair size={250} />
-              <span className="text-center">Persévérent 0%</span>
+              <span className="text-center">
+                Persévérent {seminar?.loadStat["perseverant"]}%
+              </span>
             </div>
             <div className="items-center align-center flex flex-col">
               <Library size={250} />
-              <span className="text-center">Perfectionniste 0%</span>
+              <span className="text-center">
+                Perfectionniste {seminar?.loadStat["perfectionniste"]}%
+              </span>
             </div>
             <div className="items-center align-center flex flex-col">
               <Working size={250} />
-              <span className="text-center">Travail addict 0%</span>
+              <span className="text-center">
+                Travail addict {seminar?.loadStat["travailaddict"]}%
+              </span>
             </div>
             <div className="items-center align-center flex flex-col">
               <Happy size={250} />
-              <span className="text-center">Empathique 0%</span>
+              <span className="text-center">
+                Empathique {seminar?.loadStat["empathique"]}%
+              </span>
             </div>
             <div className="items-center align-center flex flex-col">
               <Chill size={250} />
-              <span className="text-center">Reveur 0%</span>
+              <span className="text-center">
+                Reveur {seminar?.loadStat["reveur"]}%
+              </span>
             </div>
             <div className="items-center align-center flex flex-col">
               <TV size={250} />
               <span className="text-center">
-                Les membres qui n{"'"}ont pas remplie le formulaire
+                Rebelle {seminar?.loadStat["rebelle"]}%
               </span>
             </div>
           </div>
