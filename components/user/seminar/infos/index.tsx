@@ -88,6 +88,7 @@ const SeminarInfos = () => {
         );
 
         setSeminar({
+          id: seminar?.id,
           participNumber: seminar?.adultNumber,
           knowDate: seminar?.knowDate === 0 ? false : true,
           departurePeriod: seminar?.departurePeriod,
@@ -301,6 +302,8 @@ const SeminarInfos = () => {
               </div>
             </Fragment>
           )}
+
+          {console.log({ seminar })}
 
           {/* Link invite */}
           {seminar?.payement?.status === "Terminé" && (
