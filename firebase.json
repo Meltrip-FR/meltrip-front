@@ -74,6 +74,22 @@
         "destination": "/user/seminar/infos/quotes/[id].html"
       },
       {
+        "source": "/invites/*",
+        "destination": "/invites/[id].html"
+      },
+      {
+        "source": "/invites/limit",
+        "destination": "/invites/limit.html"
+      },
+      {
+        "source": "/invites/thanks",
+        "destination": "/invites/thanks.html"
+      },
+      {
+        "source": "/seminar/create",
+        "destination": "/seminar/create.html"
+      },
+      {
         "source": "/blog",
         "destination": "/blog.html"
       },

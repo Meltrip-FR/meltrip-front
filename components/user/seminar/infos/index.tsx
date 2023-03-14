@@ -314,7 +314,7 @@ const SeminarInfos = () => {
               <div className="flex items-center mt-5">
                 <div className=" bg-gray-50 rounded p-3 hover:bg-gray-100 cursor-pointer">
                   <span className="font-bold">
-                    {`https://meltrip.fr/invite/${seminar.id}`}
+                    {`https://meltrip.fr/invites/${seminar.id}`}
                   </span>
                 </div>
               </div>
