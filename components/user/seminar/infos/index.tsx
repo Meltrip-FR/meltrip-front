@@ -35,19 +35,22 @@ const SeminarInfos = () => {
       travailaddict: { count: 0, total: 0 },
     };
 
-    members?.forEach((item: any) => {
-      const category = item.resultType;
+    for (let i = 0; i < members.length; i++) {
+      const category = members[i].resultType;
       categoryTotals[category].count += 1;
-      categoryTotals[category].total += item.resultState;
-    });
+      categoryTotals[category].total += members[i].resultState;
+    }
 
     const categoryPercentages: any = {};
 
+    console.log(categoryTotals);
     for (const category in categoryTotals) {
       const count = categoryTotals[category].count;
       const total = categoryTotals[category].total;
       categoryPercentages[category] = count > 0 ? total / count : 0;
     }
+
+    console.log(categoryPercentages);
     return categoryPercentages;
   };
 
@@ -68,11 +71,11 @@ const SeminarInfos = () => {
         const group: any = await getGroupById(seminar?.idGroup);
         const quote: any = await getQuoteById(seminar?.idQuote);
         const members: any = await getMembersByGroupId(seminar?.idGroup);
-        const payement = await getPayementBySeminarId(
+        const payement: any = await getPayementBySeminarId(
           auth?.user?.token,
           seminar?.idPayement
         );
-        const loadStat = await loadStats(members);
+        const loadStat: any = await loadStats(members);
 
         const TemplateQuote1: any = await getTemplateQuoteById(
           auth.user.accessToken,
@@ -88,6 +91,7 @@ const SeminarInfos = () => {
         );
 
         setSeminar({
+          id: seminar?.id,
           participNumber: seminar?.adultNumber,
           knowDate: seminar?.knowDate === 0 ? false : true,
           departurePeriod: seminar?.departurePeriod,
@@ -119,14 +123,13 @@ const SeminarInfos = () => {
         });
       }
     },
-    [auth.user.accessToken, auth.user.id]
+    [auth.user.accessToken, router.query.id]
   );
 
   useEffect(() => {
-    getSeminar(router?.query?.id as string).catch((e) => console.error(e));
+    router?.query?.id &&
+      getSeminar(router?.query?.id as string).catch((e) => console.error(e));
   }, [getSeminar, router?.query?.id]);
-
-  console.log(seminar);
 
   return (
     <section className="text-gray-600 body-font">
@@ -184,6 +187,9 @@ const SeminarInfos = () => {
               </div>
             </div>
           </div>
+
+          {console.log(seminar?.loadStat)}
+
           {/* Stats Profile Séminar */}
           <p className="sm:text-xl font-bold text-xl mt-12 text-gray-900 mr-5">
             Profile rempli à{" "}
@@ -301,7 +307,6 @@ const SeminarInfos = () => {
               </div>
             </Fragment>
           )}
-
           {/* Link invite */}
           {seminar?.payement?.status === "Terminé" && (
             <Fragment>
@@ -311,7 +316,7 @@ const SeminarInfos = () => {
               <div className="flex items-center mt-5">
                 <div className=" bg-gray-50 rounded p-3 hover:bg-gray-100 cursor-pointer">
                   <span className="font-bold">
-                    {`https://meltrip.fr/invite/${seminar.id}`}
+                    {`https://meltrip.fr/invites/${seminar.id}`}
                   </span>
                 </div>
               </div>

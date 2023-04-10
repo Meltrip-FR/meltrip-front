@@ -8,7 +8,7 @@ import { useRouter } from "next/router";
 import { useCallback, useEffect, useState } from "react";
 import { updateQuotebyId } from "@/lib/quotes";
 import { payementWithStripe } from "@/lib/payements";
-import { getSeminarByQuoteId, getSeminarByUserId } from "@/lib/seminar";
+import { getSeminarByQuoteId } from "@/lib/seminar";
 
 const ChoicePDF = () => {
   const router = useRouter();

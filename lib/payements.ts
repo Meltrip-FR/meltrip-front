@@ -10,6 +10,9 @@ export const getPayementBySeminarId = async (token: any, id: any) => {
     .catch((error: TypeError) => {
       console.error(error);
     });
+
+  console.log({ token, id });
+
   return getPayement.data;
 };
 
