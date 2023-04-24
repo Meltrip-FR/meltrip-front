@@ -9,11 +9,11 @@ import "../styles/globals.css";
 import { useRouter } from "next/router";
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
-  const router = useRouter();
+  // const router = useRouter();
   let { device } = store.getState();
 
   useEffect(() => {
-    router.push("/");
+    // router.push("/");
 
     if (IS_MOBILE_REGEX.test(navigator.userAgent)) {
       store.dispatch(type({ mode: "SET_MOBILE_MODE" }));

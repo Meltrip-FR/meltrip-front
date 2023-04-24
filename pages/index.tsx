@@ -12,7 +12,7 @@ const Home = ({ children }: { children: React.ReactElement }) => {
 
   return (
     <Fragment>
-      {/* <Head>
+      <Head>
         <title>Meltrip</title>
         <meta content="width=device-width, initial-scale=1" name="viewport" />
         <link rel="icon" href="logo2.webp" />
@@ -25,8 +25,8 @@ const Home = ({ children }: { children: React.ReactElement }) => {
           {children}
           <Footer />
         </Fragment>
-      )} */}
-      <SiteDown />
+      )}
+      {/* <SiteDown /> */}
     </Fragment>
   );
 };
