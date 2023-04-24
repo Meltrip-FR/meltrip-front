@@ -19,6 +19,11 @@ const ConfirmEmailPage = () => {
         `${process.env.NEXT_PUBLIC_API_URL}/user/${userTag}/tag`
       );
 
+      const loginBuildData = {
+        login: true,
+        user: { ...data, roles: ["user"] },
+      };
+
       if (data.confirmEmail !== null) {
         axios
           .put(`${process.env.NEXT_PUBLIC_API_URL}/user/confirm/${data.id}`, {
@@ -30,12 +35,7 @@ const ConfirmEmailPage = () => {
             delete data.updatedAt;
             delete data.password;
             delete data.id;
-            dispatch(
-              login({
-                login: true,
-                user: { ...data, roles: ["user"] },
-              })
-            );
+            dispatch(login(loginBuildData as any));
             setLoading(false);
             router.push("/user/dashboard");
           })

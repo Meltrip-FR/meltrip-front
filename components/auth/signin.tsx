@@ -35,24 +35,24 @@ const SigninPage = () => {
 
     const user = userData?.data?.dataValues;
 
-    const loading = dispatch(
-      login({
-        login: true,
-        user: {
-          id: user.id,
-          username: user?.username,
-          civility: user?.civility,
-          email: user?.email,
-          phone: user?.phone,
-          terms: true,
-          newsletter: user?.newsletter === 0 ? false : true,
-          roles: user?.roles,
-          accessToken: userData?.data?.accessToken,
-          confirmEmail: user?.confirmEmail,
-          idOrganization: user?.idOrganization,
-        },
-      })
-    );
+    const loginBuild = {
+      login: true as boolean,
+      user: {
+        id: user.id,
+        username: user?.username,
+        civility: user?.civility,
+        email: user?.email,
+        phone: user?.phone,
+        terms: true,
+        newsletter: user?.newsletter === 0 ? false : true,
+        roles: user?.roles,
+        accessToken: userData?.data?.accessToken,
+        confirmEmail: user?.confirmEmail,
+        idOrganization: user?.idOrganization,
+      },
+    };
+
+    const loading = dispatch(login(loginBuild as any));
 
     if (loading?.payload) {
       router.push("/user/dashboard");

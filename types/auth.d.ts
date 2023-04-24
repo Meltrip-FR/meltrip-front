@@ -7,10 +7,10 @@ export interface AuthSlice {
     email: string;
     phone: string;
     terms: boolean;
-    confirmEmail: boolean;
     newsletter: boolean;
     roles: string[];
     accessToken: string;
+    confirmEmail: boolean;
     idOrganization?: number;
   };
 }

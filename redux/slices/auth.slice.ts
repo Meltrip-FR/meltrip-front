@@ -23,19 +23,19 @@ export const authSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
-    login: (state: any, action: any) => {
+    login: (state: any, action: any): any => {
       const load = action.payload;
       state.login = load.login;
       state.user.id = load.user?.id;
       state.user.username = load.user?.username;
       state.user.civility = load.user?.civility;
-      state.user.confirmEmail = load.user.confirmEmail;
       state.user.email = load.user.email;
       state.user.phone = load.user.phone;
       state.user.terms = load.user.terms;
       state.user.newsletter = load.user.newsletter;
       state.user.roles = load.user.roles;
       state.user.accessToken = load.user.accessToken;
+      state.user.confirmEmail = load.user.confirmEmail;
       state.user.idOrganization = load.user.idOrganization;
     },
     logout: (state: any) => {
