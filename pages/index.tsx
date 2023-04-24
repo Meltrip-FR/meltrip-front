@@ -4,6 +4,7 @@ import Head from "next/head";
 import HeaderWhite from "@/components/body/header/headerWhite";
 import HomePage from "@/components/home";
 import Footer from "@/components/body/footer";
+import SiteDown from "@/components/siteDown";
 
 const Home = ({ children }: { children: React.ReactElement }) => {
   const router = useRouter();
@@ -11,7 +12,7 @@ const Home = ({ children }: { children: React.ReactElement }) => {
 
   return (
     <Fragment>
-      <Head>
+      {/* <Head>
         <title>Meltrip</title>
         <meta content="width=device-width, initial-scale=1" name="viewport" />
         <link rel="icon" href="logo2.webp" />
@@ -24,7 +25,8 @@ const Home = ({ children }: { children: React.ReactElement }) => {
           {children}
           <Footer />
         </Fragment>
-      )}
+      )} */}
+      <SiteDown />
     </Fragment>
   );
 };
