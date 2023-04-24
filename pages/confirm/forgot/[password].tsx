@@ -53,7 +53,7 @@ const ConfirmForgotPasswordPage = () => {
 
   return (
     <Home>
-      <div className="bg-white shadow-md rounded-md p-4 max-w-sm mx-auto">
+      <div className="bg-white shadow-md rounded-md p-4 mb-5 max-w-sm mx-auto">
         <h2 className="text-lg font-medium mb-4">Reset le mot de passe</h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
@@ -74,7 +74,7 @@ const ConfirmForgotPasswordPage = () => {
           </div>
           <button
             type="submit"
-            className="bg-blue-500 hover:bg-blue-600 text-white font-medium rounded-md px-4 py-2"
+            className="bg-meltrip-primary hover:bg-meltrip-secondary text-white font-medium rounded-md px-4 py-2"
           >
             Nouveau mot de passe
           </button>
