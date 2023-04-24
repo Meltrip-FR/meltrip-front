@@ -53,16 +53,32 @@ const ConfirmForgotPasswordPage = () => {
 
   return (
     <Home>
-      <div>
-        <h1>Change password your password ({email})</h1>
-        {requestMessage && <span>{requestMessage}</span>}
-        <input
-          type="password"
-          placeholder="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <button onClick={(e) => handleSubmit(e)}>Submit</button>
+      <div className="bg-white shadow-md rounded-md p-4 max-w-sm mx-auto">
+        <h2 className="text-lg font-medium mb-4">Reset le mot de passe</h2>
+        <form onSubmit={handleSubmit}>
+          <div className="mb-4">
+            <label
+              className="block text-gray-700 font-semibold mb-2"
+              htmlFor="new-password"
+            >
+              Nouveau mot de passe
+            </label>
+            <input
+              className="border border-gray-300 rounded-md p-2 w-full"
+              type="password"
+              id="new-password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </div>
+          <button
+            type="submit"
+            className="bg-blue-500 hover:bg-blue-600 text-white font-medium rounded-md px-4 py-2"
+          >
+            Nouveau mot de passe
+          </button>
+        </form>
       </div>
     </Home>
   );

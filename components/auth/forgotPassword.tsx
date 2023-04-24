@@ -24,7 +24,7 @@ const ForgotPassword = () => {
           </div>
           <p className="mt-2 text-gray-500">
             Saisissez votre adresse électronique et nous vous enverrons un lien
-            pour réinitialiser votre mot de passe. mot de passe.
+            pour réinitialiser votre mot de passe.
           </p>
           <form className="mt-4">
             <div>
