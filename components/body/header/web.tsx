@@ -22,6 +22,9 @@ const WebHeader = () => {
           <Logo size={100} color={"white"} />
         </div>
         <div className="hidden md:grid md:grid-flow-col md:auto-cols-max md:gap-20 text-base justify-center items-center text-left text-white uppercase">
+          <h5 className="cursor-pointer" onClick={() => router.push("/")}>
+            ACCUEIL
+          </h5>
           <h5 className="cursor-pointer" onClick={() => router.push("/teams")}>
             NOTRE AGENCE
           </h5>
