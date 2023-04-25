@@ -22,8 +22,12 @@
         "destination": "/contact.html"
       },
       {
-        "source": "/help",
-        "destination": "/help.html"
+        "source": "/cgu",
+        "destination": "/cgu.html"
+      },
+      {
+        "source": "/cgv",
+        "destination": "/cgv.html"
       },
       {
         "source": "/auth/signin",
