@@ -1,13 +1,17 @@
+import store from "@/redux/store";
+
 const CGU = () => {
+  let { auth } = store.getState();
+
   return (
-    <div className="flex flex-col items-center justify-center">
-      <h1 className="text-center font-bold text-2xl">
+    <div className="flex flex-col items-center justify-center mt-10">
+      <h1 className="text-center font-bold text-5xl mb-5">
         Condition générale d’utilisation
       </h1>
-      <h6 className="font-bold text-[#757575] mt-5 ">
+      <h6 className="font-bold text-[#757575] mt-5 text-2xl">
         En vigueur au 01/05/2022
       </h6>
-      <div className="container mx-auto mt-10">
+      <div className="container mx-auto mt-10 w-[100vh]">
         <p className="mb-5">
           Les présentes conditions générales d{"'"}utilisation (dites «
           <b>CGU</b> ») ont pour objet l{"'"}encadrement juridique des modalités
@@ -31,15 +35,31 @@ const CGU = () => {
           accès des services proposés par le site.
         </p>
         <p>
-          <b>https://meltrip.fr</b> se réserve le droit de modifier
-          unilatéralement et à tout moment le contenu des présentes CGU.
+          <b>
+            <a
+              href="https://meltrip.fr"
+              className="text-meltrip-primary hover:underline"
+            >
+              https://meltrip.fr
+            </a>
+          </b>{" "}
+          se réserve le droit de modifier unilatéralement et à tout moment le
+          contenu des présentes CGU.
         </p>
         <h3 className="font-bold text-xl mt-5 mb-5">
           Article 1 : Les mentions légales
         </h3>
         <p className="mb-5">
           L’édition et la direction de la publication du site
-          <b> https://meltrip.fr </b>
+          <b>
+            {" "}
+            <a
+              href="https://meltrip.fr"
+              className="text-meltrip-primary hover:underline"
+            >
+              https://meltrip.fr
+            </a>{" "}
+          </b>
           est assurée par Louise Landemaine, domicilié sur Paris. <br />
           Informations de contact :
           <ul className="ml-5">
@@ -48,16 +68,32 @@ const CGU = () => {
           </ul>
         </p>
         <p className="mt-5">
-          L{"'"}hébergeur du site https://meltrip.fr est la société ALWAYSDATA,
-          dont le siège social est situé au 91 rue du Faubourg Saint Honoré,
-          75008, Paris, avec le numéro de téléphone : 01 84 16 23 40.
+          L{"'"}hébergeur du site{" "}
+          <a
+            href="https://meltrip.fr"
+            className="text-meltrip-primary hover:underline"
+          >
+            https://meltrip.fr
+          </a>{" "}
+          est la société ALWAYSDATA, dont le siège social est situé au 91 rue du
+          Faubourg Saint Honoré, 75008, Paris, avec le numéro de téléphone : 01
+          84 16 23 40.
         </p>
         <h3 className="font-bold text-xl mt-5 mb-5">
           Article 2 : Accès au site
         </h3>
         <p>
-          Le site <b>https://meltrip.fr</b> permet à l{"'"}Utilisateur un accès
-          gratuit aux services suivants : <br />
+          Le site{" "}
+          <b>
+            <a
+              href="https://meltrip.fr"
+              className="text-meltrip-primary hover:underline"
+            >
+              https://meltrip.fr
+            </a>
+          </b>{" "}
+          permet à l{"'"}Utilisateur un accès gratuit aux services suivants :{" "}
+          <br />
           Le site internet propose les services suivants : <br />
           <ul className="ml-5  mb-5">
             <li>
@@ -90,10 +126,16 @@ const CGU = () => {
           <br /> Tout événement dû à un cas de force majeure ayant pour
           conséquence un dysfonctionnement du site ou serveur et sous réserve de
           toute interruption ou modification en cas de maintenance, n{"'"}engage
-          pas la responsabilité de https://meltrip.fr. Dans ces cas,
-          l’Utilisateur accepte ainsi ne pas tenir rigueur à l’éditeur de toute
-          interruption ou suspension de service, même sans préavis. <br /> L
-          {"'"}
+          pas la responsabilité de{" "}
+          <a
+            href="https://meltrip.fr"
+            className="text-meltrip-primary hover:underline"
+          >
+            https://meltrip.fr
+          </a>
+          . Dans ces cas, l’Utilisateur accepte ainsi ne pas tenir rigueur à
+          l’éditeur de toute interruption ou suspension de service, même sans
+          préavis. <br /> L{"'"}
           Utilisateur a la possibilité de contacter le site par messagerie
           électronique à l’adresse email de l’éditeur communiqué à l’ARTICLE 1.
         </p>
@@ -135,37 +177,107 @@ const CGU = () => {
         <h3 className="font-bold text-xl mt-5 mb-5">
           ARTICLE 5 : Responsabilité
         </h3>
-        <p>
-          Les sources des informations diffusées sur le site https://meltrip.fr
-          sont réputées fiables mais le site ne garantit pas qu’il soit exempt
-          de défauts, d’erreurs ou d’omissions. <br /> Les informations
-          communiquées sont présentées à titre indicatif et général sans valeur
-          contractuelle. Malgré des mises à jour régulières, le site
-          https://meltrip.fr ne peut être tenu responsable de la modification
-          des dispositions administratives et juridiques survenant après la
-          publication. De même, le site ne peut être tenue responsable de
-          l’utilisation et de l’interprétation de l’information contenue dans ce
-          site. <br /> L{"'"}
-          Utilisateur s{"'"}assure de garder son mot de passe secret. Toute
-          divulgation du mot de passe, quelle que soit sa forme, est interdite.
-          Il assume les risques liés à l{"'"}utilisation de son identifiant et
-          mot de passe. Le site décline toute responsabilité. <br /> Le site
-          https://meltrip.fr ne peut être tenu pour responsable d’éventuels
-          virus qui pourraient infecter l’ordinateur ou tout matériel
-          informatique de l’Internaute, suite à une utilisation, à l’accès, ou
-          au téléchargement provenant de ce site. <br /> La responsabilité du
-          site ne peut être engagée en cas de force majeure ou du fait
-          imprévisible et insurmontable d{"'"}un tiers.
-        </p>
+        {auth.login ? (
+          <p>
+            Les sources des informations diffusées sur le site
+            <a
+              href="https://meltrip.fr"
+              className="text-meltrip-primary hover:underline"
+            >
+              https://meltrip.fr
+            </a>{" "}
+            sont réputées fiables mais le site ne garantit pas qu’il soit exempt
+            de défauts, d’erreurs ou d’omissions. <br /> Les informations
+            communiquées sont présentées à titre indicatif et général sans
+            valeur contractuelle. Malgré des mises à jour régulières, le site{" "}
+            <a
+              href="https://meltrip.fr"
+              className="text-meltrip-primary hover:underline"
+            >
+              https://meltrip.fr
+            </a>{" "}
+            ne peut être tenu responsable de la modification des dispositions
+            administratives et juridiques survenant après la publication. De
+            même, le site ne peut être tenue responsable de l’utilisation et de
+            l’interprétation de l’information contenue dans ce site. <br /> L
+            {"'"}
+            Utilisateur s{"'"}assure de garder son mot de passe secret. Toute
+            divulgation du mot de passe, quelle que soit sa forme, est
+            interdite. Il assume les risques liés à l{"'"}utilisation de son
+            identifiant et mot de passe. Le site décline toute responsabilité.{" "}
+            <br /> Le site{" "}
+            <a
+              href="https://meltrip.fr"
+              className="text-meltrip-primary hover:underline"
+            >
+              https://meltrip.fr
+            </a>{" "}
+            ne peut être tenu pour responsable d’éventuels virus qui pourraient
+            infecter l’ordinateur ou tout matériel informatique de l’Internaute,
+            suite à une utilisation, à l’accès, ou au téléchargement provenant
+            de ce site. <br /> La responsabilité du site ne peut être engagée en
+            cas de force majeure ou du fait imprévisible et insurmontable d{"'"}
+            un tiers.
+          </p>
+        ) : (
+          <p>
+            Les sources des informations diffusées sur le site
+            <a
+              href="https://meltrip.fr"
+              className="text-meltrip-primary hover:underline"
+            >
+              https://meltrip.fr
+            </a>{" "}
+            sont réputées fiables mais le site ne garantit pas qu’il soit exempt
+            de défauts, d’erreurs ou d’omissions.
+            <br /> Les informations communiquées sont présentées à titre
+            indicatif et général sans valeur contractuelle. Malgré des mises à
+            jour régulières, le site{" "}
+            <a
+              href="https://meltrip.fr"
+              className="text-meltrip-primary hover:underline"
+            >
+              https://meltrip.fr
+            </a>{" "}
+            ne peut être tenu responsable de la modification des dispositions
+            administratives et juridiques survenant après la publication. De
+            même, le site ne peut être tenue responsable de l’utilisation et de
+            l’interprétation de l’information contenue dans ce site.
+            <br /> L{"'"}Utilisateur s{"'"}assure de garder son mot de passe
+            secret. Toute divulgation du mot de passe, quelle que soit sa forme,
+            est interdite. Il assume les risques liés à l{"'"}
+            utilisation de son identifiant et mot de passe. Le site décline
+            toute responsabilité.
+            <br /> Le site{" "}
+            <a
+              href="https://meltrip.fr"
+              className="text-meltrip-primary hover:underline"
+            >
+              https://meltrip.fr
+            </a>{" "}
+            ne peut être tenu pour responsable d’éventuels virus qui pourraient
+            infecter l’ordinateur ou tout matériel informatique de l’Internaute,
+            suite à une utilisation, à l’accès, ou au téléchargement provenant
+            de ce site. <br />
+            La responsabilité du site ne peut être engagée en cas de force
+            majeure ou du fait imprévisible et insurmontable d{"'"}un tiers.
+          </p>
+        )}
         <h3 className="font-bold text-xl mt-5 mb-5">
           ARTICLE 6 : Liens hypertextes
         </h3>
         <p>
           Des liens hypertextes peuvent être présents sur le site. L’Utilisateur
           est informé qu’en cliquant sur ces liens, il peut sortir du site
-          https://meltrip.fr. Ce dernier n’a pas de contrôle sur les pages web
-          sur lesquelles aboutissent ces liens et ne saurait, en aucun cas, être
-          responsable de leur contenu.
+          <a
+            href="https://meltrip.fr"
+            className="text-meltrip-primary hover:underline"
+          >
+            https://meltrip.fr
+          </a>
+          . Ce dernier n’a pas de contrôle sur les pages web sur lesquelles
+          aboutissent ces liens et ne saurait, en aucun cas, être responsable de
+          leur contenu.
         </p>
         <h3 className="font-bold text-xl mt-5 mb-5">ARTICLE 7 : Les Cookies</h3>
         <p>
@@ -174,19 +286,32 @@ const CGU = () => {
           navigation. <br /> Les cookies sont de petits fichiers stockés
           temporairement sur le disque dur de l’ordinateur de l’Utilisateur par
           votre navigateur et qui sont nécessaires à l’utilisation du site
-          https://meltrip.fr. Les cookies ne contiennent pas d’information
-          personnelle et ne peuvent pas être utilisés pour identifier quelqu’un.
-          Un cookie contient un identifiant unique, généré aléatoirement et donc
-          anonyme. Certains cookies expirent à la fin de la visite de
-          l’Utilisateur, d’autres restent. <br />
+          <a
+            href="https://meltrip.fr"
+            className="text-meltrip-primary hover:underline"
+          >
+            https://meltrip.fr
+          </a>
+          . Les cookies ne contiennent pas d’information personnelle et ne
+          peuvent pas être utilisés pour identifier quelqu’un. Un cookie
+          contient un identifiant unique, généré aléatoirement et donc anonyme.
+          Certains cookies expirent à la fin de la visite de l’Utilisateur,
+          d’autres restent. <br />
           L’information contenue dans les cookies est utilisée pour améliorer le
-          site https://meltrip.fr. En naviguant sur le site, L’Utilisateur les
-          accepte. <br /> L’Utilisateur doit toutefois donner son consentement
-          quant à l’utilisation de certains cookies. <br /> À défaut
-          d’acceptation, l’Utilisateur est informé que certaines fonctionnalités
-          ou pages risquent de lui être refusées. L’Utilisateur pourra
-          désactiver ces cookies par l’intermédiaire des paramètres figurant au
-          sein de son logiciel de navigation.
+          site{" "}
+          <a
+            href="https://meltrip.fr"
+            className="text-meltrip-primary hover:underline"
+          >
+            https://meltrip.fr
+          </a>
+          . En naviguant sur le site, L’Utilisateur les accepte. <br />{" "}
+          L’Utilisateur doit toutefois donner son consentement quant à
+          l’utilisation de certains cookies. <br /> À défaut d’acceptation,
+          l’Utilisateur est informé que certaines fonctionnalités ou pages
+          risquent de lui être refusées. L’Utilisateur pourra désactiver ces
+          cookies par l’intermédiaire des paramètres figurant au sein de son
+          logiciel de navigation.
         </p>
         <h3 className="font-bold text-xl mt-5 mb-5">
           ARTICLE 8 : Publication par l’Utilisateur

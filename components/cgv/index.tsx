@@ -1,14 +1,14 @@
 const CGV = () => {
   return (
     <div className="flex flex-col items-center justify-center">
-      <h1 className="text-center font-bold text-2xl">
+      <h1 className="text-center font-bold text-5xl mb-5 mt-10">
         Condition générale de vente
       </h1>
-      <h6 className="font-bold text-[#757575] mt-5 ">
+      <h6 className="font-bold text-[#757575] mt-5 text-2xl">
         En vigueur au 01/05/2022
       </h6>
-      <div className="container mx-auto mt-10">
-        <h3 className="font-bold text-xl mt-5 mb-5">
+      <div className="container mx-auto mt-10 w-[100vh]">
+        <h3 className="font-bold text-xl mt-5 mb-5 uppercase">
           Article 1 : Objet et champ d{"'"}application
         </h3>
         <p className="mb-5">
@@ -17,17 +17,28 @@ const CGV = () => {
           remises à chaque acheteur pour lui permettre de passer commande. Les
           conditions générales de vente décrites ci-après détaillent les droits
           et obligations de la société MELTRIP et de son client dans le cadre de
-          la vente des marchandises suivantes : Organisation de séminaire selon
-          le besoin d’une entreprise (séminaire d’intégration, de management, de
-          team building, de commerce et de formation) et selon la personnalité
-          de tous les collaborateurs ; Proposition de séminaires prêts-à-l{"'"}
-          emploi non modifiable. Toute acceptation du devis/bon de commande, en
-          ce compris la clause « Je reconnais avoir pris connaissance et j{"'"}
+          la vente des marchandises suivantes : <br />
+          <ul className="list-disc ml-5">
+            <li>
+              {" "}
+              Organisation de séminaire selon le besoin d’une entreprise
+              (séminaire d’intégration, de management, de team building, de
+              commerce et de formation) et selon la personnalité de tous les
+              collaborateurs ;{" "}
+            </li>
+            <li>
+              Proposition de séminaires prêts-à-l{"'"}emploi non modifiable.
+            </li>
+          </ul>
+          Toute acceptation du devis/bon de commande, en ce compris la clause «
+          Je reconnais avoir pris connaissance et j{"'"}
           accepte les conditions générales de vente ci-annexées » implique l
           {"'"}adhésion sans réserve de l{"'"}acheteur aux présentes conditions
           générales de vente.
         </p>
-        <h3 className="font-bold text-xl mt-5 mb-5">ARTICLE 2 : prix</h3>
+        <h3 className="font-bold text-xl mt-5 mb-5 uppercase">
+          ARTICLE 2 : PRIX
+        </h3>
         <p>
           Les prix des services vendues sont ceux en vigueur au jour de la prise
           de commande. Ils sont libellés en euros et calculés hors taxes. Par
@@ -37,7 +48,7 @@ const CGV = () => {
           elle s{"'"}engage à facturer les marchandises commandées aux prix
           indiqués lors de l{"'"}enregistrement de la commande.
         </p>
-        <h3 className="font-bold text-xl mt-5 mb-5">
+        <h3 className="font-bold text-xl mt-5 mb-5 uppercase">
           ARTICLE 3 : Rabais et ristournes
         </h3>
         <p>
@@ -45,11 +56,13 @@ const CGV = () => {
           société MELTRIP serait amenée à octroyer compte tenu de ses résultats
           ou de la prise en charge par l{"'"}acheteur de certaines prestations.
         </p>
-        <h3 className="font-bold text-xl mt-5 mb-5">ARTICLE 4 : escompte</h3>
+        <h3 className="font-bold text-xl mt-5 mb-5 uppercase">
+          ARTICLE 4 : escompte
+        </h3>
         <p className="">
           Aucun escompte ne sera consenti en cas de paiement anticipé.
         </p>
-        <h3 className="font-bold text-xl mt-5 mb-5">
+        <h3 className="font-bold text-xl mt-5 mb-5 uppercase">
           Article 5: Modalités de paiement
         </h3>
         <p>
@@ -60,7 +73,7 @@ const CGV = () => {
           restant une fois le séminaire terminé Pour les séminaires prêt à
           l’emploi Paiement à 60 jours suivant la date de facturation
         </p>
-        <h3 className="font-bold text-xl mt-5 mb-5">
+        <h3 className="font-bold text-xl mt-5 mb-5 uppercase">
           Article 6: Retard de paiement
         </h3>
         <p>
@@ -77,7 +90,7 @@ const CGV = () => {
           des frais de recouvrement. Articles 441-10 et D. 441-5 du code de
           commerce.
         </p>
-        <h3 className="font-bold text-xl mt-5 mb-5">
+        <h3 className="font-bold text-xl mt-5 mb-5 uppercase">
           Article 7: Clause résolutoire
         </h3>
         <p>
@@ -87,7 +100,9 @@ const CGV = () => {
           et pourra ouvrir droit à l{"'"}allocation de dommages et intérêts au
           profit de la société MELTRIP.
         </p>
-        <h3 className="font-bold text-xl mt-5 mb-5">ARTICLE 8 : livraison</h3>
+        <h3 className="font-bold text-xl mt-5 mb-5 uppercase">
+          ARTICLE 8 : livraison
+        </h3>
         <p>
           La livraison de tous les documents nécessaires à la réalisation du
           séminaire est effectuée par mail à l’adresse du compte avec laquelle
@@ -103,7 +118,7 @@ const CGV = () => {
           confirmées par écrit dans les cinq jours suivant la livraison, par
           courrier recommandé AR adressé à la société ou par réponse au mail.
         </p>
-        <h3 className="font-bold text-xl mt-5 mb-5">
+        <h3 className="font-bold text-xl mt-5 mb-5 uppercase">
           Article 9: Force majeure
         </h3>
         <p className="mb-10">
@@ -115,7 +130,7 @@ const CGV = () => {
           imprévisible et irrésistible au sens de l{"'"}article 1148 du Code
           civil.
         </p>{" "}
-        <h3 className="font-bold text-xl mt-5 mb-5">
+        <h3 className="font-bold text-xl mt-5 mb-5 uppercase">
           Article 10: Tribunal compétent
         </h3>
         <p className="mb-10">
@@ -124,7 +139,7 @@ const CGV = () => {
           À défaut de résolution amiable, le litige sera porté devant le
           Tribunal de commerce de PARIS.
         </p>{" "}
-        <h3 className="font-bold text-xl mt-5 mb-5">
+        <h3 className="font-bold text-xl mt-5 mb-5 uppercase">
           Article 11: Droit à l’image
         </h3>
         <p className="mb-10">
@@ -132,7 +147,7 @@ const CGV = () => {
           l’utilisation de ses références dans le cadre de la communication
           commerciale de MELTRIP.
         </p>{" "}
-        <h3 className="font-bold text-xl mt-5 mb-5">
+        <h3 className="font-bold text-xl mt-5 mb-5 uppercase">
           Article 12: Données personnelles
         </h3>
         <p className="mb-10">
@@ -150,26 +165,57 @@ const CGV = () => {
           traitement et d’opposition pour raisons légitimes, ainsi que du droit
           de définir des directives relatives au sort de ses données après sa
           mort. Ces derniers peuvent exercer les droits dont ils disposent en
-          s’adressant à la société MELTRIP à l’adresse mail suivante :
-          contact@meltrip.fr. Le Client peut, en cas de contestation, former une
-          réclamation auprès de la CNIL dont les coordonnées figurent à
-          l’adresse suivante : https://www.cnil.fr.
+          s’adressant à la société MELTRIP à l’adresse mail suivante :{" "}
+          <a
+            href="mailto:contact@meltrip.fr"
+            className="text-meltrip-primary hover:underline"
+          >
+            contact@meltrip.fr
+          </a>
+          . Le Client peut, en cas de contestation, former une réclamation
+          auprès de la CNIL dont les coordonnées figurent à l’adresse suivante :{" "}
+          <a
+            href="https://www.cnil.fr"
+            className="text-meltrip-primary hover:underline"
+          >
+            https://www.cnil.fr
+          </a>
+          .
         </p>{" "}
-        <h3 className="font-bold text-xl mt-5 mb-5">
+        <h3 className="font-bold text-xl mt-5 mb-5 uppercase">
           Article 13 : Clause de propriété intellectuelle
         </h3>
         <p className="mb-10">
           Toutes les images, photographies, illustrations et design ainsi que
-          les textes et commentaires reproduits sur le site https://meltrip.fr
+          les textes et commentaires reproduits sur le site{" "}
+          <a
+            href="https://meltrip.fr"
+            className="text-meltrip-primary hover:underline"
+          >
+            https://meltrip.fr
+          </a>
           sont protégés par le droit d’auteur, le droit des marques et le droit
-          à l’image et ce pour le monde entier. Ces contenus diffusés sur le
-          site https://meltrip.fr sont la propriété pleine et entière de la
-          société Meltrip. À ce titre, seule l’utilisation pour un usage privé
-          et sous respect des dispositions du code de la propriété
-          intellectuelle est autorisée. Toute autre utilisation est constitutive
-          de contrefaçon et sanctionnée au titre de la propriété intellectuelle.
-          La reproduction totale ou partielle du site https://meltrip.fr est
-          strictement interdite.
+          à l’image et ce pour le monde entier. <br /> Ces contenus diffusés sur
+          le site{" "}
+          <a
+            href="https://meltrip.fr"
+            className="text-meltrip-primary hover:underline"
+          >
+            https://meltrip.fr
+          </a>{" "}
+          sont la propriété pleine et entière de la société Meltrip. À ce titre,
+          seule l’utilisation pour un usage privé et sous respect des
+          dispositions du code de la propriété intellectuelle est autorisée.{" "}
+          <br /> Toute autre utilisation est constitutive de contrefaçon et
+          sanctionnée au titre de la propriété intellectuelle. La reproduction
+          totale ou partielle du site{" "}
+          <a
+            href="https://meltrip.fr"
+            className="text-meltrip-primary hover:underline"
+          >
+            https://meltrip.fr
+          </a>{" "}
+          est strictement interdite.
         </p>
       </div>
     </div>

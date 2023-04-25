@@ -6,7 +6,6 @@ import store, { persistor } from "@/redux/store";
 import { type } from "@/redux/slices/device.slice";
 import { IS_MOBILE_REGEX } from "@/constants/default";
 import "../styles/globals.css";
-import { useRouter } from "next/router";
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   // const router = useRouter();

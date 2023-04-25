@@ -91,22 +91,21 @@ const Footer = () => {
               Liens Utiles
             </h2>
             <nav className="list-none mb-10">
-              <li className="pt-5">
-                <a className="text-meltrip-textW hover:text-gray-50">
+              <li className="pt-5 text-white">
+                <a className="text-white hover:text-gray-50">
                   Organiser mon séminaire
                 </a>
               </li>
               <li className="pt-5">
-                <a className="text-meltrip-textW hover:text-gray-50">
-                  Nous rejoindre
-                </a>
+                <a className="text-white hover:text-gray-50">Nous rejoindre</a>
               </li>
               <li className="pt-5">
-                <Link
-                  className="text-meltrip-textW hover:text-gray-50"
-                  href="/help"
-                >
-                  CGV & CGU
+                <Link className="text-white hover:text-gray-50" href="/cgv">
+                  CGV
+                </Link>
+                <span className="text-white"> & </span>
+                <Link className="text-white hover:text-gray-50" href="/cgu">
+                  CGU
                 </Link>
               </li>
             </nav>
