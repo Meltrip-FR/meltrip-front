@@ -5,15 +5,10 @@ import ContactIcon from "@/components/assets/icons/contact/contactIcon";
 
 const ContactPage = () => {
   const [requestMessage, setRequestMessage] = useState<any>({
-    type: true,
+    type: false,
     message: "Contact was add successfully!",
   });
-  const [formState, setFormState] = useState({
-    username: "",
-    email: "",
-    title: "",
-    describe: "",
-  });
+  const [formState, setFormState] = useState<any>();
 
   const onFormChange = (e: any) => {
     if (e.target) {
@@ -26,8 +21,16 @@ const ContactPage = () => {
 
   const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
+    const data = {
+      ...formState,
+      username: formState.lastname + " " + formState.firstname,
+    };
+
+    delete data.firstname;
+    delete data.lastname;
+
     axios
-      .post(`${process.env.NEXT_PUBLIC_API_URL}/contact`, formState)
+      .post(`${process.env.NEXT_PUBLIC_API_URL}/contact`, data)
       .then(({ data }) => {
         setRequestMessage({ type: true, message: data.message });
       })
@@ -50,9 +53,20 @@ const ContactPage = () => {
           <form onSubmit={handleSubmit}>
             <div className="relative mb-4 w-96">
               <FormItem
-                name="username"
-                label="Nom - Prénom"
-                value={formState.username}
+                name="firstname"
+                label="Prénom"
+                value={formState?.firstname}
+                style="border border-meltrip-primary px-2 py-2"
+                onChange={onFormChange}
+                disabled={false}
+                required={true}
+              />
+            </div>
+            <div className="relative mb-4 w-96">
+              <FormItem
+                name="lastname"
+                label="Nom"
+                value={formState?.lastname}
                 style="border border-meltrip-primary px-2 py-2"
                 onChange={onFormChange}
                 disabled={false}
@@ -63,7 +77,7 @@ const ContactPage = () => {
               <FormItem
                 type="email"
                 name="email"
-                value={formState.email}
+                value={formState?.email}
                 label="Email"
                 style="border border-meltrip-primary px-2 py-2"
                 onChange={onFormChange}
@@ -75,7 +89,7 @@ const ContactPage = () => {
               <FormItem
                 type="title"
                 name="title"
-                value={formState.title}
+                value={formState?.title}
                 label="Titre"
                 style="border border-meltrip-primary px-2 py-2"
                 onChange={onFormChange}
@@ -88,7 +102,7 @@ const ContactPage = () => {
                 className="border border-meltrip-primary px-2 py-2 h-32 rounded w-full"
                 name="describe"
                 placeholder="Description"
-                value={formState.describe}
+                value={formState?.describe}
                 onChange={(e) => onFormChange(e)}
                 disabled={false}
                 required={true}
