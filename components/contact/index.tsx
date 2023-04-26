@@ -8,6 +8,7 @@ const ContactPage = () => {
     type: false,
     message: "Contact was add successfully!",
   });
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [formState, setFormState] = useState<any>();
 
   const onFormChange = (e: any) => {
@@ -21,6 +22,7 @@ const ContactPage = () => {
 
   const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
+    setIsLoading(true);
     const data = {
       ...formState,
       username: formState.lastname + " " + formState.firstname,
@@ -32,9 +34,11 @@ const ContactPage = () => {
     axios
       .post(`${process.env.NEXT_PUBLIC_API_URL}/contact`, data)
       .then(({ data }) => {
+        setIsLoading(false);
         setRequestMessage({ type: true, message: data.message });
       })
       .catch((error) => {
+        setIsLoading(false);
         setRequestMessage({ type: null, message: "" });
         setRequestMessage({
           type: false,
@@ -109,9 +113,9 @@ const ContactPage = () => {
               />
             </div>
             <input
-              className="text-white bg-[#186E7A] w-full border-none py-2 px-8 focus:outline-none rounded text-lg"
+              className="text-white bg-[#186E7A] hover:bg-[#1d6a75] cursor-pointer w-full border-none py-2 px-8 focus:outline-none rounded text-lg"
               type="submit"
-              value="Envoyer"
+              value={isLoading ? "Loading" : "Envoyer"}
             />
           </form>
         </div>
