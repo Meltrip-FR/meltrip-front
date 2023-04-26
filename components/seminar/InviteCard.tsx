@@ -1,8 +1,26 @@
 import InviteLink from "../assets/icons/inputLink";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-const InviteCard = () => {
+const InviteCard = ({ seminar }: any) => {
+  const copiueClipboard = () => {
+    window.navigator.clipboard.writeText(
+      `https://meltrip.fr/invites/${seminar?.id}`
+    );
+    toast.success("Copié", {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  };
+
   return (
     <div className="flex flex-col">
+      <ToastContainer />
       <p className="text-justify">
         Merci pour ces informations, nos Meltrippers sont en train de vous
         concocté le séminaire qui vous convient.
@@ -23,11 +41,11 @@ const InviteCard = () => {
         participants aura été atteint <b>65%</b>.
       </p>
       <div className="mt-16 relative cursor-pointer">
-        <div className="">
+        <div onClick={() => copiueClipboard()}>
           <InviteLink width={700} />
         </div>
         <div className="absolute top-[5.5vh] left-[20vh]">
-          <p>lala</p>
+          <p>{`https://meltrip.fr/invites/${seminar?.id}`}</p>
         </div>
       </div>
       <p className="font-bold text-xl text-center mt-16">
@@ -35,7 +53,7 @@ const InviteCard = () => {
       </p>
       <div className="flex justify-center w-full mt-16">
         <a
-          href=""
+          href="https://meltrip.fr/user/dashboard"
           className="px-6 py-2 text-center text-white rounded bg-meltrip-primary"
         >
           Allez dans mon espace

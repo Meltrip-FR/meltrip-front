@@ -97,7 +97,6 @@ const SeminarList = () => {
             seminarData={arrayFilterbyType("Attente" || "" || null)}
           />
         )}
-
         {/* Historique des Séminaires Refusé */}
         <div className="flex flex-wrap border-b border-gray-400 w-full mb-5 text-center mt-10">
           <h1 className=" text-2xl font-medium title-font mb-2 text-gray-900 mr-5">
@@ -109,7 +108,6 @@ const SeminarList = () => {
         ) : (
           <RefuseCard seminarData={arrayFilterbyType("Refusé")} />
         )}
-
         {/* Historique des Séminaires */}
         <div className="flex flex-wrap border-b border-gray-400 w-full mb-5 text-center mt-10">
           <h1 className=" text-2xl font-medium title-font mb-2 text-gray-900 mr-5">

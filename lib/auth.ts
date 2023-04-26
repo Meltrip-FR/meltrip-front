@@ -4,7 +4,8 @@ export const signup = async (data: any) => {
   const user: any = await axios
     .post(`${process.env.NEXT_PUBLIC_API_URL}/auth/signup`, data)
     .catch((error: TypeError) => {
-      console.error(error);
+      console.error(error.message);
+      return error.message;
     });
 
   return user.data;

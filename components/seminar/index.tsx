@@ -23,7 +23,7 @@ const SignupPage = () => {
   const [pathname, setPathName] = useState<string>("");
   const [nextPage, setNextPage] = useState<number>(0);
   const [loading, setLoading] = useState<boolean>(false);
-  const [openModal, setOpenModal] = useState<boolean>(false);
+  const [seminar, setSeminar] = useState<any>();
   const [errorMessage, setErrorMessage] = useState({
     status: false,
     url: "",
@@ -201,45 +201,28 @@ const SignupPage = () => {
         });
       });
 
-    console.log(addSeminar);
-
     if (addSeminar.data && createGroup.data) {
-      // dispatch(
-      //   login({
-      //     login: true,
-      //     user: {
-      //       id: loginUser.id,
-      //       username: loginUser?.username,
-      //       civility: loginUser?.civility,
-      //       email: loginUser?.email,
-      //       phone: loginUser?.phone,
-      //       terms: true,
-      //       newsletter: loginUser?.newsletter === 0 ? false : true,
-      //       roles: loginUser?.roles,
-      //       accessToken: loginToken,
-      //       confirmEmail: loginUser?.confirmEmail,
-      //       idOrganization: loginUser?.idOrganization,
-      //     },
-      //   })
-      // );
-      console.log({
-        login: true,
-        user: {
-          id: loginUser.id,
-          username: loginUser?.username,
-          civility: loginUser?.civility,
-          email: loginUser?.email,
-          phone: loginUser?.phone,
-          terms: true,
-          newsletter: loginUser?.newsletter === 0 ? false : true,
-          roles: loginUser?.roles,
-          accessToken: loginToken,
-          confirmEmail: loginUser?.confirmEmail,
-          idOrganization: loginUser?.idOrganization,
-        },
-      });
+      dispatch(
+        login({
+          login: true,
+          user: {
+            id: loginUser.id,
+            username: loginUser?.username,
+            civility: loginUser?.civility,
+            email: loginUser?.email,
+            phone: loginUser?.phone,
+            terms: true,
+            newsletter: loginUser?.newsletter === 0 ? false : true,
+            roles: loginUser?.roles,
+            accessToken: loginToken,
+            confirmEmail: loginUser?.confirmEmail,
+            idOrganization: loginUser?.idOrganization,
+          },
+        })
+      );
+      setSeminar(addSeminar.data);
       setLoading(false);
-      setOpenModal(true);
+      setNextPage(4);
     }
   };
 
@@ -247,11 +230,7 @@ const SignupPage = () => {
     setPathName(router.pathname);
   }, [router.pathname]);
 
-  return openModal ? (
-    <div className="w-full  flex justify-center items-center bg-gray-100">
-      <SuccessCard />
-    </div>
-  ) : (
+  return (
     <Fragment>
       <div className="w-full bg-gray-100">
         <Fragment>
@@ -326,7 +305,7 @@ const SignupPage = () => {
                   setNextPage={setNextPage}
                 />
               ) : nextPage === 4 ? (
-                <InviteCard />
+                <InviteCard seminar={seminar} />
               ) : (
                 <ThreePointOneSignup
                   formState={formState}
