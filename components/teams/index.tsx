@@ -96,7 +96,7 @@ const Teams = () => {
                 name="Kelly Darabor"
                 pictureURL={Kelly.src}
                 status="Co-fondateur"
-                post="Responsable UX -UI design"
+                post="Responsable UX - UI design"
               />
             </div>
           </div>
