@@ -23,21 +23,24 @@ const PresentSeminar = ({ setNextPage }: any) => {
         ></iframe>
       </div>
       {/* Paginate */}
-      <div className="w-full flex justify-between items-center mt-10">
+      {/* <div className="w-full flex justify-between items-center mt-10">
         <div
           onClick={() => router.back()}
           className="text-meltrip-primary cursor-pointer mt-[48px] text-[20px] font-semibold leading-7 font-poppins"
         >
           {"< "} Précédent
-        </div>
-        <div>
-          <button
-            onClick={() => setNextPage(1)}
-            className="bg-meltrip-primary p-2 rounded text-white mt-[48px] text-[20px] font-semibold leading-7 font-poppins"
-          >
-            Étape suivante{" "}
-          </button>
-        </div>
+        </div> */}
+      <div className="flex justify-center">
+        <p className="font-bold mt-16">Tout est clair ?</p>
+      </div>
+      <div className="flex justify-center">
+        <button
+          onClick={() => setNextPage(1)}
+          className="bg-meltrip-primary p-2 rounded text-white mt-[48px] text-[20px] font-semibold leading-7 font-poppins"
+        >
+          Étape suivante{" "}
+        </button>
+        {/* </div> */}
       </div>
     </Fragment>
   );

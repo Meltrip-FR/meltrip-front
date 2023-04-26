@@ -186,7 +186,6 @@ const SecondSignup = ({
       {/* Budget par personne (facultatif) */}
       <p className="mt-[48px] text-[20px] font-semibold leading-7 font-poppins">
         Quel est votre budget par personne ?{" "}
-        <span className="text-gray-400">(facultatif)</span>
       </p>
       <div className="md:w-[40%]">
         <div className="relative">
@@ -209,6 +208,7 @@ const SecondSignup = ({
       {/* Sleeping */}
       <p className="mt-[48px] text-[20px] font-semibold leading-7 font-poppins">
         Pour dormir, vous êtes plutôt ...{" "}
+        <span className="text-gray-400">(plusieurs choix possible)</span>
         <span className="text-red-500">
           {errorMessage.type === "sleepSuggest" && errorMessage.message}
         </span>
@@ -241,7 +241,6 @@ const SecondSignup = ({
       {/* Describe Project (facultatif) */}
       <p className="mt-[48px] text-[20px] font-semibold leading-7 font-poppins">
         Vous souhaitez nous en dire plus sur votre projet ?{" "}
-        <span className="text-gray-400">(facultatif)</span>
       </p>
       <textarea
         name="describeProject"
@@ -262,7 +261,7 @@ const SecondSignup = ({
             onClick={() => verifyNextPage()}
             className="bg-meltrip-primary p-2 rounded text-white mt-[48px] text-[20px] font-semibold leading-7 font-poppins"
           >
-            Étape suivante{" "}
+            Envoyer mon projet
           </button>
         </div>
       </div>

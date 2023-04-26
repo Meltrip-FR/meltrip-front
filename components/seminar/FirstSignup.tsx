@@ -51,7 +51,7 @@ const FirstSignup = ({ formState, setFormState, setNextPage }: any) => {
     <Fragment>
       {/* Header picture */}
       <h1 className="text-4xl font-poppins">Pour commencer</h1>
-      <p className="mt-[48px] text-[20px] font-semibold leading-7 font-poppins">
+      <p className="mt-[48px] text-[20px] font-semibold leading-7 font-poppins text-justify">
         Nous avons besoin de quelques informations pour vous concocter le
         meilleur séminaire, pour ce faire nous avons besoins que vous
         remplissiez ce formulaire en 4 étapes qui nous permettra de vous créer
@@ -62,10 +62,11 @@ const FirstSignup = ({ formState, setFormState, setNextPage }: any) => {
         Nombre de personnes, veuillez vous inclure si vous y participez
       </p>
       <div className="md:grid md:grid-cols-2 md:w-[50%] md:gap-5 mt-5">
-        <div className="md:col-span-1 py-3">
+        <div className="md:col-span-1 py-1">
           <span className="mt-[48px] text-[20px] font-semibold leading-7 font-poppins">
             Participant.e.s{" "}
           </span>{" "}
+          <br />
           <span className="text-red-500">
             {errorMessage.type === "participNumber" && errorMessage.message}
           </span>
@@ -304,10 +305,27 @@ const FirstSignup = ({ formState, setFormState, setNextPage }: any) => {
             </div>
           )}
         </div>
+        {formState.knowDate && (
+          <div className="flex flex-row items-center mt-16 gap-x-12">
+            <p className="text-xs text-black w-[60%]">
+              ⭐️ Si vous souhaitez organiser un séminaire dans moins d’une
+              semaine, Nous vous proposons nos séminaire Meltrip Now (des
+              séminaires près à l’usage)
+            </p>
+            <p>
+              <a
+                href="https://meltrip.fr/"
+                target="_blank text-meltrip-secondary"
+                className="text-meltrip-secondary text-xs underline"
+              >
+                Voir le catalogue Meltrip Now
+              </a>
+            </p>
+          </div>
+        )}
       </div>
-
       {/* Paginate */}
-      <div className="w-full flex justify-between items-center mt-10">
+      <div className="w-full flex justify-between items-center mt-5">
         <div
           onClick={() => setNextPage(0)}
           className="text-meltrip-primary cursor-pointer mt-[48px] text-[20px] font-semibold leading-7 font-poppins"
@@ -317,7 +335,7 @@ const FirstSignup = ({ formState, setFormState, setNextPage }: any) => {
         <div>
           <button
             onClick={() => verifyNextPage()}
-            className="bg-meltrip-primary p-2 rounded text-white mt-[48px] text-[20px] font-semibold leading-7 font-poppins"
+            className="bg-meltrip-primary px-8 py-2 rounded text-white mt-[48px] text-[20px] font-semibold leading-7 font-poppins"
           >
             Étape suivante{" "}
           </button>

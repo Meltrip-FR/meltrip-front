@@ -106,8 +106,9 @@ const Teams = () => {
             </h1>
             <p className="text-center text-base w-[50%] mb-16">
               Bienveillance, échange de connaissances, partage de bons moments,
-              etc. Meltrip est toujours à la recherche de sa prochaine pépite !
-              Alors n’attendez plus et postulez.
+              etc. <br />
+              Meltrip est toujours à la recherche de sa prochaine pépite ! Alors
+              n’attendez plus et postulez.
             </p>
             <a
               href="https://meltrip.fr/auth/signup"

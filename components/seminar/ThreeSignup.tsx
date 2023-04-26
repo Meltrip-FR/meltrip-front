@@ -226,7 +226,7 @@ const ThreeSignup = ({
       <p className="mt-[48px] text-[20px] font-semibold leading-7 font-poppins">
         Mot de passe{" "}
         <span className="text-gray-400">
-          (( 8 caractères 1 Maj , 1 min, 1 lettre, 1 caractère spéciale))
+          ( 8 caractères 1 Maj , 1 min, 1 lettre, 1 caractère spéciale)
         </span>{" "}
         <span className="text-red-500">
           {errorMessage.type === "password" && errorMessage.message}
@@ -403,7 +403,7 @@ const ThreeSignup = ({
             onClick={() => verifyNextPage()}
             className="bg-meltrip-primary p-2 rounded text-white mt-[48px] text-[20px] font-semibold leading-7 font-poppins"
           >
-            Créez un compte et envoyez votre projet
+            Let{"'"}s go
           </button>
         </div>
       </div>

@@ -297,7 +297,7 @@ const SignupPage = () => {
               <h1 className="text-white text-5xl">CRÉONS VOTRE SÉMINAIRE</h1>
             </div>
           </div>
-          <div className="mx-auto max-w-7xl w-[75%] sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-7xl w-[85%] sm:px-6 lg:px-8">
             <div className=" bg-white px-24 py-10">
               {nextPage === 0 ? (
                 <PresentSeminar setNextPage={setNextPage} />
