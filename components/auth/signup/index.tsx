@@ -212,7 +212,7 @@ const SignupPage = () => {
               required={true}
             />
           </div>
-          <div className="mb-5">
+          <div className="flex flex-col mb-5">
             <label className="inline-flex items-center">
               <input
                 type="checkbox"

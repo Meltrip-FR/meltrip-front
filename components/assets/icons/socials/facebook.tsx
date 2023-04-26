@@ -12,9 +12,7 @@ const Facebook = ({
   <svg
     height={size ? size : height}
     width={size ? size : width}
-    stroke={color ? color : "currentColor"}
     viewBox="0 0 46 45"
-    fill="none"
     xmlns="http://www.w3.org/2000/svg"
   >
     <rect width="46" height="45" rx="22.5" fill="white" />

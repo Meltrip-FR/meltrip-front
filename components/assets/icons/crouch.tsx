@@ -9,11 +9,7 @@ const Crouch = ({
   height?: number;
   width?: number;
 }) => (
-  <svg
-    height={size ? size : height}
-    width={size ? size : width}
-    stroke={color ? color : "currentColor"}
-  >
+  <svg height={size ? size : height} width={size ? size : width}>
     <path d="M738.246 107.052H666.35V126.431H738.246V107.052Z" fill="#D3AA97" />
     <path
       d="M729.666 107.052H724.784V126.431H729.666V107.052Z"

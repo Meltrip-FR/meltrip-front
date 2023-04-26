@@ -14,9 +14,7 @@ const PolygonD = ({
     xmlns="http://www.w3.org/2000/svg"
     height={size ? size : height}
     width={size ? size : width}
-    stroke={color ? color : "currentColor"}
     viewBox="0 0 52 92"
-    fill={color ? color : "black"}
   >
     <path d="M51.3887 45.7998L0.846848 91.5258V0.0738335L51.3887 45.7998Z" />
   </svg>

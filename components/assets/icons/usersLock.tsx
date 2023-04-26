@@ -12,7 +12,6 @@ const UsersLock = ({
   <svg
     height={size ? size : height}
     width={size ? size : width}
-    stroke={color ? color : "currentColor"}
     viewBox="0 0 629 505"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
