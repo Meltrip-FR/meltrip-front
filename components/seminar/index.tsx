@@ -13,6 +13,7 @@ import SuccessCard from "./SuccessCard";
 import { getOrganizationBySiret, postOrganization } from "@/lib/organizations";
 import { signin, signup } from "@/lib/auth";
 import { login } from "@/redux/slices/auth.slice";
+import InviteCard from "./InviteCard";
 
 const SignupPage = () => {
   const dispatch = useAppDispatch();
@@ -200,6 +201,8 @@ const SignupPage = () => {
         });
       });
 
+    console.log(addSeminar);
+
     if (addSeminar.data && createGroup.data) {
       // dispatch(
       //   login({
@@ -322,6 +325,8 @@ const SignupPage = () => {
                   handSubmit={handSubmit}
                   setNextPage={setNextPage}
                 />
+              ) : nextPage === 4 ? (
+                <InviteCard />
               ) : (
                 <ThreePointOneSignup
                   formState={formState}

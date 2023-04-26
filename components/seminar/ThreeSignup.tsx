@@ -118,13 +118,12 @@ const ThreeSignup = ({
       });
       setNextPage(3);
     }
-    {
-      setErrorMessage({
-        type: "",
-        message: "",
-      });
-      handSubmit();
-    }
+
+    setErrorMessage({
+      type: "",
+      message: "",
+    });
+    handSubmit();
   };
 
   return (

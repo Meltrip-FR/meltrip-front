@@ -4,6 +4,52 @@ import City from "../assets/icons/seminar/city";
 import Drill from "../assets/icons/seminar/drill";
 import Sunny from "../assets/icons/seminar/sunny";
 
+const formListSleep = [
+  {
+    key: 1,
+    value: "Chez l'habitant, guest-house, etc.",
+  },
+  {
+    key: 2,
+    value: "Hôtels simples (propres et peu chers)",
+  },
+  {
+    key: 3,
+    value: "Hôtels confortables (équivalent 3 étoiles)",
+  },
+  {
+    key: 4,
+    value: "Hôtels charme et luxe (équivalent 4 étoiles ou plus",
+  },
+  {
+    key: 5,
+    value: "Hébergements d'Exception, Lodges Haut de gamme",
+  },
+];
+const formSeminarType = [
+  {
+    key: 1,
+    value: "Intégration",
+    picture: <Sunny height={150} width={230} />,
+  },
+  { key: 2, value: "Formation", picture: <City height={150} width={230} /> },
+  {
+    key: 3,
+    value: "Management",
+    picture: <Drill height={150} width={230} />,
+  },
+  {
+    key: 4,
+    value: "Commercial",
+    picture: <Drill height={150} width={230} />,
+  },
+];
+const formDestinationType = [
+  { key: 1, value: "Mer", picture: <Sunny height={150} width={230} /> },
+  { key: 2, value: "Ville", picture: <City height={150} width={230} /> },
+  { key: 3, value: "Montagne", picture: <Drill height={150} width={230} /> },
+];
+
 const SecondSignup = ({
   formState,
   onFormChange,
@@ -20,52 +66,6 @@ const SecondSignup = ({
   useEffect(() => {
     setPathName(router.pathname);
   }, [router.pathname]);
-
-  const formListSleep = [
-    {
-      key: 1,
-      value: "Chez l'habitant, guest-house, etc.",
-    },
-    {
-      key: 2,
-      value: "Hôtels simples (propres et peu chers)",
-    },
-    {
-      key: 3,
-      value: "Hôtels confortables (équivalent 3 étoiles)",
-    },
-    {
-      key: 4,
-      value: "Hôtels charme et luxe (équivalent 4 étoiles ou plus",
-    },
-    {
-      key: 5,
-      value: "Hébergements d'Exception, Lodges Haut de gamme",
-    },
-  ];
-  const formSeminarType = [
-    {
-      key: 1,
-      value: "Intégration",
-      picture: <Sunny height={150} width={230} />,
-    },
-    { key: 2, value: "Formation", picture: <City height={150} width={230} /> },
-    {
-      key: 3,
-      value: "Management",
-      picture: <Drill height={150} width={230} />,
-    },
-    {
-      key: 4,
-      value: "Commercial",
-      picture: <Drill height={150} width={230} />,
-    },
-  ];
-  const formDestinationType = [
-    { key: 1, value: "Mer", picture: <Sunny height={150} width={230} /> },
-    { key: 2, value: "Ville", picture: <City height={150} width={230} /> },
-    { key: 3, value: "Montagne", picture: <Drill height={150} width={230} /> },
-  ];
 
   const verifyNextPage = () => {
     if (!formState?.typeSeminar) {
