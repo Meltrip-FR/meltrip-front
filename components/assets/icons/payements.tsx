@@ -14,9 +14,7 @@ const PayementList = ({
     xmlns="http://www.w3.org/2000/svg"
     height={size ? size : height}
     width={size ? size : width}
-    stroke={color ? color : "currentColor"}
     viewBox="0 0 333 111"
-    fill={color ? color : "black"}
   >
     <g filter="url(#filter0_d_1925_16730)">
       <g clipPath="url(#clip0_1925_16730)">

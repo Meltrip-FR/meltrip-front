@@ -6,7 +6,7 @@ import Louise from "../assets/pictures/louise.png";
 import Audrey from "../assets/pictures/audrey.jpeg";
 import Kelly from "../assets/pictures/kelly.jpg";
 import Eleonor from "../assets/pictures/eleonor.jpg";
-import Mathieu from "../assets/pictures/mathieu.jpg";
+import Mathieu from "../assets/pictures/mathieu.png";
 import Crouch from "@/components/assets/icons/crouch";
 
 const Teams = () => {
@@ -69,8 +69,8 @@ const Teams = () => {
               <CardTeams
                 name="Louise Landemaine"
                 pictureURL={Louise.src}
-                status="CEO"
-                post="Fondatrice"
+                status=" "
+                post="CEO & Fondatrice"
               />
               <CardTeams
                 name="Audrey Blouin"
@@ -100,8 +100,24 @@ const Teams = () => {
               />
             </div>
           </div>
+          <div className="flex flex-col justify-center items-center mt-32 ">
+            <h1 className="text-center text-black text-3xl mb-10">
+              Rejoindre notre équipe
+            </h1>
+            <p className="text-center text-base w-[50%] mb-16">
+              Bienveillance, échange de connaissances, partage de bons moments,
+              etc. Meltrip est toujours à la recherche de sa prochaine pépite !
+              Alors n’attendez plus et postulez.
+            </p>
+            <a
+              href="https://meltrip.fr/auth/signup"
+              className="px-3 py-2 bg-meltrip-primary rounded-md text-white w-[30%] text-center"
+            >
+              Rejoindre
+            </a>
+          </div>
         </section>
-        <div className="mt-44">
+        <div className="mt-24">
           <Crouch height={500} width={1300} />
         </div>
       </div>

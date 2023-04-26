@@ -14,9 +14,7 @@ const Stars = ({
     xmlns="http://www.w3.org/2000/svg"
     height={size ? size : height}
     width={size ? size : width}
-    stroke={color ? color : "currentColor"}
     viewBox="0 0 79 80"
-    fill={color ? color : "black"}
   >
     <path
       d="M76.5312 28.765H48.2418L39.5 2.5L30.7606 28.765H2.46875L25.3553 45L16.6135 71.2625L39.5 55.0287L62.3865 71.2625L53.6447 45L76.5312 28.765Z"

@@ -148,7 +148,7 @@ const HomePage = () => {
               <p className="flex-grow-0 flex-shrink-0 w-[509px] text-2xl font-bold text-left uppercase text-black">
                 Réaliser une demande d’organisation de séminaire
               </p>
-              <p className="flex-grow-0 flex-shrink-0 w-[541px] text-xl font-medium text-left text-[#757575]">
+              <p className="flex-grow-0 flex-shrink-0 w-[541px] text-base font-medium text-left text-[#757575]">
                 Pour cela, il vous suffit de remplir les informations
                 nécessaires (type de séminaire et de lieu, nombre de
                 participants, etc.) et nous laisser un commentaire si vous avez
@@ -156,13 +156,14 @@ const HomePage = () => {
               </p>
             </div>
           </div>
-          <div className="flex flex-row justify-start items-center  gap-[70px] mt-24">
-            <img src={Two.src} className="w-[316px]  rounded-[7px] " />
+          {/* partie 2 */}
+          <div className="flex flex-row justify-end items-center  gap-[70px] mt-24">
+            <img src={Two.src} className="w-[316px] rounded-[7px] " />
             <div className="flex flex-col flex-grow-0 flex-shrink-0 gap-[15px]">
               <p className="flex-grow-0 flex-shrink-0 w-[509px] text-2xl font-bold text-left uppercase text-black">
                 Réaliser un mini Quiz de personnalité
               </p>
-              <p className="flex-grow-0 flex-shrink-0 w-[541px] text-xl font-medium text-left text-[#757575]">
+              <p className="flex-grow-0 flex-shrink-0 w-[541px] text-base font-medium text-left text-[#757575]">
                 Une fois votre demande effectué, il reste le test de
                 personnalité à effectuer. Pour cela, vous n’aurez plus qu’à nous
                 donner les adresses mails des participants et nous enverrons à
@@ -173,13 +174,13 @@ const HomePage = () => {
             </div>
           </div>
           {/* partie 3 */}
-          <div className="flex flex-row justify-end items-center  gap-[70px] mt-24">
-            <img src={Three.src} className="w-[316px]  rounded-[7px] " />
+          <div className="flex flex-row justify-start items-center  gap-[70px] mt-24">
+            <img src={Three.src} className="w-[316px] rounded-[7px]" />
             <div className="flex flex-col flex-grow-0 flex-shrink-0 gap-[15px]">
               <p className="flex-grow-0 flex-shrink-0 w-[509px] text-2xl font-bold text-left uppercase text-black">
                 Recevez un appel de votre interlocuteur.rice dédié.e
               </p>
-              <p className="flex-grow-0 flex-shrink-0 w-[541px] text-xl font-medium text-left text-[#757575]">
+              <p className="flex-grow-0 flex-shrink-0 w-[541px] text-base font-medium text-left text-[#757575]">
                 Pour s’assurer que votre demande sera retranscrite à la
                 perfection en séminaire, votre interlocuteur.rice (qui vous
                 accompagnera de l’organisation à la fin du séminaire) vous
@@ -194,7 +195,7 @@ const HomePage = () => {
               <p className="flex-grow-0 flex-shrink-0 w-[509px] text-2xl font-bold text-left uppercase text-black">
                 Recevoir 2-3 propositions de séminaire
               </p>
-              <p className="flex-grow-0 flex-shrink-0 w-[541px] text-xl font-medium text-left text-[#757575]">
+              <p className="flex-grow-0 flex-shrink-0 w-[541px] text-base font-medium text-left text-[#757575]">
                 Pour que votre séminaire soit une réussite, nous rechercherons
                 les meilleurs logements, transports et activités qui permettront
                 à tous les types de personnalités de profiter pleinement du
@@ -213,20 +214,20 @@ const HomePage = () => {
                 Recevez tous les éléments qui vous seront nécessaires pour votre
                 séminaire
               </p>
-              <p className="flex-grow-0 flex-shrink-0 w-[541px] text-xl font-medium text-left text-[#757575]">
+              <p className="flex-grow-0 flex-shrink-0 w-[541px] text-base font-medium text-left text-[#757575]">
                 De la check list de votre valise, à vos itinéraires, vous
                 recevrez tous les éléments nécessaires à la réalisation.
               </p>
             </div>
           </div>
           {/* partie 6 */}
-          <div className="flex flex-row justify-start items-center  gap-[70px] mt-24">
+          <div className="flex flex-row justify-end items-center  gap-[70px] mt-24">
             <img src={Six.src} className="w-[316px]  rounded-[7px] " />
             <div className="flex flex-col flex-grow-0 flex-shrink-0 gap-[15px]">
               <p className="flex-grow-0 flex-shrink-0 w-[509px] text-2xl font-bold text-left uppercase text-black">
                 Profitez de votre séminaire
               </p>
-              <p className="flex-grow-0 flex-shrink-0 w-[541px] text-xl font-medium text-left text-[#757575]">
+              <p className="flex-grow-0 flex-shrink-0 w-[541px] text-base font-medium text-left text-[#757575]">
                 Pour cette étape, il vous reste jusqu’à suivre votre itinéraire,
                 emporter vos billets de transport et à vivre le moment présent
               </p>
@@ -240,7 +241,7 @@ const HomePage = () => {
                 comment meltrip vous aide à les compenser grâce à ses
                 partenaires
               </p>
-              <p className="flex-grow-0 flex-shrink-0 w-[541px] text-xl font-medium text-left text-[#757575]">
+              <p className="flex-grow-0 flex-shrink-0 w-[541px] text-base font-medium text-left text-[#757575]">
                 Conscients de notre impact, nous voulons aussi vous aider en
                 vous informant des émissions carbones que vous avez réalisées
                 pendant ce séminaire. Pour que vous puissiez vous aussi agir,
@@ -280,7 +281,7 @@ const HomePage = () => {
               <div className="flex justify-center items-center">
                 <PayementList height={100} width={200} />
               </div>
-              <p className="text-center mt-10">Paiement sécurisé</p>
+              <p className="text-center mt-5">Paiement sécurisé</p>
             </div>
           </div>
 
