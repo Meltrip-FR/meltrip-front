@@ -28,7 +28,7 @@ export const UserBadge = () => {
           src={
             "https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mm"
           }
-          className="mx-auto object-cover rounded-full h-10 w-10 "
+          className="mx-auto object-cover rounded-full h-10 w-10"
         />
       </div>
       <div className="relative inline-block text-left">

@@ -23,7 +23,10 @@ const Header = () => {
             NOTRE AGENCE
           </h5>
           {auth.login && (
-            <h5 className="cursor-pointer" onClick={() => router.push("/")}>
+            <h5
+              className="cursor-pointer"
+              onClick={() => router.push("/user/seminar")}
+            >
               SÉMINAIRES
             </h5>
           )}

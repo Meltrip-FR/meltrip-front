@@ -202,24 +202,24 @@ const SignupPage = () => {
       });
 
     if (addSeminar.data && createGroup.data) {
-      dispatch(
-        login({
-          login: true,
-          user: {
-            id: loginUser.id,
-            username: loginUser?.username,
-            civility: loginUser?.civility,
-            email: loginUser?.email,
-            phone: loginUser?.phone,
-            terms: true,
-            newsletter: loginUser?.newsletter === 0 ? false : true,
-            roles: loginUser?.roles,
-            accessToken: loginToken,
-            confirmEmail: loginUser?.confirmEmail,
-            idOrganization: loginUser?.idOrganization,
-          },
-        })
-      );
+      // dispatch(
+      //   login({
+      //     login: true,
+      //     user: {
+      //       id: loginUser.id,
+      //       username: loginUser?.username,
+      //       civility: loginUser?.civility,
+      //       email: loginUser?.email,
+      //       phone: loginUser?.phone,
+      //       terms: true,
+      //       newsletter: loginUser?.newsletter === 0 ? false : true,
+      //       roles: loginUser?.roles,
+      //       accessToken: loginToken,
+      //       confirmEmail: loginUser?.confirmEmail,
+      //       idOrganization: loginUser?.idOrganization,
+      //     },
+      //   })
+      // );
       setSeminar(addSeminar.data);
       setLoading(false);
       setNextPage(4);
