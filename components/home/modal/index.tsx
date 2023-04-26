@@ -25,7 +25,7 @@ const Modal = ({ type, showModal, setShowModal }: any) => {
               : setShowModal(true)
           }
         >
-          CRÉONS TON SÉMINAIRE
+          CRÉONS VOTRE SÉMINAIRE
         </button>
       ) : (
         <button
