@@ -94,7 +94,7 @@ const ContactPage = () => {
                 type="title"
                 name="title"
                 value={formState?.title}
-                label="Titre"
+                label="Motif"
                 style="border border-meltrip-primary px-2 py-2"
                 onChange={onFormChange}
                 disabled={false}
@@ -113,7 +113,7 @@ const ContactPage = () => {
               />
             </div>
             <input
-              className="text-white bg-[#186E7A] hover:bg-[#1d6a75] cursor-pointer w-full border-none py-2 px-8 focus:outline-none rounded text-lg"
+              className="text-white uppercase font-bold bg-[#186E7A] hover:bg-[#1d6a75] cursor-pointer w-full border-none py-2 px-8 focus:outline-none rounded text-lg"
               type="submit"
               value={isLoading ? "Loading" : "Envoyer"}
             />

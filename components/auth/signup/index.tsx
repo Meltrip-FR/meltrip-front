@@ -42,8 +42,9 @@ const SignupPage = () => {
     type: null,
     message: "",
   });
-  const [formState, setFormState] = useState({
-    username: "",
+  const [formState, setFormState] = useState<any>({
+    firstname: "",
+    lastname: "",
     email: "",
     password: "",
     siret: "",
@@ -86,7 +87,15 @@ const SignupPage = () => {
         router.push("/auth/signin");
       } else {
         if (organization?.id) {
-          const userBuild = { ...formState, idOrganization: organization.id };
+          const userBuild = {
+            ...formState,
+            username: formState.firstname + " " + formState.lastname,
+            idOrganization: organization.id,
+          };
+
+          delete userBuild.firstname;
+          delete userBuild.lastname;
+
           const createUser = await signup(userBuild);
           if (!createUser) {
             setRequestMessage({ type: true, message: createUser });
@@ -104,7 +113,7 @@ const SignupPage = () => {
   };
 
   return (
-    <section className="text-gray-600 body-font">
+    <section className="text-gray-600 body-font  my-[15vh]">
       <div className="flex items-center justify-center w-full gap-x-32">
         <div className="flex flex-col items-center justify-center w-[35%]">
           <UsersLock size={400} />
@@ -120,7 +129,7 @@ const SignupPage = () => {
           </p>
         </div>
         <div className="mb-5 flex flex-col w-[40%] mt-5">
-          <h2 className="text-gray-900 text-xl text-center font-medium title-font mb-5">
+          <h2 className="text-gray-900 text-3xl text-center font-medium title-font mb-5">
             INSCRIPTION
           </h2>
           <span
@@ -164,9 +173,20 @@ const SignupPage = () => {
           </div>
           <div className="relative mb-4">
             <FormItem
-              name="username"
-              label="Nom Prénom de l'organisateur"
-              value={formState.username}
+              name="firstname"
+              label="Prénom"
+              value={formState?.firstname}
+              style="border border-meltrip-primary px-2 py-2"
+              onChange={onFormChange}
+              disabled={false}
+              required={true}
+            />
+          </div>
+          <div className="relative mb-4">
+            <FormItem
+              name="lastname"
+              label="Nom"
+              value={formState?.lastname}
               style="border border-meltrip-primary px-2 py-2"
               onChange={onFormChange}
               disabled={false}
@@ -176,7 +196,7 @@ const SignupPage = () => {
           <div className="relative mb-4">
             <FormItem
               type="email"
-              name="email"
+              name="Email"
               value={formState.email}
               label="E-mail *"
               style="border border-meltrip-primary px-2 py-2"

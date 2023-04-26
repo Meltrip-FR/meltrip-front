@@ -17,7 +17,7 @@ const Modal = ({ type, showModal, setShowModal }: any) => {
     <>
       {type === "first" ? (
         <button
-          className="bg-[#C05E37] text-white hover:bg-[#9e573b] text-xl font-bold uppercase px-12 py-5 shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+          className="bg-meltrip-secondary text-white hover:bg-meltrip-secondary text-xl font-bold uppercase px-14 py-5 shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
           type="button"
           onClick={() =>
             !auth.login
@@ -36,7 +36,6 @@ const Modal = ({ type, showModal, setShowModal }: any) => {
           ON EST PARTI ?
         </button>
       )}
-
       {showModal ? (
         <>
           <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">

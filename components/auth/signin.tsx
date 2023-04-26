@@ -60,7 +60,7 @@ const SigninPage = () => {
   }
 
   return (
-    <section className="text-gray-600 body-font">
+    <section className="text-gray-600 body-font my-[15vh]">
       <div className="flex flex-wrap items-center justify-center w-full gap-x-32">
         <SigninIcon size={500} />
         <div className="rounded-lg p-8">
@@ -73,7 +73,7 @@ const SigninPage = () => {
               type="email"
               name="email"
               value={formState.email}
-              label="email"
+              label="Email"
               style="border border-meltrip-primary px-2 py-3"
               onChange={onFormChange}
               disabled={false}
@@ -84,7 +84,7 @@ const SigninPage = () => {
             <FormItem
               type="password"
               name="password"
-              label="password"
+              label="Mot de passe"
               style="border border-meltrip-primary px-2 py-3"
               value={formState.password}
               onChange={onFormChange}
@@ -103,7 +103,7 @@ const SigninPage = () => {
           >
             Se connecter
           </button>
-          <p className="text-md text-center text-gray-500 mt-3">
+          <p className="text-md text-center text-black mt-3">
             Nouveau sur Meltrip ?{" "}
             <Link
               href="/auth/signup"

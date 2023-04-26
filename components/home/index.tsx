@@ -18,6 +18,7 @@ import Space from "../assets/icons/space";
 import Stars from "../assets/icons/stars";
 import Steps from "../assets/icons/steps";
 import PayementList from "../assets/icons/payements";
+import HeaderPicture from "@/components/assets/home/headerPage.png";
 
 const HomePage = () => {
   const [showModal, setShowModal] = useState(false);
@@ -27,16 +28,16 @@ const HomePage = () => {
         <div className="relative min-h-[600px] h-screen overflow-hidden">
           <div className="z-30 w-full text-2xl text-white bg-opacity-25 rounded-xl">
             <Header />
-            <div className="flex flex-col items-center justify-center align-center mt-56">
-              <h1 className="text-white text-center text-5xl mb-5">
+            <div className="flex flex-col items-center justify-center align-center mt-[45vh]">
+              <h1 className="text-white font-bold text-center text-6xl mb-5">
                 VOTRE SÉMINAIRE SUR MESURE
               </h1>
-              <div className="">
-                <p className="text-white text-center text-xl mb-10">
+              <div>
+                <p className="text-white font-bold text-center text-xl">
                   Soyez vous, jusqu’au bout !
                 </p>
               </div>
-              <div className="mb-16">
+              <div className="mt-[5vh] mb-10">
                 <Modal
                   type="first"
                   showModal={showModal}
@@ -48,7 +49,12 @@ const HomePage = () => {
               </div>
             </div>
           </div>
-          <video
+          <img
+            src={HeaderPicture.src}
+            alt="header"
+            className="absolute top-0 z-[-1] object-cover w-screen h-full object-top"
+          />
+          {/* <video
             autoPlay
             loop
             muted
@@ -59,7 +65,7 @@ const HomePage = () => {
               type="video/mp4"
             />
             Your browser does not support the video tag.
-          </video>
+          </video> */}
         </div>
       </div>
       <div className="mt-10 rounded-lg h-64 overflow-hidden">
@@ -74,7 +80,7 @@ const HomePage = () => {
           />
         </div>
       </div>
-      <p className="text-meltrip-secondary text-center text-4xl font-semibold mt-10 mb-5">
+      <p className="text-meltrip-secondary font-bold text-center text-4xl mt-10 mb-5">
         Un séminaire avec Meltrip c’est...
       </p>
       <section className="text-gray-600 body-font">
@@ -106,10 +112,10 @@ const HomePage = () => {
                 </div>
               </div>
               <h2 className="text-xl p-5 text-center font-medium title-font text-gray-900 mt-5">
-                Un événement d’entreprise conçu pour répondre aux enjeux
+                Un événement d’entreprise conçu <br /> pour répondre aux enjeux
                 sociétaux actuels
               </h2>
-              <p className="text-base text-justify leading-relaxed mt-9 p-5">
+              <p className="text-base text-justify leading-relaxed  mt-2 p-5">
                 Meltrip organise des séminaires écoresponsables en sélectionnant
                 des acteurs selon des critères rigoureux. Cette démarche permet
                 de réduire l{"'"}impact environnemental et de sensibiliser les
@@ -139,7 +145,7 @@ const HomePage = () => {
               </p>
             </div>
           </div>
-          <p className="text-meltrip-secondary text-center text-4xl font-semibold mt-24 mb-5">
+          <p className="text-meltrip-secondary font-bold text-center text-4xl mt-24 mb-5">
             Comment ça marche ?
           </p>
           <div className="flex flex-row justify-end items-center  gap-[70px] mt-24">
@@ -256,7 +262,6 @@ const HomePage = () => {
           <div className="flex flex-row justify-center items-center gap-[70px] mt-24">
             <Space size={100} />
           </div>
-          {/* Menu Image */}
           {/* ListPayement */}
           <h1 className="text-meltrip-secondary text-center text-4xl font-semibold mt-10 mb-5">
             NOS GARANTIES
@@ -290,7 +295,7 @@ const HomePage = () => {
           </p>
         </div>
       </section>
-      <div className="relative justify-center items-center flex">
+      {/* <div className="relative justify-center items-center flex">
         <div className="absolute grid grid-cols-2 gap-5 items-center justify-center p-80 ">
           <div>
             <h5 className="text-2xl text-meltrip-textW tracking-widest mb-5">
@@ -320,7 +325,7 @@ const HomePage = () => {
           </form>
         </div>
         <BackgroundNewsletter width={1000} height={300} />
-      </div>
+      </div> */}
       <Footer />
     </div>
   );

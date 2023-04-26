@@ -3,7 +3,7 @@ const CardTeams = ({ name, pictureURL, status, post }: any) => {
     <div className="lg:w-1/4 md:w-1/2 p-4 w-full">
       <div className="relative overflow-hidden h-80">
         <img
-          className="object-cover h-72 w-full"
+          className="object-cover h-80 w-full"
           src={pictureURL}
           alt="Picture"
         />
