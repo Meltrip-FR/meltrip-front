@@ -61,22 +61,20 @@ const SigninPage = () => {
 
   return (
     <section className="text-gray-600 body-font">
-      <div className="container px-5 py-24 mx-auto flex flex-wrap items-center">
-        <div className="lg:w-3/5 md:w-1/2 md:pr-16 lg:pr-0 pr-0">
-          <SigninIcon size={400} />
-        </div>
-        <div className="lg:w-2/6 md:w-1/2 rounded-lg p-8 flex flex-col w-full mt-10 md:mt-0">
-          <h2 className="text-gray-900 text-4xl text-center font-medium title-font mb-20">
+      <div className="flex flex-wrap items-center justify-center w-full gap-x-32">
+        <SigninIcon size={500} />
+        <div className="rounded-lg p-8">
+          <h2 className="text-gray-900 text-3xl text-center font-medium title-font mb-14">
             CONNEXION
           </h2>
           <span className="text-red-400 mb-2">{requestMessage}</span>
-          <div className="relative mb-4">
+          <div className="relative mb-4 w-96">
             <FormItem
               type="email"
               name="email"
               value={formState.email}
               label="email"
-              style="bg-[#ECF3F2] px-2 py-3"
+              style="border border-meltrip-primary px-2 py-3"
               onChange={onFormChange}
               disabled={false}
               required={true}
@@ -87,7 +85,7 @@ const SigninPage = () => {
               type="password"
               name="password"
               label="password"
-              style="bg-[#ECF3F2] px-2 py-3"
+              style="border border-meltrip-primary px-2 py-3"
               value={formState.password}
               onChange={onFormChange}
               disabled={false}
@@ -100,7 +98,7 @@ const SigninPage = () => {
             </Link>
           </p>
           <button
-            className="text-white bg-[#186E7A] border-0 py-2 px-8 focus:outline-none rounded text-lg"
+            className="text-white bg-[#186E7A] flex justify-center w-full border-0 py-2 px-8 focus:outline-none rounded text-lg"
             onClick={(e) => handleSubmit(e)}
           >
             Se connecter

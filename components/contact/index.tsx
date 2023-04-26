@@ -53,7 +53,7 @@ const ContactPage = () => {
                 name="username"
                 label="Nom - Prénom"
                 value={formState.username}
-                style="border-2 border-meltrip-primary px-2 py-2"
+                style="border border-meltrip-primary px-2 py-2"
                 onChange={onFormChange}
                 disabled={false}
                 required={true}
@@ -65,7 +65,7 @@ const ContactPage = () => {
                 name="email"
                 value={formState.email}
                 label="Email"
-                style="border-2 border-meltrip-primary px-2 py-2"
+                style="border border-meltrip-primary px-2 py-2"
                 onChange={onFormChange}
                 disabled={false}
                 required={true}
@@ -77,7 +77,7 @@ const ContactPage = () => {
                 name="title"
                 value={formState.title}
                 label="Titre"
-                style="border-2 border-meltrip-primary px-2 py-2"
+                style="border border-meltrip-primary px-2 py-2"
                 onChange={onFormChange}
                 disabled={false}
                 required={true}
@@ -85,7 +85,7 @@ const ContactPage = () => {
             </div>
             <div className="relative mb-4">
               <textarea
-                className="border-2 border-meltrip-primary px-2 py-2 h-32 rounded w-full"
+                className="border border-meltrip-primary px-2 py-2 h-32 rounded w-full"
                 name="describe"
                 placeholder="Description"
                 value={formState.describe}
