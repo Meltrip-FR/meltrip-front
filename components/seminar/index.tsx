@@ -14,6 +14,7 @@ import { getOrganizationBySiret, postOrganization } from "@/lib/organizations";
 import { signin, signup } from "@/lib/auth";
 import { login } from "@/redux/slices/auth.slice";
 import InviteCard from "./InviteCard";
+import SeminarPage from "@/components/assets/pictures/seminarPage.png";
 
 const SignupPage = () => {
   const dispatch = useAppDispatch();
@@ -270,11 +271,7 @@ const SignupPage = () => {
             </Fragment>
           )}
           <div className="relative">
-            <img
-              className="object-none w-full h-64"
-              src="https://www.naturepaysage.photo/wp-content/uploads/Nature-Paysage-portfolio-17-novembre-2019-0017-3.jpg"
-              alt="picture"
-            />
+            <img className=" w-full h-64" src={SeminarPage.src} alt="picture" />
             <div className="absolute top-3 ml-[35%] mt-[5%] font-poppins">
               <h1 className="text-white text-5xl">CRÉONS VOTRE SÉMINAIRE</h1>
             </div>

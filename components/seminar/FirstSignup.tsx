@@ -50,30 +50,32 @@ const FirstSignup = ({ formState, setFormState, setNextPage }: any) => {
   return (
     <Fragment>
       {/* Header picture */}
-      <h1 className="text-4xl font-poppins">Pour commencer</h1>
-      <p className="mt-[48px] text-[20px] font-semibold leading-7 font-poppins text-justify">
+      <h1 className="text-4xl text-black font-poppins font-bold">
+        Pour commencer
+      </h1>
+      <p className="mt-[48px] text-[20px] leading-7 font-poppins text-justify">
         Nous avons besoin de quelques informations pour vous concocter le
         meilleur séminaire, pour ce faire nous avons besoins que vous
         remplissiez ce formulaire en 4 étapes qui nous permettra de vous créer
         une expérience incroyable.
       </p>
       {/* Number Inputs */}
-      <p className="mt-[48px] text-[20px] font-semibold leading-7 font-poppins">
+      <p className="mt-[48px] text-[20px] leading-7 font-poppins font-bold">
         Nombre de personnes, veuillez vous inclure si vous y participez
       </p>
       <div className="md:grid md:grid-cols-2 md:w-[50%] md:gap-5 mt-5">
         <div className="md:col-span-1 py-1">
-          <span className="mt-[48px] text-[20px] font-semibold leading-7 font-poppins">
+          <span className="mt-[48px] text-[20px] leading-7 font-poppins">
             Participant.e.s{" "}
           </span>{" "}
           <br />
           <span className="text-red-500">
             {errorMessage.type === "participNumber" && errorMessage.message}
           </span>
-          <div className="md:grid md:grid-cols-2 items-center mt-5 border border-gray-500">
+          <div className="md:grid md:grid-cols-2 items-center mt-5 border border-black rounded-lg">
             <div className="md:col-span-1 py-1 ml-1">
               <input
-                className="w-full p-1 border-none"
+                className="w-full px-3 py-3  border-none"
                 type="number"
                 value={formState.participNumber}
                 onChange={(e) =>
@@ -86,11 +88,11 @@ const FirstSignup = ({ formState, setFormState, setNextPage }: any) => {
             </div>
             <div className="hidden col-span-1 py-1 md:flex ml-4">
               <div
-                className={` ${
+                className={`${
                   formState.participNumber > 0
                     ? "cursor-pointer"
                     : "cursor-not-allowed"
-                } rounded-full border border-meltrip-primary py-1 px-3`}
+                } rounded-full flex flex-center items-center border border-meltrip-primary py-1 px-3`}
                 onClick={() =>
                   formState.participNumber > 0 &&
                   setFormState({
@@ -118,7 +120,7 @@ const FirstSignup = ({ formState, setFormState, setNextPage }: any) => {
       </div>
       {/* Radio Inputs */}
       <p className="mt-10">
-        <p className="mt-[48px] text-[20px] font-semibold leading-7 font-poppins">
+        <p className="mt-[48px] text-[20px] leading-7 font-poppins font-bold">
           Connaissez-vous les dates précises de votre voyage ?
           <span className="text-red-500">
             {errorMessage.type === "knowDate" && errorMessage.message}
@@ -162,7 +164,7 @@ const FirstSignup = ({ formState, setFormState, setNextPage }: any) => {
           {!formState.knowDate ? (
             <div className="mt-5 grid grid-cols-2 gap-12">
               <div className="col-span-1 bg-[#E4E1E6] p-3">
-                <p className="text-[18px] text-[#A5A2A7] font-semibold leading-7 font-poppins border-b-2 border-meltrip-primary mx-10">
+                <p className="text-[18px] font-bold text-[#A5A2A7] leading-7 font-poppins border-b-2 border-meltrip-primary mx-10">
                   Période de départ
                 </p>
                 <div className="overflow-auto">
@@ -190,7 +192,7 @@ const FirstSignup = ({ formState, setFormState, setNextPage }: any) => {
                 </div>
               </div>
               <div className="col-span-1 bg-[#E4E1E6] py-3">
-                <p className="text-[18px] text-[#A5A2A7] font-semibold leading-7 font-poppins border-b-2 border-meltrip-primary mx-10">
+                <p className="text-[18px] font-bold text-[#A5A2A7] leading-7 font-poppins border-b-2 border-meltrip-primary mx-10">
                   Durée approximative
                 </p>
                 <ul className="mt-2 mx-10">
@@ -269,14 +271,14 @@ const FirstSignup = ({ formState, setFormState, setNextPage }: any) => {
             </div>
           ) : (
             <div className="flex mt-10 w-full items-center">
-              <div className="w-full">
-                <span className="mt-[48px] text-[20px] font-semibold leading-7 font-poppins">
+              <div>
+                <span className="mt-[48px] font-bold text-[20px] leading-7 font-poppins">
                   Date de départ
                 </span>
                 <input
                   name="start"
                   type="date"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block mt-2 w-full p-2.5"
+                  className="bg-gray-50 border w-[25vh] border-gray-300 text-gray-900 sm:text-sm rounded-lg block mt-2 p-2.5"
                   placeholder="Select date start"
                   value={formState.startDate}
                   onChange={(e) =>
@@ -284,17 +286,17 @@ const FirstSignup = ({ formState, setFormState, setNextPage }: any) => {
                   }
                 />
               </div>
-              <div className="mx-4 mt-8 text-gray-500">
+              <div className="mx-4 mt-8 text-black">
                 <Arrow size={25} />
               </div>
-              <div className="w-full">
-                <span className="mt-[48px] text-[20px] font-semibold leading-7 font-poppins">
+              <div>
+                <span className="mt-[48px] font-bold text-[20px] leading-7 font-poppins">
                   Date de retour
                 </span>
                 <input
                   name="end"
                   type="date"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block mt-2 w-full p-2.5"
+                  className="bg-gray-50 border w-[25vh] border-gray-300 text-gray-900 sm:text-sm rounded-lg block mt-2 p-2.5"
                   placeholder="Select date end"
                   value={formState.endDate}
                   onChange={(e) =>
@@ -307,7 +309,7 @@ const FirstSignup = ({ formState, setFormState, setNextPage }: any) => {
         </div>
         {formState.knowDate && (
           <div className="flex flex-row items-center mt-16 gap-x-12">
-            <p className="text-xs text-black w-[60%]">
+            <p className="text-base text-black w-[60%]">
               ⭐️ Si vous souhaitez organiser un séminaire dans moins d’une
               semaine, Nous vous proposons nos séminaire Meltrip Now (des
               séminaires près à l’usage)
@@ -316,7 +318,7 @@ const FirstSignup = ({ formState, setFormState, setNextPage }: any) => {
               <a
                 href="https://meltrip.fr/"
                 target="_blank text-meltrip-secondary"
-                className="text-meltrip-secondary text-xs underline"
+                className="text-meltrip-secondary text-base underline"
               >
                 Voir le catalogue Meltrip Now
               </a>
@@ -328,14 +330,14 @@ const FirstSignup = ({ formState, setFormState, setNextPage }: any) => {
       <div className="w-full flex justify-between items-center mt-5">
         <div
           onClick={() => setNextPage(0)}
-          className="text-meltrip-primary cursor-pointer mt-[48px] text-[20px] font-semibold leading-7 font-poppins"
+          className="text-meltrip-primary cursor-pointer mt-[48px] text-[20px] leading-7 font-poppins"
         >
           {"< "} Précédent
         </div>
         <div>
           <button
             onClick={() => verifyNextPage()}
-            className="bg-meltrip-primary px-8 py-2 rounded text-white mt-[48px] text-[20px] font-semibold leading-7 font-poppins"
+            className="bg-meltrip-primary px-8 py-2 rounded text-white mt-[48px] text-[20px] leading-7 font-poppins"
           >
             Étape suivante{" "}
           </button>
