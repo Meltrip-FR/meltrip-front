@@ -4,6 +4,8 @@ import { monthArray } from "./months";
 
 const FirstSignup = ({ formState, setFormState, setNextPage }: any) => {
   const date = new Date();
+  const today = new Date().toISOString().substr(0, 10); // Récupère la date actuelle
+
   const [errorMessage, setErrorMessage] = useState<any>({
     type: "",
     message: "",
@@ -53,7 +55,7 @@ const FirstSignup = ({ formState, setFormState, setNextPage }: any) => {
       <h1 className="text-4xl text-black font-poppins font-bold">
         Pour commencer
       </h1>
-      <p className="mt-[48px] text-[20px] leading-7 font-poppins text-justify">
+      <p className="mt-[48px] text-[20px] leading-7 text-justify">
         Nous avons besoin de quelques informations pour vous concocter le
         meilleur séminaire, pour ce faire nous avons besoins que vous
         remplissiez ce formulaire en 4 étapes qui nous permettra de vous créer
@@ -120,7 +122,7 @@ const FirstSignup = ({ formState, setFormState, setNextPage }: any) => {
       </div>
       {/* Radio Inputs */}
       <p className="mt-10">
-        <p className="mt-[48px] text-[20px] leading-7 font-poppins font-bold">
+        <p className="mt-[48px] text-[20px] leading-7 font-poppins">
           Connaissez-vous les dates précises de votre voyage ?
           <span className="text-red-500">
             {errorMessage.type === "knowDate" && errorMessage.message}
@@ -281,6 +283,7 @@ const FirstSignup = ({ formState, setFormState, setNextPage }: any) => {
                   className="bg-gray-50 border w-[25vh] border-gray-300 text-gray-900 sm:text-sm rounded-lg block mt-2 p-2.5"
                   placeholder="Select date start"
                   value={formState.startDate}
+                  min={today}
                   onChange={(e) =>
                     setFormState({ ...formState, startDate: e.target.value })
                   }
@@ -298,6 +301,7 @@ const FirstSignup = ({ formState, setFormState, setNextPage }: any) => {
                   type="date"
                   className="bg-gray-50 border w-[25vh] border-gray-300 text-gray-900 sm:text-sm rounded-lg block mt-2 p-2.5"
                   placeholder="Select date end"
+                  min={today}
                   value={formState.endDate}
                   onChange={(e) =>
                     setFormState({ ...formState, endDate: e.target.value })
