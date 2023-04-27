@@ -4,7 +4,10 @@ import { monthArray } from "./months";
 
 const FirstSignup = ({ formState, setFormState, setNextPage }: any) => {
   const date = new Date();
-  const today = new Date().toISOString().substr(0, 10); // Récupère la date actuelle
+  // const today = new Date().toISOString().substring(0, 10); // Récupère la date actuelle
+  const sevenDays = new Date(date.setDate(date.getDate() + 7))
+    .toISOString()
+    .substring(0, 10); // Récupère la date actuelle + 7 jours
 
   const [errorMessage, setErrorMessage] = useState<any>({
     type: "",
@@ -53,7 +56,7 @@ const FirstSignup = ({ formState, setFormState, setNextPage }: any) => {
     <Fragment>
       {/* Header picture */}
       <h1 className="text-4xl text-black font-poppins font-bold">
-        Pour commencer
+        Etape 1 sur 2: Pour commencer
       </h1>
       <p className="mt-[48px] text-[20px] leading-7 text-justify">
         Nous avons besoin de quelques informations pour vous concocter le
@@ -283,7 +286,7 @@ const FirstSignup = ({ formState, setFormState, setNextPage }: any) => {
                   className="bg-gray-50 border w-[25vh] border-gray-300 text-gray-900 sm:text-sm rounded-lg block mt-2 p-2.5"
                   placeholder="Select date start"
                   value={formState.startDate}
-                  min={today}
+                  min={sevenDays}
                   onChange={(e) =>
                     setFormState({ ...formState, startDate: e.target.value })
                   }
@@ -301,7 +304,7 @@ const FirstSignup = ({ formState, setFormState, setNextPage }: any) => {
                   type="date"
                   className="bg-gray-50 border w-[25vh] border-gray-300 text-gray-900 sm:text-sm rounded-lg block mt-2 p-2.5"
                   placeholder="Select date end"
-                  min={today}
+                  min={sevenDays}
                   value={formState.endDate}
                   onChange={(e) =>
                     setFormState({ ...formState, endDate: e.target.value })

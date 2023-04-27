@@ -129,19 +129,19 @@ const ThreeSignup = ({
   return (
     <Fragment>
       {/* Header picture */}
-      <h1 className="text-4xl font-poppins">Création de l’espace personnel</h1>
-      <p className="mt-[48px] text-[20px] font-semibold leading-7 font-poppins">
+      <h1 className="text-4xl font-bold">Création de l’espace personnel</h1>
+      <p className="mt-[24px] text-[20px] font-semibold leading-7">
         Pour traiter vos informations, créez votre espace personnel ou
         connectez-vous
       </p>
       {/* Civility */}
-      <p className="mt-[48px] text-[20px] font-semibold leading-7 font-poppins">
+      <p className="mt-[48px] text-[20px] leading-7 font-bold">
         Civilité{" "}
         <span className="text-red-500">
           {errorMessage.type === "civility" && errorMessage.message}
         </span>
       </p>
-      <div className="flex flex-col mt-5">
+      <div className="flex flex-row items-center gap-5 mt-5">
         <div>
           <input
             className="accent-meltrip-primary"
@@ -179,9 +179,9 @@ const ThreeSignup = ({
           </label>
         </div>
       </div>
-      {/* Manager Name */}
+      {/* First Name */}
       <p className="mt-[48px] text-[20px] font-semibold leading-7 font-poppins">
-        Nom, Prénom{" "}
+        Nom de l’organisateur
         <span className="text-red-500">
           {errorMessage.type === "nameManager" && errorMessage.message}
         </span>
@@ -189,13 +189,27 @@ const ThreeSignup = ({
       <input
         type="text"
         className="py-3 px-4 pl-9 pr-16 block w-full shadow-sm text-sm focus:z-10 border-gray-500 border mt-5"
-        name="nameManager"
-        value={formState.nameManager}
+        name="firstname"
+        value={formState.firstname}
+        onChange={onFormChange}
+      />
+      {/* last Name */}
+      <p className="mt-[24px] text-[20px] font-semibold leading-7 font-poppins">
+        Prénom de l’organisateur
+        <span className="text-red-500">
+          {errorMessage.type === "nameManager" && errorMessage.message}
+        </span>
+      </p>
+      <input
+        type="text"
+        className="py-3 px-4 pl-9 pr-16 block w-full shadow-sm text-sm focus:z-10 border-gray-500 border mt-5"
+        name="lastname"
+        value={formState.lastname}
         onChange={onFormChange}
       />
       {/* EMAIL */}
-      <p className="mt-[48px] text-[20px] font-semibold leading-7 font-poppins">
-        Email{" "}
+      <p className="mt-[24px] text-[20px] font-semibold leading-7 font-poppins">
+        E-mail{" "}
         <span className="text-red-500">
           {errorMessage.type === "emailManager" && errorMessage.message}
         </span>
@@ -208,8 +222,8 @@ const ThreeSignup = ({
         onChange={onFormChange}
       />
       {/* Manager Phone */}
-      <p className="mt-[48px] text-[20px] font-semibold leading-7 font-poppins">
-        Téléphone
+      <p className="mt-[24px] text-[20px] font-semibold leading-7 font-poppins">
+        Saisissez le numéro
         <span className="text-red-500">
           {errorMessage.type === "phoneManager" && errorMessage.message}
         </span>
@@ -222,7 +236,7 @@ const ThreeSignup = ({
         onChange={onFormChange}
       />
       {/* Password */}
-      <p className="mt-[48px] text-[20px] font-semibold leading-7 font-poppins">
+      <p className="mt-[24px] text-[20px] font-semibold leading-7 font-poppins">
         Mot de passe{" "}
         <span className="text-gray-400">
           ( 8 caractères 1 Maj , 1 min, 1 lettre, 1 caractère spéciale)
@@ -239,7 +253,7 @@ const ThreeSignup = ({
         onChange={onFormChange}
       />
       {/* billingManager */}
-      <p className="mt-[48px] text-[20px] font-semibold leading-7 font-poppins">
+      <p className="mt-[24px] text-[20px] font-semibold leading-7 font-poppins">
         Êtes-vous le responsable de facturation ?
       </p>
       <div className="flex flex-col mt-5">
@@ -258,7 +272,7 @@ const ThreeSignup = ({
             checked={formState.billingManager}
           />
           <label className="ml-3" htmlFor="yes">
-            <span className="mt-[48px] text-[20px]">Oui</span>
+            <span className="mt-[24px] text-[20px]">Oui</span>
           </label>
         </div>
         <div>
@@ -276,11 +290,11 @@ const ThreeSignup = ({
             checked={!formState.billingManager}
           />
           <label className="ml-3" htmlFor="no">
-            <span className="mt-[48px] text-[20px]">Non</span>
+            <span className="mt-[24px] text-[20px]">Non</span>
           </label>
           {!formState.billingManager && (
             <Fragment>
-              <p className="mt-[48px] text-[20px] font-semibold leading-7 font-poppins">
+              <p className="mt-[24px] text-[20px] font-semibold leading-7 font-poppins">
                 Saississez l’e-mail du responsable financier{" "}
                 <span className="text-red-500">
                   {errorMessage.type === "emailFinancial" &&
@@ -300,7 +314,7 @@ const ThreeSignup = ({
                   })
                 }
               />
-              <p className="mt-[48px] text-[20px] font-semibold leading-7 font-poppins">
+              <p className="mt-[24px] text-[20px] font-semibold leading-7 font-poppins">
                 Saississez le numero du responsable financier{" "}
                 <span className="text-red-500">
                   {errorMessage.type === "phoneFinancial" &&
@@ -324,7 +338,7 @@ const ThreeSignup = ({
         </div>
       </div>
       {/* Siret */}
-      <p className="mt-[40px] text-[20px] font-semibold leading-7 font-poppins">
+      <p className="mt-[24px] text-[20px] font-semibold leading-7 font-poppins">
         SIRET de l’entreprise{" "}
         <span className="text-red-500">
           {errorMessage.type === "siretCompany" && errorMessage.message}
@@ -386,9 +400,13 @@ const ThreeSignup = ({
         Conformément à la loi {"'"}Informatique et Libertés{"'"}, vous disposez
         d’un droit d’accès et de rectification aux données vous concernant, et
         d’opposition à leur traitement.{" "}
-        <span className="text-meltrip-primary underline cursor-pointer">
+        <a
+          href="https://www.cnil.fr/fr/le-droit-de-rectification-corriger-vos-informations#:~:text=A%20quoi%20%C3%A7a%20sert%20%3F,avec%20la%20finalit%C3%A9%20du%20traitement"
+          target="blank"
+          className="text-meltrip-primary underline cursor-pointer"
+        >
           En savoir plus
-        </span>
+        </a>
       </p>
       <div className="w-full flex justify-between items-center mt-10">
         <div

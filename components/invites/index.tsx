@@ -40,6 +40,7 @@ const Invites = () => {
       formState.perseverant +
       formState.perfectionniste +
       formState.travailaddict;
+
     const responsePercentages: any = {
       empathique: (formState.empathique / totalCount) * 100,
       reveur: (formState.reveur / totalCount) * 100,
@@ -48,8 +49,10 @@ const Invites = () => {
       perfectionniste: (formState.perfectionniste / totalCount) * 100,
       travailaddict: (formState.travailaddict / totalCount) * 100,
     };
+
     let highestPercentage: any = 0;
     let objectWithHighestPercentage: any = {};
+
     for (const [key, value] of Object.entries(responsePercentages) as any) {
       if (value > highestPercentage) {
         highestPercentage = value;

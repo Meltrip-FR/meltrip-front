@@ -31,6 +31,8 @@ const SignupPage = () => {
     message: "",
   });
   const [formState, setFormState] = useState({
+    firstname: "",
+    lastname: "",
     participNumber: 0,
     knowDate: true,
     departurePeriod: "",
@@ -78,7 +80,7 @@ const SignupPage = () => {
         if (organization.id) {
           const userBuild = {
             email: formState.emailManager,
-            username: formState.nameManager,
+            username: formState.firstname + " " + formState.lastname,
             civility: formState.civility,
             password: formState.password,
             phone: formState.phoneManager,
@@ -100,7 +102,7 @@ const SignupPage = () => {
           );
           const userBuild = {
             email: formState.emailManager,
-            username: formState.nameManager,
+            username: formState.firstname + " " + formState.lastname,
             civility: formState.civility,
             password: formState.password,
             phone: formState.phoneManager,

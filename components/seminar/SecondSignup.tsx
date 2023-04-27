@@ -3,6 +3,10 @@ import { Fragment, useEffect, useState } from "react";
 import City from "../assets/icons/seminar/city";
 import Drill from "../assets/icons/seminar/drill";
 import Sunny from "../assets/icons/seminar/sunny";
+import Integration from "../assets/icons/integration";
+import Formation from "../assets/icons/formation";
+import Management from "../assets/icons/Management";
+import Commercial from "../assets/icons/Commercial";
 
 const formListSleep = [
   {
@@ -30,18 +34,22 @@ const formSeminarType = [
   {
     key: 1,
     value: "Intégration",
-    picture: <Sunny height={150} width={230} />,
+    picture: <Integration height={150} width={230} />,
   },
-  { key: 2, value: "Formation", picture: <City height={150} width={230} /> },
+  {
+    key: 2,
+    value: "Formation",
+    picture: <Formation height={150} width={230} />,
+  },
   {
     key: 3,
     value: "Management",
-    picture: <Drill height={150} width={230} />,
+    picture: <Management height={150} width={230} />,
   },
   {
     key: 4,
     value: "Commercial",
-    picture: <Drill height={150} width={230} />,
+    picture: <Commercial height={150} width={230} />,
   },
 ];
 const formDestinationType = [
@@ -95,8 +103,10 @@ const SecondSignup = ({
   return (
     <Fragment>
       {/* Header picture */}
-      <h1 className="text-4xl font-poppins">Décrivez-nous votre projet</h1>
-      <p className="mt-[48px] text-[20px] font-semibold leading-7 font-poppins">
+      <h1 className="text-4xl font-bold">
+        Etape 2 sur 2: Décrivez-nous votre projet
+      </h1>
+      <p className="mt-[48px] text-[20px] leading-7 font-poppins">
         Les choix que vous faites ici est modifiable, ils ont pour objectif d
         {"'"}aider nos agents Meltrip à vous faire des propositions plus
         pertinente.
@@ -118,7 +128,7 @@ const SecondSignup = ({
                     className={`${
                       formState.typeSeminar === element.value
                         ? "border-4 border-meltrip-primary rounded"
-                        : "border-4 border-[#263238] rounded"
+                        : "border-2 border-[#186E7A] rounded"
                     }`}
                   >
                     {element.picture}
@@ -159,7 +169,7 @@ const SecondSignup = ({
                     className={`${
                       formState.destinationType === element.value
                         ? "border-4 border-meltrip-primary rounded"
-                        : "border-4 border-[#263238] rounded"
+                        : "border-2 border-[#186E7A] rounded"
                     }`}
                   >
                     {element.picture}
@@ -184,36 +194,34 @@ const SecondSignup = ({
         })}
       </div>
       {/* Budget par personne (facultatif) */}
-      <p className="mt-[48px] text-[20px] font-semibold leading-7 font-poppins">
+      <p className="mt-[32px] text-[20px] font-semibold leading-7 font-poppins">
         Quel est votre budget par personne ?{" "}
       </p>
       <div className="md:w-[40%]">
-        <div className="relative">
+        <div className="relative mt-5">
           <input
             type="number"
-            className="py-3 px-4 pl-9 pr-16 block w-full shadow-sm text-sm focus:z-10"
+            className="py-3 px-4 pl-9 block w-[20vh] border border-meltrip-primary rounded text-sm appearance-none focus:z-10"
             placeholder="0.00"
             name="budgetPerPerson"
             value={formState.budgetPerPerson}
             onChange={onFormChange}
           />
           <div className="absolute inset-y-0 left-0 flex items-center pointer-events-none z-20 pl-4">
-            <span className="text-gray-500">€</span>
-          </div>
-          <div className="absolute inset-y-0 right-0 flex items-center pointer-events-none z-20 pr-4">
-            <span className="text-gray-500">EUR</span>
+            <span className="text-black">€</span>
           </div>
         </div>
       </div>
       {/* Sleeping */}
-      <p className="mt-[48px] text-[20px] font-semibold leading-7 font-poppins">
-        Pour dormir, vous êtes plutôt ...{" "}
-        <span className="text-gray-400">(plusieurs choix possible)</span>
+      <p className="mt-[32px] text-[20px] font-semibold leading-7 font-poppins">
+        {/* Pour dormir, vous êtes plutôt ...{" "} */}
+        Quelle est votre préférence de lieu pour dormir ?{" "}
+        {/* <span className="text-gray-400">(plusieurs choix possible)</span> */}
         <span className="text-red-500">
           {errorMessage.type === "sleepSuggest" && errorMessage.message}
         </span>
       </p>
-      <div className="flex flex-col mt-5">
+      <div className="flex flex-col mt-5 gap-3">
         {formListSleep.map((sleepSuggest, index) => {
           return (
             <div key={index}>
@@ -244,12 +252,12 @@ const SecondSignup = ({
       </p>
       <textarea
         name="describeProject"
-        className="resize-y rounded-md w-full h-64 mt-5 border border-b-gray-100"
+        className="resize-y rounded-md w-full h-64 mt-5 border border-gray-600"
         onChange={onFormChange}
         value={formState.describeProject}
       />
       {/* Paginate */}
-      <div className="w-full flex justify-between items-center mt-10">
+      <div className="w-full flex justify-between items-center mt-4">
         <div
           onClick={() => setNextPage(1)}
           className="text-meltrip-primary cursor-pointer mt-[48px] text-[20px] font-semibold leading-7 font-poppins"
