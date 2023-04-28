@@ -41,11 +41,25 @@ const SeminarInfos = () => {
       categoryTotals[category].total += members[i].resultState;
     }
 
-    const categoryPercentages: any = {};
-    for (const category in categoryTotals) {
-      const count = categoryTotals[category].count;
-      const total = categoryTotals[category].total;
-      categoryPercentages[category] = count > 0 ? total / count : 0;
+    const categoryPercentages: any = {
+      empathique: 0,
+      reveur: 0,
+      rebelle: 0,
+      perseverant: 0,
+      perfectionniste: 0,
+      travailaddict: 0,
+    };
+
+    const totalParticipants = members.length;
+
+    if (totalParticipants > 0 && seminar?.participNumber > 0) {
+      const percentage = (totalParticipants / seminar.participNumber) * 100;
+      for (const category in categoryTotals) {
+        const count = categoryTotals[category].count;
+        const categoryPercentage =
+          count > 0 ? (count / totalParticipants) * percentage : 0;
+        categoryPercentages[category] = Number(categoryPercentage.toFixed(1));
+      }
     }
 
     return categoryPercentages;
@@ -73,7 +87,6 @@ const SeminarInfos = () => {
           seminar?.idPayement
         );
         const loadStat: any = await loadStats(members);
-
         const TemplateQuote1: any = await getTemplateQuoteById(
           auth.user.accessToken,
           quote?.idTemplateQuote1
@@ -135,6 +148,7 @@ const SeminarInfos = () => {
     seminar?.loadStat["rebelle"] +
     seminar?.loadStat["perfectionniste"] +
     seminar?.loadStat["travailaddict"] / 6;
+
   return (
     <section className="text-gray-600 body-font">
       <div className="container px-5 py-14 mx-auto">
@@ -179,7 +193,8 @@ const SeminarInfos = () => {
               <div className="ml-5">
                 Nombre de participants:{" "}
                 <span className="font-bold">
-                  {seminar?.participNumber} personnes
+                  {seminar?.members.length} / {seminar?.participNumber}{" "}
+                  personnes
                 </span>
               </div>
             </div>
@@ -195,7 +210,11 @@ const SeminarInfos = () => {
           {/* Stats Profile Séminar */}
           <p className="sm:text-xl font-bold text-xl mt-12 text-gray-900 mr-5">
             Profile rempli à{" "}
-            {(seminar?.members.length / seminar?.participNumber) * 100}%
+            {(
+              (seminar?.members.length / seminar?.participNumber) *
+              100
+            ).toFixed()}
+            %
           </p>
           <progress
             className="w-full progress progress-accent mt-12"
