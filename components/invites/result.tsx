@@ -146,11 +146,11 @@ const listSection = [
   },
 ];
 
-const ResultCard = ({ formstate }: any) => {
+const ResultCard = ({ formState }: any) => {
   const router = useRouter();
   const [formUpdateState, setFormUpdateState] = useState<any>();
 
-  console.log(formstate);
+  console.log(formState);
   const handleUpdateMembers = async () => {
     if (!formUpdateState.infos || !formUpdateState.retour) {
       return router.push("/invites/thanks");
@@ -159,15 +159,15 @@ const ResultCard = ({ formstate }: any) => {
       infos: formUpdateState.infos,
       retour: formUpdateState.retour,
     };
-    const update = await updateMembers(formstate.id, data);
+    const update = await updateMembers(formState.id, data);
     if (update) {
       router.push("/invites/thanks");
     }
   };
 
   // useEffect(() => {
-  //   if (!formstate) router.push("/");
-  // }, [formstate]);
+  //   if (!formState) router.push("/");
+  // }, [formState]);
 
   return (
     <div>
@@ -178,7 +178,7 @@ const ResultCard = ({ formstate }: any) => {
         <div className="flex flex-col items-center w-full">
           {listSection.map(
             (section: any, indexF: number) =>
-              section.type.name === formstate?.resultType && (
+              section.type.name === formState?.resultType && (
                 <div key={indexF} className="flex justify-between mt-4 w-full">
                   <div>
                     <h1 className="text-4xl font-bold mb-5">
