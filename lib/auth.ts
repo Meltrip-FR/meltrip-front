@@ -16,6 +16,5 @@ export const signin = async (email: string, password: string) => {
     `${process.env.NEXT_PUBLIC_API_URL}/auth/signin`,
     { email, password }
   );
-  console.log({ user });
   return user.data;
 };

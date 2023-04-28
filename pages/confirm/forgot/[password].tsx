@@ -35,7 +35,6 @@ const ConfirmForgotPasswordPage = () => {
 
   const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
-    console.log({ id });
     await axios
       .put(`${process.env.NEXT_PUBLIC_API_URL}/user/${id}`, {
         password,
@@ -47,7 +46,6 @@ const ConfirmForgotPasswordPage = () => {
   };
 
   useEffect(() => {
-    console.log({ router });
     !router.isReady || loadData().catch((e) => console.error(e));
   }, [loadData, router.query, router.isReady]);
 

@@ -79,8 +79,8 @@ const Invites = () => {
     };
     const add = await addMembers(data);
     if (add) {
-      setResult(add);
       setFormState({ ...formState, activeIndex: 0, steps: 11 });
+      return setResult(add);
     }
   };
 

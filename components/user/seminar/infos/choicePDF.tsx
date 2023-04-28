@@ -69,7 +69,6 @@ const ChoicePDF = () => {
     });
 
     if (updateQuote) {
-      console.log("update");
       if (paginate === 0) {
         const payementStripe = await payementWithStripe({
           idSeminar: seminar.id,

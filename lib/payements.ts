@@ -11,8 +11,6 @@ export const getPayementBySeminarId = async (token: any, id: any) => {
       console.error(error);
     });
 
-  console.log({ token, id });
-
   return getPayement.data;
 };
 

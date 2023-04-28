@@ -5,7 +5,6 @@ const FinishCard = ({ seminarData }: any) => {
   return (
     <div className="flex flex-wrap">
       {seminarData?.map((seminar: any, index: any) => {
-        console.log({ seminar });
         return (
           <Link
             href={`/user/seminar/infos/${seminar.id}`}

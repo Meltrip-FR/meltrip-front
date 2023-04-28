@@ -1,7 +1,6 @@
 import axios from "axios";
 
 export const getSeminarById = async (token: string, id: any) => {
-  console.log(token, id);
   const seminar: any = await axios
     .get(`${process.env.NEXT_PUBLIC_API_URL}/seminar/${id}`, {
       headers: {
@@ -16,7 +15,6 @@ export const getSeminarById = async (token: string, id: any) => {
 };
 
 export const getSeminarByUserId = async (token: string, id: any) => {
-  console.log(token);
   const seminar: any = await axios
     .get(`${process.env.NEXT_PUBLIC_API_URL}/seminars/${id}`, {
       headers: {

@@ -47,7 +47,6 @@ const FirstSignup = ({ formState, setFormState, setNextPage }: any) => {
         type: "",
         message: "",
       });
-      console.log(formState?.startDate);
       setNextPage(2);
     }
   };

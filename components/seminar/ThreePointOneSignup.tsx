@@ -12,7 +12,6 @@ const ThreePointOneSignup = ({
   });
 
   const verifyNextPage = () => {
-    console.log(formState);
     if (formState?.billingManager === false && !formState?.emailFinancial) {
       setErrorMessage({
         type: "emailFinancial",

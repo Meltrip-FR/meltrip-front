@@ -42,9 +42,6 @@ const SeminarInfos = () => {
     }
 
     const categoryPercentages: any = {};
-
-    console.log(categoryTotals, { d: countMoyenneAllLoadStat > 80 });
-
     for (const category in categoryTotals) {
       const count = categoryTotals[category].count;
       const total = categoryTotals[category].total;
@@ -131,7 +128,6 @@ const SeminarInfos = () => {
       getSeminar(router?.query?.id as string).catch((e) => console.error(e));
   }, [getSeminar, router?.query?.id]);
 
-  console.log(seminar?.templateQuotes);
   const countMoyenneAllLoadStat =
     seminar?.loadStat["perseverant"] +
     seminar?.loadStat["empathique"] +
