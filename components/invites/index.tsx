@@ -1,7 +1,6 @@
 import { Fragment, useState, useEffect, useCallback } from "react";
 import { useRouter } from "next/router";
 import axios from "axios";
-import Footer from "../body/footer";
 import Present from "./steps/present";
 import First from "./steps/first";
 import Second from "./steps/second";
@@ -13,10 +12,12 @@ import Four from "./steps/four";
 import Five from "./steps/five";
 import Six from "./steps/six";
 import Seven from "./steps/seven";
-import { addMembers } from "@/lib/members";
+import { addMembers, updateMembers } from "@/lib/members";
+import ResultCard from "./result";
 
 const Invites = () => {
   const router = useRouter();
+  const [result, setResult] = useState<any>();
   const [formState, setFormState] = useState({
     email: "",
     firstname: "",
@@ -68,7 +69,7 @@ const Invites = () => {
   const handleSubmit = async () => {
     const resultState = calculateResponsePercentages();
     const data = {
-      idGroup: router.query.id,
+      idGroup: parseInt(router.query.id as string),
       email: formState.email,
       firstname: formState.firstname,
       lastname: formState.lastname,
@@ -78,7 +79,8 @@ const Invites = () => {
     };
     const add = await addMembers(data);
     if (add) {
-      router?.push("/invites/thanks");
+      setResult(add);
+      setFormState({ ...formState, activeIndex: 0, steps: 11 });
     }
   };
 
@@ -103,8 +105,9 @@ const Invites = () => {
     <Fragment>
       <div className="mx-auto container">
         {formState.steps === 0 ? (
-          <Present setFormState={setFormState} formState={formState} />
-        ) : formState.steps === 1 ? (
+          <ResultCard formState={result} />
+        ) : // <Present setFormState={setFormState} formState={formState} />
+        formState.steps === 1 ? (
           <First setFormState={setFormState} formState={formState} />
         ) : formState.steps === 2 ? (
           <Second setFormState={setFormState} formState={formState} />
@@ -122,15 +125,16 @@ const Invites = () => {
           <Eight setFormState={setFormState} formState={formState} />
         ) : formState.steps === 9 ? (
           <Nine setFormState={setFormState} formState={formState} />
-        ) : (
+        ) : formState.steps === 10 ? (
           <Ten
             setFormState={setFormState}
             formState={formState}
             handleSubmit={handleSubmit}
           />
+        ) : (
+          <ResultCard formState={result} />
         )}
       </div>
-      <Footer />
     </Fragment>
   );
 };

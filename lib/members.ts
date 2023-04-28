@@ -16,5 +16,16 @@ export const addMembers = async (data: any) => {
     .catch((error: TypeError) => {
       console.error(error);
     });
-  return member.data;
+
+  return member.data && member.data;
+};
+
+export const updateMembers = async (id: string, data: any) => {
+  const member: any = await axios
+    .put(`${process.env.NEXT_PUBLIC_API_URL}/member/${id}`, data)
+    .catch((error: TypeError) => {
+      console.error(error);
+    });
+
+  return member.data && member.data;
 };

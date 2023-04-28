@@ -33,14 +33,14 @@ const First = ({ setFormState, formState }: any) => {
 
   return (
     <Fragment>
-      <div className="flex justify-center mb-5">
-        <LogoColor size={100} />
+      <div className="flex justify-center">
+        <LogoColor size={150} />
       </div>
       <div>
-        <h3 className="uppercase text-black font-poppins font-bold text-4xl">
+        <h3 className="uppercase text-black font-bold text-xl">
           Veuillez renseigner votre :
         </h3>
-        <div className="flex flex-col gap-5 mt-5">
+        <div className="flex flex-col gap-y-5">
           <p className="text-red-500">{errorMessage}</p>
           <input
             className="bg-[#ECF3F2] w-full rounded px-2 py-3"
@@ -68,8 +68,7 @@ const First = ({ setFormState, formState }: any) => {
           />
         </div>
       </div>
-
-      <p className="mt-5 uppercase text-black font-poppins font-bold text-4xl">
+      <p className="mt-16 uppercase text-black font-poppins font-bold text-xl">
         {questionsList.question}
       </p>
       <div className="flex flex-col gap-5 mt-5">
@@ -77,9 +76,10 @@ const First = ({ setFormState, formState }: any) => {
           <button
             key={index}
             onClick={() => handleChangeActive(index, answer.type)}
-            className={`flex text-start rounded bg-[#ECF3F2] w-full px-2 py-3 hover:cursor-pointer hover:bg-[#448B7B] hover:text-white ${
-              index === formState.activeIndex &&
-              "cursor-pointer bg-[#448B7B] text-white"
+            className={`flex text-start rounded w-full px-2 py-3 hover:cursor-pointer hover:bg-[#448B7B] hover:text-white ${
+              index === formState.activeIndex
+                ? "cursor-pointer bg-[#448B7B] text-white"
+                : "bg-[#ECF3F2]"
             }`}
           >
             {answer.text}
@@ -88,7 +88,7 @@ const First = ({ setFormState, formState }: any) => {
       </div>
       <div className="flex justify-center">
         <button
-          className="text-xl rounded text-white m-10 py-3 px-5 hover:cursor-pointer hover:bg-[#448B7B] hover:text-white bg-[#186E7A]"
+          className="text-xl rounded text-white m-10 py-3 px-[20vh] hover:cursor-pointer hover:bg-[#448B7B] hover:text-white bg-[#186E7A]"
           onClick={() => verify()}
         >
           SUIVANT
