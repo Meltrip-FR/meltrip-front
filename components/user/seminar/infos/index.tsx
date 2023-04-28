@@ -51,7 +51,6 @@ const SeminarInfos = () => {
       categoryPercentages[category] = count > 0 ? total / count : 0;
     }
 
-    console.log(categoryPercentages);
     return categoryPercentages;
   };
 
@@ -249,72 +248,72 @@ const SeminarInfos = () => {
               </span>
             </div>
           </div>
-          {seminar?.templateQuotes?.TemplateQuote1 &&
-            countMoyenneAllLoadStat > 80 && (
-              <Fragment>
-                {/* Button relance */}
-                <p className="sm:text-xl font-bold text-xl mt-24 text-gray-900 mr-5">
-                  Vos propositions de séminaire
-                </p>
-                {/* Devis */}
-                <div className="p-5 flex justify-between mt-12">
-                  <a
-                    href={`/user/seminar/infos/quotes/${seminar?.templateQuotes.TemplateQuote1.id}`}
-                    target="blank"
-                    className="cursor-default"
-                  >
-                    <div className="relative ">
-                      <img
-                        alt="picture"
-                        className="hover:opacity-75 cursor-pointer object-cover h-48 w-96"
-                        src={seminar?.templateQuotes.TemplateQuote1.urlPicture}
-                      />
-                      <div className="absolute bottom-0 left-0 right-0 px-4 py-2 bg-meltrip-secondary opacity-70">
-                        <h3 className="text-xl text-white font-bold">
-                          {seminar?.templateQuotes.TemplateQuote1.title}
-                        </h3>
-                      </div>
+          {seminar?.templateQuotes?.TemplateQuote1 && (
+            // countMoyenneAllLoadStat > 80 && (
+            <Fragment>
+              {/* Button relance */}
+              <p className="sm:text-xl font-bold text-xl mt-24 text-gray-900 mr-5">
+                Vos propositions de séminaire
+              </p>
+              {/* Devis */}
+              <div className="p-5 flex justify-between mt-12">
+                <a
+                  href={`/user/seminar/infos/quotes/${seminar?.templateQuotes.TemplateQuote1.id}`}
+                  target="blank"
+                  className="cursor-default"
+                >
+                  <div className="relative ">
+                    <img
+                      alt="picture"
+                      className="hover:opacity-75 cursor-pointer object-cover h-48 w-96"
+                      src={seminar?.templateQuotes.TemplateQuote1.urlPicture}
+                    />
+                    <div className="absolute bottom-0 left-0 right-0 px-4 py-2 bg-meltrip-secondary opacity-70">
+                      <h3 className="text-xl text-white font-bold">
+                        {seminar?.templateQuotes.TemplateQuote1.title}
+                      </h3>
                     </div>
-                  </a>
-                  <a
-                    href={`/user/seminar/infos/quotes/${seminar?.templateQuotes.TemplateQuote2.id}`}
-                    target="blank"
-                    className="cursor-default"
-                  >
-                    <div className="relative ">
-                      <img
-                        alt="picture"
-                        className="hover:opacity-75 cursor-pointer object-cover h-48 w-96"
-                        src={seminar?.templateQuotes.TemplateQuote2.urlPicture}
-                      />
-                      <div className="absolute bottom-0 left-0 right-0 px-4 py-2 bg-meltrip-secondary opacity-70">
-                        <h3 className="text-xl text-white font-bold">
-                          {seminar?.templateQuotes.TemplateQuote2.title}
-                        </h3>
-                      </div>
+                  </div>
+                </a>
+                <a
+                  href={`/user/seminar/infos/quotes/${seminar?.templateQuotes.TemplateQuote2.id}`}
+                  target="blank"
+                  className="cursor-default"
+                >
+                  <div className="relative ">
+                    <img
+                      alt="picture"
+                      className="hover:opacity-75 cursor-pointer object-cover h-48 w-96"
+                      src={seminar?.templateQuotes.TemplateQuote2.urlPicture}
+                    />
+                    <div className="absolute bottom-0 left-0 right-0 px-4 py-2 bg-meltrip-secondary opacity-70">
+                      <h3 className="text-xl text-white font-bold">
+                        {seminar?.templateQuotes.TemplateQuote2.title}
+                      </h3>
                     </div>
-                  </a>
-                  <a
-                    href={`/user/seminar/infos/quotes/${seminar?.templateQuotes.TemplateQuote3.id}`}
-                    target="blank"
-                    className="cursor-default"
-                  >
-                    <div className="relative">
-                      <img
-                        alt="picture"
-                        className="hover:opacity-75 cursor-pointer object-cover h-48 w-96"
-                        src={seminar?.templateQuotes.TemplateQuote3.urlPicture}
-                      />
-                      <div className="absolute bottom-0 left-0 right-0 px-4 py-2 bg-meltrip-secondary opacity-70">
-                        <h3 className="text-xl text-white font-bold">
-                          {seminar?.templateQuotes.TemplateQuote3.title}
-                        </h3>
-                      </div>
+                  </div>
+                </a>
+                <a
+                  href={`/user/seminar/infos/quotes/${seminar?.templateQuotes.TemplateQuote3.id}`}
+                  target="blank"
+                  className="cursor-default"
+                >
+                  <div className="relative">
+                    <img
+                      alt="picture"
+                      className="hover:opacity-75 cursor-pointer object-cover h-48 w-96"
+                      src={seminar?.templateQuotes.TemplateQuote3.urlPicture}
+                    />
+                    <div className="absolute bottom-0 left-0 right-0 px-4 py-2 bg-meltrip-secondary opacity-70">
+                      <h3 className="text-xl text-white font-bold">
+                        {seminar?.templateQuotes.TemplateQuote3.title}
+                      </h3>
                     </div>
-                  </a>
-                </div>
-              </Fragment>
-            )}
+                  </div>
+                </a>
+              </div>
+            </Fragment>
+          )}
           {/* Link invite */}
           {/* {seminar?.payement?.status === "Terminé" && ( */}
           {seminar?.templateQuotes?.TemplateQuote1 && (
