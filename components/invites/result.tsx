@@ -150,6 +150,7 @@ const ResultCard = ({ formstate }: any) => {
   const router = useRouter();
   const [formUpdateState, setFormUpdateState] = useState<any>();
 
+  console.log(formstate);
   const handleUpdateMembers = async () => {
     if (!formUpdateState.infos || !formUpdateState.retour) {
       return router.push("/invites/thanks");
@@ -164,9 +165,9 @@ const ResultCard = ({ formstate }: any) => {
     }
   };
 
-  useEffect(() => {
-    if (!formstate) router.push("/");
-  }, [formstate]);
+  // useEffect(() => {
+  //   if (!formstate) router.push("/");
+  // }, [formstate]);
 
   return (
     <div>
