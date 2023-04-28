@@ -78,16 +78,16 @@
         "destination": "/user/seminar/infos/quotes/[id].html"
       },
       {
-        "source": "/invites/*",
-        "destination": "/invites/[id].html"
-      },
-      {
         "source": "/invites/limit",
         "destination": "/invites/limit.html"
       },
       {
         "source": "/invites/thanks",
         "destination": "/invites/thanks.html"
+      },
+      {
+        "source": "/invites/*",
+        "destination": "/invites/[id].html"
       },
       {
         "source": "/seminar/create",
