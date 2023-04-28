@@ -194,13 +194,13 @@ const ResultCard = ({ formState }: any) => {
                   <div>
                     {section.section.map((item: any, index: number) => (
                       <ul key={index} className="mb-5">
-                        <h1 className="text-4xl font-bold mb-5">
-                          Vous êtes {item.title}
+                        <h1 className="text-4xl uppercase font-bold mx-5 mb-5">
+                          {item.title}
                         </h1>
                         {item.list.map((subitem: any, index: any) => (
                           <li
                             key={index}
-                            className="ml-5 mt-2 text-xl list-disc"
+                            className="ml-5 mt-2 text-xl font-light list-disc"
                           >
                             {subitem}
                           </li>

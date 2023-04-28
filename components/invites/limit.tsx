@@ -1,6 +1,7 @@
 import Link from "next/link";
 import LogoColor from "../assets/icons/logoColor";
 import Love from "../assets/icons/love";
+import LimitIcon from "../assets/icons/limit";
 
 const LimitCard = () => {
   return (
@@ -15,7 +16,7 @@ const LimitCard = () => {
         Merci de vous redirigez vers le membre qui organise le séminaire.
       </p>
       <div className="justify-center flex">
-        <Love size={500} />
+        <LimitIcon size={400} />
       </div>
 
       <div className="card-body items-center text-center">
@@ -24,7 +25,7 @@ const LimitCard = () => {
         <div className="card-actions mt-5">
           <Link
             href="/"
-            className="p-2 rounded text-white bg-meltrip-primary hover:bg-meltrip-ternary"
+            className="px-32 py-4 rounded text-white bg-meltrip-primary hover:bg-meltrip-ternary"
           >
             Retour
           </Link>

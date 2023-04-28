@@ -141,14 +141,6 @@ const SeminarInfos = () => {
       getSeminar(router?.query?.id as string).catch((e) => console.error(e));
   }, [getSeminar, router?.query?.id]);
 
-  const countMoyenneAllLoadStat =
-    seminar?.loadStat["perseverant"] +
-    seminar?.loadStat["empathique"] +
-    seminar?.loadStat["reveur"] +
-    seminar?.loadStat["rebelle"] +
-    seminar?.loadStat["perfectionniste"] +
-    seminar?.loadStat["travailaddict"] / 6;
-
   return (
     <section className="text-gray-600 body-font">
       <div className="container px-5 py-14 mx-auto">
