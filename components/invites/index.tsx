@@ -79,7 +79,7 @@ const Invites = () => {
     };
     const add = await addMembers(data);
     if (add) {
-      setResult(add.data);
+      setResult(add);
       setFormState({ ...formState, activeIndex: 0, steps: 11 });
     }
   };
@@ -101,6 +101,7 @@ const Invites = () => {
     getSeminar();
   }, [getSeminar]);
 
+  console.log({ result });
   return (
     <Fragment>
       <div className="mx-auto container">
