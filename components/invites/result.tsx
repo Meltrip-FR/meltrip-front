@@ -38,7 +38,7 @@ const listSection = [
       name: "perfectionniste",
       describe:
         "Élégant et manique, le.la perfectionniste est toujours concentré.e et ne lâche rien avant d’être sur que tout soit parfait.",
-      picture: <Perfectionniste size={300} />,
+      picture: <Perfectionniste height={450} width={500} />,
     },
     section: [
       {
@@ -58,7 +58,7 @@ const listSection = [
       name: "perseverant",
       describe:
         "Engagé.e, le.la persévérant.e est une personne de parole, qui sait convaincre son audience.",
-      picture: <Perseverant size={300} />,
+      picture: <Perseverant height={450} width={500} />,
     },
     section: [
       {
@@ -81,7 +81,7 @@ const listSection = [
       name: "rebelle",
       describe:
         "Spontanée, le.la rebelle est un.e collègue qui aime le contact et le travail d’équipe. C’est une personne contestataire mais leader pour ses collègues.",
-      picture: <Perseverant size={300} />,
+      picture: <Perseverant height={450} width={500} />,
     },
     section: [
       {
@@ -104,7 +104,7 @@ const listSection = [
       name: "reveur",
       describe:
         "Calme et réservé.e, le.la rêveur.se est attentif à son environnement et déborde de créativité.",
-      picture: <Reveur size={300} />,
+      picture: <Reveur height={450} width={500} />,
     },
     section: [
       {
