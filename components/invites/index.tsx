@@ -92,7 +92,7 @@ const Invites = () => {
       `${process.env.NEXT_PUBLIC_API_URL}/group/member/${seminar.data.idGroup}`
     );
 
-    if (seminar.data.adultNumber <= member.data.length + 1) {
+    if (seminar.data.adultNumber <= member.data.length) {
       router.push(`/invites/limit`);
     }
   }, [router.query.id]);
