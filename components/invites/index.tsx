@@ -74,7 +74,7 @@ const Invites = () => {
       firstname: formState.firstname,
       lastname: formState.lastname,
       present: 1,
-      resultType: resultState.type,
+      resultType: resultState?.type,
       resultState: resultState.pourcent,
     };
     const add = await addMembers(data);
@@ -105,9 +105,8 @@ const Invites = () => {
     <Fragment>
       <div className="mx-auto container">
         {formState.steps === 0 ? (
-          <ResultCard formState={result} />
-        ) : // <Present setFormState={setFormState} formState={formState} />
-        formState.steps === 1 ? (
+          <Present setFormState={setFormState} formState={formState} />
+        ) : formState.steps === 1 ? (
           <First setFormState={setFormState} formState={formState} />
         ) : formState.steps === 2 ? (
           <Second setFormState={setFormState} formState={formState} />
