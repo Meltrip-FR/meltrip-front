@@ -295,7 +295,7 @@ const HomePage = () => {
           </p>
         </div>
       </section>
-      {/* <div className="relative justify-center items-center flex">
+      <div className="relative justify-center items-center flex">
         <div className="absolute grid grid-cols-2 gap-5 items-center justify-center p-80 ">
           <div>
             <h5 className="text-2xl text-meltrip-textW tracking-widest mb-5">
@@ -325,7 +325,7 @@ const HomePage = () => {
           </form>
         </div>
         <BackgroundNewsletter width={1000} height={300} />
-      </div> */}
+      </div>
       <Footer />
     </div>
   );

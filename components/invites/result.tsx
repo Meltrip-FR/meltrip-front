@@ -177,7 +177,7 @@ const ResultCard = ({ formstate }: any) => {
         <div className="flex flex-col items-center w-full">
           {listSection.map(
             (section: any, indexF: number) =>
-              section.type.name === formstate.resultType && (
+              section.type.name === formstate?.resultType && (
                 <div key={indexF} className="flex justify-between mt-4 w-full">
                   <div>
                     <h1 className="text-4xl font-bold mb-5">
