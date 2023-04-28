@@ -146,11 +146,10 @@ const listSection = [
   },
 ];
 
-const ResultCard = ({ formState }: any) => {
+const ResultCard = (formState: any) => {
   const router = useRouter();
   const [formUpdateState, setFormUpdateState] = useState<any>();
 
-  console.log(formState);
   const handleUpdateMembers = async () => {
     if (!formUpdateState.infos || !formUpdateState.retour) {
       return router.push("/invites/thanks");
