@@ -43,7 +43,8 @@ const SeminarInfos = () => {
 
     const categoryPercentages: any = {};
 
-    console.log(categoryTotals);
+    console.log(categoryTotals, { d: countMoyenneAllLoadStat > 80 });
+
     for (const category in categoryTotals) {
       const count = categoryTotals[category].count;
       const total = categoryTotals[category].total;
