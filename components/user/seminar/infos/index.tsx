@@ -131,6 +131,7 @@ const SeminarInfos = () => {
       getSeminar(router?.query?.id as string).catch((e) => console.error(e));
   }, [getSeminar, router?.query?.id]);
 
+  console.log(seminar?.templateQuotes);
   const countMoyenneAllLoadStat =
     seminar?.loadStat["perseverant"] +
     seminar?.loadStat["empathique"] +
