@@ -39,6 +39,8 @@ const Payments = () => {
     getPayement().catch((e) => console.error(e));
   }, [getPayement]);
 
+  console.log(payementList);
+
   return (
     <section className="text-gray-600 body-font">
       <div className="container px-5 py-14 mx-auto">
