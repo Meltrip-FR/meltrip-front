@@ -102,6 +102,7 @@ const Invites = () => {
     getSeminar();
   }, [getSeminar]);
 
+  console.log({ result });
   return (
     <Fragment>
       <div className="mx-auto container">
@@ -125,15 +126,18 @@ const Invites = () => {
           <Eight setFormState={setFormState} formState={formState} />
         ) : formState.steps === 9 ? (
           <Nine setFormState={setFormState} formState={formState} />
-        ) : formState.steps === 10 ? (
-          <Ten
-            setFormState={setFormState}
-            formState={formState}
-            handleSubmit={handleSubmit}
-          />
         ) : (
-          <ResultCard formState={result} />
+          formState.steps === 10 && (
+            <Ten
+              setFormState={setFormState}
+              formState={formState}
+              handleSubmit={handleSubmit}
+            />
+          )
         )}
+        {/* // ) : (
+        //   <ResultCard formState={result} />
+        // )} */}
       </div>
     </Fragment>
   );
