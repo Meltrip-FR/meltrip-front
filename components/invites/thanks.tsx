@@ -12,7 +12,7 @@ const ThanksCard = () => {
         Félicitations! Vous étes bien inscrit au séminaire.
       </p>
       <div className="justify-center flex">
-        <Love size={500} />
+        <Love size={400} />
       </div>
 
       <div className="card-body items-center text-center">

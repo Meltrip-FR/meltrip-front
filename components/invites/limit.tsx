@@ -25,7 +25,7 @@ const LimitCard = () => {
         <div className="card-actions mt-5">
           <Link
             href="/"
-            className="px-32 py-4 rounded text-white bg-meltrip-primary hover:bg-meltrip-ternary"
+            className="px-2 rounded text-white bg-meltrip-primary hover:bg-meltrip-ternary"
           >
             Retour
           </Link>
