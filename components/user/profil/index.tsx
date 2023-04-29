@@ -106,17 +106,16 @@ const Profil = () => {
                 </div>
                 <div className="border-b pb-2 mb-2 border-gray-200">
                   <div className="flex flex-wrap justify-between text-left mt-6 sm:mt-0">
-                    <div>
+                    <div className="w-[60vh]">
                       <h2 className="text-gray-900 text-lg title-font font-medium mb-2">
                         E-mail
                       </h2>
-                      <p className="leading-relaxed text-base">
+                      <p className="leading-relaxed text-base w-full">
                         <FormItem
                           type="email"
                           name="email"
                           value={formState?.email}
                           label="email"
-                          style="bg-[#ECF3F2] px-2 py-3 w-full"
                           onChange={onFormChange}
                           disabled={false}
                           required={true}
@@ -150,7 +149,7 @@ const Profil = () => {
                 </div>
                 <div className="border-b pb-2 mb-2 border-gray-200">
                   <div className="flex flex-wrap justify-between text-left mt-6 sm:mt-0">
-                    <div>
+                    <div className="w-[60vh]">
                       <h2 className="text-gray-900 text-lg title-font font-medium mb-2">
                         Numéro de téléphone
                       </h2>
@@ -159,7 +158,7 @@ const Profil = () => {
                         name="phone"
                         value={formState?.phone}
                         label="Téléphone"
-                        style="bg-[#ECF3F2] px-2 py-3 col-span-2"
+                        style="bg-white px-2 col-span-2"
                         onChange={onFormChange}
                         disabled={false}
                         required={true}

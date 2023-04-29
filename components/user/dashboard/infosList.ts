@@ -21,12 +21,12 @@ export const CardInfosList = [
     describe: "Consultez les paiements , coupons et cartes cadeaux",
     url: "/user/payments",
   },
-  // {
-  //   title: "Accessibilité",
-  //   describe:
-  //     "Modifiez les options de navigation afin qu’il vous soit plus simple",
-  //   url: "/user/accessibility",
-  // },
+  {
+    title: "Accessibilité",
+    describe:
+      "Modifiez les options de navigation afin qu’il vous soit plus simple",
+    url: "/user/accessibility",
+  },
   {
     title: "Participation de l’entreprise aux commerces locaux",
     describe:

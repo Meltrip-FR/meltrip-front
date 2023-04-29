@@ -2,6 +2,7 @@ import { convertDate } from "@/components/utils/convertDate";
 import Link from "next/link";
 
 const SuccessCard = ({ seminarData }: any) => {
+  console.log(seminarData);
   return (
     <div className="flex flex-wrap">
       {seminarData?.map((seminar: any, index: any) => (
@@ -11,9 +12,8 @@ const SuccessCard = ({ seminarData }: any) => {
           key={index}
           passHref
         >
-          <div className="bg-green-50 p-5">
-            <h1>Nombre de membre: {seminar.adultNumber}</h1>
-            <h3 className="text-xl  font-bold">
+          <div className="bg-meltrip-primary text-white rounded p-5">
+            <h1 className="text-3xl">
               {seminar?.startDate
                 ? convertDate(seminar?.startDate)
                 : seminar?.departurePeriod}{" "}
@@ -21,6 +21,12 @@ const SuccessCard = ({ seminarData }: any) => {
               {seminar?.endDate
                 ? convertDate(seminar?.endDate)
                 : seminar?.approximateDuration}
+            </h1>
+            <h1 className="text-xl ">
+              {seminar.budgetPerPerson}€ par personne(s)
+            </h1>
+            <h3 className=" font-bold">
+              Direction: {seminar?.destinationType}
             </h3>
           </div>
         </Link>
