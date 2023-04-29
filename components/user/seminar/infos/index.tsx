@@ -20,50 +20,86 @@ import { getTemplateQuoteById } from "@/lib/templateQuotes";
 import { getPayementBySeminarId } from "@/lib/payements";
 import { getMembersByGroupId } from "@/lib/members";
 
+interface UserData {
+  id: number;
+  idGroup: number;
+  email: string;
+  retour: any;
+  infos: any;
+  present: boolean;
+  resultState: number;
+  resultType: string;
+  createdAt: string;
+  updatedAt: string;
+  deletedAt: any;
+}
+
+interface UserData {
+  id: number;
+  idGroup: number;
+  email: string;
+  retour: any;
+  infos: any;
+  present: boolean;
+  resultState: number;
+  resultType: string;
+  createdAt: string;
+  updatedAt: string;
+  deletedAt: any;
+}
+
+interface ResultData {
+  resultType: string;
+  moyenne: number;
+}
+
+const calculatePercentageAverages = (moyennes: any, totals: any) => {
+  const total = moyennes.reduce(
+    (sum: any, moyenne: any) => sum + moyenne.moyenne,
+    0
+  );
+
+  const moyenneObj: any = {};
+
+  moyennes.map((moyenne: any) => {
+    return (moyenneObj[moyenne.resultType] = (
+      (moyenne.moyenne / total) *
+      totals
+    ).toFixed());
+  });
+
+  return moyenneObj;
+};
+
+const loadStats = (data: UserData[]): ResultData[] => {
+  const resultTypeMap: any = new Map<
+    string,
+    { total: number; count: number }
+  >();
+
+  // Calculer la somme et le nombre d'occurrences pour chaque resultType
+  data.forEach((item) => {
+    if (resultTypeMap.has(item.resultType)) {
+      resultTypeMap.get(item.resultType).total += item.resultState;
+      resultTypeMap.get(item.resultType).count++;
+    } else {
+      resultTypeMap.set(item.resultType, { total: item.resultState, count: 1 });
+    }
+  });
+
+  // Calculer la moyenne pour chaque resultType
+  const result: ResultData[] = [];
+  resultTypeMap.forEach((value: any, key: any) => {
+    result.push({ resultType: key, moyenne: value.total / value.count });
+  });
+
+  return result;
+};
+
 const SeminarInfos = () => {
   const router = useRouter();
   const { auth } = useAppSelector((state) => state);
   const [seminar, setSeminar] = useState<any>();
-
-  const loadStats = async (members: any) => {
-    const categoryTotals: any = {
-      empathique: { count: 0, total: 0 },
-      reveur: { count: 0, total: 0 },
-      rebelle: { count: 0, total: 0 },
-      perseverant: { count: 0, total: 0 },
-      perfectionniste: { count: 0, total: 0 },
-      travailaddict: { count: 0, total: 0 },
-    };
-
-    for (let i = 0; i < members.length; i++) {
-      const category = members[i].resultType;
-      categoryTotals[category].count += 1;
-      categoryTotals[category].total += members[i].resultState;
-    }
-
-    const categoryPercentages: any = {
-      empathique: 0,
-      reveur: 0,
-      rebelle: 0,
-      perseverant: 0,
-      perfectionniste: 0,
-      travailaddict: 0,
-    };
-
-    const totalParticipants = members.length;
-
-    if (totalParticipants > 0 && seminar?.participNumber > 0) {
-      const percentage = (totalParticipants / seminar.participNumber) * 100;
-      for (const category in categoryTotals) {
-        const count = categoryTotals[category].count;
-        const categoryPercentage =
-          count > 0 ? (count / totalParticipants) * percentage : 0;
-        categoryPercentages[category] = Number(categoryPercentage.toFixed(1));
-      }
-    }
-
-    return categoryPercentages;
-  };
 
   const getSeminar = useCallback(
     async (idSeminar: string) => {
@@ -86,7 +122,11 @@ const SeminarInfos = () => {
           auth?.user?.token,
           seminar?.idPayement
         );
-        const loadStat: any = await loadStats(members);
+        const loadStat: any = loadStats(members);
+        const cal = ((members.length / seminar?.adultNumber) * 100).toFixed();
+        const result = calculatePercentageAverages(loadStat, cal);
+        console.log({ result });
+
         const TemplateQuote1: any = await getTemplateQuoteById(
           auth.user.accessToken,
           quote?.idTemplateQuote1
@@ -99,7 +139,6 @@ const SeminarInfos = () => {
           auth.user.accessToken,
           quote?.idTemplateQuote3
         );
-
         setSeminar({
           id: seminar?.id,
           participNumber: seminar?.adultNumber,
@@ -121,6 +160,7 @@ const SeminarInfos = () => {
           denominationUniteLegale: organization?.denominationUniteLegale,
           siretCompany: organization?.siret,
           quote: quote,
+          result,
           templateQuotes: {
             TemplateQuote1,
             TemplateQuote2,
@@ -151,11 +191,6 @@ const SeminarInfos = () => {
             <BreadCrumbs url="/user/seminar" name="Séminaires" active={true} />
             <BreadCrumbs
               url="/user/seminar/"
-              name="Vos Séminaires"
-              active={true}
-            />
-            <BreadCrumbs
-              url="/user/seminar/infos/"
               name="Séminaire en cours de création"
               active={false}
             />
@@ -200,8 +235,8 @@ const SeminarInfos = () => {
           </div>
 
           {/* Stats Profile Séminar */}
-          <p className="sm:text-xl font-bold text-xl mt-12 text-gray-900 mr-5">
-            Profile rempli à{" "}
+          <p className="sm:text-xl text-xl mt-12 text-gray-900 mr-5">
+            Profil collaborateur rempli à{" "}
             {(
               (seminar?.members.length / seminar?.participNumber) *
               100
@@ -213,45 +248,46 @@ const SeminarInfos = () => {
             value={(seminar?.members.length / seminar?.participNumber) * 100}
             max="100"
           ></progress>
+
           {/* Profile Teams */}
-          <p className="sm:text-xl font-bold text-xl mt-12 text-gray-900 mr-5">
+          <p className="sm:text-xl text-xl mt-12 text-gray-900 mr-5">
             Profile de votre équipe
           </p>
           <div className="w-full grid grid-cols-3 gap-5 mt-12">
             <div className="items-center align-center flex flex-col">
               <Stair size={250} />
               <span className="text-center">
-                Persévérent {seminar?.loadStat["perseverant"]}%
+                {seminar?.result["perseverant"] || 0}% - Persévérent
               </span>
             </div>
             <div className="items-center align-center flex flex-col">
               <Library size={250} />
               <span className="text-center">
-                Perfectionniste {seminar?.loadStat["perfectionniste"]}%
+                {seminar?.result["perfectionniste"] || 0}% - Perfectionniste
               </span>
             </div>
             <div className="items-center align-center flex flex-col">
               <Working size={250} />
               <span className="text-center">
-                Travail addict {seminar?.loadStat["travailaddict"]}%
+                {seminar?.result["travailaddict"] || 0}% - Travail addict
               </span>
             </div>
             <div className="items-center align-center flex flex-col">
               <Happy size={250} />
               <span className="text-center">
-                Empathique {seminar?.loadStat["empathique"]}%
+                {seminar?.result["empathique"] || 0}% - Empathique
               </span>
             </div>
             <div className="items-center align-center flex flex-col">
               <Chill size={250} />
               <span className="text-center">
-                Reveur {seminar?.loadStat["reveur"]}%
+                {seminar?.result["reveur"] || 0}% - Reveur
               </span>
             </div>
             <div className="items-center align-center flex flex-col">
               <TV size={250} />
               <span className="text-center">
-                Rebelle {seminar?.loadStat["rebelle"]}%
+                {seminar?.loadStat["rebelle"] || 0}% - Rebelle
               </span>
             </div>
           </div>
