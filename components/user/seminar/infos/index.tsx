@@ -263,7 +263,16 @@ const SeminarInfos = () => {
             %
           </p>
           <progress
-            className="w-full progress progress-accent mt-12"
+            className={`w-full progress progress-accent mt-12 ${
+              parseInt(
+                (
+                  (seminar?.members.length / seminar?.participNumber) *
+                  100
+                ).toFixed()
+              ) > 65
+                ? "bg-meltrip-primary"
+                : "bg-meltrip-secondary"
+            }`}
             value={(seminar?.members.length / seminar?.participNumber) * 100}
             max="100"
           ></progress>
