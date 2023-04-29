@@ -340,7 +340,7 @@ const SeminarInfos = () => {
                 (seminar?.members.length / seminar?.participNumber) *
                 100
               ).toFixed()
-            ) > 80 && (
+            ) > 65 && (
               <Fragment>
                 {/* Button relance */}
                 <p className="sm:text-xl font-bold text-xl mt-24 text-gray-900 mr-5">
