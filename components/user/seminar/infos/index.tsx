@@ -310,30 +310,31 @@ const SeminarInfos = () => {
               </span>
             </div>
           </div>
-          <Fragment>
-            <p className="sm:text-xl font-bold text-xl mt-12 text-gray-900 mr-5">
-              Relancer mes collaborateurs
-            </p>
-            <p className="mt-5">
-              Afin de mieux personnaliser votre séminaire, voici un quiz de
-              personnalité* à envoyer aux participants du séminaire. Les
-              réponses permettront à nos Meltrippers d’analyser la personnalité
-              de vos collaborateurs ainsi que pour vous si vous y participez.{" "}
-              <br />
-              <br />À noter : nous vous soumettrons nos propositions de
-              séminaires lorsque le nombre de participants aura été atteint 65%.
-            </p>
-            <div className="mt-12 flex justify-center relative cursor-pointer">
-              <div onClick={() => copiueClipboard()}>
-                <InviteLink width={700} />
+          {!seminar?.templateQuotes?.TemplateQuote1 ? (
+            <Fragment>
+              <p className="sm:text-xl font-bold text-xl mt-12 text-gray-900 mr-5">
+                Relancer mes collaborateurs
+              </p>
+              <p className="mt-5">
+                Afin de mieux personnaliser votre séminaire, voici un quiz de
+                personnalité* à envoyer aux participants du séminaire. Les
+                réponses permettront à nos Meltrippers d’analyser la
+                personnalité de vos collaborateurs ainsi que pour vous si vous y
+                participez. <br />
+                <br />À noter : nous vous soumettrons nos propositions de
+                séminaires lorsque le nombre de participants aura été atteint
+                65%.
+              </p>
+              <div className="mt-12 flex justify-center relative cursor-pointer">
+                <div onClick={() => copiueClipboard()}>
+                  <InviteLink width={700} />
+                </div>
+                <div className="absolute font-bold top-[5.5vh] left-[50vh]">
+                  <p>{`https://meltrip.fr/invites/${seminar?.id}`}</p>
+                </div>
               </div>
-              <div className="absolute font-bold top-[5.5vh] left-[50vh]">
-                <p>{`https://meltrip.fr/invites/${seminar?.id}`}</p>
-              </div>
-            </div>
-          </Fragment>
-
-          {seminar?.templateQuotes?.TemplateQuote1 &&
+            </Fragment>
+          ) : (
             parseInt(
               (
                 (seminar?.members.length / seminar?.participNumber) *
@@ -403,7 +404,8 @@ const SeminarInfos = () => {
                   </a>
                 </div>
               </Fragment>
-            )}
+            )
+          )}
         </div>
       </div>
     </section>
