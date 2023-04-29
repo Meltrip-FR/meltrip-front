@@ -21,7 +21,6 @@ import PayementList from "../assets/icons/payements";
 import HeaderPicture from "@/components/assets/home/headerPage.png";
 
 const HomePage = () => {
-  const [showModal, setShowModal] = useState(false);
   return (
     <div>
       <div className="h-full flex flex-col">
@@ -38,11 +37,7 @@ const HomePage = () => {
                 </p>
               </div>
               <div className="mt-[5vh] mb-10">
-                <Modal
-                  type="first"
-                  showModal={showModal}
-                  setShowModal={setShowModal}
-                />
+                <Modal type="first" />
               </div>
               <div className="animate-bounce cursor-pointer">
                 <ChevronDown size={50} color="white" />
