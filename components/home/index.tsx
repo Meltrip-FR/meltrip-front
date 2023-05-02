@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Modal from "./modal";
 import Header from "@/components/body/header";
 import Footer from "@/components/body/footer";
@@ -7,20 +6,32 @@ import Happy from "@/components/assets/icons/happy";
 import Hello from "@/components/assets/icons/hello";
 import Humainitarian from "@/components/assets/icons/humanitarian";
 import BackgroundNewsletter from "@/components/assets/icons/backgroundNewsletter";
-import First from "@/components/assets/home/first.png";
-import Two from "@/components/assets/home/two.png";
-import Three from "@/components/assets/home/three.png";
-import Four from "@/components/assets/home/four.png";
-import Five from "@/components/assets/home/five.png";
-import Six from "@/components/assets/home/six.png";
-import Seven from "@/components/assets/home/seven.png";
 import Space from "../assets/icons/space";
 import Stars from "../assets/icons/stars";
 import Steps from "../assets/icons/steps";
 import PayementList from "../assets/icons/payements";
 import HeaderPicture from "@/components/assets/home/headerPage.png";
+import MapFeed from "./mapFeed";
+import BackFigL from "@/components/assets/mapfeed/backFigL.png";
+import BackFigR from "@/components/assets/mapfeed/backFigR.png";
+import SeminarStatic from "./seminarStatic";
 
 const HomePage = () => {
+  const inputLetter = () => {
+    return (
+      <div className="flex w-full xl:w-[90vw] xl:full xl:flex justify-between items-center bg-white rounded-full p-3 ml-5 gap-10 ">
+        <input
+          type="text"
+          placeholder="Entrez votre adresse email"
+          className="text-[3vw] xl:text-[1vw]"
+        />
+        <button className="bg-[#CE5729] rounded-full p-2 text-white text-[3vw] xl:p-3 xl:px-6 xl:text-[1vw]">
+          S{"'"}abonner
+        </button>
+      </div>
+    );
+  };
+
   return (
     <div>
       <div className="h-full flex flex-col">
@@ -49,18 +60,6 @@ const HomePage = () => {
             alt="header"
             className="absolute top-0 z-[-1] object-cover w-screen h-full object-top"
           />
-          {/* <video
-            autoPlay
-            loop
-            muted
-            className="absolute top-0 z-[-1] object-cover w-screen h-full object-top"
-          >
-            <source
-              src="https://assets.mixkit.co/videos/preview/mixkit-set-of-plateaus-seen-from-the-heights-in-a-sunset-26070-large.mp4"
-              type="video/mp4"
-            />
-            Your browser does not support the video tag.
-          </video> */}
         </div>
       </div>
       <div className="mt-10 rounded-lg h-64 overflow-hidden">
@@ -140,7 +139,30 @@ const HomePage = () => {
               </p>
             </div>
           </div>
-          <p className="text-meltrip-secondary font-bold text-center text-4xl mt-24 mb-5">
+          <p className="text-meltrip-secondary font-bold text-center text-4xl mt-24 mb-5 pt-[6vh] xl:text-[2vw]">
+            Comment ça marche ?
+          </p>
+          <div className="flex flex-col gap-[10vh] ">
+            <div className="hidden xl:inline">
+              <img
+                alt="backFigL"
+                className=" absolute w-[20vw] left-[0vw] top-[240vh] "
+                src={BackFigL.src}
+              />
+              <img
+                alt="backFigR"
+                className=" absolute w-[15vw] right-[0vw] top-[330vh]  "
+                src={BackFigR.src}
+              />
+              <img
+                alt="backFigL"
+                className=" absolute w-[20vw]  left-[0vw] top-[430vh] z-10"
+                src={BackFigL.src}
+              />
+            </div>{" "}
+            <MapFeed />
+          </div>
+          {/* <p className="text-meltrip-secondary font-bold text-center text-4xl mt-24 mb-5">
             Comment ça marche ?
           </p>
           <div className="flex flex-row justify-end items-center  gap-[70px] mt-24">
@@ -157,7 +179,6 @@ const HomePage = () => {
               </p>
             </div>
           </div>
-          {/* partie 2 */}
           <div className="flex flex-row justify-end items-center  gap-[70px] mt-24">
             <img src={Two.src} className="w-[316px] rounded-[7px] " />
             <div className="flex flex-col flex-grow-0 flex-shrink-0 gap-[15px]">
@@ -174,7 +195,6 @@ const HomePage = () => {
               </p>
             </div>
           </div>
-          {/* partie 3 */}
           <div className="flex flex-row justify-start items-center  gap-[70px] mt-24">
             <img src={Three.src} className="w-[316px] rounded-[7px]" />
             <div className="flex flex-col flex-grow-0 flex-shrink-0 gap-[15px]">
@@ -189,7 +209,6 @@ const HomePage = () => {
               </p>
             </div>
           </div>
-          {/* partie 4 */}
           <div className="flex flex-row justify-start items-center  gap-[70px] mt-24">
             <img src={Four.src} className="w-[316px]  rounded-[7px] " />
             <div className="flex flex-col flex-grow-0 flex-shrink-0 gap-[15px]">
@@ -207,7 +226,6 @@ const HomePage = () => {
               </p>
             </div>
           </div>
-          {/* partie 5 */}
           <div className="flex flex-row justify-end items-center  gap-[70px] mt-24">
             <img src={Five.src} className="w-[316px]  rounded-[7px] " />
             <div className="flex flex-col flex-grow-0 flex-shrink-0 gap-[15px]">
@@ -221,7 +239,6 @@ const HomePage = () => {
               </p>
             </div>
           </div>
-          {/* partie 6 */}
           <div className="flex flex-row justify-end items-center  gap-[70px] mt-24">
             <img src={Six.src} className="w-[316px]  rounded-[7px] " />
             <div className="flex flex-col flex-grow-0 flex-shrink-0 gap-[15px]">
@@ -234,7 +251,6 @@ const HomePage = () => {
               </p>
             </div>
           </div>
-          {/* partie 7 */}
           <div className="flex flex-row justify-center items-center gap-[70px] mt-24">
             <div className="flex flex-col flex-grow-0 flex-shrink-0 gap-[15px]">
               <p className="flex-grow-0 flex-shrink-0 w-[509px] text-2xl font-bold text-left uppercase text-black">
@@ -253,10 +269,11 @@ const HomePage = () => {
               </p>
             </div>
             <img src={Seven.src} className="w-[516px]  rounded-[7px] " />
-          </div>
+          </div> */}
           <div className="flex flex-row justify-center items-center gap-[70px] mt-24">
             <Space size={100} />
           </div>
+          <SeminarStatic />
           {/* ListPayement */}
           <h1 className="text-meltrip-secondary text-center text-4xl font-semibold mt-10 mb-5">
             NOS GARANTIES
@@ -284,42 +301,31 @@ const HomePage = () => {
               <p className="text-center mt-5">Paiement sécurisé</p>
             </div>
           </div>
-
           <p className="text-center text-4xl font-semibold mt-24 mb-5">
             Envie d’en savoir plus et d’être au courant des nouveautés ?
           </p>
         </div>
       </section>
-      <div className="relative justify-center items-center flex">
-        <div className="absolute grid grid-cols-2 gap-5 items-center justify-center p-80 ">
-          <div>
-            <h5 className="text-2xl text-meltrip-textW tracking-widest mb-5">
-              Abonnez-vous à notre Newsletter
-            </h5>
-            <p className="text-sm text-meltrip-textW">
-              En m’abonnant, j’accepte de recevoir cette newsletter et je
-              comprends que je peux me désabonner facilement à tout moment.
-            </p>
-          </div>
-          <form
-            onSubmit={() => null}
-            className="bg-meltrip-textW rounded-full p-3 flex gap-4"
-          >
-            <input
-              type="email"
-              className="outline-0 text-sm w-80 pl-2"
-              placeholder="Entrez votre adresse email"
-              required
-            />
-            <button
-              type="submit"
-              className="bg-meltrip-secondary text-meltrip-textW rounded-full px-3 py-1"
-            >
-              S{"'"}abonner
-            </button>
-          </form>
+      <div className="flex justify-center mb-12 w-full  xl:px-[20vw]  relative">
+        {/* <img
+            className="hidden xl:block w-[7vw] absolute top-[14vh] left-[18vw]"
+            alt="rectangle"
+            src={require("../assets/newsLetterRectangle.png")}
+          /> */}
+        <div className=" flex flex-col justify-center items-start w-[90vw] bg-[#CE5729]  h-[30vh] xl:h-fit xl:w-[55vw] p-5 md:p-10 xl:p-10 rounded-[30px] md:rounded-[40px] xl:rounded-[60px] z-10 gap-4">
+          <p className="font-bold text-[2vw] text-white xl:text-[1.4vw] xl:w-[25vw]">
+            Abonnez-vous à notre Newsletter
+          </p>
+          <p className="font-medium text-[1vw] text-white xl:text-[1vw] xl:w-[23vw]">
+            En m’abonnant, j’accepte de recevoir cette newsletter et je
+            comprends que je peux me désabonner facilement à tout moment.
+          </p>
+          <div className="block w-full xl:hidden">{inputLetter()} </div>
         </div>
-        <BackgroundNewsletter width={1000} height={300} />
+        <div className="hidden xl:flex bg-[#186E7A] h-[25vh] absolute w-[28vw] right-[24vw] justify-center items-center rounded-full pr-20 z-30 xl:h-full">
+          {inputLetter()}
+        </div>
+        <div className="hidden xl:block bg-[#186E7A] h-[25vh]  absolute w-[11vw] right-[22vw]  rounded-r-[60px] z-20 xl:h-full" />
       </div>
       <Footer />
     </div>
