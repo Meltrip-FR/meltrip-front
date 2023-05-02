@@ -82,8 +82,8 @@
         "destination": "/user/seminar/infos/quotes/[id].html"
       },
       {
-        "source": "/templates/",
-        "destination": "/templates/templates.html"
+        "source": "/templates",
+        "destination": "/templates.html"
       },
       {
         "source": "/templates/*",
