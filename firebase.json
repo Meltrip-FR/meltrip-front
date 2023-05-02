@@ -83,7 +83,7 @@
       },
       {
         "source": "/templates/",
-        "destination": "/templates/index.html"
+        "destination": "/templates/templates.html"
       },
       {
         "source": "/templates/*",
