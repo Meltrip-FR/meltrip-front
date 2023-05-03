@@ -41,7 +41,7 @@ const ArticlePage = () => {
 
   return (
     <section className="text-gray-600 body-font">
-      <div className="flex justify-between mb-4">
+      <div className="container px-5 mt-14 mx-auto">
         <div className="flex items-center mb-3 mt-3">
           <BreadCrumbs url="/" name="home" active={true} />
           <BreadCrumbs url="/blog/" name="Blog" active={true} />
@@ -69,9 +69,10 @@ const ArticlePage = () => {
       </div>
       {/* Article */}
       <div className="flex justify-center items-center">
-        <div className="grid grid-cols-6 mt-16 mx-[30vh]">
+        <div className="flex gap-x-5 mt-16 mx-[30vh]">
           <div className="sticky top-0">
             <div className="flex flex-col items-start justify-start">
+              <h5 className="mb-4 font-light">Partager sur :</h5>
               <button className="py-2 font-semibold text-[#645757] inline-flex items-center space-x-2 rounded">
                 <Instagram size={50} />
                 <span>Instagram</span>
@@ -88,13 +89,13 @@ const ArticlePage = () => {
               </button>
             </div>
           </div>
-          <div className="col-span-5">
+          <div className="text-justify">
             <p dangerouslySetInnerHTML={{ __html: data?.text }} />
           </div>
         </div>
       </div>
       {/* Suggest */}
-      <div className="flex justify-center items-center">
+      <div className="flex flex-row mx-auto justify-center items-center w-[70vw]">
         <div className="flex flex-wrap mb-5 items-center justify-center">
           <h1 className="sm:text-3xl text-2xl font-bold title-font text-gray-900 text-center w-full mt-12 mb-12">
             Lire d’autres actualités Meltrip
@@ -111,7 +112,6 @@ const ArticlePage = () => {
                   <h2 className="text-xl title-font font-medium text-black mb-1">
                     {item?.title}
                   </h2>
-
                   <p className="leading-relaxed mb-3">{item?.description}</p>
                   <div className="flex items-center flex-wrap">
                     <div
