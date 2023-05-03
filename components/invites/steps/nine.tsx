@@ -1,19 +1,19 @@
-import LogoColor from "@/components/assets/icons/logoColor";
-import { Fragment } from "react";
-import { questions } from "../data/questions";
+import { Fragment } from "react"
+import { questions } from "../data/questions"
+import LogoColor from "@/components/assets/icons/logoColor"
 
 const Nine = ({ setFormState, formState }: any) => {
-  const questionsList: any = questions[8];
+  const questionsList: any = questions[8]
 
   const handleChangeActive = (newActiveIndex: any, type: any) => {
-    const oldType = questionsList.answers[formState.activeIndex].type;
+    const oldType = questionsList.answers[formState.activeIndex].type
     setFormState({
       ...formState,
       [oldType]: formState[oldType] !== 0 ? formState[oldType] - 1 : 0,
       [type]: formState[type] + 1,
-      activeIndex: newActiveIndex,
-    });
-  };
+      activeIndex: newActiveIndex
+    })
+  }
 
   return (
     <Fragment>
@@ -50,7 +50,7 @@ const Nine = ({ setFormState, formState }: any) => {
         </button>
       </div>
     </Fragment>
-  );
-};
+  )
+}
 
-export default Nine;
+export default Nine

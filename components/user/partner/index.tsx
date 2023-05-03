@@ -1,4 +1,4 @@
-import BreadCrumbs from "@/components/utils/breadCrumbs";
+import BreadCrumbs from "@/components/utils/breadCrumbs"
 
 const Partner = () => {
   return (
@@ -18,7 +18,7 @@ const Partner = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Partner;
+export default Partner

@@ -1,42 +1,42 @@
-import { getPayementBySeminarId } from "@/lib/payements";
-import { getSeminarByUserId, updateSeminarById } from "@/lib/seminar";
-import { useAppSelector } from "@/redux/hooks";
-import { useCallback, useEffect, useState } from "react";
-import BreadCrumbs from "@/components/utils/breadCrumbs";
+import { useCallback, useEffect, useState } from "react"
+import { getPayementBySeminarId } from "@/lib/payements"
+import { getSeminarByUserId, updateSeminarById } from "@/lib/seminar"
+import { useAppSelector } from "@/redux/hooks"
+import BreadCrumbs from "@/components/utils/breadCrumbs"
 
 const Templates = () => {
-  const { auth } = useAppSelector((state) => state);
-  const [seminarList, setListSeminar] = useState<any>();
+  const { auth } = useAppSelector((state) => state)
+  const [seminarList, setListSeminar] = useState<any>()
 
   const arrayFilterbyType = (type: string): any => {
-    return seminarList?.filter((item: any) => item.status === type);
-  };
+    return seminarList?.filter((item: any) => item.status === type)
+  }
 
   const getSeminar = useCallback(async () => {
     const seminar: any = await getSeminarByUserId(
       auth.user.accessToken,
       auth.user.id
-    );
+    )
 
-    setListSeminar(seminar);
-  }, [auth.user.accessToken, auth.user.id]);
+    setListSeminar(seminar)
+  }, [auth.user.accessToken, auth.user.id])
 
   useEffect(() => {
-    getSeminar().catch((e) => console.error(e));
+    getSeminar().catch((e) => console.error(e))
     seminarList
       ?.filter((item: any) => item.status === "Accepté")
       .map(async (item: any) => {
         const payement = await getPayementBySeminarId(
           auth.user.accessToken,
           item?.idPayement
-        );
+        )
         if (payement.status === "Terminé") {
           await updateSeminarById(auth.user.accessToken, item.id, {
-            status: "Terminé",
-          });
+            status: "Terminé"
+          })
         }
-      });
-  }, [getSeminar]);
+      })
+  }, [getSeminar])
 
   return (
     <section className="text-gray-600 body-font">
@@ -61,7 +61,7 @@ const Templates = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Templates;
+export default Templates

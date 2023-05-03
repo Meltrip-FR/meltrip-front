@@ -1,6 +1,6 @@
-import Amico from "@/components/assets/icons/amico";
-import LogoColor from "@/components/assets/icons/logoColor";
-import { Fragment } from "react";
+import { Fragment } from "react"
+import Amico from "@/components/assets/icons/amico"
+import LogoColor from "@/components/assets/icons/logoColor"
 
 const Present = ({ setFormState, formState }: any) => {
   return (
@@ -35,7 +35,7 @@ const Present = ({ setFormState, formState }: any) => {
         </button>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Present;
+export default Present

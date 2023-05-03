@@ -1,43 +1,43 @@
-import { useRouter } from "next/router";
-import { useCallback, useEffect, useState } from "react";
-import { useAppSelector } from "@/redux/hooks";
-import CircleList from "@/components/assets/icons/circleList";
-import Eyes from "@/components/assets/icons/eyes";
-import LockClose from "@/components/assets/icons/lockClose";
-import SuccessCircle from "@/components/assets/icons/successCircle";
-import BreadCrumbs from "@/components/utils/breadCrumbs";
-import { getPayementBySeminarId } from "@/lib/payements";
-import { getSeminarByUserId } from "@/lib/seminar";
+import { useRouter } from "next/router"
+import { useCallback, useEffect, useState } from "react"
+import { getPayementBySeminarId } from "@/lib/payements"
+import { getSeminarByUserId } from "@/lib/seminar"
+import { useAppSelector } from "@/redux/hooks"
+import CircleList from "@/components/assets/icons/circleList"
+import Eyes from "@/components/assets/icons/eyes"
+import LockClose from "@/components/assets/icons/lockClose"
+import SuccessCircle from "@/components/assets/icons/successCircle"
+import BreadCrumbs from "@/components/utils/breadCrumbs"
 
 const Payments = () => {
-  const router = useRouter();
-  const { auth } = useAppSelector((state) => state);
-  const [payementList, setListPayement] = useState<any>();
+  const router = useRouter()
+  const { auth } = useAppSelector((state) => state)
+  const [payementList, setListPayement] = useState<any>()
 
   const getPayement = useCallback(async () => {
     const seminar = await getSeminarByUserId(
       auth.user.accessToken,
       auth.user.id
-    );
-    let result = [];
+    )
+    let result = []
     for (let res of seminar) {
       const payement = await getPayementBySeminarId(
         auth.user.accessToken,
         res.idPayement
-      );
+      )
       result.push({
         id: payement.id,
         price: payement.paye,
         url: payement.urlInvoice,
-        status: payement.status,
-      });
+        status: payement.status
+      })
     }
-    setListPayement(result);
-  }, [auth.user.accessToken, auth.user.id]);
+    setListPayement(result)
+  }, [auth.user.accessToken, auth.user.id])
 
   useEffect(() => {
-    getPayement().catch((e) => console.error(e));
-  }, [getPayement]);
+    getPayement().catch((e) => console.error(e))
+  }, [getPayement])
 
   return (
     <section className="text-gray-600 body-font">
@@ -150,7 +150,7 @@ const Payments = () => {
         </section>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Payments;
+export default Payments

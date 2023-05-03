@@ -18,6 +18,6 @@ const CardTeams = ({ name, pictureURL, status, post }: any) => {
         </div>
       </div>
     </div>
-  );
-};
-export default CardTeams;
+  )
+}
+export default CardTeams

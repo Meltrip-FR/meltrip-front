@@ -1,48 +1,48 @@
-import BreadCrumbs from "@/components/utils/breadCrumbs";
-import Like from "@/components/assets/seminar/like.png";
-import Ananas from "@/components/assets/seminar/ananas.png";
-import Heart from "@/components/assets/seminar/heart.png";
-import { Fragment, useCallback, useEffect, useState } from "react";
-import { getSeminarByUserId, updateSeminarById } from "@/lib/seminar";
-import { getPayementBySeminarId } from "@/lib/payements";
-import { useAppSelector } from "@/redux/hooks";
-import { convertDate } from "@/components/utils/convertDate";
-import { useRouter } from "next/router";
+import { useRouter } from "next/router"
+import { Fragment, useCallback, useEffect, useState } from "react"
+import { getPayementBySeminarId } from "@/lib/payements"
+import { getSeminarByUserId, updateSeminarById } from "@/lib/seminar"
+import { useAppSelector } from "@/redux/hooks"
+import Ananas from "@/components/assets/seminar/ananas.png"
+import Heart from "@/components/assets/seminar/heart.png"
+import Like from "@/components/assets/seminar/like.png"
+import BreadCrumbs from "@/components/utils/breadCrumbs"
+import { convertDate } from "@/components/utils/convertDate"
 
 const Seminar = () => {
-  const router = useRouter();
-  const { auth } = useAppSelector((state) => state);
-  const [seminarList, setListSeminar] = useState<any>();
+  const router = useRouter()
+  const { auth } = useAppSelector((state) => state)
+  const [seminarList, setListSeminar] = useState<any>()
 
   const arrayFilterbyType = (type: string): any => {
-    return seminarList?.filter((item: any) => item.status === type);
-  };
+    return seminarList?.filter((item: any) => item.status === type)
+  }
 
   const getSeminar = useCallback(async () => {
     const seminar: any = await getSeminarByUserId(
       auth.user.accessToken,
       auth.user.id
-    );
+    )
 
-    setListSeminar(seminar);
-  }, [auth.user.accessToken, auth.user.id]);
+    setListSeminar(seminar)
+  }, [auth.user.accessToken, auth.user.id])
 
   useEffect(() => {
-    getSeminar().catch((e) => console.error(e));
+    getSeminar().catch((e) => console.error(e))
     seminarList
       ?.filter((item: any) => item.status === "Accepté")
       .map(async (item: any) => {
         const payement = await getPayementBySeminarId(
           auth.user.accessToken,
           item?.idPayement
-        );
+        )
         if (payement.status === "Terminé") {
           await updateSeminarById(auth.user.accessToken, item.id, {
-            status: "Terminé",
-          });
+            status: "Terminé"
+          })
         }
-      });
-  }, [getSeminar]);
+      })
+  }, [getSeminar])
 
   return (
     <section className="text-gray-600 body-font">
@@ -127,7 +127,7 @@ const Seminar = () => {
         )}
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Seminar;
+export default Seminar

@@ -1,25 +1,24 @@
-import { Fragment, useState } from "react";
-import { useRouter } from "next/router";
-import { useAppDispatch, useAppSelector } from "@/redux/hooks";
-import { logout } from "@/redux/slices/auth.slice";
-
+import { useRouter } from "next/router"
+import { Fragment, useState } from "react"
+import { UserBadge } from "./userBadge"
+import { useAppDispatch, useAppSelector } from "@/redux/hooks"
+import { logout } from "@/redux/slices/auth.slice"
+import ArrowOut from "@/components/assets/icons/arrowOut"
 // Icons
-import ChevronDown from "@/components/assets/icons/chevronDown";
-import ChevronUp from "@/components/assets/icons/chevronUp";
-import ArrowOut from "@/components/assets/icons/arrowOut";
-import Logo from "@/components/assets/icons/logo";
-import { UserBadge } from "./userBadge";
+import ChevronDown from "@/components/assets/icons/chevronDown"
+import ChevronUp from "@/components/assets/icons/chevronUp"
+import Logo from "@/components/assets/icons/logo"
 
 const WebHeader = () => {
-  const router = useRouter();
-  const dispatch = useAppDispatch();
+  const router = useRouter()
+  const dispatch = useAppDispatch()
 
-  const { auth } = useAppSelector((state) => state);
+  const { auth } = useAppSelector((state) => state)
 
   const signOut = () => {
-    dispatch(logout());
-    router.push("/");
-  };
+    dispatch(logout())
+    router.push("/")
+  }
 
   return (
     <div className="bg-meltrip-primary bg-opacity-[17%] font-body font-poppins">
@@ -76,7 +75,7 @@ const WebHeader = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default WebHeader;
+export default WebHeader

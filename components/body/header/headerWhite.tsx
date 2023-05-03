@@ -1,13 +1,13 @@
-import { Fragment, useState } from "react";
-import { useRouter } from "next/router";
-import { useAppSelector } from "@/redux/hooks";
+import { useRouter } from "next/router"
+import { Fragment, useState } from "react"
+import { UserBadge } from "./userBadge"
+import { useAppSelector } from "@/redux/hooks"
 // Icons
-import LogoColor from "@/components/assets/icons/logoColor";
-import { UserBadge } from "./userBadge";
+import LogoColor from "@/components/assets/icons/logoColor"
 
 const Header = () => {
-  const router = useRouter();
-  const { auth } = useAppSelector((state) => state);
+  const router = useRouter()
+  const { auth } = useAppSelector((state) => state)
 
   return (
     <div className="w-full font-body font-poppins">
@@ -70,7 +70,7 @@ const Header = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header

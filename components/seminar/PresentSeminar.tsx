@@ -1,8 +1,8 @@
-import { useRouter } from "next/router";
-import { Fragment } from "react";
+import { useRouter } from "next/router"
+import { Fragment } from "react"
 
 const PresentSeminar = ({ setNextPage }: any) => {
-  const router = useRouter();
+  const router = useRouter()
 
   return (
     <Fragment>
@@ -45,7 +45,7 @@ const PresentSeminar = ({ setNextPage }: any) => {
         {/* </div> */}
       </div>
     </Fragment>
-  );
-};
+  )
+}
 
-export default PresentSeminar;
+export default PresentSeminar

@@ -1,23 +1,23 @@
-import { Fragment, useState, useEffect, useCallback } from "react";
-import { useRouter } from "next/router";
-import axios from "axios";
-import Present from "./steps/present";
-import First from "./steps/first";
-import Second from "./steps/second";
-import Three from "./steps/three";
-import Eight from "./steps/eight";
-import Nine from "./steps/nine";
-import Ten from "./steps/ten";
-import Four from "./steps/four";
-import Five from "./steps/five";
-import Six from "./steps/six";
-import Seven from "./steps/seven";
-import { addMembers, updateMembers } from "@/lib/members";
-import ResultCard from "./result";
+import axios from "axios"
+import { useRouter } from "next/router"
+import { Fragment, useCallback, useEffect, useState } from "react"
+import ResultCard from "./result"
+import Eight from "./steps/eight"
+import First from "./steps/first"
+import Five from "./steps/five"
+import Four from "./steps/four"
+import Nine from "./steps/nine"
+import Present from "./steps/present"
+import Second from "./steps/second"
+import Seven from "./steps/seven"
+import Six from "./steps/six"
+import Ten from "./steps/ten"
+import Three from "./steps/three"
+import { addMembers, updateMembers } from "@/lib/members"
 
 const Invites = () => {
-  const router = useRouter();
-  const [result, setResult] = useState<any>();
+  const router = useRouter()
+  const [result, setResult] = useState<any>()
   const [formState, setFormState] = useState({
     email: "",
     firstname: "",
@@ -30,8 +30,8 @@ const Invites = () => {
     travailaddict: 0,
     resultat: "",
     steps: 0,
-    activeIndex: 0,
-  });
+    activeIndex: 0
+  })
 
   const calculateResponsePercentages = () => {
     const totalCount =
@@ -40,7 +40,7 @@ const Invites = () => {
       formState.rebelle +
       formState.perseverant +
       formState.perfectionniste +
-      formState.travailaddict;
+      formState.travailaddict
 
     const responsePercentages: any = {
       empathique: (formState.empathique / totalCount) * 100,
@@ -48,26 +48,26 @@ const Invites = () => {
       rebelle: (formState.rebelle / totalCount) * 100,
       perseverant: (formState.perseverant / totalCount) * 100,
       perfectionniste: (formState.perfectionniste / totalCount) * 100,
-      travailaddict: (formState.travailaddict / totalCount) * 100,
-    };
+      travailaddict: (formState.travailaddict / totalCount) * 100
+    }
 
-    let highestPercentage: any = 0;
-    let objectWithHighestPercentage: any = {};
+    let highestPercentage: any = 0
+    let objectWithHighestPercentage: any = {}
 
     for (const [key, value] of Object.entries(responsePercentages) as any) {
       if (value > highestPercentage) {
-        highestPercentage = value;
+        highestPercentage = value
         objectWithHighestPercentage = {
           type: key,
-          pourcent: Math.round(value),
-        };
+          pourcent: Math.round(value)
+        }
       }
     }
-    return objectWithHighestPercentage;
-  };
+    return objectWithHighestPercentage
+  }
 
   const handleSubmit = async () => {
-    const resultState = calculateResponsePercentages();
+    const resultState = calculateResponsePercentages()
     const data = {
       idGroup: parseInt(router.query.id as string),
       email: formState.email,
@@ -75,33 +75,33 @@ const Invites = () => {
       lastname: formState.lastname,
       present: 1,
       resultType: resultState?.type,
-      resultState: resultState.pourcent,
-    };
-    const add = await addMembers(data);
-    if (add) {
-      setFormState({ ...formState, activeIndex: 0, steps: 11 });
-      return setResult(add);
+      resultState: resultState.pourcent
     }
-  };
+    const add = await addMembers(data)
+    if (add) {
+      setFormState({ ...formState, activeIndex: 0, steps: 11 })
+      return setResult(add)
+    }
+  }
 
   const getSeminar = useCallback(async () => {
     const seminar = await axios.get(
       `${process.env.NEXT_PUBLIC_API_URL}/seminar/${router.query.id}`
-    );
+    )
     const member = await axios.get(
       `${process.env.NEXT_PUBLIC_API_URL}/group/member/${seminar.data.idGroup}`
-    );
+    )
 
     if (seminar.data.adultNumber <= member.data.length) {
-      router.push(`/invites/limit`);
+      router.push(`/invites/limit`)
     }
-  }, [router.query.id]);
+  }, [router.query.id])
 
   useEffect(() => {
-    getSeminar();
-  }, [getSeminar]);
+    getSeminar()
+  }, [getSeminar])
 
-  console.log({ result });
+  console.log({ result })
   return (
     <Fragment>
       <div className="mx-auto container">
@@ -136,7 +136,7 @@ const Invites = () => {
         )}
       </div>
     </Fragment>
-  );
-};
+  )
+}
 
-export default Invites;
+export default Invites

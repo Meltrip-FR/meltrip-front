@@ -1,26 +1,26 @@
-import Arrow from "@/components/assets/icons/arrow";
-import { Fragment, useState } from "react";
-import { monthArray } from "./months";
+import { Fragment, useState } from "react"
+import { monthArray } from "./months"
+import Arrow from "@/components/assets/icons/arrow"
 
 const FirstSignup = ({ formState, setFormState, setNextPage }: any) => {
-  const date = new Date();
+  const date = new Date()
   // const today = new Date().toISOString().substring(0, 10); // Récupère la date actuelle
   const sevenDays = new Date(date.setDate(date.getDate() + 7))
     .toISOString()
-    .substring(0, 10); // Récupère la date actuelle + 7 jours
+    .substring(0, 10) // Récupère la date actuelle + 7 jours
 
   const [errorMessage, setErrorMessage] = useState<any>({
     type: "",
-    message: "",
-  });
+    message: ""
+  })
 
   const verifyNextPage = () => {
     if (formState?.participNumber <= 0) {
       setErrorMessage({
         type: "participNumber",
-        message: "Il doit au moins y avoir 1 participant.",
-      });
-      setNextPage(1);
+        message: "Il doit au moins y avoir 1 participant."
+      })
+      setNextPage(1)
     } else if (
       formState?.knowDate === false &&
       (formState?.departurePeriod === "" ||
@@ -29,9 +29,9 @@ const FirstSignup = ({ formState, setFormState, setNextPage }: any) => {
       setErrorMessage({
         type: "knowDate",
         message:
-          " Vous n'avez pas sélectionné de période ou une durée approximative.",
-      });
-      setNextPage(1);
+          " Vous n'avez pas sélectionné de période ou une durée approximative."
+      })
+      setNextPage(1)
     } else if (
       formState?.knowDate === true &&
       (formState?.startDate === null || formState?.endDate === null)
@@ -39,17 +39,17 @@ const FirstSignup = ({ formState, setFormState, setNextPage }: any) => {
       setErrorMessage({
         type: "knowDate",
         message:
-          " Vous n'avez pas sélectionné de date départ ou une date de retour.",
-      });
-      setNextPage(1);
+          " Vous n'avez pas sélectionné de date départ ou une date de retour."
+      })
+      setNextPage(1)
     } else {
       setErrorMessage({
         type: "",
-        message: "",
-      });
-      setNextPage(2);
+        message: ""
+      })
+      setNextPage(2)
     }
-  };
+  }
 
   return (
     <Fragment>
@@ -85,7 +85,7 @@ const FirstSignup = ({ formState, setFormState, setNextPage }: any) => {
                 onChange={(e) =>
                   setFormState({
                     ...formState,
-                    participNumber: parseInt(e.target.value),
+                    participNumber: parseInt(e.target.value)
                   })
                 }
               />
@@ -101,7 +101,7 @@ const FirstSignup = ({ formState, setFormState, setNextPage }: any) => {
                   formState.participNumber > 0 &&
                   setFormState({
                     ...formState,
-                    participNumber: formState.participNumber - 1,
+                    participNumber: formState.participNumber - 1
                   })
                 }
               >
@@ -112,7 +112,7 @@ const FirstSignup = ({ formState, setFormState, setNextPage }: any) => {
                 onClick={() =>
                   setFormState({
                     ...formState,
-                    participNumber: formState.participNumber + 1,
+                    participNumber: formState.participNumber + 1
                   })
                 }
               >
@@ -144,7 +144,7 @@ const FirstSignup = ({ formState, setFormState, setNextPage }: any) => {
                 ...formState,
                 departurePeriod: "",
                 approximateDuration: "",
-                knowDate: true,
+                knowDate: true
               })
             }
             checked={formState.knowDate}
@@ -185,7 +185,7 @@ const FirstSignup = ({ formState, setFormState, setNextPage }: any) => {
                           setFormState({
                             ...formState,
                             departurePeriod:
-                              month.name + " " + date.getFullYear(),
+                              month.name + " " + date.getFullYear()
                           })
                         }
                       >
@@ -208,7 +208,7 @@ const FirstSignup = ({ formState, setFormState, setNextPage }: any) => {
                     onClick={() =>
                       setFormState({
                         ...formState,
-                        approximateDuration: "Conseillez moi",
+                        approximateDuration: "Conseillez moi"
                       })
                     }
                   >
@@ -222,7 +222,7 @@ const FirstSignup = ({ formState, setFormState, setNextPage }: any) => {
                     onClick={() =>
                       setFormState({
                         ...formState,
-                        approximateDuration: "Moins d'une semaine",
+                        approximateDuration: "Moins d'une semaine"
                       })
                     }
                   >
@@ -236,7 +236,7 @@ const FirstSignup = ({ formState, setFormState, setNextPage }: any) => {
                     onClick={() =>
                       setFormState({
                         ...formState,
-                        approximateDuration: "1 semaine",
+                        approximateDuration: "1 semaine"
                       })
                     }
                   >
@@ -250,7 +250,7 @@ const FirstSignup = ({ formState, setFormState, setNextPage }: any) => {
                     onClick={() =>
                       setFormState({
                         ...formState,
-                        approximateDuration: "2 semaines",
+                        approximateDuration: "2 semaines"
                       })
                     }
                   >
@@ -264,7 +264,7 @@ const FirstSignup = ({ formState, setFormState, setNextPage }: any) => {
                     onClick={() =>
                       setFormState({
                         ...formState,
-                        approximateDuration: "Plus de 2 semaines",
+                        approximateDuration: "Plus de 2 semaines"
                       })
                     }
                   >
@@ -350,7 +350,7 @@ const FirstSignup = ({ formState, setFormState, setNextPage }: any) => {
         </div>
       </div>
     </Fragment>
-  );
-};
+  )
+}
 
-export default FirstSignup;
+export default FirstSignup

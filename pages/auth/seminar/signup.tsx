@@ -1,12 +1,12 @@
-import Home from "pages";
-import SignupSeminarPage from "@/components/seminar";
+import Home from "pages"
+import SignupSeminarPage from "@/components/seminar"
 
 const SignupSeminar = () => {
   return (
     <Home>
       <SignupSeminarPage />
     </Home>
-  );
-};
+  )
+}
 
-export default SignupSeminar;
+export default SignupSeminar

@@ -1,5 +1,5 @@
-import { convertDate } from "@/components/utils/convertDate";
-import Link from "next/link";
+import Link from "next/link"
+import { convertDate } from "@/components/utils/convertDate"
 
 const FinishCard = ({ seminarData }: any) => {
   return (
@@ -25,10 +25,10 @@ const FinishCard = ({ seminarData }: any) => {
               </h3>
             </div>
           </Link>
-        );
+        )
       })}
     </div>
-  );
-};
+  )
+}
 
-export default FinishCard;
+export default FinishCard

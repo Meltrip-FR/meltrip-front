@@ -1,43 +1,43 @@
-import React, { useEffect, useState } from "react";
-import WideCard from "./cards/WideCard";
-import { wideCardData, meets } from "./data";
-import SmallCard from "./cards/SmallCard";
-import { IoIosArrowDown } from "react-icons/io";
-import useScreen from "./Screen";
-import NotFeedFound from "@/components/assets/mapfeed/not_meet_found.png";
+import React, { useEffect, useState } from "react"
+import { IoIosArrowDown } from "react-icons/io"
+import SmallCard from "./cards/SmallCard"
+import WideCard from "./cards/WideCard"
+import { meets, wideCardData } from "./data"
+import useScreen from "./Screen"
+import NotFeedFound from "@/components/assets/mapfeed/not_meet_found.png"
 
 const Meetings = () => {
-  const screen = useScreen();
-  const [meetings, setMeetings] = useState<any>([]);
-  const [load, setLoad] = useState(false);
+  const screen = useScreen()
+  const [meetings, setMeetings] = useState<any>([])
+  const [load, setLoad] = useState(false)
   const [filterMeet, setFilterMeet] = useState<{
-    duration: number;
-    capacity: number;
-    environment: string | null;
-    price: number;
-    date: string;
+    duration: number
+    capacity: number
+    environment: string | null
+    price: number
+    date: string
   }>({
     duration: 1,
     capacity: 2,
     environment: null,
     price: 200,
-    date: new Date().toISOString().slice(0, 10),
-  });
-  const [filteredMeetings, setFilteredMeetings] = useState([]);
+    date: new Date().toISOString().slice(0, 10)
+  })
+  const [filteredMeetings, setFilteredMeetings] = useState([])
   const [carrouselSetting, setCarrouselSetting] = useState({
     showItems: 6,
     gapAdding: 3,
-    defaultShow: 9,
-  });
+    defaultShow: 9
+  })
   const [dropeSetting, setDropeSetting] = useState({
     filter: false,
     duration: false,
     capacity: false,
     environment: false,
     price: false,
-    date: false,
-  });
-  const [isload, setIsLoad] = useState(false);
+    date: false
+  })
+  const [isload, setIsLoad] = useState(false)
 
   if (screen.width >= 1280 && !isload) {
     setDropeSetting({
@@ -46,29 +46,29 @@ const Meetings = () => {
       capacity: true,
       environment: true,
       price: true,
-      date: true,
-    });
-    setIsLoad(!isload);
+      date: true
+    })
+    setIsLoad(!isload)
   }
 
   const mapWideCard = () => {
     return wideCardData.map((data: any, index: number) => {
-      return <WideCard key={`wid${index}`} data={data} />;
-    });
-  };
+      return <WideCard key={`wid${index}`} data={data} />
+    })
+  }
 
   if (!load) {
-    setMeetings(meets);
-    setLoad(!load);
+    setMeetings(meets)
+    setLoad(!load)
   }
 
   useEffect(() => {
-    filterTheMeetings();
-  }, [filterMeet]);
+    filterTheMeetings()
+  }, [filterMeet])
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+    window.scrollTo(0, 0)
+  }, [])
 
   const filterTheMeetings = () => {
     let processFilter = meetings?.filter((meet: any) => {
@@ -79,38 +79,38 @@ const Meetings = () => {
         (filterMeet.environment === null ||
           meet.environment === filterMeet.environment) &&
         meet.disponibility <= filterMeet.date
-      );
-    });
-    setFilteredMeetings(processFilter);
-  };
+      )
+    })
+    setFilteredMeetings(processFilter)
+  }
 
   const handleChangeFilterMeet = (e: any) => {
-    let { value, name } = e.target;
-    let tmpFilter: any;
+    let { value, name } = e.target
+    let tmpFilter: any
     switch (name) {
       case "duration":
-        tmpFilter = { duration: +value };
-        break;
+        tmpFilter = { duration: +value }
+        break
       case "capacity":
-        tmpFilter = { capacity: +value };
-        break;
+        tmpFilter = { capacity: +value }
+        break
       case "environment":
-        tmpFilter = { environment: value };
-        break;
+        tmpFilter = { environment: value }
+        break
       case "price":
-        tmpFilter = { price: +value };
-        break;
+        tmpFilter = { price: +value }
+        break
       case "date":
-        tmpFilter = { date: value };
-        break;
+        tmpFilter = { date: value }
+        break
 
       default:
-        break;
+        break
     }
     setFilterMeet((preValue: any) => {
-      return { ...preValue, ...tmpFilter };
-    });
-  };
+      return { ...preValue, ...tmpFilter }
+    })
+  }
 
   const resetFilter = () => {
     setFilterMeet({
@@ -118,32 +118,32 @@ const Meetings = () => {
       capacity: 2,
       environment: null,
       price: 200,
-      date: new Date().toISOString().slice(0, 10),
-    });
-  };
+      date: new Date().toISOString().slice(0, 10)
+    })
+  }
 
   const mapMeets = () => {
     return filteredMeetings?.map((meet: any, index: number) => {
       if (index < carrouselSetting.showItems) {
-        return <SmallCard key={`small${index}`} data={meet} />;
+        return <SmallCard key={`small${index}`} data={meet} />
       }
-    });
-  };
+    })
+  }
 
   const loopNumber = () => {
     const listNumber = [
-      2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
-    ];
+      2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20
+    ]
     let simple = (num: number) => {
       return filterMeet.capacity === num
         ? "flex align-items-center bg-[#448B7B] text-[#ffff] text-center border-[3px] border-solid rounded-[50%] px-4 py-2 border-black font-regular text-[18px] "
-        : "flex align-items-center text-center border-[3px] border-solid rounded-[50%] px-4 py-2 border-black font-regular text-[18px] ";
-    };
+        : "flex align-items-center text-center border-[3px] border-solid rounded-[50%] px-4 py-2 border-black font-regular text-[18px] "
+    }
     let double = (num: number) => {
       return filterMeet.capacity === num
         ? "flex align-items-center text-center bg-[#448B7B] text-[#ffff] border-[3px] border-solid rounded-[50%] px-3 py-2 border-black font-regular text-[18px] "
-        : "flex align-items-center text-center border-[3px] border-solid rounded-[50%] px-3 py-2 border-black font-regular text-[18px] ";
-    };
+        : "flex align-items-center text-center border-[3px] border-solid rounded-[50%] px-3 py-2 border-black font-regular text-[18px] "
+    }
 
     return listNumber.map((num: number, index: any) => {
       return (
@@ -156,39 +156,39 @@ const Meetings = () => {
         >
           {num}
         </button>
-      );
-    });
-  };
+      )
+    })
+  }
 
   const dropeFilter = (fieldFilter: string) => {
-    let update: any = null;
+    let update: any = null
     switch (fieldFilter) {
       case "duration":
-        update = { duration: !dropeSetting.duration };
-        break;
+        update = { duration: !dropeSetting.duration }
+        break
       case "price":
-        update = { price: !dropeSetting.price };
-        break;
+        update = { price: !dropeSetting.price }
+        break
       case "environment":
-        update = { environment: !dropeSetting.environment };
-        break;
+        update = { environment: !dropeSetting.environment }
+        break
       case "capacity":
-        update = { capacity: !dropeSetting.capacity };
-        break;
+        update = { capacity: !dropeSetting.capacity }
+        break
       case "date":
-        update = { date: !dropeSetting.date };
-        break;
+        update = { date: !dropeSetting.date }
+        break
       case "filter":
-        update = { filter: !dropeSetting.filter };
-        break;
+        update = { filter: !dropeSetting.filter }
+        break
     }
 
     if (update != null) {
       setDropeSetting((pre: any) => {
-        return { ...pre, ...update };
-      });
+        return { ...pre, ...update }
+      })
     }
-  };
+  }
 
   const filterTabletOrAndMobile = () => {
     let theFilter = (
@@ -202,7 +202,7 @@ const Meetings = () => {
             <button
               title="drop"
               onClick={() => {
-                dropeFilter("duration");
+                dropeFilter("duration")
               }}
             >
               <IoIosArrowDown className="text-[32px] md:text-[38px] xl:text-[34px]" />
@@ -270,7 +270,7 @@ const Meetings = () => {
             <button
               title="drop"
               onClick={() => {
-                dropeFilter("capacity");
+                dropeFilter("capacity")
               }}
             >
               <IoIosArrowDown className="text-[32px] md:text-[38px] xl:text-[34px]" />
@@ -289,7 +289,7 @@ const Meetings = () => {
             <button
               title="drop"
               onClick={() => {
-                dropeFilter("environment");
+                dropeFilter("environment")
               }}
             >
               <IoIosArrowDown className="text-[32px] md:text-[38px] xl:text-[34px]" />
@@ -345,7 +345,7 @@ const Meetings = () => {
             <button
               title="drop"
               onClick={() => {
-                dropeFilter("price");
+                dropeFilter("price")
               }}
             >
               <IoIosArrowDown className="text-[32px] md:text-[38px] xl:text-[34px]" />
@@ -384,7 +384,7 @@ const Meetings = () => {
             <button
               title="drop"
               onClick={() => {
-                dropeFilter("date");
+                dropeFilter("date")
               }}
             >
               <IoIosArrowDown className="text-[32px] md:text-[38px] xl:text-[34px]" />
@@ -411,7 +411,7 @@ const Meetings = () => {
           </button>
         </div>
       </div>
-    );
+    )
 
     if (screen.width < 1280) {
       return (
@@ -421,7 +421,7 @@ const Meetings = () => {
             <button
               title="drop"
               onClick={() => {
-                dropeFilter("filter");
+                dropeFilter("filter")
               }}
             >
               <IoIosArrowDown className="text-[32px] md:text-[38px] xl:text-[34px]" />
@@ -429,11 +429,11 @@ const Meetings = () => {
           </div>
           {dropeSetting.filter ? theFilter : null}
         </div>
-      );
+      )
     } else {
-      return theFilter;
+      return theFilter
     }
-  };
+  }
 
   const filter = () => {
     return (
@@ -452,8 +452,8 @@ const Meetings = () => {
         </div>
         {filterTabletOrAndMobile()}
       </div>
-    );
-  };
+    )
+  }
 
   // const buttonNav = (action: string) => {
   //   return (
@@ -482,13 +482,12 @@ const Meetings = () => {
         return {
           ...pre,
           ...{
-            showItems:
-              carrouselSetting.defaultShow + carrouselSetting.gapAdding,
-          },
-        };
-      });
+            showItems: carrouselSetting.defaultShow + carrouselSetting.gapAdding
+          }
+        }
+      })
     }
-  };
+  }
 
   return (
     <div className="flex flex-col w-full justify-between pt-32 gap-10">
@@ -531,7 +530,7 @@ const Meetings = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Meetings;
+export default Meetings

@@ -1,7 +1,7 @@
-import Link from "next/link";
-import LogoColor from "../assets/icons/logoColor";
-import Love from "../assets/icons/love";
-import LimitIcon from "../assets/icons/limit";
+import Link from "next/link"
+import LimitIcon from "../assets/icons/limit"
+import LogoColor from "../assets/icons/logoColor"
+import Love from "../assets/icons/love"
 
 const LimitCard = () => {
   return (
@@ -32,7 +32,7 @@ const LimitCard = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default LimitCard;
+export default LimitCard

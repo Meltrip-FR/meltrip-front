@@ -1,51 +1,51 @@
-import { useState } from "react";
-import axios from "axios";
-import { FormItem } from "@/components/utils/formItem";
-import ContactIcon from "@/components/assets/icons/contact/contactIcon";
+import axios from "axios"
+import { useState } from "react"
+import ContactIcon from "@/components/assets/icons/contact/contactIcon"
+import { FormItem } from "@/components/utils/formItem"
 
 const ContactPage = () => {
   const [requestMessage, setRequestMessage] = useState<any>({
     type: false,
-    message: "Contact was add successfully!",
-  });
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [formState, setFormState] = useState<any>();
+    message: "Contact was add successfully!"
+  })
+  const [isLoading, setIsLoading] = useState<boolean>(false)
+  const [formState, setFormState] = useState<any>()
 
   const onFormChange = (e: any) => {
     if (e.target) {
       setFormState({
         ...formState,
-        [e.target.name]: e.target.value,
-      });
+        [e.target.name]: e.target.value
+      })
     }
-  };
+  }
 
   const handleSubmit = (e: { preventDefault: () => void }) => {
-    e.preventDefault();
-    setIsLoading(true);
+    e.preventDefault()
+    setIsLoading(true)
     const data = {
       ...formState,
-      username: formState.lastname + " " + formState.firstname,
-    };
+      username: formState.lastname + " " + formState.firstname
+    }
 
-    delete data.firstname;
-    delete data.lastname;
+    delete data.firstname
+    delete data.lastname
 
     axios
       .post(`${process.env.NEXT_PUBLIC_API_URL}/contact`, data)
       .then(({ data }) => {
-        setIsLoading(false);
-        setRequestMessage({ type: true, message: data.message });
+        setIsLoading(false)
+        setRequestMessage({ type: true, message: data.message })
       })
       .catch((error) => {
-        setIsLoading(false);
-        setRequestMessage({ type: null, message: "" });
+        setIsLoading(false)
+        setRequestMessage({ type: null, message: "" })
         setRequestMessage({
           type: false,
-          message: error?.response?.data?.message,
-        });
-      });
-  };
+          message: error?.response?.data?.message
+        })
+      })
+  }
 
   return (
     <section className="text-gray-600 body-font mb-24">
@@ -160,7 +160,7 @@ const ContactPage = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default ContactPage;
+export default ContactPage

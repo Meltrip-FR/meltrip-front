@@ -1,23 +1,23 @@
-import { Fragment, useState } from "react";
+import { Fragment, useState } from "react"
 
 const ThreePointOneSignup = ({
   formState,
   setFormState,
   handSubmit,
-  setNextPage,
+  setNextPage
 }: any) => {
   const [errorMessage, setErrorMessage] = useState<any>({
     type: "",
-    message: "",
-  });
+    message: ""
+  })
 
   const verifyNextPage = () => {
     if (formState?.billingManager === false && !formState?.emailFinancial) {
       setErrorMessage({
         type: "emailFinancial",
-        message: " Vous n'avez pas saisie l'email du responsable financier",
-      });
-      setNextPage(3.1);
+        message: " Vous n'avez pas saisie l'email du responsable financier"
+      })
+      setNextPage(3.1)
     } else if (
       formState?.billingManager === false &&
       !formState?.numberFinancial
@@ -25,17 +25,17 @@ const ThreePointOneSignup = ({
       setErrorMessage({
         type: "numberFinancial",
         message:
-          " Vous n'avez pas saisie le numéro de téléphone du responsable financier",
-      });
-      setNextPage(3.1);
+          " Vous n'avez pas saisie le numéro de téléphone du responsable financier"
+      })
+      setNextPage(3.1)
     } else {
       setErrorMessage({
         type: "",
-        message: "",
-      });
-      handSubmit();
+        message: ""
+      })
+      handSubmit()
     }
-  };
+  }
 
   return (
     <Fragment>
@@ -59,7 +59,7 @@ const ThreePointOneSignup = ({
             onChange={(_e) =>
               setFormState({
                 ...formState,
-                billingManager: true,
+                billingManager: true
               })
             }
             checked={formState.billingManager}
@@ -77,7 +77,7 @@ const ThreePointOneSignup = ({
             onChange={(_e) =>
               setFormState({
                 ...formState,
-                billingManager: false,
+                billingManager: false
               })
             }
             checked={!formState.billingManager}
@@ -103,7 +103,7 @@ const ThreePointOneSignup = ({
                 onChange={(e) =>
                   setFormState({
                     ...formState,
-                    emailFinancial: e.target.value,
+                    emailFinancial: e.target.value
                   })
                 }
               />
@@ -122,7 +122,7 @@ const ThreePointOneSignup = ({
                 onChange={(e) =>
                   setFormState({
                     ...formState,
-                    numberFinancial: e.target.value,
+                    numberFinancial: e.target.value
                   })
                 }
               />
@@ -148,7 +148,7 @@ const ThreePointOneSignup = ({
         </div>
       </div>
     </Fragment>
-  );
-};
+  )
+}
 
-export default ThreePointOneSignup;
+export default ThreePointOneSignup

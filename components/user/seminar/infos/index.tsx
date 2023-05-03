@@ -1,113 +1,110 @@
-import { useRouter } from "next/router";
-import { Fragment, useCallback, useEffect, useState } from "react";
-import Happy from "@/components/assets/icons/seminar/happy";
-import AirCraft from "@/components/assets/icons/seminar/aircraft";
-import Euro from "@/components/assets/icons/seminar/euro";
-import Library from "@/components/assets/icons/seminar/library";
-import Stair from "@/components/assets/icons/seminar/stair";
-import UserGroup from "@/components/assets/icons/seminar/userGroup";
-import Working from "@/components/assets/icons/seminar/working";
-import BreadCrumbs from "@/components/utils/breadCrumbs";
-import { getGroupById } from "@/lib/groups";
-import { getOrganizationById } from "@/lib/organizations";
-import { getSeminarById } from "@/lib/seminar";
-import { getUserById } from "@/lib/users";
-import { useAppSelector } from "@/redux/hooks";
-import Chill from "@/components/assets/icons/seminar/chill";
-import TV from "@/components/assets/icons/seminar/tv";
-import { getQuoteById } from "@/lib/quotes";
-import { getTemplateQuoteById } from "@/lib/templateQuotes";
-import { getPayementBySeminarId } from "@/lib/payements";
-import { getMembersByGroupId } from "@/lib/members";
-import InviteLink from "@/components/assets/icons/inputLink";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { useRouter } from "next/router"
+import { Fragment, useCallback, useEffect, useState } from "react"
+import { toast, ToastContainer } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
+import { getGroupById } from "@/lib/groups"
+import { getMembersByGroupId } from "@/lib/members"
+import { getOrganizationById } from "@/lib/organizations"
+import { getPayementBySeminarId } from "@/lib/payements"
+import { getQuoteById } from "@/lib/quotes"
+import { getSeminarById } from "@/lib/seminar"
+import { getTemplateQuoteById } from "@/lib/templateQuotes"
+import { getUserById } from "@/lib/users"
+import { useAppSelector } from "@/redux/hooks"
+import InviteLink from "@/components/assets/icons/inputLink"
+import AirCraft from "@/components/assets/icons/seminar/aircraft"
+import Chill from "@/components/assets/icons/seminar/chill"
+import Euro from "@/components/assets/icons/seminar/euro"
+import Happy from "@/components/assets/icons/seminar/happy"
+import Library from "@/components/assets/icons/seminar/library"
+import Stair from "@/components/assets/icons/seminar/stair"
+import TV from "@/components/assets/icons/seminar/tv"
+import UserGroup from "@/components/assets/icons/seminar/userGroup"
+import Working from "@/components/assets/icons/seminar/working"
+import BreadCrumbs from "@/components/utils/breadCrumbs"
 
 interface UserData {
-  id: number;
-  idGroup: number;
-  email: string;
-  retour: any;
-  infos: any;
-  present: boolean;
-  resultState: number;
-  resultType: string;
-  createdAt: string;
-  updatedAt: string;
-  deletedAt: any;
+  id: number
+  idGroup: number
+  email: string
+  retour: any
+  infos: any
+  present: boolean
+  resultState: number
+  resultType: string
+  createdAt: string
+  updatedAt: string
+  deletedAt: any
 }
 
 interface UserData {
-  id: number;
-  idGroup: number;
-  email: string;
-  retour: any;
-  infos: any;
-  present: boolean;
-  resultState: number;
-  resultType: string;
-  createdAt: string;
-  updatedAt: string;
-  deletedAt: any;
+  id: number
+  idGroup: number
+  email: string
+  retour: any
+  infos: any
+  present: boolean
+  resultState: number
+  resultType: string
+  createdAt: string
+  updatedAt: string
+  deletedAt: any
 }
 
 interface ResultData {
-  resultType: string;
-  moyenne: number;
+  resultType: string
+  moyenne: number
 }
 
 const calculatePercentageAverages = (moyennes: any, totals: any) => {
   const total = moyennes.reduce(
     (sum: any, moyenne: any) => sum + moyenne.moyenne,
     0
-  );
+  )
 
-  const moyenneObj: any = {};
+  const moyenneObj: any = {}
 
   moyennes.map((moyenne: any) => {
     return (moyenneObj[moyenne.resultType] = (
       (moyenne.moyenne / total) *
       totals
-    ).toFixed());
-  });
+    ).toFixed())
+  })
 
-  return moyenneObj;
-};
+  return moyenneObj
+}
 
 const loadStats = (data: UserData[]): ResultData[] => {
-  const resultTypeMap: any = new Map<
-    string,
-    { total: number; count: number }
-  >();
+  const resultTypeMap: any = new Map<string, { total: number; count: number }>()
 
   // Calculer la somme et le nombre d'occurrences pour chaque resultType
   data.forEach((item) => {
     if (resultTypeMap.has(item.resultType)) {
-      resultTypeMap.get(item.resultType).total += item.resultState;
-      resultTypeMap.get(item.resultType).count++;
+      resultTypeMap.get(item.resultType).total += item.resultState
+      resultTypeMap.get(item.resultType).count++
     } else {
-      resultTypeMap.set(item.resultType, { total: item.resultState, count: 1 });
+      resultTypeMap.set(item.resultType, { total: item.resultState, count: 1 })
     }
-  });
+  })
 
   // Calculer la moyenne pour chaque resultType
-  const result: ResultData[] = [];
+  const result: ResultData[] = []
   resultTypeMap.forEach((value: any, key: any) => {
-    result.push({ resultType: key, moyenne: value.total / value.count });
-  });
+    result.push({ resultType: key, moyenne: value.total / value.count })
+  })
 
-  return result;
-};
+  return result
+}
 
 const SeminarInfos = () => {
-  const router = useRouter();
-  const { auth } = useAppSelector((state) => state);
-  const [seminar, setSeminar] = useState<any>();
+  const router = useRouter()
+  const { auth } = useAppSelector((state) => state)
+  const [seminar, setSeminar] = useState<any>()
 
   const copiueClipboard = () => {
     window.navigator.clipboard.writeText(
       `https://meltrip.fr/invites/${seminar?.id}`
-    );
+    )
     toast.success("Copié", {
       position: "top-right",
       autoClose: 3000,
@@ -115,48 +112,48 @@ const SeminarInfos = () => {
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
-      progress: undefined,
-    });
-  };
+      progress: undefined
+    })
+  }
 
   const getSeminar = useCallback(
     async (idSeminar: string) => {
       const seminar: any = await getSeminarById(
         auth.user.accessToken,
         idSeminar
-      );
+      )
       if (seminar) {
         const user: any = await getUserById(
           auth.user.accessToken,
           seminar?.idUser
-        );
+        )
         const organization: any = await getOrganizationById(
           seminar?.idOrganization
-        );
-        const group: any = await getGroupById(seminar?.idGroup);
-        const quote: any = await getQuoteById(seminar?.idQuote);
-        const members: any = await getMembersByGroupId(seminar?.idGroup);
+        )
+        const group: any = await getGroupById(seminar?.idGroup)
+        const quote: any = await getQuoteById(seminar?.idQuote)
+        const members: any = await getMembersByGroupId(seminar?.idGroup)
         const payement: any = await getPayementBySeminarId(
           auth?.user?.token,
           seminar?.idPayement
-        );
-        const loadStat: any = loadStats(members);
-        const cal = ((members.length / seminar?.adultNumber) * 100).toFixed();
-        const result = calculatePercentageAverages(loadStat, cal);
-        console.log({ result });
+        )
+        const loadStat: any = loadStats(members)
+        const cal = ((members.length / seminar?.adultNumber) * 100).toFixed()
+        const result = calculatePercentageAverages(loadStat, cal)
+        console.log({ result })
 
         const TemplateQuote1: any = await getTemplateQuoteById(
           auth.user.accessToken,
           quote?.idTemplateQuote1
-        );
+        )
         const TemplateQuote2: any = await getTemplateQuoteById(
           auth.user.accessToken,
           quote?.idTemplateQuote2
-        );
+        )
         const TemplateQuote3: any = await getTemplateQuoteById(
           auth.user.accessToken,
           quote?.idTemplateQuote3
-        );
+        )
         setSeminar({
           id: seminar?.id,
           participNumber: seminar?.adultNumber,
@@ -182,22 +179,22 @@ const SeminarInfos = () => {
           templateQuotes: {
             TemplateQuote1,
             TemplateQuote2,
-            TemplateQuote3,
+            TemplateQuote3
           },
           payement,
           group,
           members,
-          loadStat,
-        });
+          loadStat
+        })
       }
     },
     [auth.user.accessToken, router.query.id]
-  );
+  )
 
   useEffect(() => {
     router?.query?.id &&
-      getSeminar(router?.query?.id as string).catch((e) => console.error(e));
-  }, [getSeminar, router?.query?.id]);
+      getSeminar(router?.query?.id as string).catch((e) => console.error(e))
+  }, [getSeminar, router?.query?.id])
 
   return (
     <section className="text-gray-600 body-font">
@@ -418,7 +415,7 @@ const SeminarInfos = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default SeminarInfos;
+export default SeminarInfos

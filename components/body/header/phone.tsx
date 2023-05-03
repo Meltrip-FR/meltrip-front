@@ -13,7 +13,7 @@ const PhoneHeader = () => {
         </div>
       </button>
     </div>
-  );
-};
+  )
+}
 
-export default PhoneHeader;
+export default PhoneHeader

@@ -1,67 +1,67 @@
-import { useCallback, useEffect, useState } from "react";
-import axios from "axios";
-import Eyes from "@/components/assets/icons/eyes";
-import LockClose from "@/components/assets/icons/lockClose";
-import BreadCrumbs from "@/components/utils/breadCrumbs";
-import { FormItem } from "@/components/utils/formItem";
-import { useAppSelector } from "@/redux/hooks";
+import axios from "axios"
+import { useCallback, useEffect, useState } from "react"
+import { useAppSelector } from "@/redux/hooks"
+import Eyes from "@/components/assets/icons/eyes"
+import LockClose from "@/components/assets/icons/lockClose"
+import BreadCrumbs from "@/components/utils/breadCrumbs"
+import { FormItem } from "@/components/utils/formItem"
 
 const capitalize = (str: string) => {
   return str
     ?.toLowerCase()
     .split(" ")
     .map((word) => {
-      return word?.charAt(0).toUpperCase() + word?.slice(1);
+      return word?.charAt(0).toUpperCase() + word?.slice(1)
     })
-    .join(" ");
-};
+    .join(" ")
+}
 
 const Profil = () => {
-  const { auth } = useAppSelector((state) => state);
+  const { auth } = useAppSelector((state) => state)
 
   //State Status Update
-  const [isUpdateEmail, setIsUpdateEmail] = useState<boolean>(false);
-  const [isUpdatePhone, setIsUpdatePhone] = useState<boolean>(false);
+  const [isUpdateEmail, setIsUpdateEmail] = useState<boolean>(false)
+  const [isUpdatePhone, setIsUpdatePhone] = useState<boolean>(false)
 
-  const [formState, setFormState] = useState<any>();
-  const [seminarList, setListSeminar] = useState<any>();
+  const [formState, setFormState] = useState<any>()
+  const [seminarList, setListSeminar] = useState<any>()
   const onFormChange = (e: any) => {
     if (e.target) {
       setFormState({
         ...formState,
-        [e.target.name]: e.target.value,
-      });
+        [e.target.name]: e.target.value
+      })
     }
-  };
+  }
 
   const getUser = useCallback(async () => {
     const user = await axios.get(
       `${process.env.NEXT_PUBLIC_API_URL}/user/${auth.user.id}`,
       {
         headers: {
-          "x-access-token": auth.user.accessToken,
-        },
+          "x-access-token": auth.user.accessToken
+        }
       }
-    );
-    const userList = user.data;
-    setFormState(userList);
+    )
+    const userList = user.data
+    setFormState(userList)
 
     const seminar = await axios.get(
       `${process.env.NEXT_PUBLIC_API_URL}/seminars/${auth.user.id}`,
       {
         headers: {
-          "x-access-token": auth.user.accessToken,
-        },
+          "x-access-token": auth.user.accessToken
+        }
       }
-    );
-    const seminarList = seminar.data;
-    setListSeminar(seminarList);
-  }, [auth.user.id]);
+    )
+    const seminarList = seminar.data
+    setListSeminar(seminarList)
+  }, [auth.user.id])
 
   useEffect(() => {
     //const getUser  = loadCompany();
-    getUser().catch((e) => console.error(e));
-  }, [getUser]);
+    getUser().catch((e) => console.error(e))
+  }, [getUser])
 
   return (
     <section className="text-gray-600 body-font">
@@ -233,7 +233,7 @@ const Profil = () => {
         </section>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Profil;
+export default Profil

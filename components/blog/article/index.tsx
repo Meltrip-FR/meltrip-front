@@ -1,44 +1,43 @@
-import { useCallback, useEffect, useState } from "react";
-import { useRouter } from "next/router";
-
-import BreadCrumbs from "@/components/utils/breadCrumbs";
-import axios from "axios";
-import Instagram from "@/components/assets/icons/socials/instagram";
-import Facebook from "@/components/assets/icons/socials/facebook";
-import Twitter from "@/components/assets/icons/socials/twitter";
+import axios from "axios"
+import { useRouter } from "next/router"
+import { useCallback, useEffect, useState } from "react"
+import Facebook from "@/components/assets/icons/socials/facebook"
+import Instagram from "@/components/assets/icons/socials/instagram"
+import Twitter from "@/components/assets/icons/socials/twitter"
+import BreadCrumbs from "@/components/utils/breadCrumbs"
 
 const ArticlePage = () => {
-  const router = useRouter();
-  const [data, setData] = useState<any>();
-  const [dataSuggest, setDataSuggest] = useState<any>();
+  const router = useRouter()
+  const [data, setData] = useState<any>()
+  const [dataSuggest, setDataSuggest] = useState<any>()
 
   const getArticle = useCallback(async () => {
     const res = await axios.get(
       `${process.env.NEXT_PUBLIC_API_URL}/blog/article/${router.query.id}`
-    );
-    setData(res.data);
-  }, [router.query.id]);
+    )
+    setData(res.data)
+  }, [router.query.id])
 
   const getSuggest = useCallback(async () => {
-    let return_arr = [];
+    let return_arr = []
     const res: any = await axios.get(
       `${process.env.NEXT_PUBLIC_API_URL}/blog/articlesPaginate/?page=0&size=10`
-    );
+    )
     const arr = res.data.dataList.filter(
       (i: any) => i.status !== true && router.query.id !== i.id
-    );
+    )
     for (let i = 0; i < 3; i++) {
-      var random_int = Math.round(Math.random() * (arr.length - 1));
-      return_arr.push(arr[random_int]);
-      arr.splice(random_int, 1);
+      var random_int = Math.round(Math.random() * (arr.length - 1))
+      return_arr.push(arr[random_int])
+      arr.splice(random_int, 1)
     }
-    setDataSuggest(return_arr);
-  }, [router.query.id]);
+    setDataSuggest(return_arr)
+  }, [router.query.id])
 
   useEffect(() => {
-    getArticle();
-    getSuggest();
-  }, [getArticle, getSuggest]);
+    getArticle()
+    getSuggest()
+  }, [getArticle, getSuggest])
 
   return (
     <section className="text-gray-600 body-font">
@@ -141,7 +140,7 @@ const ArticlePage = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default ArticlePage;
+export default ArticlePage

@@ -1,75 +1,75 @@
-import { Fragment, useState } from "react";
+import { Fragment, useState } from "react"
 import {
   containsCapital,
   containsSpecialChar,
-  detectLowerCase,
-} from "../utils/functions";
+  detectLowerCase
+} from "../utils/functions"
 
-const include = ["@gmail.com", "@gmail.fr"];
+const include = ["@gmail.com", "@gmail.fr"]
 
 const ThreeSignup = ({
   formState,
   onFormChange,
   setFormState,
   handSubmit,
-  setNextPage,
+  setNextPage
 }: any) => {
   const [errorMessage, setErrorMessage] = useState<any>({
     type: "",
-    message: "",
-  });
+    message: ""
+  })
 
   const verifyNextPage = () => {
     if (!formState?.civility) {
       setErrorMessage({
         type: "civility",
-        message: " Vous n'avez pas sélectionné de civilité",
-      });
-      setNextPage(3);
+        message: " Vous n'avez pas sélectionné de civilité"
+      })
+      setNextPage(3)
     } else if (!formState?.phoneManager) {
       setErrorMessage({
         type: "phoneManager",
-        message: " Vous n'avez pas saisie votre numéro de téléphone",
-      });
-      setNextPage(3);
+        message: " Vous n'avez pas saisie votre numéro de téléphone"
+      })
+      setNextPage(3)
     } else if (!formState?.nameManager) {
       setErrorMessage({
         type: "nameManager",
-        message: " Vous n'avez pas saisie votre nom et prénom",
-      });
-      setNextPage(3);
+        message: " Vous n'avez pas saisie votre nom et prénom"
+      })
+      setNextPage(3)
     } else if (!formState?.emailManager) {
       setErrorMessage({
         type: "emailManager",
-        message: " Vous n'avez pas saisie votre email",
-      });
-      setNextPage(3);
+        message: " Vous n'avez pas saisie votre email"
+      })
+      setNextPage(3)
     } else if (formState?.emailManager) {
       const isDomain = include
         .map((e) => formState?.emailManager.includes(e))
-        .includes(true);
+        .includes(true)
       if (isDomain) {
         setErrorMessage({
           type: "emailManager",
-          message: " Vous n'avez pas saisie un email d'entreprise",
-        });
-        setNextPage(3);
+          message: " Vous n'avez pas saisie un email d'entreprise"
+        })
+        setNextPage(3)
       }
     } else if (!formState?.password) {
       setErrorMessage({
         type: "password",
-        message: " Vous n'avez pas saisie votre mot de passe",
-      });
-      setNextPage(3);
+        message: " Vous n'avez pas saisie votre mot de passe"
+      })
+      setNextPage(3)
     } else if (
       formState?.billingManager === false &&
       !formState?.emailFinancial
     ) {
       setErrorMessage({
         type: "emailFinancial",
-        message: " Vous n'avez pas saisie l'email du responsable financier",
-      });
-      setNextPage(3);
+        message: " Vous n'avez pas saisie l'email du responsable financier"
+      })
+      setNextPage(3)
     } else if (
       formState?.billingManager === false &&
       !formState?.numberFinancial
@@ -77,54 +77,54 @@ const ThreeSignup = ({
       setErrorMessage({
         type: "numberFinancial",
         message:
-          " Vous n'avez pas saisie le numéro de téléphone du responsable financier",
-      });
-      setNextPage(3);
+          " Vous n'avez pas saisie le numéro de téléphone du responsable financier"
+      })
+      setNextPage(3)
     } else if (!formState?.siretCompany) {
       setErrorMessage({
         type: "siretCompany",
         message:
-          " Vous n'avez pas saisie le siret de votre entreprise ou il est faux",
-      });
-      setNextPage(3);
+          " Vous n'avez pas saisie le siret de votre entreprise ou il est faux"
+      })
+      setNextPage(3)
     } else if (formState?.password) {
       if (formState?.paswword < 8) {
         setErrorMessage({
           type: "password",
           message:
-            "Vous n'avez pas saisie le nombre minimum de charactère demandé",
-        });
+            "Vous n'avez pas saisie le nombre minimum de charactère demandé"
+        })
       } else if (!containsCapital(formState?.paswword)) {
         setErrorMessage({
           type: "password",
-          message: "Vous n'avez pas saisie de majuscule",
-        });
+          message: "Vous n'avez pas saisie de majuscule"
+        })
       } else if (!detectLowerCase(formState?.paswword)) {
         setErrorMessage({
           type: "password",
-          message: "Vous n'avez pas saisie de minuscule",
-        });
+          message: "Vous n'avez pas saisie de minuscule"
+        })
       } else if (!containsSpecialChar(formState?.paswword)) {
         setErrorMessage({
           type: "password",
-          message: "Vous n'avez pas saisie de caractère spécial",
-        });
+          message: "Vous n'avez pas saisie de caractère spécial"
+        })
       }
-      setNextPage(3);
+      setNextPage(3)
     } else if (!formState?.terms) {
       setErrorMessage({
         type: "terms",
-        message: " Vous n'avez pas accepté les CGU & CGV",
-      });
-      setNextPage(3);
+        message: " Vous n'avez pas accepté les CGU & CGV"
+      })
+      setNextPage(3)
     }
 
     setErrorMessage({
       type: "",
-      message: "",
-    });
-    handSubmit();
-  };
+      message: ""
+    })
+    handSubmit()
+  }
 
   return (
     <Fragment>
@@ -152,7 +152,7 @@ const ThreeSignup = ({
             onChange={(_e) =>
               setFormState({
                 ...formState,
-                civility: "Mme",
+                civility: "Mme"
               })
             }
           />
@@ -170,7 +170,7 @@ const ThreeSignup = ({
             onChange={(_e) =>
               setFormState({
                 ...formState,
-                civility: "M.",
+                civility: "M."
               })
             }
           />
@@ -266,7 +266,7 @@ const ThreeSignup = ({
             onChange={(_e) =>
               setFormState({
                 ...formState,
-                billingManager: true,
+                billingManager: true
               })
             }
             checked={formState.billingManager}
@@ -284,7 +284,7 @@ const ThreeSignup = ({
             onChange={(_e) =>
               setFormState({
                 ...formState,
-                billingManager: false,
+                billingManager: false
               })
             }
             checked={!formState.billingManager}
@@ -310,7 +310,7 @@ const ThreeSignup = ({
                 onChange={(e) =>
                   setFormState({
                     ...formState,
-                    emailFinancial: e.target.value,
+                    emailFinancial: e.target.value
                   })
                 }
               />
@@ -329,7 +329,7 @@ const ThreeSignup = ({
                 onChange={(e) =>
                   setFormState({
                     ...formState,
-                    numberFinancial: e.target.value,
+                    numberFinancial: e.target.value
                   })
                 }
               />
@@ -352,7 +352,7 @@ const ThreeSignup = ({
         onChange={(e) =>
           setFormState({
             ...formState,
-            siretCompany: e.target.value,
+            siretCompany: e.target.value
           })
         }
       />
@@ -366,7 +366,7 @@ const ThreeSignup = ({
           onChange={(_e) =>
             setFormState({
               ...formState,
-              newsletter: !formState.newsletter,
+              newsletter: !formState.newsletter
             })
           }
         />
@@ -386,7 +386,7 @@ const ThreeSignup = ({
           onChange={(_e) =>
             setFormState({
               ...formState,
-              terms: !formState.terms,
+              terms: !formState.terms
             })
           }
         />
@@ -425,7 +425,7 @@ const ThreeSignup = ({
         </div>
       </div>
     </Fragment>
-  );
-};
+  )
+}
 
-export default ThreeSignup;
+export default ThreeSignup

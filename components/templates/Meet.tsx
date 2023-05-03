@@ -1,37 +1,36 @@
-import React, { useEffect, useState } from "react";
-import { wideCardData } from "./data";
-import WideCard from "./cards/WideCard";
-import { FiMapPin } from "react-icons/fi";
-import { FaEuroSign, FaCalendarAlt } from "react-icons/fa";
-import { meets } from "./data";
-import Amico from "@/components/assets/mapfeed/amico.png";
+import React, { useEffect, useState } from "react"
+import { FaCalendarAlt, FaEuroSign } from "react-icons/fa"
+import { FiMapPin } from "react-icons/fi"
+import WideCard from "./cards/WideCard"
+import { meets, wideCardData } from "./data"
+import Amico from "@/components/assets/mapfeed/amico.png"
 
 const Meet = ({ id }: any) => {
-  const [modal, setModal] = useState({ active: false, position: 0 });
+  const [modal, setModal] = useState({ active: false, position: 0 })
 
-  const meet: any = meets.find((meet) => meet.id === id);
+  const meet: any = meets.find((meet) => meet.id === id)
 
   useEffect(() => {
     if (modal.active) {
-      modalImages();
+      modalImages()
     }
-  }, [modal]);
+  }, [modal])
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+    window.scrollTo(0, 0)
+  }, [])
 
   const closModal = () => {
     setModal((pre: any) => {
-      return { ...pre, ...{ active: false } };
-    });
-  };
+      return { ...pre, ...{ active: false } }
+    })
+  }
 
   const openModal = (position: number) => {
     setModal(() => {
-      return { active: true, position: position };
-    });
-  };
+      return { active: true, position: position }
+    })
+  }
 
   const modalImages = () => {
     return (
@@ -56,7 +55,7 @@ const Meet = ({ id }: any) => {
                     alt="image habitation"
                     src={img}
                   />
-                );
+                )
               }
             )}
           </div>
@@ -70,25 +69,25 @@ const Meet = ({ id }: any) => {
           </button>
         </div>
       </div>
-    );
-  };
+    )
+  }
 
   const mapActivities = () => {
     return (
       <div className="flex flex-col w-full gap-5 pt-20">
         {meet.activities?.map((activity: any, index: number) => {
-          return activitiesView(activity, index);
+          return activitiesView(activity, index)
         })}
       </div>
-    );
-  };
+    )
+  }
 
   const mapWideCard = () => {
     return wideCardData.map((info: any, index: number) => {
-      return <WideCard key={index} data={info} />;
-    });
+      return <WideCard key={index} data={info} />
+    })
     //   {`text-[${screen.sw(48)}px] font-extrabold  text-center relative w-full`}
-  };
+  }
 
   const activitiesView = (act: any, index: number) => {
     return (
@@ -125,7 +124,7 @@ const Meet = ({ id }: any) => {
                   </p>
                   <button
                     onClick={() => {
-                      openModal(index);
+                      openModal(index)
                     }}
                     className="font-medium whitespace-normal text-[4vw] md:text-[3vw] xl:text-[1vw] text-[#186E7A]"
                   >
@@ -137,8 +136,8 @@ const Meet = ({ id }: any) => {
           </div>
         </div>
       </div>
-    );
-  };
+    )
+  }
 
   const returnDetails = (details: Array<any>) => {
     return details.map((det: any, index) => {
@@ -155,9 +154,9 @@ const Meet = ({ id }: any) => {
             {det.description}
           </p>
         </div>
-      );
-    });
-  };
+      )
+    })
+  }
 
   return (
     <div className="flex flex-col h-full w-full justify-between gap-10 pt-[20vh] relative">
@@ -241,8 +240,8 @@ const Meet = ({ id }: any) => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
 const tailWindStyle = {
   p48: `text-[10vw] xl:text-[48px] 3xl:text-[78px] font-extrabold  text-center relative w-full`,
@@ -251,7 +250,7 @@ const tailWindStyle = {
   p36l: `text-[6vw] xl:text-[36px] 3xl:text-[56px] font-bold  text-left relative w-full`,
   p16l: `text-[4vw] xl:text-[16px] 3xl:text-[36px] font-medium text-left relative w-full whitespace-normal`,
   p16lw: `text-[4vw] xl:text-[16px] 3xl:text-[36px] w-full font-medium text-white text-left relative  whitespace-normal`,
-  imageCover: `w-[90vw] h-[60vh] rounded-[12px] bg-no-repeat bg-center bg-cover`,
-};
+  imageCover: `w-[90vw] h-[60vh] rounded-[12px] bg-no-repeat bg-center bg-cover`
+}
 
-export default Meet;
+export default Meet

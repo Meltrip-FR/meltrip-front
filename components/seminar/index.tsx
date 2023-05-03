@@ -1,35 +1,33 @@
-import { Fragment, useEffect, useState } from "react";
-
-import FirstSignup from "@/components/seminar/FirstSignup";
-import SecondSignup from "@/components/seminar/SecondSignup";
-import ThreeSignup from "./ThreeSignup";
-import ThreePointOneSignup from "./ThreePointOneSignup";
-import axios from "axios";
-import PresentSeminar from "./PresentSeminar";
-import { useRouter } from "next/router";
-import { useAppDispatch, useAppSelector } from "@/redux/hooks";
-
-import SuccessCard from "./SuccessCard";
-import { getOrganizationBySiret, postOrganization } from "@/lib/organizations";
-import { signin, signup } from "@/lib/auth";
-import { login } from "@/redux/slices/auth.slice";
-import InviteCard from "./InviteCard";
-import SeminarPage from "@/components/assets/pictures/seminarPage.png";
+import axios from "axios"
+import { useRouter } from "next/router"
+import { Fragment, useEffect, useState } from "react"
+import InviteCard from "./InviteCard"
+import PresentSeminar from "./PresentSeminar"
+import SuccessCard from "./SuccessCard"
+import ThreePointOneSignup from "./ThreePointOneSignup"
+import ThreeSignup from "./ThreeSignup"
+import { signin, signup } from "@/lib/auth"
+import { getOrganizationBySiret, postOrganization } from "@/lib/organizations"
+import { useAppDispatch, useAppSelector } from "@/redux/hooks"
+import { login } from "@/redux/slices/auth.slice"
+import SeminarPage from "@/components/assets/pictures/seminarPage.png"
+import FirstSignup from "@/components/seminar/FirstSignup"
+import SecondSignup from "@/components/seminar/SecondSignup"
 
 const SignupPage = () => {
-  const dispatch = useAppDispatch();
-  const router = useRouter();
-  const { auth } = useAppSelector((state) => state);
+  const dispatch = useAppDispatch()
+  const router = useRouter()
+  const { auth } = useAppSelector((state) => state)
 
-  const [pathname, setPathName] = useState<string>("");
-  const [nextPage, setNextPage] = useState<number>(0);
-  const [loading, setLoading] = useState<boolean>(false);
-  const [seminar, setSeminar] = useState<any>();
+  const [pathname, setPathName] = useState<string>("")
+  const [nextPage, setNextPage] = useState<number>(0)
+  const [loading, setLoading] = useState<boolean>(false)
+  const [seminar, setSeminar] = useState<any>()
   const [errorMessage, setErrorMessage] = useState({
     status: false,
     url: "",
-    message: "",
-  });
+    message: ""
+  })
   const [formState, setFormState] = useState({
     firstname: "",
     lastname: "",
@@ -55,28 +53,28 @@ const SignupPage = () => {
     numberFinancial: "",
     siretCompany: "",
     terms: false,
-    newsletter: false,
-  });
+    newsletter: false
+  })
 
   const onFormChange = (e: any) => {
     if (e.target) {
       setFormState({
         ...formState,
-        [e.target.name]: e.target.value,
-      });
+        [e.target.name]: e.target.value
+      })
     }
-  };
+  }
 
   const handSubmit = async () => {
-    setLoading(true);
-    let addOrganizations: any;
-    let loginRequestUser: any;
+    setLoading(true)
+    let addOrganizations: any
+    let loginRequestUser: any
 
     if (pathname !== "/seminar/create") {
       if (formState.siretCompany) {
         const organization: any = await getOrganizationBySiret(
           formState.siretCompany
-        );
+        )
         if (organization.id) {
           const userBuild = {
             email: formState.emailManager,
@@ -87,19 +85,19 @@ const SignupPage = () => {
             terms: formState.terms,
             newsletter: formState.newsletter,
             idOrganization: organization?.id,
-            roles: ["user"],
-          };
-          const createUser = await signup(userBuild);
-          if (!createUser) {
-            console.log({ type: true, message: createUser });
-            return;
+            roles: ["user"]
           }
-          addOrganizations = organization;
-          loginRequestUser = createUser;
+          const createUser = await signup(userBuild)
+          if (!createUser) {
+            console.log({ type: true, message: createUser })
+            return
+          }
+          addOrganizations = organization
+          loginRequestUser = createUser
         } else {
           const createOrganization = await postOrganization(
             formState.siretCompany
-          );
+          )
           const userBuild = {
             email: formState.emailManager,
             username: formState.firstname + " " + formState.lastname,
@@ -109,33 +107,33 @@ const SignupPage = () => {
             terms: formState.terms,
             newsletter: formState.newsletter,
             idOrganization: createOrganization?.id,
-            roles: ["user"],
-          };
-          const createUser = await signup(userBuild);
-          if (!createUser) {
-            console.log({ type: true, message: createUser });
-            return;
+            roles: ["user"]
           }
-          addOrganizations = createOrganization;
-          loginRequestUser = createUser;
+          const createUser = await signup(userBuild)
+          if (!createUser) {
+            console.log({ type: true, message: createUser })
+            return
+          }
+          addOrganizations = createOrganization
+          loginRequestUser = createUser
         }
       } else {
         console.log({
           type: false,
-          message: "Ajouter un numéro de siret",
-        });
+          message: "Ajouter un numéro de siret"
+        })
       }
     }
 
     loginRequestUser =
       pathname !== "/seminar/create" &&
-      (await signin(formState.emailManager, formState.password));
+      (await signin(formState.emailManager, formState.password))
 
-    const organization = pathname !== "/seminar/create" && addOrganizations;
+    const organization = pathname !== "/seminar/create" && addOrganizations
     const loginToken =
-      pathname !== "/seminar/create" && loginRequestUser.accessToken;
+      pathname !== "/seminar/create" && loginRequestUser.accessToken
     const loginUser =
-      pathname !== "/seminar/create" && loginRequestUser.dataValues;
+      pathname !== "/seminar/create" && loginRequestUser.dataValues
 
     const createGroup: any = await axios
       .post(`${process.env.NEXT_PUBLIC_API_URL}/group/`, {
@@ -150,16 +148,16 @@ const SignupPage = () => {
             ? loginUser?.phoneManager
               ? loginUser?.phoneManager
               : auth.user.phone
-            : formState.numberFinancial,
+            : formState.numberFinancial
       })
       .catch((e) => {
-        console.error(e);
+        console.error(e)
         setErrorMessage({
           status: true,
           url: "/",
-          message: "Erreur lors de la création de votre groupe",
-        });
-      });
+          message: "Erreur lors de la création de votre groupe"
+        })
+      })
 
     // seminars
     const addSeminar: any = await axios
@@ -187,22 +185,22 @@ const SignupPage = () => {
             : auth?.user?.idOrganization,
           idGroup: createGroup.data.id,
           idPayement: null,
-          idQuote: null,
+          idQuote: null
         },
         {
           headers: {
-            "x-access-token": loginToken ? loginToken : auth.user.accessToken,
-          },
+            "x-access-token": loginToken ? loginToken : auth.user.accessToken
+          }
         }
       )
       .catch((e) => {
-        console.error(e);
+        console.error(e)
         setErrorMessage({
           status: true,
           url: "/",
-          message: "Erreur lors de la création de votre séminaire",
-        });
-      });
+          message: "Erreur lors de la création de votre séminaire"
+        })
+      })
 
     if (addSeminar.data && createGroup.data) {
       // dispatch(
@@ -223,15 +221,15 @@ const SignupPage = () => {
       //     },
       //   })
       // );
-      setSeminar(addSeminar.data);
-      setLoading(false);
-      setNextPage(4);
+      setSeminar(addSeminar.data)
+      setLoading(false)
+      setNextPage(4)
     }
-  };
+  }
 
   useEffect(() => {
-    setPathName(router.pathname);
-  }, [router.pathname]);
+    setPathName(router.pathname)
+  }, [router.pathname])
 
   return (
     <Fragment>
@@ -245,12 +243,12 @@ const SignupPage = () => {
                     {errorMessage.message}
                     <div
                       onClick={() => {
-                        setLoading(false);
+                        setLoading(false)
                         setErrorMessage({
                           status: false,
                           url: "",
-                          message: "",
-                        });
+                          message: ""
+                        })
                       }}
                       className="underline cursor-pointer"
                     >
@@ -320,7 +318,7 @@ const SignupPage = () => {
         </Fragment>
       </div>
     </Fragment>
-  );
-};
+  )
+}
 
-export default SignupPage;
+export default SignupPage

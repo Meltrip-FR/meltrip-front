@@ -1,12 +1,12 @@
-import InviteLink from "../assets/icons/inputLink";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { toast, ToastContainer } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
+import InviteLink from "../assets/icons/inputLink"
 
 const InviteCard = ({ seminar }: any) => {
   const copiueClipboard = () => {
     window.navigator.clipboard.writeText(
       `https://meltrip.fr/invites/${seminar?.id}`
-    );
+    )
     toast.success("Copié", {
       position: "top-right",
       autoClose: 3000,
@@ -14,9 +14,9 @@ const InviteCard = ({ seminar }: any) => {
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
-      progress: undefined,
-    });
-  };
+      progress: undefined
+    })
+  }
 
   return (
     <div className="flex flex-col px-[13vh] w-full flex-wrap">
@@ -63,7 +63,7 @@ const InviteCard = ({ seminar }: any) => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default InviteCard;
+export default InviteCard

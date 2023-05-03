@@ -1,24 +1,24 @@
-import { useRouter } from "next/router";
-import { useEffect } from "react";
-import Layout from "pages";
-import store from "@/redux/store";
-import Profil from "@/components/user/profil";
+import { useRouter } from "next/router"
+import Layout from "pages"
+import { useEffect } from "react"
+import store from "@/redux/store"
+import Profil from "@/components/user/profil"
 
 const ProfilPage = () => {
-  let { auth } = store.getState();
-  const router = useRouter();
+  let { auth } = store.getState()
+  const router = useRouter()
 
   useEffect(() => {
     if (auth.login === false) {
-      router.push("/");
+      router.push("/")
     }
-  }, [auth.login, router]);
+  }, [auth.login, router])
 
   return (
     <Layout>
       <Profil />
     </Layout>
-  );
-};
+  )
+}
 
-export default ProfilPage;
+export default ProfilPage

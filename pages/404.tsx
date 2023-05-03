@@ -1,4 +1,4 @@
-import router from "next/router";
+import router from "next/router"
 
 const Custom404 = () => {
   return (
@@ -21,7 +21,7 @@ const Custom404 = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Custom404;
+export default Custom404

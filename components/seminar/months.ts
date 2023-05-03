@@ -1,50 +1,50 @@
 export const monthArray = [
   {
     abbreviation: "Jan",
-    name: "Janvier",
+    name: "Janvier"
   },
   {
     abbreviation: "Fev",
-    name: "Février",
+    name: "Février"
   },
   {
     abbreviation: "Mar",
-    name: "Mars",
+    name: "Mars"
   },
   {
     abbreviation: "Avr",
-    name: "Avril",
+    name: "Avril"
   },
   {
     abbreviation: "Mai",
-    name: "Mai",
+    name: "Mai"
   },
   {
     abbreviation: "Juin",
-    name: "Juin",
+    name: "Juin"
   },
   {
     abbreviation: "Jul",
-    name: "Juillet",
+    name: "Juillet"
   },
   {
     abbreviation: "Aout",
-    name: "Aout",
+    name: "Aout"
   },
   {
     abbreviation: "Sep",
-    name: "Septembre",
+    name: "Septembre"
   },
   {
     abbreviation: "Oct",
-    name: "Octobre",
+    name: "Octobre"
   },
   {
     abbreviation: "Nov",
-    name: "Novembre",
+    name: "Novembre"
   },
   {
     abbreviation: "Dec",
-    name: "Décembre",
-  },
-];
+    name: "Décembre"
+  }
+]

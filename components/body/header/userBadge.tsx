@@ -1,23 +1,21 @@
-import { Fragment, useState } from "react";
-import { useRouter } from "next/router";
-
-import { useAppDispatch, useAppSelector } from "@/redux/hooks";
-import { logout } from "@/redux/slices/auth.slice";
-
-import ArrowOut from "@/components/assets/icons/arrowOut";
-import ChevronUp from "@/components/assets/icons/chevronUp";
-import ChevronDown from "@/components/assets/icons/chevronDown";
+import { useRouter } from "next/router"
+import { Fragment, useState } from "react"
+import { useAppDispatch, useAppSelector } from "@/redux/hooks"
+import { logout } from "@/redux/slices/auth.slice"
+import ArrowOut from "@/components/assets/icons/arrowOut"
+import ChevronDown from "@/components/assets/icons/chevronDown"
+import ChevronUp from "@/components/assets/icons/chevronUp"
 
 export const UserBadge = () => {
-  const router = useRouter();
-  const dispatch = useAppDispatch();
-  const [openMenu, setOpenMenu] = useState<boolean>(false);
-  const { auth } = useAppSelector((state) => state);
+  const router = useRouter()
+  const dispatch = useAppDispatch()
+  const [openMenu, setOpenMenu] = useState<boolean>(false)
+  const { auth } = useAppSelector((state) => state)
 
   const signOut = () => {
-    dispatch(logout());
-    router.push("/");
-  };
+    dispatch(logout())
+    router.push("/")
+  }
 
   return (
     <Fragment>
@@ -66,8 +64,8 @@ export const UserBadge = () => {
         )}
       </div>
     </Fragment>
-  );
-};
+  )
+}
 function dispatch(arg0: any) {
-  throw new Error("Function not implemented.");
+  throw new Error("Function not implemented.")
 }

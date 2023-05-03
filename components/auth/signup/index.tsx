@@ -1,47 +1,47 @@
-import { useState } from "react";
-import Link from "next/link";
-import { useRouter } from "next/router";
-import { getOrganizationBySiret, postOrganization } from "@/lib/organizations";
-import { signup } from "@/lib/auth";
-import { FormItem } from "@/components/utils/formItem";
-import UsersLock from "@/components/assets/icons/usersLock";
+import Link from "next/link"
+import { useRouter } from "next/router"
+import { useState } from "react"
+import { signup } from "@/lib/auth"
+import { getOrganizationBySiret, postOrganization } from "@/lib/organizations"
+import UsersLock from "@/components/assets/icons/usersLock"
+import { FormItem } from "@/components/utils/formItem"
 import {
   containsCapital,
   containsSpecialChar,
-  detectLowerCase,
-} from "@/components/utils/functions";
+  detectLowerCase
+} from "@/components/utils/functions"
 
 const verifyField = (formState: any) => {
-  let pattern = /@gmail(\.com)?/;
+  let pattern = /@gmail(\.com)?/
   if (!formState?.terms) {
-    return "Vous n'avez pas accepté les conditions d'utilisation.";
+    return "Vous n'avez pas accepté les conditions d'utilisation."
   } else if (!formState?.email) {
-    return "vous n'avez pas saisie email";
+    return "vous n'avez pas saisie email"
   } else if (pattern.test(formState?.email)) {
-    return "vous n'avez pas un domaine autorisé (@gmail)";
+    return "vous n'avez pas un domaine autorisé (@gmail)"
   } else if (formState?.siret?.length !== 14) {
-    return "Vous n'avez pas saisie de numéro de siret";
+    return "Vous n'avez pas saisie de numéro de siret"
   } else if (formState?.password?.length < 8) {
-    return "Password: Vous n'avez pas saisie le nombre minimum de charactère demandé";
+    return "Password: Vous n'avez pas saisie le nombre minimum de charactère demandé"
   } else if (!containsCapital(formState?.password)) {
-    return "Password: Vous n'avez pas saisie de majuscule";
+    return "Password: Vous n'avez pas saisie de majuscule"
   } else if (!detectLowerCase(formState?.password)) {
-    return "Password: Vous n'avez pas saisie de minuscule";
+    return "Password: Vous n'avez pas saisie de minuscule"
   } else if (!containsSpecialChar(formState?.password)) {
-    return "Password: Vous n'avez pas saisie de caractère spécial";
+    return "Password: Vous n'avez pas saisie de caractère spécial"
   } else if (!formState?.phone) {
-    return "Le numéro de téléphone n'est pas valide";
+    return "Le numéro de téléphone n'est pas valide"
   } else {
-    return false;
+    return false
   }
-};
+}
 
 const SignupPage = () => {
-  const router = useRouter();
+  const router = useRouter()
   const [requestMessage, setRequestMessage] = useState<any>({
     type: null,
-    message: "",
-  });
+    message: ""
+  })
   const [formState, setFormState] = useState<any>({
     firstname: "",
     lastname: "",
@@ -52,65 +52,65 @@ const SignupPage = () => {
     civility: "",
     terms: false, // no add
     newsletter: false, // no add
-    roles: ["user"],
-  });
+    roles: ["user"]
+  })
 
   const onFormChange = (e: any) => {
     if (e.target) {
       setFormState({
         ...formState,
-        [e.target.name]: e.target.value,
-      });
+        [e.target.name]: e.target.value
+      })
     }
-  };
+  }
 
   const handleSubmit = async (e: { preventDefault: () => void }) => {
-    e.preventDefault();
-    const verify = verifyField(formState);
+    e.preventDefault()
+    const verify = verifyField(formState)
     if (!verify) {
-      const organization: any = await getOrganizationBySiret(formState.siret);
+      const organization: any = await getOrganizationBySiret(formState.siret)
       if (!organization) {
-        const createOrganization = await postOrganization(formState.siret);
+        const createOrganization = await postOrganization(formState.siret)
         const userBuild = {
           ...formState,
-          idOrganization: createOrganization.id,
-        };
-        const createUser = await signup(userBuild);
+          idOrganization: createOrganization.id
+        }
+        const createUser = await signup(userBuild)
         if (!createUser) {
-          setRequestMessage({ type: true, message: createUser });
-          return;
+          setRequestMessage({ type: true, message: createUser })
+          return
         }
         setRequestMessage({
           type: false,
-          message: "",
-        });
-        router.push("/auth/signin");
+          message: ""
+        })
+        router.push("/auth/signin")
       } else {
         if (organization?.id) {
           const userBuild = {
             ...formState,
             username: formState.firstname + " " + formState.lastname,
-            idOrganization: organization.id,
-          };
-
-          delete userBuild.firstname;
-          delete userBuild.lastname;
-
-          const createUser = await signup(userBuild);
-          if (!createUser) {
-            setRequestMessage({ type: true, message: createUser });
-            return;
+            idOrganization: organization.id
           }
-          router.push("/auth/signin");
+
+          delete userBuild.firstname
+          delete userBuild.lastname
+
+          const createUser = await signup(userBuild)
+          if (!createUser) {
+            setRequestMessage({ type: true, message: createUser })
+            return
+          }
+          router.push("/auth/signin")
         }
       }
     } else {
       setRequestMessage({
         type: false,
-        message: verify,
-      });
+        message: verify
+      })
     }
-  };
+  }
 
   return (
     <section className="text-gray-600 body-font  my-[15vh]">
@@ -149,7 +149,7 @@ const SignupPage = () => {
                 onChange={(_e) =>
                   setFormState({
                     ...formState,
-                    civility: "Mme",
+                    civility: "Mme"
                   })
                 }
               />
@@ -164,7 +164,7 @@ const SignupPage = () => {
                 onChange={(_e) =>
                   setFormState({
                     ...formState,
-                    civility: "M.",
+                    civility: "M."
                   })
                 }
               />
@@ -241,7 +241,7 @@ const SignupPage = () => {
                 onChange={(_e) =>
                   setFormState({
                     ...formState,
-                    newsletter: !formState.newsletter,
+                    newsletter: !formState.newsletter
                   })
                 }
               />
@@ -259,7 +259,7 @@ const SignupPage = () => {
                 onChange={(_e) =>
                   setFormState({
                     ...formState,
-                    terms: !formState.terms,
+                    terms: !formState.terms
                   })
                 }
               />
@@ -296,7 +296,7 @@ const SignupPage = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default SignupPage;
+export default SignupPage

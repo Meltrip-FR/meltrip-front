@@ -1,6 +1,6 @@
-import Link from "next/link";
-import LogoColor from "../assets/icons/logoColor";
-import Love from "../assets/icons/love";
+import Link from "next/link"
+import LogoColor from "../assets/icons/logoColor"
+import Love from "../assets/icons/love"
 
 const ThanksCard = () => {
   return (
@@ -28,7 +28,7 @@ const ThanksCard = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ThanksCard;
+export default ThanksCard

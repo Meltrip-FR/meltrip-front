@@ -219,7 +219,7 @@ const CGV = () => {
         </p>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default CGV;
+export default CGV

@@ -1,16 +1,16 @@
-import axios from "axios";
-import { useRouter } from "next/router";
-import { useCallback, useEffect, useState } from "react";
-import ReactPaginate from "react-paginate";
+import axios from "axios"
+import { useRouter } from "next/router"
+import { useCallback, useEffect, useState } from "react"
+import ReactPaginate from "react-paginate"
 
 const BlogPage = () => {
-  const router = useRouter();
-  const [openTab, setOpenTab] = useState("/blog/articles");
+  const router = useRouter()
+  const [openTab, setOpenTab] = useState("/blog/articles")
 
-  const [postsPerPage] = useState(6);
-  const [offset, setOffset] = useState(0);
-  const [posts, setAllPosts] = useState<any>([]);
-  const [pageCount, setPageCount] = useState(0);
+  const [postsPerPage] = useState(6)
+  const [offset, setOffset] = useState(0)
+  const [posts, setAllPosts] = useState<any>([])
+  const [pageCount, setPageCount] = useState(0)
 
   const getPostData = useCallback(
     async (data: any) => {
@@ -61,10 +61,10 @@ const BlogPage = () => {
             </div>
           </div>
         ))
-      );
+      )
     },
     [router]
-  );
+  )
 
   const PostView = () => {
     return (
@@ -90,38 +90,38 @@ const BlogPage = () => {
           )}
         />
       </section>
-    );
-  };
+    )
+  }
 
   const getAllPosts = useCallback(
     async (url: string) => {
       try {
-        const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}${url}`);
-        const data = res.data;
+        const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}${url}`)
+        const data = res.data
         const slice = data
           .filter((i: any) => i.status === true)
-          .slice(offset - 1, offset - 1 + postsPerPage);
+          .slice(offset - 1, offset - 1 + postsPerPage)
         // For displaying Data
-        const postData = await getPostData(slice);
+        const postData = await getPostData(slice)
         // Using Hooks to set value
-        setAllPosts(postData);
-        setPageCount(Math.ceil(data.length / postsPerPage));
+        setAllPosts(postData)
+        setPageCount(Math.ceil(data.length / postsPerPage))
       } catch (error: any) {
         error?.response?.data?.message &&
-          console.error(error.response.data.message);
+          console.error(error.response.data.message)
       }
     },
     [getPostData, offset, postsPerPage]
-  );
+  )
 
   const handlePageClick = (event: any) => {
-    const selectedPage = event.selected;
-    setOffset(selectedPage + 1);
-  };
+    const selectedPage = event.selected
+    setOffset(selectedPage + 1)
+  }
 
   useEffect(() => {
-    getAllPosts(openTab);
-  }, [getAllPosts, openTab]);
+    getAllPosts(openTab)
+  }, [getAllPosts, openTab])
 
   return (
     <section className="text-gray-900 body-font">
@@ -137,8 +137,8 @@ const BlogPage = () => {
                 "border-meltrip-primary border-b-4 font-bold")
             }
             onClick={(e) => {
-              e.preventDefault();
-              setOpenTab("/blog/articles");
+              e.preventDefault()
+              setOpenTab("/blog/articles")
             }}
           >
             <p>Tous les articles</p>
@@ -150,8 +150,8 @@ const BlogPage = () => {
                 "border-meltrip-primary border-b-4 font-bold")
             }
             onClick={(e) => {
-              e.preventDefault();
-              setOpenTab("/blog/articles?tag=actualites");
+              e.preventDefault()
+              setOpenTab("/blog/articles?tag=actualites")
             }}
           >
             <p>Actualités</p>
@@ -163,8 +163,8 @@ const BlogPage = () => {
                 "border-meltrip-primary border-b-4 font-bold")
             }
             onClick={(e) => {
-              e.preventDefault();
-              setOpenTab("/blog/articles?tag=temoignages");
+              e.preventDefault()
+              setOpenTab("/blog/articles?tag=temoignages")
             }}
           >
             <p>Témoignages</p>
@@ -201,7 +201,7 @@ const BlogPage = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default BlogPage;
+export default BlogPage

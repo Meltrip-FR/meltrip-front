@@ -1,20 +1,20 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit"
 
 export const initialState = {
-  mode: "",
-};
+  mode: ""
+}
 
 export const deviceSlice = createSlice({
   name: "device",
   initialState,
   reducers: {
     type: (state, action) => {
-      const load = action.payload;
-      state.mode = load.mode;
-    },
-  },
-});
+      const load = action.payload
+      state.mode = load.mode
+    }
+  }
+})
 
-const { actions, reducer } = deviceSlice;
-export const { type } = actions;
-export default reducer;
+const { actions, reducer } = deviceSlice
+export const { type } = actions
+export default reducer

@@ -1,15 +1,15 @@
-import React from "react";
-import { AiOutlineArrowRight } from "react-icons/ai";
-import { meets } from "../data";
-import { useRouter } from "next/router";
+import { useRouter } from "next/router"
+import React from "react"
+import { AiOutlineArrowRight } from "react-icons/ai"
+import { meets } from "../data"
 
 const WideCard = ({ data }: any) => {
-  console.log(`url(${data.imageLink}`);
+  console.log(`url(${data.imageLink}`)
   const styles = {
-    backgroundImage: `url(${data.imageLink})`,
-  };
+    backgroundImage: `url(${data.imageLink})`
+  }
 
-  const router = useRouter();
+  const router = useRouter()
 
   return (
     <div
@@ -28,7 +28,7 @@ const WideCard = ({ data }: any) => {
           <div className="flex justify-center items-center rounded-full bg-white h-[46px] w-[46px] 2xl:h-[40px] 2xl:w-[60px]  xl:h-[60px] xl:w-[60px] 3xl:h-[70px] 3xl:w-[70px]">
             <button
               onClick={() => {
-                router.push(`/templates/${meets[0].id}`);
+                router.push(`/templates/${meets[0].id}`)
               }}
             >
               <AiOutlineArrowRight className="text-black text-2xl" />
@@ -37,7 +37,7 @@ const WideCard = ({ data }: any) => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default WideCard;
+export default WideCard

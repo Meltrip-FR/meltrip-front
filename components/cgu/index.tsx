@@ -1,7 +1,7 @@
-import store from "@/redux/store";
+import store from "@/redux/store"
 
 const CGU = () => {
-  let { auth } = store.getState();
+  let { auth } = store.getState()
 
   return (
     <div className="flex flex-col items-center justify-center mt-10">
@@ -356,7 +356,7 @@ const CGU = () => {
         </p>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default CGU;
+export default CGU

@@ -1,7 +1,7 @@
-import LimitInvite from "@/components/invites/limit";
+import LimitInvite from "@/components/invites/limit"
 
 const LimitInvitePage = () => {
-  return <LimitInvite />;
-};
+  return <LimitInvite />
+}
 
-export default LimitInvitePage;
+export default LimitInvitePage

@@ -1,30 +1,30 @@
-import BreadCrumbs from "@/components/utils/breadCrumbs";
-import { useAppSelector } from "@/redux/hooks";
-import axios from "axios";
-import { useRouter } from "next/router";
-import { useCallback, useEffect, useState } from "react";
+import axios from "axios"
+import { useRouter } from "next/router"
+import { useCallback, useEffect, useState } from "react"
+import { useAppSelector } from "@/redux/hooks"
+import BreadCrumbs from "@/components/utils/breadCrumbs"
 
 const Seminar = () => {
-  const router = useRouter();
-  const { auth } = useAppSelector((state) => state);
-  const [seminarList, setListSeminar] = useState<any>();
+  const router = useRouter()
+  const { auth } = useAppSelector((state) => state)
+  const [seminarList, setListSeminar] = useState<any>()
   const getSeminar = useCallback(async () => {
     const seminar = await axios.get(
       `${process.env.NEXT_PUBLIC_API_URL}/seminars/${auth.user.id}`,
       {
         headers: {
-          "x-access-token": auth.user.accessToken,
-        },
+          "x-access-token": auth.user.accessToken
+        }
       }
-    );
-    const seminarList = seminar.data;
-    setListSeminar(seminarList);
-  }, [auth.user.accessToken, auth.user.id]);
+    )
+    const seminarList = seminar.data
+    setListSeminar(seminarList)
+  }, [auth.user.accessToken, auth.user.id])
 
   useEffect(() => {
     //const getUser  = loadCompany();
-    getSeminar().catch((e) => console.error(e));
-  }, [getSeminar]);
+    getSeminar().catch((e) => console.error(e))
+  }, [getSeminar])
 
   return (
     <section className="text-gray-600 body-font">
@@ -87,7 +87,7 @@ const Seminar = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Seminar;
+export default Seminar

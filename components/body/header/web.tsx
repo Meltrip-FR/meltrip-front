@@ -1,19 +1,18 @@
-import { Fragment, useState } from "react";
-import { useRouter } from "next/router";
-import { useAppDispatch, useAppSelector } from "@/redux/hooks";
-import { logout } from "@/redux/slices/auth.slice";
-
+import { useRouter } from "next/router"
+import { Fragment, useState } from "react"
+import { UserBadge } from "./userBadge"
+import { useAppDispatch, useAppSelector } from "@/redux/hooks"
+import { logout } from "@/redux/slices/auth.slice"
 // Icons
-import Logo from "@/components/assets/icons/logo";
-import { UserBadge } from "./userBadge";
-import Menu from "@/components/assets/icons/menu";
+import Logo from "@/components/assets/icons/logo"
+import Menu from "@/components/assets/icons/menu"
 
 const WebHeader = () => {
-  const router = useRouter();
-  const dispatch = useAppDispatch();
-  const { auth } = useAppSelector((state) => state);
+  const router = useRouter()
+  const dispatch = useAppDispatch()
+  const { auth } = useAppSelector((state) => state)
 
-  const [openDrawer, setOpenDrawer] = useState(false);
+  const [openDrawer, setOpenDrawer] = useState(false)
 
   return (
     <div className="w-full bg-meltrip-primary bg-opacity-[17%] font-body font-poppins">
@@ -76,7 +75,7 @@ const WebHeader = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default WebHeader;
+export default WebHeader

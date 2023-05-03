@@ -1,8 +1,8 @@
-import { convertDate } from "@/components/utils/convertDate";
-import Link from "next/link";
+import Link from "next/link"
+import { convertDate } from "@/components/utils/convertDate"
 
 const SuccessCard = ({ seminarData }: any) => {
-  console.log(seminarData);
+  console.log(seminarData)
   return (
     <div className="flex flex-wrap">
       {seminarData?.map((seminar: any, index: any) => (
@@ -32,7 +32,7 @@ const SuccessCard = ({ seminarData }: any) => {
         </Link>
       ))}
     </div>
-  );
-};
+  )
+}
 
-export default SuccessCard;
+export default SuccessCard

@@ -1,13 +1,12 @@
-import HappyGroup from "@/components/assets/icons/happyGroup";
-import CardTeams from "./card";
-
+import Audrey from "../assets/pictures/audrey.jpeg"
+import Eleonor from "../assets/pictures/eleonor.jpg"
+import Kelly from "../assets/pictures/kelly.jpg"
 // Pictures
-import Louise from "../assets/pictures/louise.png";
-import Audrey from "../assets/pictures/audrey.jpeg";
-import Kelly from "../assets/pictures/kelly.jpg";
-import Eleonor from "../assets/pictures/eleonor.jpg";
-import Mathieu from "../assets/pictures/mathieu.png";
-import Crouch from "@/components/assets/icons/crouch";
+import Louise from "../assets/pictures/louise.png"
+import Mathieu from "../assets/pictures/mathieu.png"
+import CardTeams from "./card"
+import Crouch from "@/components/assets/icons/crouch"
+import HappyGroup from "@/components/assets/icons/happyGroup"
 
 const Teams = () => {
   return (
@@ -150,7 +149,7 @@ const Teams = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Teams;
+export default Teams

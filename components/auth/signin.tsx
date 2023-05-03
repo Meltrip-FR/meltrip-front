@@ -1,39 +1,39 @@
-import { useState } from "react";
-import { useRouter } from "next/router";
-import axios from "axios";
-import Link from "next/link";
-import { useAppDispatch } from "@/redux/hooks";
-import { login } from "@/redux/slices/auth.slice";
-import { FormItem } from "@/components/utils/formItem";
-import SigninIcon from "@/components/assets/icons/auth/signin";
+import axios from "axios"
+import Link from "next/link"
+import { useRouter } from "next/router"
+import { useState } from "react"
+import { useAppDispatch } from "@/redux/hooks"
+import { login } from "@/redux/slices/auth.slice"
+import SigninIcon from "@/components/assets/icons/auth/signin"
+import { FormItem } from "@/components/utils/formItem"
 
 const SigninPage = () => {
-  const router = useRouter();
-  const dispatch = useAppDispatch();
+  const router = useRouter()
+  const dispatch = useAppDispatch()
 
-  const [requestMessage, setRequestMessage] = useState<string>("");
+  const [requestMessage, setRequestMessage] = useState<string>("")
   const [formState, setFormState] = useState({
     email: "",
-    password: "",
-  });
+    password: ""
+  })
 
   const onFormChange = (e: any) => {
     if (e.target) {
       setFormState({
         ...formState,
-        [e.target.name]: e.target.value,
-      });
+        [e.target.name]: e.target.value
+      })
     }
-  };
+  }
 
   async function handleSubmit(e: { preventDefault: () => void }) {
-    e.preventDefault();
+    e.preventDefault()
     const userData = await axios.post(
       `${process.env.NEXT_PUBLIC_API_URL}/auth/signin`,
       formState
-    );
+    )
 
-    const user = userData?.data?.dataValues;
+    const user = userData?.data?.dataValues
 
     const loginBuild = {
       login: true as boolean,
@@ -48,14 +48,14 @@ const SigninPage = () => {
         roles: user?.roles,
         accessToken: userData?.data?.accessToken,
         confirmEmail: user?.confirmEmail,
-        idOrganization: user?.idOrganization,
-      },
-    };
+        idOrganization: user?.idOrganization
+      }
+    }
 
-    const loading = dispatch(login(loginBuild as any));
+    const loading = dispatch(login(loginBuild as any))
 
     if (loading?.payload) {
-      router.push("/user/dashboard");
+      router.push("/user/dashboard")
     }
   }
 
@@ -115,7 +115,7 @@ const SigninPage = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default SigninPage;
+export default SigninPage

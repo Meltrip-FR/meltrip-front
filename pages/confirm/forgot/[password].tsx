@@ -1,53 +1,53 @@
-import { useCallback, useEffect, useState } from "react";
-import { useRouter } from "next/router";
-import axios from "axios";
-import Home from "pages";
+import axios from "axios"
+import { useRouter } from "next/router"
+import Home from "pages"
+import { useCallback, useEffect, useState } from "react"
 
 const ConfirmForgotPasswordPage = () => {
-  const router = useRouter();
+  const router = useRouter()
 
-  const [id, setId] = useState<string>("");
-  const [email, setEmail] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
-  const [requestMessage, setRequestMessage] = useState<string>("");
+  const [id, setId] = useState<string>("")
+  const [email, setEmail] = useState<string>("")
+  const [password, setPassword] = useState<string>("")
+  const [requestMessage, setRequestMessage] = useState<string>("")
 
   const loadData = useCallback(async () => {
     const res = await axios.get(
       `${process.env.NEXT_PUBLIC_API_URL}/user/${router.query.usertag}/tag`
-    );
-    const data = await res.data;
+    )
+    const data = await res.data
 
     if (data.email) {
       await axios
         .post(`${process.env.NEXT_PUBLIC_API_URL}/auth/signin`, {
           email: data.email,
-          password: router.query.password,
+          password: router.query.password
         })
         .then((res) => {
           if (res.data.id) {
-            setId(res.data.id);
-            setEmail(res.data.email);
-            return;
+            setId(res.data.id)
+            setEmail(res.data.email)
+            return
           }
-        });
+        })
     }
-  }, [router.query.password, router.query.usertag]);
+  }, [router.query.password, router.query.usertag])
 
   const handleSubmit = async (e: { preventDefault: () => void }) => {
-    e.preventDefault();
+    e.preventDefault()
     await axios
       .put(`${process.env.NEXT_PUBLIC_API_URL}/user/${id}`, {
-        password,
+        password
       })
       .then(({ data }) => {
-        console.log(data);
+        console.log(data)
       })
-      .catch((error) => setRequestMessage(error.response.data.message));
-  };
+      .catch((error) => setRequestMessage(error.response.data.message))
+  }
 
   useEffect(() => {
-    !router.isReady || loadData().catch((e) => console.error(e));
-  }, [loadData, router.query, router.isReady]);
+    !router.isReady || loadData().catch((e) => console.error(e))
+  }, [loadData, router.query, router.isReady])
 
   return (
     <Home>
@@ -79,7 +79,7 @@ const ConfirmForgotPasswordPage = () => {
         </form>
       </div>
     </Home>
-  );
-};
+  )
+}
 
-export default ConfirmForgotPasswordPage;
+export default ConfirmForgotPasswordPage

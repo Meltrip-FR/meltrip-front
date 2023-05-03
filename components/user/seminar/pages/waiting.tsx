@@ -1,45 +1,45 @@
-import { getPayementBySeminarId } from "@/lib/payements";
-import { getSeminarByUserId, updateSeminarById } from "@/lib/seminar";
-import { useAppSelector } from "@/redux/hooks";
-import { useRouter } from "next/router";
-import { useCallback, useEffect, useState } from "react";
-import WaitingCard from "../cards/waiting";
-import BreadCrumbs from "@/components/utils/breadCrumbs";
+import { useRouter } from "next/router"
+import { useCallback, useEffect, useState } from "react"
+import WaitingCard from "../cards/waiting"
+import { getPayementBySeminarId } from "@/lib/payements"
+import { getSeminarByUserId, updateSeminarById } from "@/lib/seminar"
+import { useAppSelector } from "@/redux/hooks"
+import BreadCrumbs from "@/components/utils/breadCrumbs"
 
 const Waiting = () => {
-  const router = useRouter();
-  const { auth } = useAppSelector((state) => state);
-  const [seminarList, setListSeminar] = useState<any>();
+  const router = useRouter()
+  const { auth } = useAppSelector((state) => state)
+  const [seminarList, setListSeminar] = useState<any>()
 
   const arrayFilterbyType = (type: string): any => {
-    return seminarList?.filter((item: any) => item.status === type);
-  };
+    return seminarList?.filter((item: any) => item.status === type)
+  }
 
   const getSeminar = useCallback(async () => {
     const seminar: any = await getSeminarByUserId(
       auth.user.accessToken,
       auth.user.id
-    );
+    )
 
-    setListSeminar(seminar);
-  }, [auth.user.accessToken, auth.user.id]);
+    setListSeminar(seminar)
+  }, [auth.user.accessToken, auth.user.id])
 
   useEffect(() => {
-    getSeminar().catch((e) => console.error(e));
+    getSeminar().catch((e) => console.error(e))
     seminarList
       ?.filter((item: any) => item.status === "Attente")
       .map(async (item: any) => {
         const payement = await getPayementBySeminarId(
           auth.user.accessToken,
           item?.idPayement
-        );
+        )
         if (payement.status === "Terminé") {
           await updateSeminarById(auth.user.accessToken, item.id, {
-            status: "Terminé",
-          });
+            status: "Terminé"
+          })
         }
-      });
-  }, [getSeminar]);
+      })
+  }, [getSeminar])
 
   return (
     <section className="text-gray-600 body-font">
@@ -65,7 +65,7 @@ const Waiting = () => {
         <WaitingCard seminarData={arrayFilterbyType("Attente")} />
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Waiting;
+export default Waiting

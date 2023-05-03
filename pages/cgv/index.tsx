@@ -1,12 +1,12 @@
-import CGV from "@/components/cgv";
-import Home from "pages";
+import Home from "pages"
+import CGV from "@/components/cgv"
 
 const cgvPage = () => {
   return (
     <Home>
       <CGV />
     </Home>
-  );
-};
+  )
+}
 
-export default cgvPage;
+export default cgvPage

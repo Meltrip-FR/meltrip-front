@@ -1,12 +1,12 @@
-import React from "react";
-import { AiOutlineArrowRight, AiFillHeart } from "react-icons/ai";
-import { useRouter } from "next/router";
+import { useRouter } from "next/router"
+import React from "react"
+import { AiFillHeart, AiOutlineArrowRight } from "react-icons/ai"
 
 const SmallCard = ({ data }: any) => {
-  const router = useRouter();
+  const router = useRouter()
   const styles = {
-    backgroundImage: `url(${data.cardImage})`,
-  };
+    backgroundImage: `url(${data.cardImage})`
+  }
 
   // flex flex-col justify-between w-[${screen.sw(485)}px] h-[${screen.sh(374)px] rounded-[12px]
   return (
@@ -38,14 +38,14 @@ const SmallCard = ({ data }: any) => {
             <AiOutlineArrowRight
               className="text-[#186E7A]  md:text-2xl xl:text-2xl"
               onClick={() => {
-                router.push(`templates/${data.id}`);
+                router.push(`templates/${data.id}`)
               }}
             />
           </button>
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default SmallCard;
+export default SmallCard

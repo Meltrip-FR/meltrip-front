@@ -1,47 +1,47 @@
-import { getPayementBySeminarId } from "@/lib/payements";
-import { getSeminarByUserId, updateSeminarById } from "@/lib/seminar";
-import { useAppSelector } from "@/redux/hooks";
-import { useRouter } from "next/router";
-import { useCallback, useEffect, useState } from "react";
-import SuccessCard from "../cards/success";
-import BreadCrumbs from "@/components/utils/breadCrumbs";
+import { useRouter } from "next/router"
+import { useCallback, useEffect, useState } from "react"
+import SuccessCard from "../cards/success"
+import { getPayementBySeminarId } from "@/lib/payements"
+import { getSeminarByUserId, updateSeminarById } from "@/lib/seminar"
+import { useAppSelector } from "@/redux/hooks"
+import BreadCrumbs from "@/components/utils/breadCrumbs"
 
 const Success = () => {
-  const router = useRouter();
-  const { auth } = useAppSelector((state) => state);
-  const [seminarList, setListSeminar] = useState<any>();
+  const router = useRouter()
+  const { auth } = useAppSelector((state) => state)
+  const [seminarList, setListSeminar] = useState<any>()
 
   const arrayFilterbyType = (type: string): any => {
-    return seminarList?.filter((item: any) => item.status === type);
-  };
+    return seminarList?.filter((item: any) => item.status === type)
+  }
 
   const getSeminar = useCallback(async () => {
     const seminar: any = await getSeminarByUserId(
       auth.user.accessToken,
       auth.user.id
-    );
+    )
 
-    setListSeminar(seminar);
-  }, [auth.user.accessToken, auth.user.id]);
+    setListSeminar(seminar)
+  }, [auth.user.accessToken, auth.user.id])
 
   useEffect(() => {
-    getSeminar().catch((e) => console.error(e));
+    getSeminar().catch((e) => console.error(e))
     seminarList
       ?.filter((item: any) => item.status === "Accepté")
       .map(async (item: any) => {
         const payement = await getPayementBySeminarId(
           auth.user.accessToken,
           item?.idPayement
-        );
+        )
         if (payement.status === "Terminé") {
           await updateSeminarById(auth.user.accessToken, item.id, {
-            status: "Terminé",
-          });
+            status: "Terminé"
+          })
         }
-      });
-  }, [getSeminar]);
+      })
+  }, [getSeminar])
 
-  console.log(arrayFilterbyType("Accepté"));
+  console.log(arrayFilterbyType("Accepté"))
   return (
     <section className="text-gray-600 body-font">
       <div className="container px-5 py-14 mx-auto">
@@ -65,7 +65,7 @@ const Success = () => {
         <SuccessCard seminarData={arrayFilterbyType("Accepté")} />
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Success;
+export default Success

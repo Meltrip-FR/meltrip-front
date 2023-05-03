@@ -1,35 +1,31 @@
-import LogoColor from "@/components/assets/icons/logoColor";
-import { Fragment, useState } from "react";
-import { questions } from "../data/questions";
+import { Fragment, useState } from "react"
+import { questions } from "../data/questions"
+import LogoColor from "@/components/assets/icons/logoColor"
 
 const First = ({ setFormState, formState }: any) => {
-  const questionsList: any = questions[0];
-  let pattern = /@gmail(\.com)?/;
-  const [errorMessage, setErrorMessage] = useState("");
+  const questionsList: any = questions[0]
+  let pattern = /@gmail(\.com)?/
+  const [errorMessage, setErrorMessage] = useState("")
   const verify = () => {
-    const listVerif = [
-      formState.email,
-      formState.firstname,
-      formState.lastname,
-    ];
+    const listVerif = [formState.email, formState.firstname, formState.lastname]
     if (listVerif.includes("")) {
-      setErrorMessage("Veuillez remplir tous les champs");
+      setErrorMessage("Veuillez remplir tous les champs")
     } else if (pattern.test(formState?.email)) {
-      setErrorMessage("vous n'avez pas un domaine autorisé (@gmail)");
+      setErrorMessage("vous n'avez pas un domaine autorisé (@gmail)")
     } else {
-      setFormState({ ...formState, activeIndex: 0, steps: 2 });
+      setFormState({ ...formState, activeIndex: 0, steps: 2 })
     }
-  };
+  }
 
   const handleChangeActive = (newActiveIndex: any, type: any) => {
-    const oldType = questionsList.answers[formState.activeIndex].type;
+    const oldType = questionsList.answers[formState.activeIndex].type
     setFormState({
       ...formState,
       [oldType]: formState[oldType] !== 0 ? formState[oldType] - 1 : 0,
       [type]: formState[type] + 1,
-      activeIndex: newActiveIndex,
-    });
-  };
+      activeIndex: newActiveIndex
+    })
+  }
 
   return (
     <Fragment>
@@ -95,7 +91,7 @@ const First = ({ setFormState, formState }: any) => {
         </button>
       </div>
     </Fragment>
-  );
-};
+  )
+}
 
-export default First;
+export default First

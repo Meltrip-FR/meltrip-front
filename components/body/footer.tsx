@@ -4,16 +4,15 @@
 // import { addContact } from "database/data/contact";
 
 // //Library && css
+import Link from "next/link"
 // import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-
+import "react-toastify/dist/ReactToastify.css"
 //Icons
-import LogoTitle from "@/components/assets/icons/logoTitle";
-import Instagram from "@/components/assets/icons/socials/instagram";
-import Facebook from "@/components/assets/icons/socials/facebook";
-import Linkedin from "@/components/assets/icons/socials/linkedin";
-import Twitter from "@/components/assets/icons/socials/twitter";
-import Link from "next/link";
+import LogoTitle from "@/components/assets/icons/logoTitle"
+import Facebook from "@/components/assets/icons/socials/facebook"
+import Instagram from "@/components/assets/icons/socials/instagram"
+import Linkedin from "@/components/assets/icons/socials/linkedin"
+import Twitter from "@/components/assets/icons/socials/twitter"
 
 const Footer = () => {
   // const [firstName, setFirstName] = useState<string>("");
@@ -167,7 +166,7 @@ const Footer = () => {
         </div>
       </div>
     </footer>
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer

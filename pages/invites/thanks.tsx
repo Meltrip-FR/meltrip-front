@@ -1,7 +1,7 @@
-import ThanksPage from "@/components/invites/thanks";
+import ThanksPage from "@/components/invites/thanks"
 
 const ThanksPages = () => {
-  return <ThanksPage />;
-};
+  return <ThanksPage />
+}
 
-export default ThanksPages;
+export default ThanksPages

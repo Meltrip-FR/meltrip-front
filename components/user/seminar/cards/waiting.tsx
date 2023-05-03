@@ -1,5 +1,5 @@
-import { convertDate } from "@/components/utils/convertDate";
-import Link from "next/link";
+import Link from "next/link"
+import { convertDate } from "@/components/utils/convertDate"
 
 const WaitingCard = ({ seminarData }: any) => {
   return (
@@ -31,7 +31,7 @@ const WaitingCard = ({ seminarData }: any) => {
         </Link>
       ))}
     </div>
-  );
-};
+  )
+}
 
-export default WaitingCard;
+export default WaitingCard

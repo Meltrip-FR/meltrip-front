@@ -1,4 +1,4 @@
-import router from "next/router";
+import router from "next/router"
 
 const Custom500 = () => {
   return (
@@ -21,7 +21,7 @@ const Custom500 = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Custom500;
+export default Custom500

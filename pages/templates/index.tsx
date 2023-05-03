@@ -1,5 +1,5 @@
-import SeminarTemplate from "@/components/templates";
-import Layout from "pages";
+import Layout from "pages"
+import SeminarTemplate from "@/components/templates"
 
 const SeminarTemplatePage = () => {
   return (
@@ -8,7 +8,7 @@ const SeminarTemplatePage = () => {
         <SeminarTemplate />
       </div>
     </Layout>
-  );
-};
+  )
+}
 
-export default SeminarTemplatePage;
+export default SeminarTemplatePage

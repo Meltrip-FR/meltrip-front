@@ -35,7 +35,7 @@ const BreadCrumbs = ({ url, name, active }: any) => {
         </div>
       )}
     </>
-  );
-};
+  )
+}
 
-export default BreadCrumbs;
+export default BreadCrumbs

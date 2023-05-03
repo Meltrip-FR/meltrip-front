@@ -1,4 +1,4 @@
-import HappyGroup from "../assets/icons/happyGroup";
+import HappyGroup from "../assets/icons/happyGroup"
 
 const SiteDown = () => {
   return (
@@ -6,7 +6,7 @@ const SiteDown = () => {
       <HappyGroup height={300} width={700} />
       <h1 className="text-meltrip-primary text-4xl mt-14">Meltrip</h1>
     </div>
-  );
-};
+  )
+}
 
-export default SiteDown;
+export default SiteDown

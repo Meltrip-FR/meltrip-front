@@ -1,104 +1,104 @@
-import { useRouter } from "next/router";
-import { Fragment, useEffect, useState } from "react";
-import City from "../assets/icons/seminar/city";
-import Drill from "../assets/icons/seminar/drill";
-import Sunny from "../assets/icons/seminar/sunny";
-import Integration from "../assets/icons/integration";
-import Formation from "../assets/icons/formation";
-import Management from "../assets/icons/Management";
-import Commercial from "../assets/icons/Commercial";
+import { useRouter } from "next/router"
+import { Fragment, useEffect, useState } from "react"
+import Commercial from "../assets/icons/Commercial"
+import Formation from "../assets/icons/formation"
+import Integration from "../assets/icons/integration"
+import Management from "../assets/icons/Management"
+import City from "../assets/icons/seminar/city"
+import Drill from "../assets/icons/seminar/drill"
+import Sunny from "../assets/icons/seminar/sunny"
 
 const formListSleep = [
   {
     key: 1,
-    value: "Chez l'habitant, guest-house, etc.",
+    value: "Chez l'habitant, guest-house, etc."
   },
   {
     key: 2,
-    value: "Hôtels simples (propres et peu chers)",
+    value: "Hôtels simples (propres et peu chers)"
   },
   {
     key: 3,
-    value: "Hôtels confortables (équivalent 3 étoiles)",
+    value: "Hôtels confortables (équivalent 3 étoiles)"
   },
   {
     key: 4,
-    value: "Hôtels charme et luxe (équivalent 4 étoiles ou plus",
+    value: "Hôtels charme et luxe (équivalent 4 étoiles ou plus"
   },
   {
     key: 5,
-    value: "Hébergements d'Exception, Lodges Haut de gamme",
-  },
-];
+    value: "Hébergements d'Exception, Lodges Haut de gamme"
+  }
+]
 const formSeminarType = [
   {
     key: 1,
     value: "Intégration",
-    picture: <Integration height={150} width={230} />,
+    picture: <Integration height={150} width={230} />
   },
   {
     key: 2,
     value: "Formation",
-    picture: <Formation height={150} width={230} />,
+    picture: <Formation height={150} width={230} />
   },
   {
     key: 3,
     value: "Management",
-    picture: <Management height={150} width={230} />,
+    picture: <Management height={150} width={230} />
   },
   {
     key: 4,
     value: "Commercial",
-    picture: <Commercial height={150} width={230} />,
-  },
-];
+    picture: <Commercial height={150} width={230} />
+  }
+]
 const formDestinationType = [
   { key: 1, value: "Mer", picture: <Sunny height={150} width={230} /> },
   { key: 2, value: "Ville", picture: <City height={150} width={230} /> },
-  { key: 3, value: "Montagne", picture: <Drill height={150} width={230} /> },
-];
+  { key: 3, value: "Montagne", picture: <Drill height={150} width={230} /> }
+]
 
 const SecondSignup = ({
   formState,
   onFormChange,
   setFormState,
-  setNextPage,
+  setNextPage
 }: any) => {
-  const router = useRouter();
-  const [pathname, setPathName] = useState<string>("");
+  const router = useRouter()
+  const [pathname, setPathName] = useState<string>("")
   const [errorMessage, setErrorMessage] = useState<any>({
     type: "",
-    message: "",
-  });
+    message: ""
+  })
 
   useEffect(() => {
-    setPathName(router.pathname);
-  }, [router.pathname]);
+    setPathName(router.pathname)
+  }, [router.pathname])
 
   const verifyNextPage = () => {
     if (!formState?.typeSeminar) {
       setErrorMessage({
         type: "typeSeminar",
-        message: "Vous devez choisir un type de séminaire",
-      });
+        message: "Vous devez choisir un type de séminaire"
+      })
     } else if (!formState?.destinationType) {
       setErrorMessage({
         type: "destinationType",
-        message: "Vous n'avez pas sélectionné un type de destination",
-      });
+        message: "Vous n'avez pas sélectionné un type de destination"
+      })
     } else if (!formState?.sleepSuggest) {
       setErrorMessage({
         type: "sleepSuggest",
-        message: "Vous n'avez pas sélectionné un type d'hébergement",
-      });
+        message: "Vous n'avez pas sélectionné un type d'hébergement"
+      })
     } else {
       setErrorMessage({
         type: "",
-        message: "",
-      });
-      pathname === "/seminar/create" ? setNextPage(3.1) : setNextPage(3);
+        message: ""
+      })
+      pathname === "/seminar/create" ? setNextPage(3.1) : setNextPage(3)
     }
-  };
+  }
 
   return (
     <Fragment>
@@ -142,14 +142,14 @@ const SecondSignup = ({
                     onChange={(_e) => {
                       setFormState({
                         ...formState,
-                        typeSeminar: element.value,
-                      });
+                        typeSeminar: element.value
+                      })
                     }}
                   />
                 </div>{" "}
               </label>
             </div>
-          );
+          )
         })}
       </div>
       {/* Destination Type */}
@@ -183,14 +183,14 @@ const SecondSignup = ({
                     onChange={(_e) => {
                       setFormState({
                         ...formState,
-                        destinationType: element.value,
-                      });
+                        destinationType: element.value
+                      })
                     }}
                   />
                 </div>{" "}
               </label>
             </div>
-          );
+          )
         })}
       </div>
       {/* Budget par personne (facultatif) */}
@@ -233,7 +233,7 @@ const SecondSignup = ({
                 onChange={(_e) =>
                   setFormState({
                     ...formState,
-                    sleepSuggest: sleepSuggest.value,
+                    sleepSuggest: sleepSuggest.value
                   })
                 }
               />
@@ -243,7 +243,7 @@ const SecondSignup = ({
                 </span>
               </label>
             </div>
-          );
+          )
         })}
       </div>
       {/* Describe Project (facultatif) */}
@@ -274,7 +274,7 @@ const SecondSignup = ({
         </div>
       </div>
     </Fragment>
-  );
-};
+  )
+}
 
-export default SecondSignup;
+export default SecondSignup

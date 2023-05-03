@@ -1,43 +1,43 @@
-import { useCallback, useEffect, useState } from "react";
-import axios from "axios";
-import Eyes from "@/components/assets/icons/eyes";
-import LockClose from "@/components/assets/icons/lockClose";
-import BreadCrumbs from "@/components/utils/breadCrumbs";
-import { useAppSelector } from "@/redux/hooks";
-import { FormItem } from "@/components/utils/formItem";
-import Accessibility from "@/components/user/organization";
+import axios from "axios"
+import { useCallback, useEffect, useState } from "react"
+import { useAppSelector } from "@/redux/hooks"
+import Eyes from "@/components/assets/icons/eyes"
+import LockClose from "@/components/assets/icons/lockClose"
+import Accessibility from "@/components/user/organization"
+import BreadCrumbs from "@/components/utils/breadCrumbs"
+import { FormItem } from "@/components/utils/formItem"
 
 const Organization = () => {
-  const { auth } = useAppSelector((state) => state);
-  const [isUpdateEmail, setIsUpdateEmail] = useState<boolean>(false);
-  const [isUpdatePhone, setIsUpdatePhone] = useState<boolean>(false);
+  const { auth } = useAppSelector((state) => state)
+  const [isUpdateEmail, setIsUpdateEmail] = useState<boolean>(false)
+  const [isUpdatePhone, setIsUpdatePhone] = useState<boolean>(false)
 
-  const [formState, setFormState] = useState<any>();
-  const [seminarList, setListSeminar] = useState<any>();
+  const [formState, setFormState] = useState<any>()
+  const [seminarList, setListSeminar] = useState<any>()
   const onFormChange = (e: any) => {
     if (e.target) {
       setFormState({
         ...formState,
-        [e.target.name]: e.target.value,
-      });
+        [e.target.name]: e.target.value
+      })
     }
-  };
+  }
 
   const loadData = useCallback(async () => {
     try {
       const res = await axios.get(
         `${process.env.NEXT_PUBLIC_API_URL}/organization/${auth?.user?.idOrganization}`
-      );
-      setFormState(res.data);
+      )
+      setFormState(res.data)
     } catch (error: any) {
       error?.response?.data?.message &&
-        console.error(error.response.data.message);
+        console.error(error.response.data.message)
     }
-  }, [auth?.user?.idOrganization]);
+  }, [auth?.user?.idOrganization])
 
   useEffect(() => {
-    loadData();
-  }, [auth, loadData]);
+    loadData()
+  }, [auth, loadData])
 
   return (
     <section className="text-gray-600 body-font">
@@ -56,7 +56,7 @@ const Organization = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Organization;
+export default Organization

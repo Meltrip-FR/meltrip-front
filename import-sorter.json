@@ -1,0 +1,57 @@
+{
+  "importSorter.generalConfiguration.sortOnBeforeSave": true,
+  "importSorter.importStringConfiguration.maximumNumberOfImportExpressionsPerLine.type": "newLineEachExpressionAfterCountLimitExceptIfOnlyOne",
+  "importSorter.importStringConfiguration.maximumNumberOfImportExpressionsPerLine.count": 80,
+  "importSorter.importStringConfiguration.tabSize": 2,
+  "importSorter.importStringConfiguration.numberOfEmptyLinesAfterAllImports": 1,
+  "importSorter.sortConfiguration.customOrderingRules.defaultNumberOfEmptyLinesAfterGroup": 0,
+  "importSorter.importStringConfiguration.trailingComma": "none",
+  "importSorter.importStringConfiguration.quoteMark": "double",
+  "importSorter.importStringConfiguration.hasSemicolon": false,
+  "importSorter.sortConfiguration.customOrderingRules.rules": [
+    {
+      "regex": "^[]",
+      "orderLevel": 20
+    },
+    {
+      "regex": "^[@]/utils",
+      "orderLevel": 21
+    },
+    {
+      "regex": "^[@]/lib",
+      "orderLevel": 30
+    },
+    {
+      "regex": "^[@]/redux",
+      "orderLevel": 31
+    },
+    {
+      "regex": "^[@]/hooks",
+      "orderLevel": 32
+    },
+    {
+      "regex": "^[@]/pages",
+      "orderLevel": 40
+    },
+    {
+      "regex": "^[@]/components",
+      "orderLevel": 50
+    },
+    {
+      "regex": "^[@]/constants",
+      "orderLevel": 60
+    },
+    {
+      "regex": "^[@]/types",
+      "orderLevel": 70
+    },
+    {
+      "regex": "^[@]/styles",
+      "orderLevel": 80
+    },
+    {
+      "regex": "^[@]/assets",
+      "orderLevel": 81
+    }
+  ]
+}

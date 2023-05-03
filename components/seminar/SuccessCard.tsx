@@ -1,6 +1,6 @@
-import Link from "next/link";
-import LogoColor from "../assets/icons/logoColor";
-import Love from "../assets/icons/love";
+import Link from "next/link"
+import LogoColor from "../assets/icons/logoColor"
+import Love from "../assets/icons/love"
 
 const SuccessCard = () => {
   return (
@@ -33,7 +33,7 @@ const SuccessCard = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default SuccessCard;
+export default SuccessCard

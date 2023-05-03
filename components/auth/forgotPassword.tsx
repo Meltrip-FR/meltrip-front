@@ -1,19 +1,19 @@
-import axios from "axios";
-import { Fragment, useState } from "react";
+import axios from "axios"
+import { Fragment, useState } from "react"
 
 const ForgotPassword = () => {
-  const [email, setEmail] = useState<string>("");
-  const [requestMessage, setRequestMessage] = useState<string>("");
+  const [email, setEmail] = useState<string>("")
+  const [requestMessage, setRequestMessage] = useState<string>("")
 
   const handleSubmit = async (e: { preventDefault: () => void }) => {
-    e.preventDefault();
+    e.preventDefault()
     await axios.get(
       `${process.env.NEXT_PUBLIC_API_URL}/auth/forgotpassword/${email}`
-    );
+    )
     setRequestMessage(
       "Un email contenant les instructions pour créer un nouveau mot de passe vous a été envoyé."
-    );
-  };
+    )
+  }
 
   return (
     <div className="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl mb-5">
@@ -55,7 +55,7 @@ const ForgotPassword = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ForgotPassword;
+export default ForgotPassword

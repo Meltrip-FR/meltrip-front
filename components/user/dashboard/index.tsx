@@ -1,16 +1,16 @@
-import { useRouter } from "next/router";
-import { useAppDispatch } from "@/redux/hooks";
-import { CardInfosList } from "./infosList";
-import { logout } from "@/redux/slices/auth.slice";
+import { useRouter } from "next/router"
+import { CardInfosList } from "./infosList"
+import { useAppDispatch } from "@/redux/hooks"
+import { logout } from "@/redux/slices/auth.slice"
 
 const Dashboard = () => {
-  const router = useRouter();
-  const dispatch = useAppDispatch();
+  const router = useRouter()
+  const dispatch = useAppDispatch()
 
   const signOut = () => {
-    dispatch(logout());
-    router.push("/");
-  };
+    dispatch(logout())
+    router.push("/")
+  }
 
   return (
     <section className="text-gray-600 body-font">
@@ -44,7 +44,7 @@ const Dashboard = () => {
         </button>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Dashboard;
+export default Dashboard

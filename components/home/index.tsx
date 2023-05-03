@@ -1,37 +1,36 @@
-import Modal from "./modal";
-import Header from "@/components/body/header";
-import Footer from "@/components/body/footer";
-import ChevronDown from "@/components/assets/icons/chevronDown";
-import Happy from "@/components/assets/icons/happy";
-import Hello from "@/components/assets/icons/hello";
-import Humainitarian from "@/components/assets/icons/humanitarian";
-import BackgroundNewsletter from "@/components/assets/icons/backgroundNewsletter";
-import Space from "../assets/icons/space";
-import Stars from "../assets/icons/stars";
-import Steps from "../assets/icons/steps";
-import PayementList from "../assets/icons/payements";
-import HeaderPicture from "@/components/assets/home/headerPage.png";
-import MapFeed from "./mapFeed";
-import BackFigL from "@/components/assets/mapfeed/backFigL.png";
-import BackFigR from "@/components/assets/mapfeed/backFigR.png";
-import SeminarStatic from "./seminarStatic";
+import MapFeed from "./mapFeed"
+import Modal from "./modal"
+import SeminarStatic from "./seminarStatic"
+import HeaderPicture from "@/components/assets/home/headerPage.png"
+import ChevronDown from "@/components/assets/icons/chevronDown"
+import Happy from "@/components/assets/icons/happy"
+import Hello from "@/components/assets/icons/hello"
+import Humainitarian from "@/components/assets/icons/humanitarian"
+import PayementList from "@/components/assets/icons/payements"
+import Space from "@/components/assets/icons/space"
+import Stars from "@/components/assets/icons/stars"
+import Steps from "@/components/assets/icons/steps"
+import BackFigL from "@/components/assets/mapfeed/backFigL.png"
+import BackFigR from "@/components/assets/mapfeed/backFigR.png"
+import Footer from "@/components/body/footer"
+import Header from "@/components/body/header"
+
+const InputLetter = () => {
+  return (
+    <div className="flex w-full xl:w-[90vw] xl:full xl:flex justify-between items-center bg-white rounded-full p-3 ml-5 gap-10 ">
+      <input
+        type="text"
+        placeholder="Entrez votre adresse email"
+        className="text-[3vw] xl:text-[1vw]"
+      />
+      <button className="bg-[#CE5729] rounded-full p-2 text-white text-[3vw] xl:p-3 xl:px-6 xl:text-[1vw]">
+        S{"'"}abonner
+      </button>
+    </div>
+  )
+}
 
 const HomePage = () => {
-  const inputLetter = () => {
-    return (
-      <div className="flex w-full xl:w-[90vw] xl:full xl:flex justify-between items-center bg-white rounded-full p-3 ml-5 gap-10 ">
-        <input
-          type="text"
-          placeholder="Entrez votre adresse email"
-          className="text-[3vw] xl:text-[1vw]"
-        />
-        <button className="bg-[#CE5729] rounded-full p-2 text-white text-[3vw] xl:p-3 xl:px-6 xl:text-[1vw]">
-          S{"'"}abonner
-        </button>
-      </div>
-    );
-  };
-
   return (
     <div>
       <div className="h-full flex flex-col">
@@ -159,117 +158,10 @@ const HomePage = () => {
                 className=" absolute w-[20vw]  left-[0vw] top-[430vh] z-10"
                 src={BackFigL.src}
               />
-            </div>{" "}
+            </div>
             <MapFeed />
           </div>
-          {/* <p className="text-meltrip-secondary font-bold text-center text-4xl mt-24 mb-5">
-            Comment ça marche ?
-          </p>
-          <div className="flex flex-row justify-end items-center  gap-[70px] mt-24">
-            <img src={First.src} className="w-[316px]  rounded-[7px] " />
-            <div className="flex flex-col flex-grow-0 flex-shrink-0 gap-[15px]">
-              <p className="flex-grow-0 flex-shrink-0 w-[509px] text-2xl font-bold text-left uppercase text-black">
-                Réaliser une demande d’organisation de séminaire
-              </p>
-              <p className="flex-grow-0 flex-shrink-0 w-[541px] text-base font-medium text-left text-[#757575]">
-                Pour cela, il vous suffit de remplir les informations
-                nécessaires (type de séminaire et de lieu, nombre de
-                participants, etc.) et nous laisser un commentaire si vous avez
-                une envie particulière
-              </p>
-            </div>
-          </div>
-          <div className="flex flex-row justify-end items-center  gap-[70px] mt-24">
-            <img src={Two.src} className="w-[316px] rounded-[7px] " />
-            <div className="flex flex-col flex-grow-0 flex-shrink-0 gap-[15px]">
-              <p className="flex-grow-0 flex-shrink-0 w-[509px] text-2xl font-bold text-left uppercase text-black">
-                Réaliser un mini Quiz de personnalité
-              </p>
-              <p className="flex-grow-0 flex-shrink-0 w-[541px] text-base font-medium text-left text-[#757575]">
-                Une fois votre demande effectué, il reste le test de
-                personnalité à effectuer. Pour cela, vous n’aurez plus qu’à nous
-                donner les adresses mails des participants et nous enverrons à
-                tous les participants un test qu’ils/elles devront remplir. Ne
-                vous inquiétez pas si vous êtes participants, il vous suffira de
-                rentrer aussi votre adresse mail !
-              </p>
-            </div>
-          </div>
-          <div className="flex flex-row justify-start items-center  gap-[70px] mt-24">
-            <img src={Three.src} className="w-[316px] rounded-[7px]" />
-            <div className="flex flex-col flex-grow-0 flex-shrink-0 gap-[15px]">
-              <p className="flex-grow-0 flex-shrink-0 w-[509px] text-2xl font-bold text-left uppercase text-black">
-                Recevez un appel de votre interlocuteur.rice dédié.e
-              </p>
-              <p className="flex-grow-0 flex-shrink-0 w-[541px] text-base font-medium text-left text-[#757575]">
-                Pour s’assurer que votre demande sera retranscrite à la
-                perfection en séminaire, votre interlocuteur.rice (qui vous
-                accompagnera de l’organisation à la fin du séminaire) vous
-                appellera dans les 72h.
-              </p>
-            </div>
-          </div>
-          <div className="flex flex-row justify-start items-center  gap-[70px] mt-24">
-            <img src={Four.src} className="w-[316px]  rounded-[7px] " />
-            <div className="flex flex-col flex-grow-0 flex-shrink-0 gap-[15px]">
-              <p className="flex-grow-0 flex-shrink-0 w-[509px] text-2xl font-bold text-left uppercase text-black">
-                Recevoir 2-3 propositions de séminaire
-              </p>
-              <p className="flex-grow-0 flex-shrink-0 w-[541px] text-base font-medium text-left text-[#757575]">
-                Pour que votre séminaire soit une réussite, nous rechercherons
-                les meilleurs logements, transports et activités qui permettront
-                à tous les types de personnalités de profiter pleinement du
-                séminaire tout en veillant à ce que tous les aspects de votre
-                séminaire soient éco-responsables. Vous recevrez alors 2 à 3
-                propositions et vous n’aurez plus qu’à valider celle qui vous
-                convient le mieux !
-              </p>
-            </div>
-          </div>
-          <div className="flex flex-row justify-end items-center  gap-[70px] mt-24">
-            <img src={Five.src} className="w-[316px]  rounded-[7px] " />
-            <div className="flex flex-col flex-grow-0 flex-shrink-0 gap-[15px]">
-              <p className="flex-grow-0 flex-shrink-0 w-[509px] text-2xl font-bold text-left uppercase text-black">
-                Recevez tous les éléments qui vous seront nécessaires pour votre
-                séminaire
-              </p>
-              <p className="flex-grow-0 flex-shrink-0 w-[541px] text-base font-medium text-left text-[#757575]">
-                De la check list de votre valise, à vos itinéraires, vous
-                recevrez tous les éléments nécessaires à la réalisation.
-              </p>
-            </div>
-          </div>
-          <div className="flex flex-row justify-end items-center  gap-[70px] mt-24">
-            <img src={Six.src} className="w-[316px]  rounded-[7px] " />
-            <div className="flex flex-col flex-grow-0 flex-shrink-0 gap-[15px]">
-              <p className="flex-grow-0 flex-shrink-0 w-[509px] text-2xl font-bold text-left uppercase text-black">
-                Profitez de votre séminaire
-              </p>
-              <p className="flex-grow-0 flex-shrink-0 w-[541px] text-base font-medium text-left text-[#757575]">
-                Pour cette étape, il vous reste jusqu’à suivre votre itinéraire,
-                emporter vos billets de transport et à vivre le moment présent
-              </p>
-            </div>
-          </div>
-          <div className="flex flex-row justify-center items-center gap-[70px] mt-24">
-            <div className="flex flex-col flex-grow-0 flex-shrink-0 gap-[15px]">
-              <p className="flex-grow-0 flex-shrink-0 w-[509px] text-2xl font-bold text-left uppercase text-black">
-                consultez les émissions carbones de vos séminaires et découvrez
-                comment meltrip vous aide à les compenser grâce à ses
-                partenaires
-              </p>
-              <p className="flex-grow-0 flex-shrink-0 w-[541px] text-base font-medium text-left text-[#757575]">
-                Conscients de notre impact, nous voulons aussi vous aider en
-                vous informant des émissions carbones que vous avez réalisées
-                pendant ce séminaire. Pour que vous puissiez vous aussi agir,
-                nous vous proposons notre partenaire qui vous permettront de les
-                compenser en investissant dans la structure agricole d’un
-                agriculteur (reconnu par l’État), tout en bénéficiant de récolte
-                de ceux-ci.
-              </p>
-            </div>
-            <img src={Seven.src} className="w-[516px]  rounded-[7px] " />
-          </div> */}
+
           <div className="flex flex-row justify-center items-center gap-[70px] mt-24">
             <Space size={100} />
           </div>
@@ -307,11 +199,6 @@ const HomePage = () => {
         </div>
       </section>
       <div className="flex justify-center mb-12 w-full  xl:px-[20vw]  relative">
-        {/* <img
-            className="hidden xl:block w-[7vw] absolute top-[14vh] left-[18vw]"
-            alt="rectangle"
-            src={require("../assets/newsLetterRectangle.png")}
-          /> */}
         <div className=" flex flex-col justify-center items-start w-[90vw] bg-[#CE5729]  h-[30vh] xl:h-fit xl:w-[55vw] p-5 md:p-10 xl:p-10 rounded-[30px] md:rounded-[40px] xl:rounded-[60px] z-10 gap-4">
           <p className="font-bold text-[2vw] text-white xl:text-[1.4vw] xl:w-[25vw]">
             Abonnez-vous à notre Newsletter
@@ -320,16 +207,18 @@ const HomePage = () => {
             En m’abonnant, j’accepte de recevoir cette newsletter et je
             comprends que je peux me désabonner facilement à tout moment.
           </p>
-          <div className="block w-full xl:hidden">{inputLetter()} </div>
+          <div className="block w-full xl:hidden">
+            <InputLetter />
+          </div>
         </div>
         <div className="hidden xl:flex bg-[#186E7A] h-[25vh] absolute w-[28vw] right-[24vw] justify-center items-center rounded-full pr-20 z-30 xl:h-full">
-          {inputLetter()}
+          <InputLetter />
         </div>
         <div className="hidden xl:block bg-[#186E7A] h-[25vh]  absolute w-[11vw] right-[22vw]  rounded-r-[60px] z-20 xl:h-full" />
       </div>
       <Footer />
     </div>
-  );
-};
+  )
+}
 
-export default HomePage;
+export default HomePage

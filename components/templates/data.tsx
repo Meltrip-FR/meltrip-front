@@ -5,7 +5,7 @@ const wideCardData = [
     description:
       "Baignades et randonnées dans les îles d'Or : Giens, Porquerolles et Port-Cros",
     imageLink:
-      "https://images.unsplash.com/photo-1660401023330-318f599edfa2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
+      "https://images.unsplash.com/photo-1660401023330-318f599edfa2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80"
   },
   {
     duration: 6,
@@ -13,16 +13,16 @@ const wideCardData = [
     description:
       "Séminaire rando dans le Mercantour et la Vallée des merveilles",
     imageLink:
-      "https://images.unsplash.com/photo-1660401023330-318f599edfa2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
+      "https://images.unsplash.com/photo-1660401023330-318f599edfa2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80"
   },
   {
     duration: 5,
     price: 1268,
     description: "Séminaire activités dans le Verdon en groupe",
     imageLink:
-      "https://images.unsplash.com/photo-1660401023330-318f599edfa2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
-  },
-];
+      "https://images.unsplash.com/photo-1660401023330-318f599edfa2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80"
+  }
+]
 
 const meets = [
   {
@@ -56,9 +56,9 @@ const meets = [
             "https://images.unsplash.com/photo-1631173385127-cb28aae6d9bb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
             "https://images.unsplash.com/photo-1631173384923-4661bebd56eb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
             "https://images.unsplash.com/photo-1560611926-eaafc406e460?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-            "https://images.unsplash.com/photo-1549294413-26f195200c16?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80",
-          ],
-        },
+            "https://images.unsplash.com/photo-1549294413-26f195200c16?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80"
+          ]
+        }
       },
       {
         rank: 2,
@@ -75,16 +75,16 @@ const meets = [
             "https://images.unsplash.com/photo-1631173385127-cb28aae6d9bb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
             "https://images.unsplash.com/photo-1631173384923-4661bebd56eb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
             "https://images.unsplash.com/photo-1560611926-eaafc406e460?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-            "https://images.unsplash.com/photo-1549294413-26f195200c16?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80",
-          ],
+            "https://images.unsplash.com/photo-1549294413-26f195200c16?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80"
+          ]
         },
         details: [
           { name: "Marche", description: "4h-5h" },
           { name: "Dénivelé positif ", description: "350m" },
           { name: "Dénivelé négatif", description: "350m" },
           { name: "Hébergement", description: "hôtel" },
-          { name: "Repas", description: "Petit-déjeuner inclus" },
-        ],
+          { name: "Repas", description: "Petit-déjeuner inclus" }
+        ]
       },
       {
         rank: 3,
@@ -101,8 +101,8 @@ const meets = [
             "https://images.unsplash.com/photo-1631173385127-cb28aae6d9bb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
             "https://images.unsplash.com/photo-1631173384923-4661bebd56eb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
             "https://images.unsplash.com/photo-1560611926-eaafc406e460?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-            "https://images.unsplash.com/photo-1549294413-26f195200c16?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80",
-          ],
+            "https://images.unsplash.com/photo-1549294413-26f195200c16?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80"
+          ]
         },
         details: [
           { name: "Transport", description: "bateau" },
@@ -110,8 +110,8 @@ const meets = [
           { name: "Dénivelé positif ", description: "250m" },
           { name: "Dénivelé négatif", description: "250m" },
           { name: "Hébergement", description: "hôtel" },
-          { name: "Repas", description: "Petit-déjeuner inclus" },
-        ],
+          { name: "Repas", description: "Petit-déjeuner inclus" }
+        ]
       },
       {
         rank: 4,
@@ -128,8 +128,8 @@ const meets = [
             "https://images.unsplash.com/photo-1631173385127-cb28aae6d9bb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
             "https://images.unsplash.com/photo-1631173384923-4661bebd56eb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
             "https://images.unsplash.com/photo-1560611926-eaafc406e460?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-            "https://images.unsplash.com/photo-1549294413-26f195200c16?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80",
-          ],
+            "https://images.unsplash.com/photo-1549294413-26f195200c16?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80"
+          ]
         },
         details: [
           { name: "Transport en bateau, bus", description: "2h30" },
@@ -137,8 +137,8 @@ const meets = [
           { name: "Dénivelé positif ", description: "250m" },
           { name: "Dénivelé négatif", description: "250m" },
           { name: "Hébergement", description: "hôtel" },
-          { name: "Repas", description: "Petit-déjeuner inclus" },
-        ],
+          { name: "Repas", description: "Petit-déjeuner inclus" }
+        ]
       },
       {
         rank: 5,
@@ -155,16 +155,16 @@ const meets = [
             "https://images.unsplash.com/photo-1631173385127-cb28aae6d9bb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
             "https://images.unsplash.com/photo-1631173384923-4661bebd56eb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
             "https://images.unsplash.com/photo-1560611926-eaafc406e460?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-            "https://images.unsplash.com/photo-1549294413-26f195200c16?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80",
-          ],
+            "https://images.unsplash.com/photo-1549294413-26f195200c16?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80"
+          ]
         },
         details: [
           { name: "Marche", description: "4h-5h" },
           { name: "Dénivelé positif ", description: "250m" },
           { name: "Dénivelé négatif", description: "250m" },
           { name: "Hébergement", description: "hôtel" },
-          { name: "Repas", description: "Petit-déjeuner inclus" },
-        ],
+          { name: "Repas", description: "Petit-déjeuner inclus" }
+        ]
       },
       {
         rank: 6,
@@ -174,9 +174,9 @@ const meets = [
         description:
           "Après le petit déjeuner, vous pouvez encore profiter des îles, des sentiers côtiers... Repas : Petit-déjeuner inclus",
         location: "Hyères, Giens",
-        details: [{ name: "Repas", description: "Petit-déjeuner inclus" }],
-      },
-    ],
+        details: [{ name: "Repas", description: "Petit-déjeuner inclus" }]
+      }
+    ]
   },
   {
     id: 2,
@@ -208,9 +208,9 @@ const meets = [
             "https://images.unsplash.com/photo-1660401023330-318f599edfa2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
             "https://images.unsplash.com/photo-1660401023330-318f599edfa2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
             "https://images.unsplash.com/photo-1660401023330-318f599edfa2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
-            "https://images.unsplash.com/photo-1660401023330-318f599edfa2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
-          ],
-        },
+            "https://images.unsplash.com/photo-1660401023330-318f599edfa2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80"
+          ]
+        }
       },
       {
         rank: 2,
@@ -226,8 +226,8 @@ const meets = [
           { name: "Dénivelé positif ", description: "350m" },
           { name: "Dénivelé négatif", description: "350m" },
           { name: "Hébergement", description: "hôtel" },
-          { name: "Repas", description: "Petit-déjeuner inclus" },
-        ],
+          { name: "Repas", description: "Petit-déjeuner inclus" }
+        ]
       },
       {
         rank: 3,
@@ -244,8 +244,8 @@ const meets = [
           { name: "Dénivelé positif ", description: "250m" },
           { name: "Dénivelé négatif", description: "250m" },
           { name: "Hébergement", description: "hôtel" },
-          { name: "Repas", description: "Petit-déjeuner inclus" },
-        ],
+          { name: "Repas", description: "Petit-déjeuner inclus" }
+        ]
       },
       {
         rank: 4,
@@ -262,8 +262,8 @@ const meets = [
           { name: "Dénivelé positif ", description: "250m" },
           { name: "Dénivelé négatif", description: "250m" },
           { name: "Hébergement", description: "hôtel" },
-          { name: "Repas", description: "Petit-déjeuner inclus" },
-        ],
+          { name: "Repas", description: "Petit-déjeuner inclus" }
+        ]
       },
       {
         rank: 5,
@@ -279,8 +279,8 @@ const meets = [
           { name: "Dénivelé positif ", description: "250m" },
           { name: "Dénivelé négatif", description: "250m" },
           { name: "Hébergement", description: "hôtel" },
-          { name: "Repas", description: "Petit-déjeuner inclus" },
-        ],
+          { name: "Repas", description: "Petit-déjeuner inclus" }
+        ]
       },
       {
         rank: 6,
@@ -290,9 +290,9 @@ const meets = [
         description:
           "Après le petit déjeuner, vous pouvez encore profiter des îles, des sentiers côtiers... Repas : Petit-déjeuner inclus",
         location: "Hyères, Giens",
-        details: [{ name: "Repas", description: "Petit-déjeuner inclus" }],
-      },
-    ],
+        details: [{ name: "Repas", description: "Petit-déjeuner inclus" }]
+      }
+    ]
   },
   {
     id: 3,
@@ -324,9 +324,9 @@ const meets = [
             "https://images.unsplash.com/photo-1660401023330-318f599edfa2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
             "https://images.unsplash.com/photo-1660401023330-318f599edfa2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
             "https://images.unsplash.com/photo-1660401023330-318f599edfa2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
-            "https://images.unsplash.com/photo-1660401023330-318f599edfa2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
-          ],
-        },
+            "https://images.unsplash.com/photo-1660401023330-318f599edfa2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80"
+          ]
+        }
       },
       {
         rank: 2,
@@ -342,8 +342,8 @@ const meets = [
           { name: "Dénivelé positif ", description: "350m" },
           { name: "Dénivelé négatif", description: "350m" },
           { name: "Hébergement", description: "hôtel" },
-          { name: "Repas", description: "Petit-déjeuner inclus" },
-        ],
+          { name: "Repas", description: "Petit-déjeuner inclus" }
+        ]
       },
       {
         rank: 3,
@@ -360,8 +360,8 @@ const meets = [
           { name: "Dénivelé positif ", description: "250m" },
           { name: "Dénivelé négatif", description: "250m" },
           { name: "Hébergement", description: "hôtel" },
-          { name: "Repas", description: "Petit-déjeuner inclus" },
-        ],
+          { name: "Repas", description: "Petit-déjeuner inclus" }
+        ]
       },
       {
         rank: 4,
@@ -378,8 +378,8 @@ const meets = [
           { name: "Dénivelé positif ", description: "250m" },
           { name: "Dénivelé négatif", description: "250m" },
           { name: "Hébergement", description: "hôtel" },
-          { name: "Repas", description: "Petit-déjeuner inclus" },
-        ],
+          { name: "Repas", description: "Petit-déjeuner inclus" }
+        ]
       },
       {
         rank: 5,
@@ -395,8 +395,8 @@ const meets = [
           { name: "Dénivelé positif ", description: "250m" },
           { name: "Dénivelé négatif", description: "250m" },
           { name: "Hébergement", description: "hôtel" },
-          { name: "Repas", description: "Petit-déjeuner inclus" },
-        ],
+          { name: "Repas", description: "Petit-déjeuner inclus" }
+        ]
       },
       {
         rank: 6,
@@ -406,9 +406,9 @@ const meets = [
         description:
           "Après le petit déjeuner, vous pouvez encore profiter des îles, des sentiers côtiers... Repas : Petit-déjeuner inclus",
         location: "Hyères, Giens",
-        details: [{ name: "Repas", description: "Petit-déjeuner inclus" }],
-      },
-    ],
+        details: [{ name: "Repas", description: "Petit-déjeuner inclus" }]
+      }
+    ]
   },
   {
     id: 4,
@@ -440,9 +440,9 @@ const meets = [
             "https://images.unsplash.com/photo-1660401023330-318f599edfa2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
             "https://images.unsplash.com/photo-1660401023330-318f599edfa2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
             "https://images.unsplash.com/photo-1660401023330-318f599edfa2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
-            "https://images.unsplash.com/photo-1660401023330-318f599edfa2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
-          ],
-        },
+            "https://images.unsplash.com/photo-1660401023330-318f599edfa2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80"
+          ]
+        }
       },
       {
         rank: 2,
@@ -458,8 +458,8 @@ const meets = [
           { name: "Dénivelé positif ", description: "350m" },
           { name: "Dénivelé négatif", description: "350m" },
           { name: "Hébergement", description: "hôtel" },
-          { name: "Repas", description: "Petit-déjeuner inclus" },
-        ],
+          { name: "Repas", description: "Petit-déjeuner inclus" }
+        ]
       },
       {
         rank: 3,
@@ -476,8 +476,8 @@ const meets = [
           { name: "Dénivelé positif ", description: "250m" },
           { name: "Dénivelé négatif", description: "250m" },
           { name: "Hébergement", description: "hôtel" },
-          { name: "Repas", description: "Petit-déjeuner inclus" },
-        ],
+          { name: "Repas", description: "Petit-déjeuner inclus" }
+        ]
       },
       {
         rank: 4,
@@ -494,8 +494,8 @@ const meets = [
           { name: "Dénivelé positif ", description: "250m" },
           { name: "Dénivelé négatif", description: "250m" },
           { name: "Hébergement", description: "hôtel" },
-          { name: "Repas", description: "Petit-déjeuner inclus" },
-        ],
+          { name: "Repas", description: "Petit-déjeuner inclus" }
+        ]
       },
       {
         rank: 5,
@@ -511,8 +511,8 @@ const meets = [
           { name: "Dénivelé positif ", description: "250m" },
           { name: "Dénivelé négatif", description: "250m" },
           { name: "Hébergement", description: "hôtel" },
-          { name: "Repas", description: "Petit-déjeuner inclus" },
-        ],
+          { name: "Repas", description: "Petit-déjeuner inclus" }
+        ]
       },
       {
         rank: 6,
@@ -522,9 +522,9 @@ const meets = [
         description:
           "Après le petit déjeuner, vous pouvez encore profiter des îles, des sentiers côtiers... Repas : Petit-déjeuner inclus",
         location: "Hyères, Giens",
-        details: [{ name: "Repas", description: "Petit-déjeuner inclus" }],
-      },
-    ],
+        details: [{ name: "Repas", description: "Petit-déjeuner inclus" }]
+      }
+    ]
   },
   {
     id: 5,
@@ -557,9 +557,9 @@ const meets = [
             "https://images.unsplash.com/photo-1631173385127-cb28aae6d9bb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
             "https://images.unsplash.com/photo-1631173384923-4661bebd56eb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
             "https://images.unsplash.com/photo-1560611926-eaafc406e460?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-            "https://images.unsplash.com/photo-1549294413-26f195200c16?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80",
-          ],
-        },
+            "https://images.unsplash.com/photo-1549294413-26f195200c16?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80"
+          ]
+        }
       },
       {
         rank: 2,
@@ -576,16 +576,16 @@ const meets = [
             "https://images.unsplash.com/photo-1631173385127-cb28aae6d9bb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
             "https://images.unsplash.com/photo-1631173384923-4661bebd56eb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
             "https://images.unsplash.com/photo-1560611926-eaafc406e460?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-            "https://images.unsplash.com/photo-1549294413-26f195200c16?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80",
-          ],
+            "https://images.unsplash.com/photo-1549294413-26f195200c16?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80"
+          ]
         },
         details: [
           { name: "Marche", description: "4h-5h" },
           { name: "Dénivelé positif ", description: "350m" },
           { name: "Dénivelé négatif", description: "350m" },
           { name: "Hébergement", description: "hôtel" },
-          { name: "Repas", description: "Petit-déjeuner inclus" },
-        ],
+          { name: "Repas", description: "Petit-déjeuner inclus" }
+        ]
       },
       {
         rank: 3,
@@ -602,8 +602,8 @@ const meets = [
             "https://images.unsplash.com/photo-1631173385127-cb28aae6d9bb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
             "https://images.unsplash.com/photo-1631173384923-4661bebd56eb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
             "https://images.unsplash.com/photo-1560611926-eaafc406e460?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-            "https://images.unsplash.com/photo-1549294413-26f195200c16?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80",
-          ],
+            "https://images.unsplash.com/photo-1549294413-26f195200c16?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80"
+          ]
         },
         details: [
           { name: "Transport", description: "bateau" },
@@ -611,8 +611,8 @@ const meets = [
           { name: "Dénivelé positif ", description: "250m" },
           { name: "Dénivelé négatif", description: "250m" },
           { name: "Hébergement", description: "hôtel" },
-          { name: "Repas", description: "Petit-déjeuner inclus" },
-        ],
+          { name: "Repas", description: "Petit-déjeuner inclus" }
+        ]
       },
       {
         rank: 4,
@@ -629,8 +629,8 @@ const meets = [
             "https://images.unsplash.com/photo-1631173385127-cb28aae6d9bb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
             "https://images.unsplash.com/photo-1631173384923-4661bebd56eb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
             "https://images.unsplash.com/photo-1560611926-eaafc406e460?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-            "https://images.unsplash.com/photo-1549294413-26f195200c16?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80",
-          ],
+            "https://images.unsplash.com/photo-1549294413-26f195200c16?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80"
+          ]
         },
         details: [
           { name: "Transport en bateau, bus", description: "2h30" },
@@ -638,8 +638,8 @@ const meets = [
           { name: "Dénivelé positif ", description: "250m" },
           { name: "Dénivelé négatif", description: "250m" },
           { name: "Hébergement", description: "hôtel" },
-          { name: "Repas", description: "Petit-déjeuner inclus" },
-        ],
+          { name: "Repas", description: "Petit-déjeuner inclus" }
+        ]
       },
       {
         rank: 5,
@@ -656,16 +656,16 @@ const meets = [
             "https://images.unsplash.com/photo-1631173385127-cb28aae6d9bb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
             "https://images.unsplash.com/photo-1631173384923-4661bebd56eb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
             "https://images.unsplash.com/photo-1560611926-eaafc406e460?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-            "https://images.unsplash.com/photo-1549294413-26f195200c16?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80",
-          ],
+            "https://images.unsplash.com/photo-1549294413-26f195200c16?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80"
+          ]
         },
         details: [
           { name: "Marche", description: "4h-5h" },
           { name: "Dénivelé positif ", description: "250m" },
           { name: "Dénivelé négatif", description: "250m" },
           { name: "Hébergement", description: "hôtel" },
-          { name: "Repas", description: "Petit-déjeuner inclus" },
-        ],
+          { name: "Repas", description: "Petit-déjeuner inclus" }
+        ]
       },
       {
         rank: 6,
@@ -675,9 +675,9 @@ const meets = [
         description:
           "Après le petit déjeuner, vous pouvez encore profiter des îles, des sentiers côtiers... Repas : Petit-déjeuner inclus",
         location: "Hyères, Giens",
-        details: [{ name: "Repas", description: "Petit-déjeuner inclus" }],
-      },
-    ],
+        details: [{ name: "Repas", description: "Petit-déjeuner inclus" }]
+      }
+    ]
   },
   {
     id: 6,
@@ -709,9 +709,9 @@ const meets = [
             "https://images.unsplash.com/photo-1660401023330-318f599edfa2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
             "https://images.unsplash.com/photo-1660401023330-318f599edfa2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
             "https://images.unsplash.com/photo-1660401023330-318f599edfa2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
-            "https://images.unsplash.com/photo-1660401023330-318f599edfa2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
-          ],
-        },
+            "https://images.unsplash.com/photo-1660401023330-318f599edfa2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80"
+          ]
+        }
       },
       {
         rank: 2,
@@ -727,8 +727,8 @@ const meets = [
           { name: "Dénivelé positif ", description: "350m" },
           { name: "Dénivelé négatif", description: "350m" },
           { name: "Hébergement", description: "hôtel" },
-          { name: "Repas", description: "Petit-déjeuner inclus" },
-        ],
+          { name: "Repas", description: "Petit-déjeuner inclus" }
+        ]
       },
       {
         rank: 3,
@@ -745,8 +745,8 @@ const meets = [
           { name: "Dénivelé positif ", description: "250m" },
           { name: "Dénivelé négatif", description: "250m" },
           { name: "Hébergement", description: "hôtel" },
-          { name: "Repas", description: "Petit-déjeuner inclus" },
-        ],
+          { name: "Repas", description: "Petit-déjeuner inclus" }
+        ]
       },
       {
         rank: 4,
@@ -763,8 +763,8 @@ const meets = [
           { name: "Dénivelé positif ", description: "250m" },
           { name: "Dénivelé négatif", description: "250m" },
           { name: "Hébergement", description: "hôtel" },
-          { name: "Repas", description: "Petit-déjeuner inclus" },
-        ],
+          { name: "Repas", description: "Petit-déjeuner inclus" }
+        ]
       },
       {
         rank: 5,
@@ -780,8 +780,8 @@ const meets = [
           { name: "Dénivelé positif ", description: "250m" },
           { name: "Dénivelé négatif", description: "250m" },
           { name: "Hébergement", description: "hôtel" },
-          { name: "Repas", description: "Petit-déjeuner inclus" },
-        ],
+          { name: "Repas", description: "Petit-déjeuner inclus" }
+        ]
       },
       {
         rank: 6,
@@ -791,9 +791,9 @@ const meets = [
         description:
           "Après le petit déjeuner, vous pouvez encore profiter des îles, des sentiers côtiers... Repas : Petit-déjeuner inclus",
         location: "Hyères, Giens",
-        details: [{ name: "Repas", description: "Petit-déjeuner inclus" }],
-      },
-    ],
+        details: [{ name: "Repas", description: "Petit-déjeuner inclus" }]
+      }
+    ]
   },
   {
     id: 7,
@@ -825,9 +825,9 @@ const meets = [
             "https://images.unsplash.com/photo-1660401023330-318f599edfa2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
             "https://images.unsplash.com/photo-1660401023330-318f599edfa2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
             "https://images.unsplash.com/photo-1660401023330-318f599edfa2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
-            "https://images.unsplash.com/photo-1660401023330-318f599edfa2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
-          ],
-        },
+            "https://images.unsplash.com/photo-1660401023330-318f599edfa2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80"
+          ]
+        }
       },
       {
         rank: 2,
@@ -843,8 +843,8 @@ const meets = [
           { name: "Dénivelé positif ", description: "350m" },
           { name: "Dénivelé négatif", description: "350m" },
           { name: "Hébergement", description: "hôtel" },
-          { name: "Repas", description: "Petit-déjeuner inclus" },
-        ],
+          { name: "Repas", description: "Petit-déjeuner inclus" }
+        ]
       },
       {
         rank: 3,
@@ -861,8 +861,8 @@ const meets = [
           { name: "Dénivelé positif ", description: "250m" },
           { name: "Dénivelé négatif", description: "250m" },
           { name: "Hébergement", description: "hôtel" },
-          { name: "Repas", description: "Petit-déjeuner inclus" },
-        ],
+          { name: "Repas", description: "Petit-déjeuner inclus" }
+        ]
       },
       {
         rank: 4,
@@ -879,8 +879,8 @@ const meets = [
           { name: "Dénivelé positif ", description: "250m" },
           { name: "Dénivelé négatif", description: "250m" },
           { name: "Hébergement", description: "hôtel" },
-          { name: "Repas", description: "Petit-déjeuner inclus" },
-        ],
+          { name: "Repas", description: "Petit-déjeuner inclus" }
+        ]
       },
       {
         rank: 5,
@@ -896,8 +896,8 @@ const meets = [
           { name: "Dénivelé positif ", description: "250m" },
           { name: "Dénivelé négatif", description: "250m" },
           { name: "Hébergement", description: "hôtel" },
-          { name: "Repas", description: "Petit-déjeuner inclus" },
-        ],
+          { name: "Repas", description: "Petit-déjeuner inclus" }
+        ]
       },
       {
         rank: 6,
@@ -907,9 +907,9 @@ const meets = [
         description:
           "Après le petit déjeuner, vous pouvez encore profiter des îles, des sentiers côtiers... Repas : Petit-déjeuner inclus",
         location: "Hyères, Giens",
-        details: [{ name: "Repas", description: "Petit-déjeuner inclus" }],
-      },
-    ],
+        details: [{ name: "Repas", description: "Petit-déjeuner inclus" }]
+      }
+    ]
   },
   {
     id: 8,
@@ -941,9 +941,9 @@ const meets = [
             "https://images.unsplash.com/photo-1660401023330-318f599edfa2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
             "https://images.unsplash.com/photo-1660401023330-318f599edfa2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
             "https://images.unsplash.com/photo-1660401023330-318f599edfa2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
-            "https://images.unsplash.com/photo-1660401023330-318f599edfa2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
-          ],
-        },
+            "https://images.unsplash.com/photo-1660401023330-318f599edfa2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80"
+          ]
+        }
       },
       {
         rank: 2,
@@ -959,8 +959,8 @@ const meets = [
           { name: "Dénivelé positif ", description: "350m" },
           { name: "Dénivelé négatif", description: "350m" },
           { name: "Hébergement", description: "hôtel" },
-          { name: "Repas", description: "Petit-déjeuner inclus" },
-        ],
+          { name: "Repas", description: "Petit-déjeuner inclus" }
+        ]
       },
       {
         rank: 3,
@@ -977,8 +977,8 @@ const meets = [
           { name: "Dénivelé positif ", description: "250m" },
           { name: "Dénivelé négatif", description: "250m" },
           { name: "Hébergement", description: "hôtel" },
-          { name: "Repas", description: "Petit-déjeuner inclus" },
-        ],
+          { name: "Repas", description: "Petit-déjeuner inclus" }
+        ]
       },
       {
         rank: 4,
@@ -995,8 +995,8 @@ const meets = [
           { name: "Dénivelé positif ", description: "250m" },
           { name: "Dénivelé négatif", description: "250m" },
           { name: "Hébergement", description: "hôtel" },
-          { name: "Repas", description: "Petit-déjeuner inclus" },
-        ],
+          { name: "Repas", description: "Petit-déjeuner inclus" }
+        ]
       },
       {
         rank: 5,
@@ -1012,8 +1012,8 @@ const meets = [
           { name: "Dénivelé positif ", description: "250m" },
           { name: "Dénivelé négatif", description: "250m" },
           { name: "Hébergement", description: "hôtel" },
-          { name: "Repas", description: "Petit-déjeuner inclus" },
-        ],
+          { name: "Repas", description: "Petit-déjeuner inclus" }
+        ]
       },
       {
         rank: 6,
@@ -1023,9 +1023,9 @@ const meets = [
         description:
           "Après le petit déjeuner, vous pouvez encore profiter des îles, des sentiers côtiers... Repas : Petit-déjeuner inclus",
         location: "Hyères, Giens",
-        details: [{ name: "Repas", description: "Petit-déjeuner inclus" }],
-      },
-    ],
+        details: [{ name: "Repas", description: "Petit-déjeuner inclus" }]
+      }
+    ]
   },
   {
     id: 9,
@@ -1058,9 +1058,9 @@ const meets = [
             "https://images.unsplash.com/photo-1631173385127-cb28aae6d9bb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
             "https://images.unsplash.com/photo-1631173384923-4661bebd56eb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
             "https://images.unsplash.com/photo-1560611926-eaafc406e460?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-            "https://images.unsplash.com/photo-1549294413-26f195200c16?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80",
-          ],
-        },
+            "https://images.unsplash.com/photo-1549294413-26f195200c16?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80"
+          ]
+        }
       },
       {
         rank: 2,
@@ -1077,16 +1077,16 @@ const meets = [
             "https://images.unsplash.com/photo-1631173385127-cb28aae6d9bb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
             "https://images.unsplash.com/photo-1631173384923-4661bebd56eb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
             "https://images.unsplash.com/photo-1560611926-eaafc406e460?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-            "https://images.unsplash.com/photo-1549294413-26f195200c16?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80",
-          ],
+            "https://images.unsplash.com/photo-1549294413-26f195200c16?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80"
+          ]
         },
         details: [
           { name: "Marche", description: "4h-5h" },
           { name: "Dénivelé positif ", description: "350m" },
           { name: "Dénivelé négatif", description: "350m" },
           { name: "Hébergement", description: "hôtel" },
-          { name: "Repas", description: "Petit-déjeuner inclus" },
-        ],
+          { name: "Repas", description: "Petit-déjeuner inclus" }
+        ]
       },
       {
         rank: 3,
@@ -1103,8 +1103,8 @@ const meets = [
             "https://images.unsplash.com/photo-1631173385127-cb28aae6d9bb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
             "https://images.unsplash.com/photo-1631173384923-4661bebd56eb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
             "https://images.unsplash.com/photo-1560611926-eaafc406e460?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-            "https://images.unsplash.com/photo-1549294413-26f195200c16?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80",
-          ],
+            "https://images.unsplash.com/photo-1549294413-26f195200c16?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80"
+          ]
         },
         details: [
           { name: "Transport", description: "bateau" },
@@ -1112,8 +1112,8 @@ const meets = [
           { name: "Dénivelé positif ", description: "250m" },
           { name: "Dénivelé négatif", description: "250m" },
           { name: "Hébergement", description: "hôtel" },
-          { name: "Repas", description: "Petit-déjeuner inclus" },
-        ],
+          { name: "Repas", description: "Petit-déjeuner inclus" }
+        ]
       },
       {
         rank: 4,
@@ -1130,8 +1130,8 @@ const meets = [
             "https://images.unsplash.com/photo-1631173385127-cb28aae6d9bb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
             "https://images.unsplash.com/photo-1631173384923-4661bebd56eb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
             "https://images.unsplash.com/photo-1560611926-eaafc406e460?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-            "https://images.unsplash.com/photo-1549294413-26f195200c16?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80",
-          ],
+            "https://images.unsplash.com/photo-1549294413-26f195200c16?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80"
+          ]
         },
         details: [
           { name: "Transport en bateau, bus", description: "2h30" },
@@ -1139,8 +1139,8 @@ const meets = [
           { name: "Dénivelé positif ", description: "250m" },
           { name: "Dénivelé négatif", description: "250m" },
           { name: "Hébergement", description: "hôtel" },
-          { name: "Repas", description: "Petit-déjeuner inclus" },
-        ],
+          { name: "Repas", description: "Petit-déjeuner inclus" }
+        ]
       },
       {
         rank: 5,
@@ -1157,16 +1157,16 @@ const meets = [
             "https://images.unsplash.com/photo-1631173385127-cb28aae6d9bb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
             "https://images.unsplash.com/photo-1631173384923-4661bebd56eb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
             "https://images.unsplash.com/photo-1560611926-eaafc406e460?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-            "https://images.unsplash.com/photo-1549294413-26f195200c16?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80",
-          ],
+            "https://images.unsplash.com/photo-1549294413-26f195200c16?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80"
+          ]
         },
         details: [
           { name: "Marche", description: "4h-5h" },
           { name: "Dénivelé positif ", description: "250m" },
           { name: "Dénivelé négatif", description: "250m" },
           { name: "Hébergement", description: "hôtel" },
-          { name: "Repas", description: "Petit-déjeuner inclus" },
-        ],
+          { name: "Repas", description: "Petit-déjeuner inclus" }
+        ]
       },
       {
         rank: 6,
@@ -1176,9 +1176,9 @@ const meets = [
         description:
           "Après le petit déjeuner, vous pouvez encore profiter des îles, des sentiers côtiers... Repas : Petit-déjeuner inclus",
         location: "Hyères, Giens",
-        details: [{ name: "Repas", description: "Petit-déjeuner inclus" }],
-      },
-    ],
+        details: [{ name: "Repas", description: "Petit-déjeuner inclus" }]
+      }
+    ]
   },
   {
     id: 10,
@@ -1210,9 +1210,9 @@ const meets = [
             "https://images.unsplash.com/photo-1660401023330-318f599edfa2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
             "https://images.unsplash.com/photo-1660401023330-318f599edfa2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
             "https://images.unsplash.com/photo-1660401023330-318f599edfa2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
-            "https://images.unsplash.com/photo-1660401023330-318f599edfa2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
-          ],
-        },
+            "https://images.unsplash.com/photo-1660401023330-318f599edfa2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80"
+          ]
+        }
       },
       {
         rank: 2,
@@ -1228,8 +1228,8 @@ const meets = [
           { name: "Dénivelé positif ", description: "350m" },
           { name: "Dénivelé négatif", description: "350m" },
           { name: "Hébergement", description: "hôtel" },
-          { name: "Repas", description: "Petit-déjeuner inclus" },
-        ],
+          { name: "Repas", description: "Petit-déjeuner inclus" }
+        ]
       },
       {
         rank: 3,
@@ -1246,8 +1246,8 @@ const meets = [
           { name: "Dénivelé positif ", description: "250m" },
           { name: "Dénivelé négatif", description: "250m" },
           { name: "Hébergement", description: "hôtel" },
-          { name: "Repas", description: "Petit-déjeuner inclus" },
-        ],
+          { name: "Repas", description: "Petit-déjeuner inclus" }
+        ]
       },
       {
         rank: 4,
@@ -1264,8 +1264,8 @@ const meets = [
           { name: "Dénivelé positif ", description: "250m" },
           { name: "Dénivelé négatif", description: "250m" },
           { name: "Hébergement", description: "hôtel" },
-          { name: "Repas", description: "Petit-déjeuner inclus" },
-        ],
+          { name: "Repas", description: "Petit-déjeuner inclus" }
+        ]
       },
       {
         rank: 5,
@@ -1281,8 +1281,8 @@ const meets = [
           { name: "Dénivelé positif ", description: "250m" },
           { name: "Dénivelé négatif", description: "250m" },
           { name: "Hébergement", description: "hôtel" },
-          { name: "Repas", description: "Petit-déjeuner inclus" },
-        ],
+          { name: "Repas", description: "Petit-déjeuner inclus" }
+        ]
       },
       {
         rank: 6,
@@ -1292,9 +1292,9 @@ const meets = [
         description:
           "Après le petit déjeuner, vous pouvez encore profiter des îles, des sentiers côtiers... Repas : Petit-déjeuner inclus",
         location: "Hyères, Giens",
-        details: [{ name: "Repas", description: "Petit-déjeuner inclus" }],
-      },
-    ],
+        details: [{ name: "Repas", description: "Petit-déjeuner inclus" }]
+      }
+    ]
   },
   {
     id: 11,
@@ -1326,9 +1326,9 @@ const meets = [
             "https://images.unsplash.com/photo-1660401023330-318f599edfa2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
             "https://images.unsplash.com/photo-1660401023330-318f599edfa2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
             "https://images.unsplash.com/photo-1660401023330-318f599edfa2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
-            "https://images.unsplash.com/photo-1660401023330-318f599edfa2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
-          ],
-        },
+            "https://images.unsplash.com/photo-1660401023330-318f599edfa2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80"
+          ]
+        }
       },
       {
         rank: 2,
@@ -1344,8 +1344,8 @@ const meets = [
           { name: "Dénivelé positif ", description: "350m" },
           { name: "Dénivelé négatif", description: "350m" },
           { name: "Hébergement", description: "hôtel" },
-          { name: "Repas", description: "Petit-déjeuner inclus" },
-        ],
+          { name: "Repas", description: "Petit-déjeuner inclus" }
+        ]
       },
       {
         rank: 3,
@@ -1362,8 +1362,8 @@ const meets = [
           { name: "Dénivelé positif ", description: "250m" },
           { name: "Dénivelé négatif", description: "250m" },
           { name: "Hébergement", description: "hôtel" },
-          { name: "Repas", description: "Petit-déjeuner inclus" },
-        ],
+          { name: "Repas", description: "Petit-déjeuner inclus" }
+        ]
       },
       {
         rank: 4,
@@ -1380,8 +1380,8 @@ const meets = [
           { name: "Dénivelé positif ", description: "250m" },
           { name: "Dénivelé négatif", description: "250m" },
           { name: "Hébergement", description: "hôtel" },
-          { name: "Repas", description: "Petit-déjeuner inclus" },
-        ],
+          { name: "Repas", description: "Petit-déjeuner inclus" }
+        ]
       },
       {
         rank: 5,
@@ -1397,8 +1397,8 @@ const meets = [
           { name: "Dénivelé positif ", description: "250m" },
           { name: "Dénivelé négatif", description: "250m" },
           { name: "Hébergement", description: "hôtel" },
-          { name: "Repas", description: "Petit-déjeuner inclus" },
-        ],
+          { name: "Repas", description: "Petit-déjeuner inclus" }
+        ]
       },
       {
         rank: 6,
@@ -1408,9 +1408,9 @@ const meets = [
         description:
           "Après le petit déjeuner, vous pouvez encore profiter des îles, des sentiers côtiers... Repas : Petit-déjeuner inclus",
         location: "Hyères, Giens",
-        details: [{ name: "Repas", description: "Petit-déjeuner inclus" }],
-      },
-    ],
+        details: [{ name: "Repas", description: "Petit-déjeuner inclus" }]
+      }
+    ]
   },
   {
     id: 12,
@@ -1442,9 +1442,9 @@ const meets = [
             "https://images.unsplash.com/photo-1660401023330-318f599edfa2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
             "https://images.unsplash.com/photo-1660401023330-318f599edfa2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
             "https://images.unsplash.com/photo-1660401023330-318f599edfa2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
-            "https://images.unsplash.com/photo-1660401023330-318f599edfa2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
-          ],
-        },
+            "https://images.unsplash.com/photo-1660401023330-318f599edfa2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80"
+          ]
+        }
       },
       {
         rank: 2,
@@ -1460,8 +1460,8 @@ const meets = [
           { name: "Dénivelé positif ", description: "350m" },
           { name: "Dénivelé négatif", description: "350m" },
           { name: "Hébergement", description: "hôtel" },
-          { name: "Repas", description: "Petit-déjeuner inclus" },
-        ],
+          { name: "Repas", description: "Petit-déjeuner inclus" }
+        ]
       },
       {
         rank: 3,
@@ -1478,8 +1478,8 @@ const meets = [
           { name: "Dénivelé positif ", description: "250m" },
           { name: "Dénivelé négatif", description: "250m" },
           { name: "Hébergement", description: "hôtel" },
-          { name: "Repas", description: "Petit-déjeuner inclus" },
-        ],
+          { name: "Repas", description: "Petit-déjeuner inclus" }
+        ]
       },
       {
         rank: 4,
@@ -1496,8 +1496,8 @@ const meets = [
           { name: "Dénivelé positif ", description: "250m" },
           { name: "Dénivelé négatif", description: "250m" },
           { name: "Hébergement", description: "hôtel" },
-          { name: "Repas", description: "Petit-déjeuner inclus" },
-        ],
+          { name: "Repas", description: "Petit-déjeuner inclus" }
+        ]
       },
       {
         rank: 5,
@@ -1513,8 +1513,8 @@ const meets = [
           { name: "Dénivelé positif ", description: "250m" },
           { name: "Dénivelé négatif", description: "250m" },
           { name: "Hébergement", description: "hôtel" },
-          { name: "Repas", description: "Petit-déjeuner inclus" },
-        ],
+          { name: "Repas", description: "Petit-déjeuner inclus" }
+        ]
       },
       {
         rank: 6,
@@ -1524,9 +1524,9 @@ const meets = [
         description:
           "Après le petit déjeuner, vous pouvez encore profiter des îles, des sentiers côtiers... Repas : Petit-déjeuner inclus",
         location: "Hyères, Giens",
-        details: [{ name: "Repas", description: "Petit-déjeuner inclus" }],
-      },
-    ],
+        details: [{ name: "Repas", description: "Petit-déjeuner inclus" }]
+      }
+    ]
   },
   {
     id: 13,
@@ -1559,9 +1559,9 @@ const meets = [
             "https://images.unsplash.com/photo-1631173385127-cb28aae6d9bb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
             "https://images.unsplash.com/photo-1631173384923-4661bebd56eb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
             "https://images.unsplash.com/photo-1560611926-eaafc406e460?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-            "https://images.unsplash.com/photo-1549294413-26f195200c16?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80",
-          ],
-        },
+            "https://images.unsplash.com/photo-1549294413-26f195200c16?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80"
+          ]
+        }
       },
       {
         rank: 2,
@@ -1578,16 +1578,16 @@ const meets = [
             "https://images.unsplash.com/photo-1631173385127-cb28aae6d9bb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
             "https://images.unsplash.com/photo-1631173384923-4661bebd56eb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
             "https://images.unsplash.com/photo-1560611926-eaafc406e460?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-            "https://images.unsplash.com/photo-1549294413-26f195200c16?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80",
-          ],
+            "https://images.unsplash.com/photo-1549294413-26f195200c16?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80"
+          ]
         },
         details: [
           { name: "Marche", description: "4h-5h" },
           { name: "Dénivelé positif ", description: "350m" },
           { name: "Dénivelé négatif", description: "350m" },
           { name: "Hébergement", description: "hôtel" },
-          { name: "Repas", description: "Petit-déjeuner inclus" },
-        ],
+          { name: "Repas", description: "Petit-déjeuner inclus" }
+        ]
       },
       {
         rank: 3,
@@ -1604,8 +1604,8 @@ const meets = [
             "https://images.unsplash.com/photo-1631173385127-cb28aae6d9bb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
             "https://images.unsplash.com/photo-1631173384923-4661bebd56eb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
             "https://images.unsplash.com/photo-1560611926-eaafc406e460?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-            "https://images.unsplash.com/photo-1549294413-26f195200c16?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80",
-          ],
+            "https://images.unsplash.com/photo-1549294413-26f195200c16?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80"
+          ]
         },
         details: [
           { name: "Transport", description: "bateau" },
@@ -1613,8 +1613,8 @@ const meets = [
           { name: "Dénivelé positif ", description: "250m" },
           { name: "Dénivelé négatif", description: "250m" },
           { name: "Hébergement", description: "hôtel" },
-          { name: "Repas", description: "Petit-déjeuner inclus" },
-        ],
+          { name: "Repas", description: "Petit-déjeuner inclus" }
+        ]
       },
       {
         rank: 4,
@@ -1631,8 +1631,8 @@ const meets = [
             "https://images.unsplash.com/photo-1631173385127-cb28aae6d9bb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
             "https://images.unsplash.com/photo-1631173384923-4661bebd56eb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
             "https://images.unsplash.com/photo-1560611926-eaafc406e460?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-            "https://images.unsplash.com/photo-1549294413-26f195200c16?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80",
-          ],
+            "https://images.unsplash.com/photo-1549294413-26f195200c16?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80"
+          ]
         },
         details: [
           { name: "Transport en bateau, bus", description: "2h30" },
@@ -1640,8 +1640,8 @@ const meets = [
           { name: "Dénivelé positif ", description: "250m" },
           { name: "Dénivelé négatif", description: "250m" },
           { name: "Hébergement", description: "hôtel" },
-          { name: "Repas", description: "Petit-déjeuner inclus" },
-        ],
+          { name: "Repas", description: "Petit-déjeuner inclus" }
+        ]
       },
       {
         rank: 5,
@@ -1658,16 +1658,16 @@ const meets = [
             "https://images.unsplash.com/photo-1631173385127-cb28aae6d9bb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
             "https://images.unsplash.com/photo-1631173384923-4661bebd56eb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
             "https://images.unsplash.com/photo-1560611926-eaafc406e460?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-            "https://images.unsplash.com/photo-1549294413-26f195200c16?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80",
-          ],
+            "https://images.unsplash.com/photo-1549294413-26f195200c16?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80"
+          ]
         },
         details: [
           { name: "Marche", description: "4h-5h" },
           { name: "Dénivelé positif ", description: "250m" },
           { name: "Dénivelé négatif", description: "250m" },
           { name: "Hébergement", description: "hôtel" },
-          { name: "Repas", description: "Petit-déjeuner inclus" },
-        ],
+          { name: "Repas", description: "Petit-déjeuner inclus" }
+        ]
       },
       {
         rank: 6,
@@ -1677,9 +1677,9 @@ const meets = [
         description:
           "Après le petit déjeuner, vous pouvez encore profiter des îles, des sentiers côtiers... Repas : Petit-déjeuner inclus",
         location: "Hyères, Giens",
-        details: [{ name: "Repas", description: "Petit-déjeuner inclus" }],
-      },
-    ],
+        details: [{ name: "Repas", description: "Petit-déjeuner inclus" }]
+      }
+    ]
   },
   {
     id: 14,
@@ -1711,9 +1711,9 @@ const meets = [
             "https://images.unsplash.com/photo-1660401023330-318f599edfa2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
             "https://images.unsplash.com/photo-1660401023330-318f599edfa2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
             "https://images.unsplash.com/photo-1660401023330-318f599edfa2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
-            "https://images.unsplash.com/photo-1660401023330-318f599edfa2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
-          ],
-        },
+            "https://images.unsplash.com/photo-1660401023330-318f599edfa2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80"
+          ]
+        }
       },
       {
         rank: 2,
@@ -1729,8 +1729,8 @@ const meets = [
           { name: "Dénivelé positif ", description: "350m" },
           { name: "Dénivelé négatif", description: "350m" },
           { name: "Hébergement", description: "hôtel" },
-          { name: "Repas", description: "Petit-déjeuner inclus" },
-        ],
+          { name: "Repas", description: "Petit-déjeuner inclus" }
+        ]
       },
       {
         rank: 3,
@@ -1747,8 +1747,8 @@ const meets = [
           { name: "Dénivelé positif ", description: "250m" },
           { name: "Dénivelé négatif", description: "250m" },
           { name: "Hébergement", description: "hôtel" },
-          { name: "Repas", description: "Petit-déjeuner inclus" },
-        ],
+          { name: "Repas", description: "Petit-déjeuner inclus" }
+        ]
       },
       {
         rank: 4,
@@ -1765,8 +1765,8 @@ const meets = [
           { name: "Dénivelé positif ", description: "250m" },
           { name: "Dénivelé négatif", description: "250m" },
           { name: "Hébergement", description: "hôtel" },
-          { name: "Repas", description: "Petit-déjeuner inclus" },
-        ],
+          { name: "Repas", description: "Petit-déjeuner inclus" }
+        ]
       },
       {
         rank: 5,
@@ -1782,8 +1782,8 @@ const meets = [
           { name: "Dénivelé positif ", description: "250m" },
           { name: "Dénivelé négatif", description: "250m" },
           { name: "Hébergement", description: "hôtel" },
-          { name: "Repas", description: "Petit-déjeuner inclus" },
-        ],
+          { name: "Repas", description: "Petit-déjeuner inclus" }
+        ]
       },
       {
         rank: 6,
@@ -1793,9 +1793,9 @@ const meets = [
         description:
           "Après le petit déjeuner, vous pouvez encore profiter des îles, des sentiers côtiers... Repas : Petit-déjeuner inclus",
         location: "Hyères, Giens",
-        details: [{ name: "Repas", description: "Petit-déjeuner inclus" }],
-      },
-    ],
+        details: [{ name: "Repas", description: "Petit-déjeuner inclus" }]
+      }
+    ]
   },
   {
     id: 15,
@@ -1827,9 +1827,9 @@ const meets = [
             "https://images.unsplash.com/photo-1660401023330-318f599edfa2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
             "https://images.unsplash.com/photo-1660401023330-318f599edfa2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
             "https://images.unsplash.com/photo-1660401023330-318f599edfa2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
-            "https://images.unsplash.com/photo-1660401023330-318f599edfa2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
-          ],
-        },
+            "https://images.unsplash.com/photo-1660401023330-318f599edfa2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80"
+          ]
+        }
       },
       {
         rank: 2,
@@ -1845,8 +1845,8 @@ const meets = [
           { name: "Dénivelé positif ", description: "350m" },
           { name: "Dénivelé négatif", description: "350m" },
           { name: "Hébergement", description: "hôtel" },
-          { name: "Repas", description: "Petit-déjeuner inclus" },
-        ],
+          { name: "Repas", description: "Petit-déjeuner inclus" }
+        ]
       },
       {
         rank: 3,
@@ -1863,8 +1863,8 @@ const meets = [
           { name: "Dénivelé positif ", description: "250m" },
           { name: "Dénivelé négatif", description: "250m" },
           { name: "Hébergement", description: "hôtel" },
-          { name: "Repas", description: "Petit-déjeuner inclus" },
-        ],
+          { name: "Repas", description: "Petit-déjeuner inclus" }
+        ]
       },
       {
         rank: 4,
@@ -1881,8 +1881,8 @@ const meets = [
           { name: "Dénivelé positif ", description: "250m" },
           { name: "Dénivelé négatif", description: "250m" },
           { name: "Hébergement", description: "hôtel" },
-          { name: "Repas", description: "Petit-déjeuner inclus" },
-        ],
+          { name: "Repas", description: "Petit-déjeuner inclus" }
+        ]
       },
       {
         rank: 5,
@@ -1898,8 +1898,8 @@ const meets = [
           { name: "Dénivelé positif ", description: "250m" },
           { name: "Dénivelé négatif", description: "250m" },
           { name: "Hébergement", description: "hôtel" },
-          { name: "Repas", description: "Petit-déjeuner inclus" },
-        ],
+          { name: "Repas", description: "Petit-déjeuner inclus" }
+        ]
       },
       {
         rank: 6,
@@ -1909,9 +1909,9 @@ const meets = [
         description:
           "Après le petit déjeuner, vous pouvez encore profiter des îles, des sentiers côtiers... Repas : Petit-déjeuner inclus",
         location: "Hyères, Giens",
-        details: [{ name: "Repas", description: "Petit-déjeuner inclus" }],
-      },
-    ],
+        details: [{ name: "Repas", description: "Petit-déjeuner inclus" }]
+      }
+    ]
   },
   {
     id: 16,
@@ -1943,9 +1943,9 @@ const meets = [
             "https://images.unsplash.com/photo-1660401023330-318f599edfa2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
             "https://images.unsplash.com/photo-1660401023330-318f599edfa2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
             "https://images.unsplash.com/photo-1660401023330-318f599edfa2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
-            "https://images.unsplash.com/photo-1660401023330-318f599edfa2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
-          ],
-        },
+            "https://images.unsplash.com/photo-1660401023330-318f599edfa2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80"
+          ]
+        }
       },
       {
         rank: 2,
@@ -1961,8 +1961,8 @@ const meets = [
           { name: "Dénivelé positif ", description: "350m" },
           { name: "Dénivelé négatif", description: "350m" },
           { name: "Hébergement", description: "hôtel" },
-          { name: "Repas", description: "Petit-déjeuner inclus" },
-        ],
+          { name: "Repas", description: "Petit-déjeuner inclus" }
+        ]
       },
       {
         rank: 3,
@@ -1979,8 +1979,8 @@ const meets = [
           { name: "Dénivelé positif ", description: "250m" },
           { name: "Dénivelé négatif", description: "250m" },
           { name: "Hébergement", description: "hôtel" },
-          { name: "Repas", description: "Petit-déjeuner inclus" },
-        ],
+          { name: "Repas", description: "Petit-déjeuner inclus" }
+        ]
       },
       {
         rank: 4,
@@ -1997,8 +1997,8 @@ const meets = [
           { name: "Dénivelé positif ", description: "250m" },
           { name: "Dénivelé négatif", description: "250m" },
           { name: "Hébergement", description: "hôtel" },
-          { name: "Repas", description: "Petit-déjeuner inclus" },
-        ],
+          { name: "Repas", description: "Petit-déjeuner inclus" }
+        ]
       },
       {
         rank: 5,
@@ -2014,8 +2014,8 @@ const meets = [
           { name: "Dénivelé positif ", description: "250m" },
           { name: "Dénivelé négatif", description: "250m" },
           { name: "Hébergement", description: "hôtel" },
-          { name: "Repas", description: "Petit-déjeuner inclus" },
-        ],
+          { name: "Repas", description: "Petit-déjeuner inclus" }
+        ]
       },
       {
         rank: 6,
@@ -2025,10 +2025,10 @@ const meets = [
         description:
           "Après le petit déjeuner, vous pouvez encore profiter des îles, des sentiers côtiers... Repas : Petit-déjeuner inclus",
         location: "Hyères, Giens",
-        details: [{ name: "Repas", description: "Petit-déjeuner inclus" }],
-      },
-    ],
-  },
-];
+        details: [{ name: "Repas", description: "Petit-déjeuner inclus" }]
+      }
+    ]
+  }
+]
 
-export { wideCardData, meets };
+export { wideCardData, meets }

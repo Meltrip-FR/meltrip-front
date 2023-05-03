@@ -1,10 +1,10 @@
-import Document, { Html, Head, Main, NextScript } from "next/document";
+import Document, { Head, Html, Main, NextScript } from "next/document"
 
-const url = "https://meltrip.fr";
-const imgUrl = "logo2.webp";
-const titleBase = "Meltrip";
+const url = "https://meltrip.fr"
+const imgUrl = "logo2.webp"
+const titleBase = "Meltrip"
 const desc =
-  "Envie de voyager mais pas le temps d'organiser ou pas d'inspiration pour décider du lieu de ta destination ? En groupe, vous n'arrivez pas à vous mettre d'accord ? Meltrip, c'est l'agence qui organise tes voyages selon ta personnalité et tes envies de vacances grâce à un questionnaire dynamique et amusant ! C'est aussi un acteur engagé, qui participe à la démarche écologique en choisissant ses partenaires pour leur qualité, leurs valeurs et leur aspect écologique et reverse une partie des bénéfices aux entreprises pour contribuer au développement des partenaires locaux priorise les choses stp pour que demain on présente un truc béton !!";
+  "Envie de voyager mais pas le temps d'organiser ou pas d'inspiration pour décider du lieu de ta destination ? En groupe, vous n'arrivez pas à vous mettre d'accord ? Meltrip, c'est l'agence qui organise tes voyages selon ta personnalité et tes envies de vacances grâce à un questionnaire dynamique et amusant ! C'est aussi un acteur engagé, qui participe à la démarche écologique en choisissant ses partenaires pour leur qualité, leurs valeurs et leur aspect écologique et reverse une partie des bénéfices aux entreprises pour contribuer au développement des partenaires locaux priorise les choses stp pour que demain on présente un truc béton !!"
 
 export default class MyDocument extends Document {
   render() {
@@ -27,7 +27,7 @@ export default class MyDocument extends Document {
               fontFamily: "sans-serif",
               display: "grid",
               placeItems: "center",
-              height: "100vh",
+              height: "100vh"
             }}
           >
             Please enable Javascript to access to Meltrip
@@ -36,6 +36,6 @@ export default class MyDocument extends Document {
           <NextScript />
         </body>
       </Html>
-    );
+    )
   }
 }

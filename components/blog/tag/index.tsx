@@ -1,5 +1,5 @@
 const TagPage = () => {
-  return <h1>Tag</h1>;
-};
+  return <h1>Tag</h1>
+}
 
-export default TagPage;
+export default TagPage

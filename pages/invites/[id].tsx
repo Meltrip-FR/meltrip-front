@@ -1,7 +1,7 @@
-import Invites from "@/components/invites";
+import Invites from "@/components/invites"
 
 const InvitesPage = () => {
-  return <Invites />;
-};
+  return <Invites />
+}
 
-export default InvitesPage;
+export default InvitesPage
