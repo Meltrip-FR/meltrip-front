@@ -22,6 +22,12 @@ const Header = () => {
           <h5 className="cursor-pointer" onClick={() => router.push("/teams")}>
             NOTRE AGENCE
           </h5>
+          <h5
+            className="cursor-pointer"
+            onClick={() => router.push("/templates")}
+          >
+            Séminaire prêt à l{"'"}emploi
+          </h5>
           {auth.login && (
             <h5
               className="cursor-pointer"

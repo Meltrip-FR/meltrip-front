@@ -3,7 +3,6 @@ import { Fragment, useState } from "react"
 import { UserBadge } from "./userBadge"
 import { useAppDispatch, useAppSelector } from "@/redux/hooks"
 import { logout } from "@/redux/slices/auth.slice"
-// Icons
 import Logo from "@/components/assets/icons/logo"
 import Menu from "@/components/assets/icons/menu"
 
@@ -21,11 +20,14 @@ const WebHeader = () => {
           <Logo size={100} color={"white"} />
         </div>
         <div className="hidden md:grid md:grid-flow-col md:auto-cols-max md:gap-20 text-base justify-center items-center text-left text-white uppercase">
-          <h5 className="cursor-pointer" onClick={() => router.push("/")}>
-            ACCUEIL
-          </h5>
           <h5 className="cursor-pointer" onClick={() => router.push("/teams")}>
             NOTRE AGENCE
+          </h5>
+          <h5
+            className="cursor-pointer"
+            onClick={() => router.push("/templates")}
+          >
+            Séminaire prêt à l{"'"}emploi
           </h5>
           {auth.login && (
             <h5 className="cursor-pointer" onClick={() => router.push("/")}>
