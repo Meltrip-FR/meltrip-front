@@ -18,7 +18,7 @@ const PresentSeminar = ({ setNextPage }: any) => {
         <iframe
           width="800"
           height="415"
-          src="https://www.youtube.com/watch?v=WgKxdeAeh8E"
+          src="https://www.youtube.com/embed/WgKxdeAeh8E"
           title="YouTube video player"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
