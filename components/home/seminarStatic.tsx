@@ -1,51 +1,51 @@
-import Grid1 from "@/components/assets/mapfeed/grid1.png";
-import Grid2 from "@/components/assets/mapfeed/grid2.png";
-import Grid3 from "@/components/assets/mapfeed/grid3.png";
-import Grid4 from "@/components/assets/mapfeed/grid4.png";
-import Grid5 from "@/components/assets/mapfeed/grid5.png";
-import Grid6 from "@/components/assets/mapfeed/grid6.png";
-import Grid7 from "@/components/assets/mapfeed/grid7.png";
-import { useRouter } from "next/router";
+import { useRouter } from "next/router"
+import Grid1 from "@/components/assets/mapfeed/grid1.png"
+import Grid2 from "@/components/assets/mapfeed/grid2.png"
+import Grid3 from "@/components/assets/mapfeed/grid3.png"
+import Grid4 from "@/components/assets/mapfeed/grid4.png"
+import Grid5 from "@/components/assets/mapfeed/grid5.png"
+import Grid6 from "@/components/assets/mapfeed/grid6.png"
+import Grid7 from "@/components/assets/mapfeed/grid7.png"
 
 let grids = [
   {
     type: "PHOTO",
     title: "un roadtrip à bordeaux",
-    image: Grid1.src,
+    image: Grid1.src
   },
 
   {
     type: "PHOTO",
     title: "un roadtrip à ANGERS",
-    image: Grid2.src,
+    image: Grid2.src
   },
   {
     type: "PHOTO",
     title: "un Tour à NICE",
-    image: Grid3.src,
+    image: Grid3.src
   },
   {
     type: "PHOTO",
     title: "un Passage à LILLE",
-    image: Grid4.src,
+    image: Grid4.src
   },
 
   {
     type: "PHOTO",
     title: "un roadtrip à TOULOUSE",
-    image: Grid5.src,
+    image: Grid5.src
   },
   {
     type: "PHOTO",
     title: "un Séjour à PARIS",
-    image: Grid6.src,
+    image: Grid6.src
   },
   {
     type: "PHOTO",
     title: "un roadtrip à bordeaux",
-    image: Grid7.src,
-  },
-];
+    image: Grid7.src
+  }
+]
 
 const returnImage = (pos: number) => {
   return (
@@ -58,14 +58,14 @@ const returnImage = (pos: number) => {
         {/* <HiOutlineArrowCircleRight className="text-white text-[10vw] xl:text-[4vw]" /> */}
       </div>
     </div>
-  );
-};
+  )
+}
 
 const SeminarStatic = () => {
-  const router = useRouter();
+  const router = useRouter()
 
   return (
-    <div className="flex mt-32 mb-32 items-center gap-10 w-full relative xl:flex-col xl:h-[900px]  ">
+    <div className="flex mt-32 mb-64 items-center gap-10 w-full relative xl:flex-col xl:h-[900px]  ">
       <div className="flex items-start px-5 xl:px-0 gap-[5vw] xl:flex-row xl:justify-between xl:gap-5">
         {returnImage(0)}
         <div className="flex flex-col justify-start gap-[50px] w-full xl:w-[600px] ">
@@ -79,7 +79,7 @@ const SeminarStatic = () => {
           </p>
           <button
             onClick={() => {
-              router.push("/templates");
+              router.push("/templates")
             }}
             className="flex underline underline-offset-1 text-left text-medium text-[3vw] text-[#448B7B] xl:text-[19px] 2xl:text-[14px] xl:z-10  "
           >
@@ -98,7 +98,7 @@ const SeminarStatic = () => {
         {returnImage(5)}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default SeminarStatic;
+export default SeminarStatic

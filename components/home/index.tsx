@@ -167,7 +167,7 @@ const HomePage = () => {
           </div>
           <SeminarStatic />
           {/* ListPayement */}
-          <h1 className="text-meltrip-secondary text-center text-4xl font-semibold mt-10 mb-5">
+          <h1 className="text-meltrip-secondary text-center text-4xl font-semibold mt-12 mb-5">
             NOS GARANTIES
           </h1>
           <div className="flex justify-center items-center w-full mt-10">
