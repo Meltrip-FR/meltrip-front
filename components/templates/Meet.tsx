@@ -234,7 +234,7 @@ const Meet = ({ id }: any) => {
           <p className={tailWindStyle.p36l}>
             TOP 3 des séminaires les plus appréciés
           </p>
-          <div className="flex w-full flex-wrap justify-center px-5 gap-5 ">
+          <div className="flex items-center justify-center flex-wrap">
             {mapWideCard()}
           </div>
         </div>

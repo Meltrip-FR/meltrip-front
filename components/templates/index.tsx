@@ -525,9 +525,7 @@ const Meetings = () => {
         <p className="text-[7vw] xl:text-[48px] font-extrabold  text-center relative">
           TOP 3 DES SÉMINAIRES LES PLUS APPRÉCIÉS
         </p>
-        <div className="flex w-full flex-wrap justify-center px-5 gap-5">
-          {mapWideCard()}
-        </div>
+        <div className="flex justify-center gap-5">{mapWideCard()}</div>
       </div>
     </div>
   )
