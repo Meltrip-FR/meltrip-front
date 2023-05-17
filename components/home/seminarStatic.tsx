@@ -10,7 +10,7 @@ import Grid7 from "@/components/assets/mapfeed/grid7.png"
 let grids = [
   {
     type: "PHOTO",
-    title: "un roadtrip à bordeaux",
+    title: "UN ROADTRIP À BORDEAUX",
     image: Grid1.src
   },
 
@@ -32,24 +32,24 @@ let grids = [
 
   {
     type: "PHOTO",
-    title: "un roadtrip à TOULOUSE",
+    title: "un Séjour à PARIS",
     image: Grid5.src
   },
   {
     type: "PHOTO",
-    title: "un Séjour à PARIS",
+    title: "un roadtrip à bordeaux",
     image: Grid6.src
   },
   {
     type: "PHOTO",
-    title: "un roadtrip à bordeaux",
+    title: "un roadtrip à TOULOUSE",
     image: Grid7.src
   }
 ]
 
 const returnImage = (pos: number) => {
   return (
-    <div className="w-full 2xl:w-[250px] xl:w-[300px]  relative">
+    <div className="w-full 2xl:w-[200px] xl:w-[300px]  relative">
       <img className="w-full" alt={grids[pos].title} src={grids[pos].image} />
       <div className="flex w-full justify-between items-center px-3 2xl:w-[250px] xl:w-[300px] absolute bottom-5 left-0 h-auto">
         <p className="font-bold w-full text-[3vw] text-white xl:text-[1vw] ">
@@ -88,7 +88,7 @@ const SeminarStatic = () => {
         </div>
         <div className="hidden xl:block">{returnImage(1)}</div>
       </div>
-      <div className="hidden xl:flex gap-10 items-center absolute xl:pt-[400px] 2xl:pt-[350px] 3xl:[0vh]">
+      <div className="hidden xl:flex gap-3 items-center absolute xl:pt-[400px] 2xl:pt-[350px] 3xl:[0vh]">
         {returnImage(2)}
         <div className="flex flex-col gap-10">
           {returnImage(3)}

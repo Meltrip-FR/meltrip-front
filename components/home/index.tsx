@@ -49,9 +49,6 @@ const HomePage = () => {
               <div className="mt-[5vh] mb-10">
                 <Modal type="first" />
               </div>
-              <div className="animate-bounce cursor-pointer">
-                <ChevronDown size={50} color="white" />
-              </div>
             </div>
           </div>
           <img
@@ -145,17 +142,17 @@ const HomePage = () => {
             <div className="hidden xl:inline">
               <img
                 alt="backFigL"
-                className=" absolute w-[20vw] left-[0vw] top-[240vh] "
+                className=" absolute w-[20vw] left-[0vw] top-[290vh] "
                 src={BackFigL.src}
               />
               <img
                 alt="backFigR"
-                className=" absolute w-[15vw] right-[0vw] top-[330vh]  "
+                className=" absolute w-[15vw] right-[0vw] top-[390vh]  "
                 src={BackFigR.src}
               />
               <img
                 alt="backFigL"
-                className=" absolute w-[20vw]  left-[0vw] top-[430vh] z-10"
+                className=" absolute w-[20vw]  left-[0vw] top-[470vh] z-10"
                 src={BackFigL.src}
               />
             </div>

@@ -34,7 +34,7 @@ const BlogPage = () => {
                   CATEGORY
                 </h2> */}
                 <h1 className="title-font text-lg font-medium text-gray-900 mb-3">
-                  {item.title} {item.id}
+                  {item.title}
                 </h1>
                 <p className="leading-relaxed mb-3">{item.description}</p>
                 <div className="flex items-center flex-wrap">
