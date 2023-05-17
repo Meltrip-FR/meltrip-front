@@ -11,7 +11,7 @@ const Header = () => {
 
   return (
     <div className="w-full font-body font-poppins">
-      <div className="grid grid-cols-3">
+      <div className="flex items-center justify-between">
         <div className="pl-5" onClick={() => router.push("/")}>
           <LogoColor size={100} color={"white"} />
         </div>
@@ -38,6 +38,9 @@ const Header = () => {
           )}
           <h5 className="cursor-pointer" onClick={() => router.push("/blog")}>
             BLOG
+          </h5>
+          <h5 className="cursor-pointer" onClick={() => router.push("/faq")}>
+            FAQ
           </h5>
           <h5
             className="cursor-pointer"
