@@ -27,7 +27,7 @@ const WebHeader = () => {
             className="cursor-pointer"
             onClick={() => router.push("/templates")}
           >
-            Séminaire prêt à l{"'"}emploi
+            Séminaire now
           </h5>
           {auth.login && (
             <h5 className="cursor-pointer" onClick={() => router.push("/")}>

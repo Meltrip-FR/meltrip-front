@@ -70,7 +70,7 @@ const SeminarStatic = () => {
         {returnImage(0)}
         <div className="flex flex-col justify-start gap-[50px] w-full xl:w-[600px] ">
           <p className="font-bold text-[5vw] text-[#CE5729] xl:text-left xl:text-[40px] 2xl:text-[35px]">
-            Vous voulez un séminaire prêt- à l’emploi ?
+            Vous voulez un séminaire now ?
           </p>
           <p className="font-medium text-[3vw] text-[#757575] xl:text-[20px] 2xl:text-[15px] ">
             Conscient de notre impact, nous voulons aussi vous aider en vous

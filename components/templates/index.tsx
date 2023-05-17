@@ -444,7 +444,7 @@ const Meetings = () => {
             Meltrip Now
           </p>
           <p className="font-light text-[3vh] xl:text-[24px]">
-            Vos séminaire prêt à l’emploi
+            Vos séminaire now
           </p>
           <p className="font-light text-[3vh] xl:text-[24px]">
             Quels sont vos critères ?

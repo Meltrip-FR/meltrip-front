@@ -258,13 +258,13 @@ export const faqWording = [
   },
   {
     title:
-      "Pourquoi choisir un séminaire personnalisé par rapport à un séminaire prêt à l’emploi ?",
+      "Pourquoi choisir un séminaire personnalisé par rapport à un séminaire now ?",
     category: "services",
     content: (
       <div>
         <p>
           Il existe de nombreux avantages à choisir un séminaire personnalisé
-          par rapport à un séminaire prêt à l{"'"}emploi.
+          par rapport à un séminaire now.
         </p>
         <p>
           Tout d{"'"}abord, un séminaire personnalisé est adapté aux besoins et
@@ -320,7 +320,7 @@ export const faqWording = [
   },
   {
     title:
-      "Quelle est la différence de prix entre un séminaire personnalisé et un séminaire prêt à l’emploi ?",
+      "Quelle est la différence de prix entre un séminaire personnalisé et un séminaire now ?",
     category: "price",
     content: (
       <div>
@@ -331,7 +331,7 @@ export const faqWording = [
           différence de prix s’explique dans la commission que Meltrip prend
           pour ces deux services. Cette différence s’explique par la quantité de
           travail fourni par les collaborateurs Meltrip. Ainsi, un séminaire
-          personnalisé coûtera 5 % plus cher qu’un séminaire prêt à l’emploi.
+          personnalisé coûtera 5 % plus cher qu’un séminaire now.
         </p>
 
         <p>

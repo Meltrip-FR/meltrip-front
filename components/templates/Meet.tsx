@@ -163,7 +163,7 @@ const Meet = ({ id }: any) => {
       {modal.active && modalImages()}
       <div className="flex flex-col justify-between items-center gap-10 px-10 pb-20  ">
         <p className={tailWindStyle.p48}>Meltrip Now</p>
-        <p className={tailWindStyle.p24}>Vos séminaire prêt à l{"'"}emploi</p>
+        <p className={tailWindStyle.p24}>Vos séminaire now</p>
         {/* <div
           className={tailWindStyle.imageCover}
           style={{
