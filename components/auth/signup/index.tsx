@@ -207,6 +207,18 @@ const SignupPage = () => {
           </div>
           <div className="relative mb-4">
             <FormItem
+              name="phone"
+              type="tel"
+              label="Téléphone"
+              value={formState?.phone}
+              style="border border-meltrip-primary px-2 py-2"
+              onChange={onFormChange}
+              disabled={false}
+              required={true}
+            />
+          </div>
+          <div className="relative mb-4">
+            <FormItem
               type="password"
               name="password"
               label="Mot de passe"
