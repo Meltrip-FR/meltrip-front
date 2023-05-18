@@ -43,7 +43,6 @@ const Meet = ({ id }: any) => {
             {meet.activities[modal.position].habitation.name}
           </p>
         </div>
-        {/* <div className="flex justify-end">2</div> */}
         {meet.activities[modal.position].habitation !== undefined ? (
           <div className="flex flex-wrap justify-center xl:justify-start items-start gap-[3vw] overflow-auto xl:px-[9vw]">
             {meet.activities[modal.position].habitation.images?.map(
@@ -164,12 +163,12 @@ const Meet = ({ id }: any) => {
       <div className="flex flex-col justify-between items-center gap-10 px-10 pb-20  ">
         <p className={tailWindStyle.p48}>Meltrip Now</p>
         <p className={tailWindStyle.p24}>Vos séminaire now</p>
-        {/* <div
+        <div
           className={tailWindStyle.imageCover}
           style={{
-            backgroundImage: `url(${meet.coverImage})`,
+            backgroundImage: `url(${meet.coverImage})`
           }}
-        /> */}
+        />
         <div className="flex flex-col w-[90vw] gap-5 xl:gap-10">
           <p className={tailWindStyle.p36l}>{meet.title}</p>
           <p className={tailWindStyle.p16l}>{meet.description}</p>

@@ -136,12 +136,16 @@ const Teams = () => {
               Meltrip est toujours à la recherche de sa prochaine pépite ! Alors
               n’attendez plus et postulez.
             </p>
-            <a
-              href="https://meltrip.fr/auth/signup"
+            <div
+              onClick={() =>
+                alert(
+                  `Merci pour l${"'"}intérêt que vous nous portez, mais nous ne sommes malheureusement pas en phase de recrutement actuellement, cette option sera disponible sous peu.`
+                )
+              }
               className="py-4 bg-meltrip-primary font-bold uppercase rounded-md text-white w-[40%] text-center"
             >
               Rejoindre
-            </a>
+            </div>
           </div>
         </section>
         <div className="mt-24 flex justify-center">
