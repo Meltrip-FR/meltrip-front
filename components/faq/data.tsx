@@ -32,12 +32,12 @@ export const categories = [
     active: guarantee.src,
     inactive: guaranteeInactive.src
   },
-  {
-    title: "values",
-    label: "NOS VALEURS: ÉCOLOGIQUE, HUMAINES, TRANSPARENCE",
-    active: values.src,
-    inactive: valuesInactive.src
-  },
+  // {
+  //   title: "values",
+  //   label: "NOS VALEURS: ÉCOLOGIQUE, HUMAINES, TRANSPARENCE",
+  //   active: values.src,
+  //   inactive: valuesInactive.src
+  // },
   {
     title: "sponsorship",
     label: "PROGRAMME DE PARRAINAGE",
@@ -180,8 +180,8 @@ export const faqWording = [
           assurer que la durée du séminaire est suffisante pour atteindre les
           résultats escomptés. Si vous hésitez encore, n’hésitez pas à nous
           contacter par mail sur l’adresse mail suivante:{" "}
-          <a href="mailto:contact@melteip.fr" className="underline">
-            contact@melteip.fr
+          <a href="mailto:contact@meltrip.fr" className="underline">
+            contact@meltrip.fr
           </a>{" "}
           ou par téléphone au numéro suivant:{" "}
           <a href="tel:06.32.07.10.64" className="underline">
@@ -216,8 +216,8 @@ export const faqWording = [
         <p>
           Pour ne pas vous tromper, nous vous recommandons de consulter un
           expert Meltrip par mail sur l’adresse mail suivante:{" "}
-          <a href="mailto:contact@melteip.fr" className="underline">
-            contact@melteip.fr
+          <a href="mailto:contact@meltrip.fr" className="underline">
+            contact@meltrip.fr
           </a>{" "}
           ou par téléphone au numéro suivant:{" "}
           <a href="tel:06.32.07.10.64" className="underline">
@@ -287,8 +287,8 @@ export const faqWording = [
         <p>
           Si vous hésitez encore, un collaborateur de Meltrip sera ravi de vous
           aider. Vous pouvez nous contacter sur l’adresse mail suivante:{" "}
-          <a href="mailto:contact@melteip.fr" className="underline">
-            contact@melteip.fr
+          <a href="mailto:contact@meltrip.fr" className="underline">
+            contact@meltrip.fr
           </a>{" "}
           ou par téléphone au numéro suivant:{" "}
           <a href="tel:06.32.07.10.64" className="underline">
@@ -338,8 +338,8 @@ export const faqWording = [
           Si vous hésitez encore sur les bénéfices apportés par ces deux
           solutions, n’hésitez pas à nous contacter par mail sur l’adresse mail
           suivante:{" "}
-          <a href="mailto:contact@melteip.fr" className="underline">
-            contact@melteip.fr
+          <a href="mailto:contact@meltrip.fr" className="underline">
+            contact@meltrip.fr
           </a>{" "}
           ou par téléphone au numéro suivant:{" "}
           <a href="tel:06.32.07.10.64" className="underline">
@@ -405,38 +405,37 @@ export const faqWording = [
       </div>
     )
   },
-  {
-    title:
-      "Comment sont déterminées la personnalité de chaque participant à un séminaire ?",
-    category: "values",
-    content: (
-      <div>
-        <p>
-          Chez Meltrip, nous croyons que pour offrir une expérience de séminaire
-          personnalisée et efficace, il est important de comprendre la
-          personnalité de chaque participant. C{"'"}est pourquoi nous avons
-          développé un quiz de personnalité ludique pour évaluer les traits de
-          personnalité de chaque participant. Ce quiz a été conçu en
-          collaboration avec des psychologues du travail et est basé sur des
-          études scientifiques rigoureuses. Il permet de déterminer les forces
-          et les défis de chaque participant, ainsi que de mieux comprendre leur
-          mode de fonctionnement et leurs besoins en matière de développement
-          personnel. Nous utilisons ces informations pour adapter notre approche
-          pédagogique et les activités de groupe pour offrir une expérience de
-          séminaire plus personnalisée et efficace pour chaque participant. Nous
-          croyons que cette approche permet de maximiser les résultats pour
-          chacun et de garantir une expérience de séminaire plus productive et
-          enrichissante pour tous.
-        </p>
-        <ul>
-          <li className="list-disc ml-10 mt-10">
-            {" "}
-            Quelle est la démarche RSE de Meltrip ?{" "}
-          </li>
-        </ul>
-      </div>
-    )
-  },
+  // {
+  //   title:
+  //     "Comment sont déterminées la personnalité de chaque participant à un séminaire ?",
+  //   category: "values",
+  //   content: (
+  //     <div>
+  //       <p>
+  //         Chez Meltrip, nous croyons que pour offrir une expérience de séminaire
+  //         personnalisée et efficace, il est important de comprendre la
+  //         personnalité de chaque participant. C{"'"}est pourquoi nous avons
+  //         développé un quiz de personnalité ludique pour évaluer les traits de
+  //         personnalité de chaque participant. Ce quiz a été conçu en
+  //         collaboration avec des psychologues du travail et est basé sur des
+  //         études scientifiques rigoureuses. Il permet de déterminer les forces
+  //         et les défis de chaque participant, ainsi que de mieux comprendre leur
+  //         mode de fonctionnement et leurs besoins en matière de développement
+  //         personnel. Nous utilisons ces informations pour adapter notre approche
+  //         pédagogique et les activités de groupe pour offrir une expérience de
+  //         séminaire plus personnalisée et efficace pour chaque participant. Nous
+  //         croyons que cette approche permet de maximiser les résultats pour
+  //         chacun et de garantir une expérience de séminaire plus productive et
+  //         enrichissante pour tous.
+  //       </p>
+  //       <ul>
+  //         <li className="list-disc ml-10 mt-10">
+  //           Quelle est la démarche RSE de Meltrip ?{" "}
+  //         </li>
+  //       </ul>
+  //     </div>
+  //   )
+  // },
   {
     title: "Quand sera lancé le programme de parrainage de Meltrip ?",
     category: "sponsorship",
