@@ -1,4 +1,5 @@
 import { useRouter } from "next/router"
+import { AiOutlineArrowRight } from "react-icons/ai"
 import Grid1 from "@/components/assets/mapfeed/grid1.png"
 import Grid2 from "@/components/assets/mapfeed/grid2.png"
 import Grid3 from "@/components/assets/mapfeed/grid3.png"
@@ -51,11 +52,11 @@ const returnImage = (pos: number) => {
   return (
     <div className="w-full 2xl:w-[200px] xl:w-[300px]  relative">
       <img className="w-full" alt={grids[pos].title} src={grids[pos].image} />
-      <div className="flex w-full justify-between items-center px-3 2xl:w-[250px] xl:w-[300px] absolute bottom-5 left-0 h-auto">
+      <div className="flex w-full justify-between items-center px-3 2xl:w-[250px] xl:w-[300px] absolute bottom-5 left-0">
         <p className="font-bold w-full text-[3vw] text-white xl:text-[1vw] ">
           {grids[pos].title.toUpperCase()}
         </p>
-        {/* <HiOutlineArrowCircleRight className="text-white text-[10vw] xl:text-[4vw]" /> */}
+        <AiOutlineArrowRight className="border-2 border-white rounded-full text-white  w-[3vw] h-[5vh]" />
       </div>
     </div>
   )
