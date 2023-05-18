@@ -196,7 +196,7 @@ const SignupPage = () => {
           <div className="relative mb-4">
             <FormItem
               type="email"
-              name="Email"
+              name="email"
               value={formState.email}
               label="E-mail *"
               style="border border-meltrip-primary px-2 py-2"
