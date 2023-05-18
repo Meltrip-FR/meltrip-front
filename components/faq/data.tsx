@@ -49,13 +49,13 @@ export const categories = [
     label: "LES DONNÉES PERSONNELLES",
     active: data.src,
     inactive: dataInactive.src
-  },
-  {
-    title: "sanitary",
-    label: "MESURES SANITAIRES",
-    active: sanitary.src,
-    inactive: sanitaryInactive.src
   }
+  // {
+  //   title: "sanitary",
+  //   label: "MESURES SANITAIRES",
+  //   active: sanitary.src,
+  //   inactive: sanitaryInactive.src
+  // }
 ]
 
 export const faqWording = [
