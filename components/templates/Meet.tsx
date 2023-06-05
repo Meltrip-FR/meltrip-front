@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import { FaCalendarAlt, FaEuroSign } from "react-icons/fa"
 import { FiMapPin } from "react-icons/fi"
 import WideCard from "./cards/WideCard"
@@ -162,7 +162,7 @@ const Meet = ({ id }: any) => {
       {modal.active && modalImages()}
       <div className="flex flex-col justify-between items-center gap-10 px-10 pb-20  ">
         <p className={tailWindStyle.p48}>Meltrip Now</p>
-        <p className={tailWindStyle.p24}>Vos séminaire now</p>
+        <p className={tailWindStyle.p24}>Vos meltrip now</p>
         <div
           className={tailWindStyle.imageCover}
           style={{

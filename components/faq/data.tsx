@@ -1,17 +1,13 @@
 import data from "@/components/assets/icons/active/data.svg"
 import guarantee from "@/components/assets/icons/active/guarantee.svg"
 import price from "@/components/assets/icons/active/price.svg"
-import sanitary from "@/components/assets/icons/active/sanitary.svg"
 import services from "@/components/assets/icons/active/services.svg"
 import sponsorship from "@/components/assets/icons/active/sponsorship.svg"
-import values from "@/components/assets/icons/active/values.svg"
 import dataInactive from "@/components/assets/icons/inactive/data.svg"
 import guaranteeInactive from "@/components/assets/icons/inactive/guarantee.svg"
 import priceInactive from "@/components/assets/icons/inactive/price.svg"
-import sanitaryInactive from "@/components/assets/icons/inactive/sanitary.svg"
 import servicesInactive from "@/components/assets/icons/inactive/services.svg"
 import sponsorshipInactive from "@/components/assets/icons/inactive/sponsorship.svg"
-import valuesInactive from "@/components/assets/icons/inactive/values.svg"
 
 export const categories = [
   {
@@ -258,13 +254,13 @@ export const faqWording = [
   },
   {
     title:
-      "Pourquoi choisir un séminaire personnalisé par rapport à un séminaire now ?",
+      "Pourquoi choisir un séminaire personnalisé par rapport à un Meltrip now ?",
     category: "services",
     content: (
       <div>
         <p>
           Il existe de nombreux avantages à choisir un séminaire personnalisé
-          par rapport à un séminaire now.
+          par rapport à un Meltrip now.
         </p>
         <p>
           Tout d{"'"}abord, un séminaire personnalisé est adapté aux besoins et
@@ -320,7 +316,7 @@ export const faqWording = [
   },
   {
     title:
-      "Quelle est la différence de prix entre un séminaire personnalisé et un séminaire now ?",
+      "Quelle est la différence de prix entre un séminaire personnalisé et un meltrip now ?",
     category: "price",
     content: (
       <div>
@@ -331,7 +327,7 @@ export const faqWording = [
           différence de prix s’explique dans la commission que Meltrip prend
           pour ces deux services. Cette différence s’explique par la quantité de
           travail fourni par les collaborateurs Meltrip. Ainsi, un séminaire
-          personnalisé coûtera 5 % plus cher qu’un séminaire now.
+          personnalisé coûtera 5 % plus cher qu’un meltrip now.
         </p>
 
         <p>

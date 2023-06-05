@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import { IoIosArrowDown } from "react-icons/io"
 import SmallCard from "./cards/SmallCard"
 import WideCard from "./cards/WideCard"
@@ -444,7 +444,7 @@ const Meetings = () => {
             Meltrip Now
           </p>
           <p className="font-light text-[3vh] xl:text-[24px]">
-            Vos séminaire now
+            Vos meltrip now
           </p>
           <p className="font-light text-[3vh] xl:text-[24px]">
             Quels sont vos critères ?

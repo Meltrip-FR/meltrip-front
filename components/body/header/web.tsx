@@ -1,7 +1,7 @@
 import { useRouter } from "next/router"
 import { Fragment, useState } from "react"
 import { UserBadge } from "./userBadge"
-import { useAppDispatch, useAppSelector } from "@/redux/hooks"
+import { useAppSelector } from "@/redux/hooks"
 import Logo from "@/components/assets/icons/logo"
 import Menu from "@/components/assets/icons/menu"
 
@@ -27,7 +27,7 @@ const WebHeader = () => {
             className="cursor-pointer"
             onClick={() => router.push("/templates")}
           >
-            Séminaire now
+            meltrip now
           </h5>
           {auth.login && (
             <h5 className="cursor-pointer" onClick={() => router.push("/")}>

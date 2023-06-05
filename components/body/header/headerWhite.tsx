@@ -1,5 +1,5 @@
 import { useRouter } from "next/router"
-import { Fragment, useState } from "react"
+import { Fragment } from "react"
 import { UserBadge } from "./userBadge"
 import { useAppSelector } from "@/redux/hooks"
 // Icons
@@ -26,7 +26,7 @@ const Header = () => {
             className="cursor-pointer"
             onClick={() => router.push("/templates")}
           >
-            Séminaire now
+            MELTRIP NOW
           </h5>
           {auth.login && (
             <h5
