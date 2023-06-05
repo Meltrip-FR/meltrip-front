@@ -218,6 +218,9 @@ const SignupPage = () => {
             />
           </div>
           <div className="relative mb-4">
+            <p className="text-[#9F9F9F] mb-3">
+              8 caractères 1 Maj , 1 min, 1 lettre, 1 caractère spéciale
+            </p>
             <FormItem
               type="password"
               name="password"
@@ -230,9 +233,6 @@ const SignupPage = () => {
             />
           </div>
           <div className="relative mb-4">
-            <p className="text-[#9F9F9F] mb-3">
-              8 caractères 1 Maj , 1 min, 1 lettre, 1 caractère spéciale
-            </p>
             <FormItem
               type="siret"
               name="siret"
