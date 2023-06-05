@@ -17,6 +17,8 @@ export const UserBadge = () => {
     router.push("/")
   }
 
+  console.log(router.asPath)
+
   return (
     <Fragment>
       <div className="block relative">
@@ -31,7 +33,9 @@ export const UserBadge = () => {
       </div>
       <div className="relative inline-block text-left">
         <button
-          className="flex items-center text-meltrip-primary text-lg tracking-wider pr-5 uppercase"
+          className={`flex items-center text-lg tracking-wider pr-5 uppercase ${
+            router.asPath === "/" ? "text-white" : "text-meltrip-primary "
+          }`}
           onClick={() => setOpenMenu(!openMenu)}
         >
           <span>{auth.user.username}</span>

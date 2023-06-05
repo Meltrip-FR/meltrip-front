@@ -46,7 +46,7 @@ const InviteCard = ({ seminar }: any) => {
           <div onClick={() => copiueClipboard()}>
             <InviteLink width={700} />
           </div>
-          <div className="absolute font-bold top-[6vh] left-[16vh]">
+          <div className="absolute font-bold top-[6.5vh] left-[19vh]">
             <p>{`https://meltrip.fr/invites/${seminar?.id}`}</p>
           </div>
         </div>

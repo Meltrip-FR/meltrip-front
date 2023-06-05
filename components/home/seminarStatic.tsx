@@ -69,14 +69,17 @@ const SeminarStatic = () => {
     <div className="flex mt-32 mb-64 items-center gap-10 w-full relative xl:flex-col xl:h-[900px]  ">
       <div className="flex items-start px-5 xl:px-0 gap-[5vw] xl:flex-row xl:justify-between xl:gap-5">
         {returnImage(0)}
-        <div className="flex flex-col justify-start gap-[50px] w-full xl:w-[600px] ">
+        <div className="flex flex-col justify-start gap-[40px] w-full xl:w-[600px]">
           <p className="font-bold text-[5vw] text-[#CE5729] xl:text-left xl:text-[40px] 2xl:text-[35px]">
-            Vous voulez un séminaire now ?
+            Vous voulez un séminaire prêt à l’emploi ?
           </p>
           <p className="font-medium text-[3vw] text-[#757575] xl:text-[20px] 2xl:text-[15px] ">
-            Conscient de notre impact, nous voulons aussi vous aider en vous
-            informant des émissions GES que vous avez réalisées pendant ce
-            séminaire.
+            Êtes-vous pressé(e) de réaliser votre séminaire ou souhaitez-vous
+            simplement faire des économies ? Pas de panique ! Chez Meltrip, nous
+            avons la solution parfaite pour vous : les séminaires pré-conçus
+            {'"'}Meltrip Now{'"'}. Plus besoin d{"'"}attendre, en moins de 72
+            heures, vous disposerez de tous les éléments nécessaires pour
+            organiser votre séminaire.
           </p>
           <button
             onClick={() => {
