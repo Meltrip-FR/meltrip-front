@@ -91,12 +91,17 @@ const Footer = () => {
             </h2>
             <nav className="list-none mb-10">
               <li className="pt-5 text-white">
-                <a className="text-white hover:text-gray-50">
+                <Link
+                  className="text-white hover:text-gray-50"
+                  href="/auth/seminar/signup"
+                >
                   Organiser mon séminaire
-                </a>
+                </Link>
               </li>
               <li className="pt-5">
-                <a className="text-white hover:text-gray-50">Nous rejoindre</a>
+                <Link className="text-white hover:text-gray-50" href="/teams">
+                  Nous rejoindre
+                </Link>
               </li>
               <li className="pt-5">
                 <Link className="text-white hover:text-gray-50" href="/cgv">
@@ -115,13 +120,9 @@ const Footer = () => {
             </h2>
             <nav className="list-none mb-10">
               <li className="pt-5">
-                <a className="text-meltrip-textW hover:text-gray-50">contact</a>
-              </li>
-
-              <li className="pt-5">
-                <a className="text-meltrip-textW hover:text-gray-50">
-                  Newsletter
-                </a>
+                <Link className="text-white hover:text-gray-50" href="/contact">
+                  Contact
+                </Link>
               </li>
             </nav>
           </div>
