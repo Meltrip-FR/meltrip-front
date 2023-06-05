@@ -120,6 +120,11 @@ const Footer = () => {
             </h2>
             <nav className="list-none mb-10">
               <li className="pt-5">
+                <Link className="text-white hover:text-gray-50" href="/faq">
+                  FAQ
+                </Link>
+              </li>
+              <li className="pt-5">
                 <Link className="text-white hover:text-gray-50" href="/contact">
                   Contact
                 </Link>
